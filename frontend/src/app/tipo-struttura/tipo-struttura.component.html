@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
+        <p><b>INDIVIDUAZIONE DELLE STRUTTURE</b></p>
+    </div>
+    <div class="card my-5">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label for="struttura">
+            <p><b>Struttura</b></p>
+          </label>
+                    <select value="structure" class="form-control" id="structure" (change)="onChange($event.target.value)" name="struttura">
+            <option selected disabled>
+              Seleziona
+            </option>
+            <option [value]="i" *ngFor="let array of strutt; index as i">
+              {{ array.struttura }}
+            </option>
+          </select>
+                    <label></label>
+                    <p><b>Struttura Due</b></p>
+                    <select [(ngModel)]="selectedIndex" style="margin-top: 30px;" value="strutturaDue" valure="struttura" class="form-control" id="structure" name="struttura">
+            <option selected disabled>
+              Seleziona
+            </option>
+            <option [value]="i" *ngFor="let arrays of selectedElement; index as i;">
+              {{ arrays.strutturaDue }}
+            </option>
+          </select>
