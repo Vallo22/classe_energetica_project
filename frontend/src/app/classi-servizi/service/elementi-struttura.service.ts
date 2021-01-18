@@ -16,11 +16,11 @@ export class ElementiStrutturaService {
    }
 
    public getStruttura():Observable<Struttura[]> {
-     return this.http.get<Struttura[]>(this.url + "struttura");
+     return this.http.get<Struttura[]>(`${this.url}${"struttura"}`);
    }
 
    public getStrutturaDue():Observable<StrutturaDue[]> {
-     return this.http.get<StrutturaDue[]>(this.url + "strutturaDue");
+     return this.http.get<StrutturaDue[]>(`${this.url}${"strutturaDue"}`);
    }
 
   }

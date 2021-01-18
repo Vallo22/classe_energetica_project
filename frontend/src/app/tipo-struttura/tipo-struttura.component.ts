@@ -29,12 +29,14 @@ export class TipoStrutturaComponent implements OnInit {
       console.log(this.strutt2)
     })
   }
-  
+
   onChange(index: number) {
     this.selectedElement = []
     this.strutt2.forEach(t => {
-      if (t.struttura_id_id.id === this.strutt[index].id) {
-        this.selectedElement.push(t)
+      if (t.struttura_id !== undefined) {
+       if (t.struttura_id.id === this.strutt[index].id) {
+          this.selectedElement.push(t)
+       }
       }
     })
     this.selectedIndex = 0;
