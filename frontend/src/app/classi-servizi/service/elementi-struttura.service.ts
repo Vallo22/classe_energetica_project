@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Struttura } from '../classes/strutture/struttura';
 import { StrutturaDue } from '../classes/strutture/struttura-due';
+import { StrutturaTre } from '../classes/strutture/struttura-tre';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,9 @@ export class ElementiStrutturaService {
    public getStrutturaDue():Observable<StrutturaDue[]> {
      return this.http.get<StrutturaDue[]>(`${this.url}${"strutturaDue"}`);
    }
+
+   public getStrutturaTre():Observable<StrutturaTre[]> {
+    return this.http.get<StrutturaTre[]>(`${this.url}${"strutturaTre"}`);
+  }
 
   }

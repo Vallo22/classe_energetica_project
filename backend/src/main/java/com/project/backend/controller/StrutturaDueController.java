@@ -17,7 +17,6 @@ public class StrutturaDueController {
 	@Autowired
     private StrutturaDueRepository strutturaDue;
 
-
     @GetMapping("/strutturaDue")
     public List<StrutturaDue> getStrutturaDue(){
         return (List<StrutturaDue>) strutturaDue.findAll();

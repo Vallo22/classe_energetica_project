@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Gen 14, 2021 alle 17:37
+-- Creato il: Gen 18, 2021 alle 16:44
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -64,7 +64,35 @@ INSERT INTO `struttura_due` (`id`, `struttura_due`, `struttura_id_id`) VALUES
 (2, 'Strutture per impalcati piani', 2),
 (3, 'Strutture per coperture piane', 2),
 (4, 'Strutture per coperture inclinate', 3),
-(5, 'Strutture voltate', 4);
+(5, 'Strutture voltate', 4),
+(6, 'Aperture', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `struttura_tre`
+--
+
+CREATE TABLE `struttura_tre` (
+  `id` bigint(20) NOT NULL,
+  `struttura_tre` varchar(255) DEFAULT NULL,
+  `struttura_due_id_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `struttura_tre`
+--
+
+INSERT INTO `struttura_tre` (`id`, `struttura_tre`, `struttura_due_id_id`) VALUES
+(1, 'Strutture a pareti portanti in muratura', 1),
+(2, 'Solai a terra', 2),
+(3, 'Solai inferiori', 2),
+(4, 'Solai superiori', 2),
+(5, 'Strutture per coperture piane', 3),
+(6, 'Strutture per coperture inclinate', 4),
+(7, 'Confinanti con ambienti sottotetto', 5),
+(8, 'Confinanti con ambienti non riscaldati inferiori', 5),
+(9, 'Aperture', 6);
 
 --
 -- Indici per le tabelle scaricate
@@ -84,6 +112,13 @@ ALTER TABLE `struttura_due`
   ADD KEY `FK9eqhylq6sc1yseu3cglwffnsy` (`struttura_id_id`);
 
 --
+-- Indici per le tabelle `struttura_tre`
+--
+ALTER TABLE `struttura_tre`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FKt7ybagev1aaw5py3n0g10byt4` (`struttura_due_id_id`);
+
+--
 -- AUTO_INCREMENT per le tabelle scaricate
 --
 
@@ -97,7 +132,13 @@ ALTER TABLE `struttura`
 -- AUTO_INCREMENT per la tabella `struttura_due`
 --
 ALTER TABLE `struttura_due`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT per la tabella `struttura_tre`
+--
+ALTER TABLE `struttura_tre`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Limiti per le tabelle scaricate
@@ -108,6 +149,12 @@ ALTER TABLE `struttura_due`
 --
 ALTER TABLE `struttura_due`
   ADD CONSTRAINT `FK9eqhylq6sc1yseu3cglwffnsy` FOREIGN KEY (`struttura_id_id`) REFERENCES `struttura` (`id`);
+
+--
+-- Limiti per la tabella `struttura_tre`
+--
+ALTER TABLE `struttura_tre`
+  ADD CONSTRAINT `FKt7ybagev1aaw5py3n0g10byt4` FOREIGN KEY (`struttura_due_id_id`) REFERENCES `struttura_due` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
