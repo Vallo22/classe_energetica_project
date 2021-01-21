@@ -18,7 +18,6 @@ export class TipoStrutturaComponent implements OnInit {
   selectedIndex: number;
   selectedElementDue = [];
   selectedIndexDue: number;
-  strutture: StrutturaTre[] = []
 
   constructor(
     private service: ElementiStrutturaService
@@ -55,13 +54,16 @@ export class TipoStrutturaComponent implements OnInit {
   onChangeSecondo(index: number) {
     this.selectedElementDue = []
     this.strutt3.forEach(t => {
-      if (t.struttura_due_id !== undefined) {
-       if (t.struttura_due_id.id === this.strutt2[index].id) {
+       if (t.struttura_due_id.id === this.selectedElement[index].id) {
           this.selectedElementDue.push(t)
        }
-      }
     })
     this.selectedIndexDue = 0;
+    //this.onChangeTerzo(0);
   }
+
+//  onChangeTerzo(index: number) {
+
+  //}
 
 }

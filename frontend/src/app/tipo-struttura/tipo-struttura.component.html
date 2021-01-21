@@ -14,8 +14,8 @@
             <option selected disabled>
               Seleziona
             </option>
-            <option [value]="i" *ngFor="let array of strutt; index as i">
-              {{ array.struttura }}
+            <option [value]="i" *ngFor="let array1 of strutt; index as i">
+              {{ array1.struttura }}
             </option>
           </select>
 
@@ -24,11 +24,8 @@
           <!-- STRUTTURA DUE -->
           <p><b>Struttura Due</b></p>
           <select [(ngModel)]="selectedIndex" style="margin-top: 30px;" (change)="onChangeSecondo($event.target.value)" value="struttura" class="form-control" id="structure" name="struttura">
-            <option selected disabled>
-              Seleziona
-            </option>
-            <option [value]="i" *ngFor="let arrays of selectedElement; index as i">
-              {{ arrays.strutturaDue }}
+            <option [value]="i" *ngFor="let array2 of selectedElement; index as i">
+              {{ array2.strutturaDue }}
             </option>
           </select>
 
@@ -37,11 +34,8 @@
           <!-- STRUTTURA TRE -->
           <p><b>Struttura Tre</b></p>
           <select [(ngModel)]="selectedIndexDue" style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
-            <option selected disabled>
-              Seleziona
-            </option>
-            <option [value]="i" *ngFor="let arrayss of selectedElementDue; index as i;">
-              {{ arrayss.strutturaTre }}
+            <option [value]="i" *ngFor="let array3 of selectedElementDue; index as i">
+              {{ array3.strutturaTre }}
             </option>
           </select>
         </div>
