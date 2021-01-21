@@ -2,8 +2,8 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Creato il: Gen 21, 2021 alle 17:20
+-- Host: 127.0.0.1
+-- Creato il: Gen 21, 2021 alle 17:50
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -59,6 +59,66 @@ CREATE TABLE `codice_intervento` (
   `codice` varchar(255) DEFAULT NULL,
   `descrizione` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `codice_intervento`
+--
+
+INSERT INTO `codice_intervento` (`id`, `codice`, `descrizione`) VALUES
+(1, 'A1', 'Isolamento termico all\'estradosso non ventilato\r\n'),
+(2, 'A2', 'Isolamento termico all\'estradosso ventilato\r\n'),
+(3, 'A3', 'Isolamento termico all\'intradosso\r\n'),
+(4, 'A4', 'Isolamento termico all\'intradosso ventilato\r\n'),
+(5, 'A5', '\"Integrazione del fotovoltaico \r\n(tegole e coppi fotovoltaici)\"\r\n'),
+(6, 'A6', '\"Integrazione del solare termico \r\n(collettori solari con decalcomanie forate)\"\r\n'),
+(7, 'A7', 'Green roof\r\n'),
+(8, 'A8', 'Roof pond\r\n'),
+(9, 'B1', 'Isolamento termico a pannelli sulla superficie interna della parete \r\n'),
+(10, 'B2', 'Isolamento tramite intonaco termoisolante sulla superficie interna della parete\r\n'),
+(11, 'B3', 'Isolamento termico a pannelli sulla superficie esterna della parete ventilato\r\n'),
+(12, 'B4', 'Isolamento termico a pannelli sulla superficie esterna della parete non ventilato\r\n'),
+(13, 'B5', 'Isolamento tramite intonaco termoisolante sulla superficie esterna della parete\r\n'),
+(14, 'B6', 'Isolamento termico all\'interno dell\'intercapedine\r\n'),
+(15, 'B7', 'Sistemi di accumulo a cambiamento di fase \r\n'),
+(16, 'B8', 'Realizzazione di barriere fisiche alla risalita capillare\r\n'),
+(17, 'B9', 'Realizzazione di barriere chimiche alla risalita capillare\r\n'),
+(18, 'B10', 'Realizzazione di sistemi di evacuazione dell\'umidità tramite intonaci macroporosi\r\n'),
+(19, 'B11', 'Realizzazione di sistemi di evacuazione dell\'umidità tramite sistemi elettro-fisici\r\n'),
+(20, 'B12', 'Green wall\r\n'),
+(21, 'B13', 'Muro di Trombe\r\n'),
+(22, 'B14', 'Sistemi di accumulo ad acqua \r\n'),
+(23, 'C1', 'Sostituzione dei serramenti con modelli ad alta prestazione energetica\r\n'),
+(24, 'C2', 'Sostituzione dei vetri con modelli isolanti o captanti su telaio esistente\r\n'),
+(25, 'C3', 'Messa in opera di una seconda anta vetrata\r\n'),
+(26, 'C4', 'Messa in opera di una seconda lastra vetrata\r\n'),
+(27, 'C5', 'Isolamento e tenuta all\'aria del telaio\r\n'),
+(28, 'C6', 'Applicazione al vetro di pellicole speciali isolanti o captanti\r\n'),
+(29, 'C7', 'Meccanizzazione del serramento\r\n'),
+(30, 'C8', 'Applicazione al vetro di pellicole a controllo solare\r\n'),
+(31, 'C9', 'Installazione di schermi interni\r\n'),
+(32, 'C10', 'Installazione di schermi esterni\r\n'),
+(33, 'C11', 'Applicazione di una mensola di luce\r\n'),
+(34, 'D1', 'Isolamento termico all\'intradosso del solaio\r\n'),
+(35, 'D2', 'Isolamento termico all\'intradosso del solaio superiore\r\n'),
+(36, 'D3', 'Isolamento termico all\'estradosso del solaio superiore\r\n'),
+(37, 'D4', 'Isolamento termico all\'estradosso del solaio inferiore \r\n'),
+(38, 'E1', 'Revisione del modello di riscaldamento esistente, con la previsione di soluzioni radianti a pavimento o a parete\r\n'),
+(39, 'E2', 'Sostituzione dei corpi illuminanti con lampade a risparmio energetico\r\n'),
+(40, 'E3', 'Inserimento di sistemi automatizzati di gestione e controllo \r\n'),
+(41, 'E4', 'Installazione di generatori di calore a condensazione\r\n'),
+(42, 'E5', 'Installazione di pompe di calore\r\n'),
+(43, 'E6', 'Installazione di testine termostatiche sui terminali di impianto\r\n'),
+(44, 'E7', 'Inserimento di termostati ambiente\r\n'),
+(45, 'E8', 'Installazione di sensori di presenza negli ambienti\r\n'),
+(46, 'E9', 'Installazione di caldaia a biomasse\r\n'),
+(47, 'E10', 'Installazione di sonde geotermiche\r\n'),
+(48, 'E11', 'Installazione di impianto di cogenerazione\r\n'),
+(49, 'E12', 'Installazione di regolatori di flusso collegati a rilevatori di luce\r\n'),
+(50, 'E13', 'Installazione di sistemi di deumidificazione attiva con macchine a funzionamento elettrico\r\n'),
+(51, 'F1', 'Introduzione di sistemi di ombreggiamento all\'intorno\r\n'),
+(52, 'F2', 'Realizzazione di una serra solare\r\n'),
+(53, 'F3', 'Realizzazione di camini di luce\r\n'),
+(54, 'F4', 'Realizzazione di un camino di ventilazione\r\n');
 
 -- --------------------------------------------------------
 
@@ -236,7 +296,7 @@ ALTER TABLE `caratteristiche_qualitative`
 -- AUTO_INCREMENT per la tabella `codice_intervento`
 --
 ALTER TABLE `codice_intervento`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT per la tabella `struttura`
