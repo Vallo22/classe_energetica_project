@@ -68,7 +68,6 @@ export class TipoStrutturaComponent implements OnInit {
   onChangeTerzo(index: number) {
     this.caratteristiche = this.selectedElementDue[index].carattQualit
     this.selectArr = 0;
-    //this.selectedMeccanicaIndex = 0;
     this.onChangeCaratteristicheQualitative(0);
   }
 
