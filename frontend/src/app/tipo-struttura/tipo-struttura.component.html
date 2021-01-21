@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
+  <div class="titolo" style="text-align: center; margin-top: 30px; font-size: 30px;">
     <p><b>INDIVIDUAZIONE DELLE STRUTTURE</b></p>
   </div>
   <div class="card my-5">
@@ -8,7 +8,7 @@
         <div class="form-group">
           <!-- STRUTTURA UNO -->
           <label for="struttura">
-            <p><b>Struttura</b></p>
+            <p><strong>Struttura</strong></p>
           </label>
           <select value="structure" class="form-control" id="structure" (change)="onChange($event.target.value)" name="struttura">
             <option selected disabled>
@@ -22,7 +22,7 @@
           <label></label>
 
           <!-- STRUTTURA DUE -->
-          <p><b>Struttura Due</b></p>
+          <p><strong>Struttura Due</strong></p>
           <select [(ngModel)]="selectedIndex" style="margin-top: 30px;" (change)="onChangeSecondo($event.target.value)" value="struttura" class="form-control" id="structure" name="struttura">
             <option [value]="i" *ngFor="let array2 of selectedElement; index as i">
               {{ array2.strutturaDue }}
@@ -32,7 +32,7 @@
           <label></label>
 
           <!-- STRUTTURA TRE -->
-          <p><b>Struttura Tre</b></p>
+          <p><strong>Struttura Tre</strong></p>
           <select [(ngModel)]="selectedIndexDue" style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
             <option [value]="i" *ngFor="let array3 of selectedElementDue; index as i">
               {{ array3.strutturaTre }}
