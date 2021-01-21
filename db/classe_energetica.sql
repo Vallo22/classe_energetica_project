@@ -2,8 +2,8 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Creato il: Gen 21, 2021 alle 17:50
+-- Host: localhost
+-- Creato il: Gen 21, 2021 alle 18:59
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `classe_energetica`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `associazione_intervento`
+--
+
+CREATE TABLE `associazione_intervento` (
+  `id` bigint(20) NOT NULL,
+  `caratteristica_associazione_intervento_id` bigint(20) DEFAULT NULL,
+  `intervento_id` bigint(20) DEFAULT NULL,
+  `struttura_associazione_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `associazione_intervento`
+--
+
+INSERT INTO `associazione_intervento` (`id`, `caratteristica_associazione_intervento_id`, `intervento_id`, `struttura_associazione_id`) VALUES
+(1, 1, 9, 1);
 
 -- --------------------------------------------------------
 
@@ -244,6 +264,15 @@ INSERT INTO `struttura_tre_caratt_qualit` (`struttura_tre_id`, `caratt_qualit_id
 --
 
 --
+-- Indici per le tabelle `associazione_intervento`
+--
+ALTER TABLE `associazione_intervento`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FKf69pmge2ud5tbnx1a8bucebk4` (`caratteristica_associazione_intervento_id`),
+  ADD KEY `FKgg9x8sypaf66qi9st6mln8rfv` (`intervento_id`),
+  ADD KEY `FK46uhq35u5o5505o35ra1kjor2` (`struttura_associazione_id`);
+
+--
 -- Indici per le tabelle `caratteristiche_qualitative`
 --
 ALTER TABLE `caratteristiche_qualitative`
@@ -287,6 +316,12 @@ ALTER TABLE `struttura_tre_caratt_qualit`
 --
 
 --
+-- AUTO_INCREMENT per la tabella `associazione_intervento`
+--
+ALTER TABLE `associazione_intervento`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT per la tabella `caratteristiche_qualitative`
 --
 ALTER TABLE `caratteristiche_qualitative`
@@ -319,6 +354,14 @@ ALTER TABLE `struttura_tre`
 --
 -- Limiti per le tabelle scaricate
 --
+
+--
+-- Limiti per la tabella `associazione_intervento`
+--
+ALTER TABLE `associazione_intervento`
+  ADD CONSTRAINT `FK46uhq35u5o5505o35ra1kjor2` FOREIGN KEY (`struttura_associazione_id`) REFERENCES `struttura_tre` (`id`),
+  ADD CONSTRAINT `FKf69pmge2ud5tbnx1a8bucebk4` FOREIGN KEY (`caratteristica_associazione_intervento_id`) REFERENCES `caratteristiche_qualitative` (`id`),
+  ADD CONSTRAINT `FKgg9x8sypaf66qi9st6mln8rfv` FOREIGN KEY (`intervento_id`) REFERENCES `codice_intervento` (`id`);
 
 --
 -- Limiti per la tabella `struttura_due`
