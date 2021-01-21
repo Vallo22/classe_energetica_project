@@ -4,6 +4,7 @@ import { StrutturaDue } from '../classi-servizi/classes/strutture/struttura-due'
 import { StrutturaTre } from '../classi-servizi/classes/strutture/struttura-tre';
 import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative'
 import { ElementiStrutturaService } from '../classi-servizi/service/elementi-struttura.service';
+import { AssociazioneIntervento } from '../classi-servizi/classes/associazione-intervento';
 @Component({
   selector: 'app-tipo-struttura',
   templateUrl: './tipo-struttura.component.html',
@@ -15,12 +16,15 @@ export class TipoStrutturaComponent implements OnInit {
   strutt2: StrutturaDue[];
   strutt3: StrutturaTre[];
   caratteristiche: CaratteristicheQualitative[] = [];
+  variabileIntervento = AssociazioneIntervento[];
+  associazioneIntervento = AssociazioneIntervento[];
 
   selectedElement = [];
   selectedIndex: number;
   selectedElementDue = [];
   selectedIndexDue: number;
   selectArr: number;
+  
 
   constructor(
     private service: ElementiStrutturaService
@@ -72,7 +76,15 @@ export class TipoStrutturaComponent implements OnInit {
   }
 
   onChangeCaratteristicheQualitative(index: number) {
-    
+    this.variabileIntervento = []
+    let elemento = this.selectedElementDue[this.selectedIndexDue]
+    let caratteristica = this.caratteristiche[index]
+    this.associazioneIntervento.forEach(t => {
+      if (elemento.id == t.strutturaAssociazione.id && caratteristica.id == t.caratteristicaAssociazioneIntervento.id) {
+        this.variabileIntervento.push(t);
+      } 
+    })
+    console.log(this.variabileIntervento)
   }
 
 }

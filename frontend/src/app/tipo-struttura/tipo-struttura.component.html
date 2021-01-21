@@ -45,11 +45,34 @@
     <div class="card-body">
       <form>
         <div class="form-group">
-          <select [(ngModel)]="selectArr" style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
+          <select [(ngModel)]="selectArr" style="margin-top: 30px;" value="struttura" (change)="onChangeCaratteristicheQualitative($event.target.value)" 
+          class="form-control" id="structure" name="struttura">
             <option [value]="i" *ngFor="let array4 of caratteristiche; index as i">
             {{array4.caratteristicheQualitative}}
             </option>
           </select>
+        </div>  
+      </form> 
+    </div>
+  </div>
+
+  <!-- INTERVENTI -->
+  <div class="card my-5">
+    <div class="card-header" style="text-align: center; font-size: 20px;">
+      <p><strong>Interventi</strong></p>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <tr *ngFor="let arr of variabileIntervento; index as i;">
+            <td>
+              Codice: {{arr.intervento.codice}}
+              - {{arr.intervento.descrizione}}
+              <button style="margin-left: 20px; float: right;" class="btn btn-outline-primary" (click)="visualizzaCodiceIntervento(arr.intervento.codice)" (click)="scrollToBottom()">
+                Vai all'intervento
+              </button>
+            </td>
+          </tr>
         </div>  
       </form> 
     </div>
