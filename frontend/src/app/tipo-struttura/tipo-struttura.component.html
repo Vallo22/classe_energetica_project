@@ -1,15 +1,15 @@
 <div class="container">
   <div class="titolo" style="text-align: center; margin-top: 30px; font-size: 30px;">
-    <p><b>INDIVIDUAZIONE DELLE STRUTTURE</b></p>
+    <p><strong>INDIVIDUAZIONE DEGLI INTERVENTI</strong></p>
   </div>
   <div class="card my-5">
+    <div class="card-header" style="text-align: center; font-size: 20px;">
+        <p><strong>Tipo di struttura</strong></p>
+    </div>
     <div class="card-body">
       <form>
         <div class="form-group">
           <!-- STRUTTURA UNO -->
-          <label for="struttura">
-            <p><strong>Struttura</strong></p>
-          </label>
           <select value="structure" class="form-control" id="structure" (change)="onChange($event.target.value)" name="struttura">
             <option selected disabled>
               Seleziona
@@ -19,20 +19,14 @@
             </option>
           </select>
 
-          <label></label>
-
           <!-- STRUTTURA DUE -->
-          <p><strong>Struttura Due</strong></p>
           <select [(ngModel)]="selectedIndex" style="margin-top: 30px;" (change)="onChangeSecondo($event.target.value)" value="struttura" class="form-control" id="structure" name="struttura">
             <option [value]="i" *ngFor="let array2 of selectedElement; index as i">
               {{ array2.strutturaDue }}
             </option>
           </select>
 
-          <label></label>
-
           <!-- STRUTTURA TRE -->
-          <p><strong>Struttura Tre</strong></p>
           <select [(ngModel)]="selectedIndexDue" style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
             <option [value]="i" *ngFor="let array3 of selectedElementDue; index as i">
               {{ array3.strutturaTre }}
@@ -42,4 +36,25 @@
       </form>
     </div>
   </div>
+
+  <!-- CARATTERISTICHE QUALITATIVE -->
+  <div class="card my-5">
+    <div class="card-header" style="text-align: center; font-size: 20px;">
+      <p><strong>Caratteristiche qualitative</strong></p>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <select [(ngModel)]="selectArr" style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
+            <option [value]="i" *ngFor="let array4 of caratteristiche; index as i">
+            {{array4.caratteristicheQualitative}}
+            </option>
+          </select>
+        </div>  
+      </form> 
+    </div>
+  </div>
+
+
+  
 </div>

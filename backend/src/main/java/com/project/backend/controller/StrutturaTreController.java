@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.backend.entità.StrutturaTre;
@@ -21,6 +22,11 @@ public class StrutturaTreController {
 	public List<StrutturaTre> getStrutturaTre(){
 		return (List<StrutturaTre>) strutturaTre.findAll();
 		
+	}
+	
+	@GetMapping("/getStrutturaCaratteristica")
+	public List<StrutturaTre> getStruttureForCaratteristica(@RequestParam Long carattQualit) {
+		return strutturaTre.findByCaratteristicaQualitativa(carattQualit);
 	}
 	
 	

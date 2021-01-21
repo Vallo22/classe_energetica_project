@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Struttura } from '../classi-servizi/classes/strutture/struttura'
 import { StrutturaDue } from '../classi-servizi/classes/strutture/struttura-due'
 import { StrutturaTre } from '../classi-servizi/classes/strutture/struttura-tre';
+import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative'
 import { ElementiStrutturaService } from '../classi-servizi/service/elementi-struttura.service';
 @Component({
   selector: 'app-tipo-struttura',
@@ -13,11 +14,13 @@ export class TipoStrutturaComponent implements OnInit {
   strutt: Struttura[];
   strutt2: StrutturaDue[];
   strutt3: StrutturaTre[];
+  caratteristiche: CaratteristicheQualitative[] = [];
 
   selectedElement = [];
   selectedIndex: number;
   selectedElementDue = [];
   selectedIndexDue: number;
+  selectArr: number;
 
   constructor(
     private service: ElementiStrutturaService
@@ -59,11 +62,18 @@ export class TipoStrutturaComponent implements OnInit {
        }
     })
     this.selectedIndexDue = 0;
-    //this.onChangeTerzo(0);
+    this.onChangeTerzo(0);
   }
 
-//  onChangeTerzo(index: number) {
+  onChangeTerzo(index: number) {
+    this.caratteristiche = this.selectedElementDue[index].carattQualit
+    this.selectArr = 0;
+    //this.selectedMeccanicaIndex = 0;
+    this.onChangeCaratteristicheQualitative(0);
+  }
 
-  //}
+  onChangeCaratteristicheQualitative(index: number) {
+    
+  }
 
 }

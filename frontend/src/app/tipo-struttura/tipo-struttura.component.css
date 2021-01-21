@@ -1,3 +1,7 @@
 .fa{
     margin: 20px 0px;
 }
+
+.card-header{
+    height: 50px;
+}
