@@ -5,6 +5,7 @@ import { StrutturaTre } from '../classi-servizi/classes/strutture/struttura-tre'
 import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative'
 import { ElementiStrutturaService } from '../classi-servizi/service/elementi-struttura.service';
 import { AssociazioneIntervento } from '../classi-servizi/classes/associazione-intervento';
+import { AssociazioneInterventoService } from '../classi-servizi/service/associazione-intervento.service';
 @Component({
   selector: 'app-tipo-struttura',
   templateUrl: './tipo-struttura.component.html',
@@ -16,8 +17,8 @@ export class TipoStrutturaComponent implements OnInit {
   strutt2: StrutturaDue[];
   strutt3: StrutturaTre[];
   caratteristiche: CaratteristicheQualitative[] = [];
-  variabileIntervento = AssociazioneIntervento[];
-  associazioneIntervento = AssociazioneIntervento[];
+  variabileIntervento: AssociazioneIntervento[];
+  associazioneIntervento: AssociazioneIntervento[];
 
   selectedElement = [];
   selectedIndex: number;
@@ -27,7 +28,8 @@ export class TipoStrutturaComponent implements OnInit {
   
 
   constructor(
-    private service: ElementiStrutturaService
+    private service: ElementiStrutturaService,
+    private serviceAssociazione: AssociazioneInterventoService
   ) { }
 
   ngOnInit() {

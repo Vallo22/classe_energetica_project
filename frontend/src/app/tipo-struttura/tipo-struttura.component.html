@@ -64,13 +64,10 @@
     <div class="card-body">
       <form>
         <div class="form-group">
-          <tr *ngFor="let arr of variabileIntervento; index as i;">
+          <tr *ngFor="let arr of variabileIntervento; index as i">
             <td>
               Codice: {{arr.intervento.codice}}
               - {{arr.intervento.descrizione}}
-              <button style="margin-left: 20px; float: right;" class="btn btn-outline-primary" (click)="visualizzaCodiceIntervento(arr.intervento.codice)" (click)="scrollToBottom()">
-                Vai all'intervento
-              </button>
             </td>
           </tr>
         </div>  

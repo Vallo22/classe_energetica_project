@@ -26,8 +26,10 @@ public class AssociazioneIntervento {
     @ManyToOne(cascade = CascadeType.ALL)
     private StrutturaTre strutturaAssociazione;
 
-    /*@Column
+    /*
+    @Column
     private int modicitaDiCosto;
+    
     private int efficacia;
     private int supIntonacate;
     private int supEvIi;
