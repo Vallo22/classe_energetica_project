@@ -104,6 +104,7 @@ export class TipoStrutturaComponent implements OnInit {
     }
   }
 
-  apriPopup() {}
+  apriPopup() {
+  }
 
 }
