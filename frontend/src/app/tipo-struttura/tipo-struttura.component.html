@@ -63,28 +63,47 @@
     </div>
     <div class="card-body">
       <form>
-        <div class="form-group">
-          <tr *ngFor="let arr of variabileIntervento; index as i">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let arr of variabileIntervento; index as i">
             <td>
               Codice: {{arr.intervento.codice}}
               - {{arr.intervento.descrizione}}
             </td>
-            <button style="margin-left: 20px; float: right;" class="btn btn-primary" (click)="visualizzaCodiceIntervento(arr.intervento.codice)" (click)="apriPopup()">
+            <button style="margin-left: 20px; float: right;" class="btn btn-primary" (click)="visualizzaCodiceIntervento(arr.intervento.codice)" data-toggle="modal" data-target=".bd-example-modal-lg">
               Vai all'intervento
-            </button>
-          </tr>
-        </div>  
+            </button> 
+          </li>
+        </ul>  
       </form> 
     </div>
   </div>
 
-  <!-- IMMAGINI -->
-  <div class="overflow-auto">
-    <div *ngIf="imgB1">
-      <img src="assets\images\B1.jpg">
+  <!-- MODAL -->
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <!-- X -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+        <!-- IMMAGINI -->
+        <div *ngIf="imgB1">
+          <img src="assets\images\B1.jpg">
+        </div>
+        
+        <!-- AVANTI -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Avanti</button>
+        </div>
+
+      </div>
     </div>
   </div>
-
-
-  
 </div>
+
+
+

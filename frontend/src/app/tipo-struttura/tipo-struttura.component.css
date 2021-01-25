@@ -8,14 +8,14 @@
 
 img{
     max-width: none;
-    width: 800px;
+    width: 797px;
 }
 
 
 @media all and (max-width: 500px){
 
 img{
-    max-width: none;
-    width: 800px;
+    max-width: 100%;
+    width: 797px;
 }
 }
