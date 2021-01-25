@@ -5,3 +5,17 @@
 .card-header{
     height: 50px;
 }
+
+img{
+    max-width: none;
+    width: 800px;
+}
+
+
+@media all and (max-width: 500px){
+
+img{
+    max-width: none;
+    width: 800px;
+}
+}

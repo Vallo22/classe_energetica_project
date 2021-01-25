@@ -36,4 +36,26 @@ export class AssociazioneInterventoService {
       }
     })
   }
+
+  public interventGrouping(data: AssociazioneIntervento[]){
+    const result = []
+    const raggruppamento = {}
+    for (const value of data) {
+      const idIntervento = value.intervento.id
+      const idCaratteristica = value.caratteristicaAssociazioneIntervento.id
+      const idStruttura = value.strutturaAssociazione.id
+      const key = idIntervento + "_" + idCaratteristica + "_" + idStruttura
+      if (!raggruppamento[key]) {
+        raggruppamento[key] = {
+          ...value,
+          modicitaDiCosto: []
+        }
+      }
+      raggruppamento[key].modicitaDiCosto.push(value.modicitaDiCosto)
+    }
+    for (const key in raggruppamento) {
+      result.push(raggruppamento[key])
+    }
+    return result
+  }
 }

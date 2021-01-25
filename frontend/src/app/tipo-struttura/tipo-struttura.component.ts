@@ -25,6 +25,8 @@ export class TipoStrutturaComponent implements OnInit {
   selectedElementDue = [];
   selectedIndexDue: number;
   selectArr: number;
+
+  imgB1 = false
   
 
   constructor(
@@ -45,6 +47,10 @@ export class TipoStrutturaComponent implements OnInit {
       this.strutt3 = data;
       console.log(this.strutt3)
     })
+    this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
+      this.associazioneIntervento = this.serviceAssociazione.interventGrouping(data);
+      console.log(this.associazioneIntervento)
+    }) 
   }
 
   onChange(index: number) {
@@ -88,5 +94,16 @@ export class TipoStrutturaComponent implements OnInit {
     })
     console.log(this.variabileIntervento)
   }
+
+  visualizzaCodiceIntervento(codice: string) {
+    this.imgB1 = false
+
+    console.log(codice)
+    if(codice == "B1"){
+      this.imgB1 = true
+    }
+  }
+
+  apriPopup() {}
 
 }

@@ -69,9 +69,19 @@
               Codice: {{arr.intervento.codice}}
               - {{arr.intervento.descrizione}}
             </td>
+            <button style="margin-left: 20px; float: right;" class="btn btn-primary" (click)="visualizzaCodiceIntervento(arr.intervento.codice)" (click)="apriPopup()">
+              Vai all'intervento
+            </button>
           </tr>
         </div>  
       </form> 
+    </div>
+  </div>
+
+  <!-- IMMAGINI -->
+  <div class="overflow-auto">
+    <div *ngIf="imgB1">
+      <img src="assets\images\B1.jpg">
     </div>
   </div>
 

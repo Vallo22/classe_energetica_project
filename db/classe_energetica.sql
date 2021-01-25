@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Gen 21, 2021 alle 18:59
+-- Creato il: Gen 25, 2021 alle 12:24
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -31,15 +31,36 @@ CREATE TABLE `associazione_intervento` (
   `id` bigint(20) NOT NULL,
   `caratteristica_associazione_intervento_id` bigint(20) DEFAULT NULL,
   `intervento_id` bigint(20) DEFAULT NULL,
-  `struttura_associazione_id` bigint(20) DEFAULT NULL
+  `struttura_associazione_id` bigint(20) DEFAULT NULL,
+  `modicita_di_costo` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `associazione_intervento`
 --
 
-INSERT INTO `associazione_intervento` (`id`, `caratteristica_associazione_intervento_id`, `intervento_id`, `struttura_associazione_id`) VALUES
-(1, 1, 9, 1);
+INSERT INTO `associazione_intervento` (`id`, `caratteristica_associazione_intervento_id`, `intervento_id`, `struttura_associazione_id`, `modicita_di_costo`) VALUES
+(1, 1, 9, 1, 2),
+(2, 1, 10, 1, 2),
+(3, 1, 11, 1, 1),
+(4, 1, 12, 1, 1),
+(5, 1, 13, 1, 1),
+(6, 1, 14, 1, 3),
+(7, 3, 16, 1, 2),
+(8, 3, 17, 1, 1),
+(9, 3, 18, 1, 1),
+(10, 3, 19, 1, 1),
+(11, 5, 11, 1, 1),
+(12, 5, 12, 1, 2),
+(13, 5, 13, 1, 2),
+(14, 2, 11, 1, 0),
+(15, 6, 11, 1, 1),
+(16, 6, 12, 1, 2),
+(17, 6, 13, 1, 2),
+(18, 6, 15, 1, 0),
+(19, 6, 20, 1, 0),
+(20, 6, 21, 1, 0),
+(21, 6, 22, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -89,8 +110,8 @@ INSERT INTO `codice_intervento` (`id`, `codice`, `descrizione`) VALUES
 (2, 'A2', 'Isolamento termico all\'estradosso ventilato\r\n'),
 (3, 'A3', 'Isolamento termico all\'intradosso\r\n'),
 (4, 'A4', 'Isolamento termico all\'intradosso ventilato\r\n'),
-(5, 'A5', '\"Integrazione del fotovoltaico \r\n(tegole e coppi fotovoltaici)\"\r\n'),
-(6, 'A6', '\"Integrazione del solare termico \r\n(collettori solari con decalcomanie forate)\"\r\n'),
+(5, 'A5', 'Integrazione del fotovoltaico \r\n(tegole e coppi fotovoltaici)\r\n'),
+(6, 'A6', 'Integrazione del solare termico \r\n(collettori solari con decalcomanie forate)\r\n'),
 (7, 'A7', 'Green roof\r\n'),
 (8, 'A8', 'Roof pond\r\n'),
 (9, 'B1', 'Isolamento termico a pannelli sulla superficie interna della parete \r\n'),
@@ -319,7 +340,7 @@ ALTER TABLE `struttura_tre_caratt_qualit`
 -- AUTO_INCREMENT per la tabella `associazione_intervento`
 --
 ALTER TABLE `associazione_intervento`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT per la tabella `caratteristiche_qualitative`

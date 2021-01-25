@@ -6,4 +6,6 @@ export class AssociazioneIntervento {
     intervento: Intervento
     caratteristicaAssociazioneIntervento: CaratteristicheQualitative
     strutturaAssociazione: StrutturaTre
+    
+    modicitaDiCosto: number|number[]
 }
