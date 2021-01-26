@@ -25,6 +25,14 @@ public class AssociazioneIntervento {
 
     @ManyToOne(cascade = CascadeType.ALL)
     private StrutturaTre strutturaAssociazione;
+    
+    @Column
+    private int modicitaDiCosto;
+    private int efficacia;
+    private int supIntonacate;
+    private int supEvIi;
+    private int supIvEi;
+    private int reversibilita;
 
 	public long getId() {
 		return id;
@@ -58,10 +66,6 @@ public class AssociazioneIntervento {
 		this.strutturaAssociazione = strutturaAssociazione;
 	}
 
-    
-    @Column
-    private int modicitaDiCosto;
-
 	public int getModicitaDiCosto() {
 		return modicitaDiCosto;
 	}
@@ -69,13 +73,51 @@ public class AssociazioneIntervento {
 	public void setModicitaDiCosto(int modicitaDiCosto) {
 		this.modicitaDiCosto = modicitaDiCosto;
 	}
-    
+	
+	public int getEfficacia() {
+		return efficacia;
+	}
+
+	public void setEfficacia(int efficacia) {
+		this.efficacia = efficacia;
+	}
+
+	public int getSupIntonacate() {
+		return supIntonacate;
+	}
+
+	public void setSupIntonacate(int supIntonacate) {
+		this.supIntonacate = supIntonacate;
+	}
+
+	public int getSupEvIi() {
+		return supEvIi;
+	}
+
+	public void setSupEvIi(int supEvIi) {
+		this.supEvIi = supEvIi;
+	}
+
+	public int getSupIvEi() {
+		return supIvEi;
+	}
+
+	public void setSupIvEi(int supIvEi) {
+		this.supIvEi = supIvEi;
+	}
+
+	public int getReversibilita() {
+		return reversibilita;
+	}
+
+	public void setReversibilita(int reversibilita) {
+		this.reversibilita = reversibilita;
+	}
+	
+	
+	
     /*
-    private int efficacia;
-    private int supIntonacate;
-    private int supEvIi;
-    private int supIvEi;
-    private int reversibilita;
+    
     private int semplicitaDiCantiere;
     private int esiguitaDiIngombro;*/
     

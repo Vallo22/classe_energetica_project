@@ -63,23 +63,6 @@ export class TipoStrutturaComponent implements OnInit {
   imgD2 = false
   imgD3 = false
   imgD4 = false
-  imgE1 = false
-  imgE2 = false
-  imgE3 = false
-  imgE4 = false
-  imgE5 = false
-  imgE6 = false
-  imgE7 = false
-  imgE8 = false
-  imgE9 = false
-  imgE10 = false
-  imgE11 = false
-  imgE12 = false
-  imgE13 = false
-  imgF1 = false
-  imgF2 = false
-  imgF3 = false
-  imgF4 = false
   
   constructor(
     private service: ElementiStrutturaService,
@@ -148,12 +131,157 @@ export class TipoStrutturaComponent implements OnInit {
   }
 
   visualizzaCodiceIntervento(codice: string) {
+    this.imgA1 = false
+    this.imgA2 = false
+    this.imgA3 = false
+    this.imgA4 = false
+    this.imgA5 = false
+    this.imgA6 = false
+    this.imgA7 = false
+    this.imgA8 = false
     this.imgB1 = false
-
+    this.imgB2 = false
+    this.imgB3 = false
+    this.imgB4 = false
+    this.imgB5 = false
+    this.imgB6 = false
+    this.imgB7 = false
+    this.imgB8 = false
+    this.imgB9 = false
+    this.imgB10 = false
+    this.imgB11 = false
+    this.imgB12 = false
+    this.imgB13 = false
+    this.imgB14 = false
+    this.imgC1 = false
+    this.imgC2 = false
+    this.imgC3 = false
+    this.imgC4 = false
+    this.imgC5 = false
+    this.imgC6 = false
+    this.imgC7 = false
+    this.imgC8 = false
+    this.imgC9 = false
+    this.imgC10 = false
+    this.imgC11 = false
+    this.imgD1 = false
+    this.imgD2 = false
+    this.imgD3 = false
+    this.imgD4 = false
+    
     console.log(codice)
-    if(codice == "B1"){
+    if(codice == "A1"){
+      this.imgA1 = true
+    } 
+    else if(codice == "A2"){
+      this.imgA2 = true
+    }
+    else if(codice == "A3"){
+      this.imgA3 = true
+    }
+    else if(codice == "A4"){
+      this.imgA4 = true
+    }
+    else if(codice == "A5"){
+      this.imgA5 = true
+    }
+    else if(codice == "A6"){
+      this.imgA6 = true
+    }
+    else if(codice == "A7"){
+      this.imgA7 = true
+    }
+    else if(codice == "A8"){
+      this.imgA8 = true
+    }
+    else if(codice == "B1"){
       this.imgB1 = true
     }
+    else if(codice == "B2"){
+      this.imgB2 = true
+    }
+    else if(codice == "B3"){
+      this.imgB3 = true
+    }    
+    else if(codice == "B4"){
+      this.imgB4 = true
+    }   
+    else if(codice == "B5"){
+      this.imgB5 = true
+    }    
+    else if(codice == "B6"){
+      this.imgB6 = true
+    }    
+    else if(codice == "B7"){
+      this.imgB7 = true
+    }    
+    else if(codice == "B8"){
+      this.imgB8 = true
+    }    
+    else if(codice == "B9"){
+      this.imgB9 = true
+    }    
+    else if(codice == "B10"){
+      this.imgB10 = true
+    }     
+    else if(codice == "B11"){
+      this.imgB11 = true
+    }
+    else if(codice == "B12"){
+      this.imgB12 = true
+    }    
+    else if(codice == "B13"){
+      this.imgB13 = true
+    }   
+    else if(codice == "B14"){
+      this.imgB14 = true
+    }
+    else if(codice == "C1"){
+      this.imgC1 = true
+    }    
+    else if(codice == "C2"){
+      this.imgC2 = true
+    }    
+    else if(codice == "C3"){
+      this.imgC3 = true
+    }    
+    else if(codice == "C4"){
+      this.imgC4 = true
+    }   
+    else if(codice == "C5"){
+      this.imgC5 = true
+    }
+    else if(codice == "C6"){
+      this.imgC6 = true
+    }    
+    else if(codice == "C7"){
+      this.imgC7 = true
+    }   
+    else if(codice == "C8"){
+      this.imgC8 = true
+    }
+    else if(codice == "C9"){
+      this.imgC9 = true
+    } 
+    else if(codice == "C10"){
+      this.imgC10 = true
+    } 
+    else if(codice == "C11"){
+      this.imgC11 = true
+    }
+    else if(codice == "D1"){
+      this.imgD1 = true
+    }    
+    else if(codice == "D2"){
+      this.imgD2 = true
+    }    
+    else if(codice == "D3"){
+      this.imgD3 = true
+    }    
+    else if(codice == "D4"){
+      this.imgD4 = true
+    }    
+     
   }
 
 }
