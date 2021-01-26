@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Struttura } from '../classi-servizi/classes/strutture/struttura'
-import { StrutturaDue } from '../classi-servizi/classes/strutture/struttura-due'
+import { Router } from '@angular/router';
+import { Struttura } from '../classi-servizi/classes/strutture/struttura';
+import { StrutturaDue } from '../classi-servizi/classes/strutture/struttura-due';
 import { StrutturaTre } from '../classi-servizi/classes/strutture/struttura-tre';
-import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative'
+import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative';
 import { ElementiStrutturaService } from '../classi-servizi/service/elementi-struttura.service';
 import { AssociazioneIntervento } from '../classi-servizi/classes/associazione-intervento';
 import { AssociazioneInterventoService } from '../classi-servizi/service/associazione-intervento.service';
+import { RisultatoSelezioneService } from '../classi-servizi/service/risultato-selezione.service';
+
+
 @Component({
   selector: 'app-tipo-struttura',
   templateUrl: './tipo-struttura.component.html',
@@ -66,7 +70,9 @@ export class TipoStrutturaComponent implements OnInit {
   
   constructor(
     private service: ElementiStrutturaService,
-    private serviceAssociazione: AssociazioneInterventoService
+    private serviceAssociazione: AssociazioneInterventoService,
+    private risultatoSelezione: RisultatoSelezioneService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -128,6 +134,13 @@ export class TipoStrutturaComponent implements OnInit {
       } 
     })
     console.log(this.variabileIntervento)
+  }
+
+  trasferisciOggetti() {
+    this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche[this.selectArr])
+    this.router.navigate(['/matrice'], {
+      state: { variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche[this.selectArr] }
+    })
   }
 
   visualizzaCodiceIntervento(codice: string) {
@@ -281,7 +294,7 @@ export class TipoStrutturaComponent implements OnInit {
     else if(codice == "D4"){
       this.imgD4 = true
     }    
-     
+
   }
 
 }

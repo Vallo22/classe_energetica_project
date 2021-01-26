@@ -19,3 +19,12 @@ img{
     width: 797px;
 }
 }
+
+.pulsante{
+    text-align: center;
+}
+
+.appunto{
+    font-size: small;
+    font-weight: bold;
+}

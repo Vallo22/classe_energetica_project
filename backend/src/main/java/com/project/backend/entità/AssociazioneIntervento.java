@@ -33,6 +33,8 @@ public class AssociazioneIntervento {
     private int supEvIi;
     private int supIvEi;
     private int reversibilita;
+    private int semplicitaDiCantiere;
+    private int esiguitaDiIngombro;
 
 	public long getId() {
 		return id;
@@ -113,12 +115,21 @@ public class AssociazioneIntervento {
 	public void setReversibilita(int reversibilita) {
 		this.reversibilita = reversibilita;
 	}
+
+	public int getSemplicitaDiCantiere() {
+		return semplicitaDiCantiere;
+	}
+
+	public void setSemplicitaDiCantiere(int semplicitaDiCantiere) {
+		this.semplicitaDiCantiere = semplicitaDiCantiere;
+	}
+
+	public int getEsiguitaDiIngombro() {
+		return esiguitaDiIngombro;
+	}
+
+	public void setEsiguitaDiIngombro(int esiguitaDiIngombro) {
+		this.esiguitaDiIngombro = esiguitaDiIngombro;
+	}
 	
-	
-	
-    /*
-    
-    private int semplicitaDiCantiere;
-    private int esiguitaDiIngombro;*/
-    
 }

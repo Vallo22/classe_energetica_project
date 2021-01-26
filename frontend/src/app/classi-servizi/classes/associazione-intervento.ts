@@ -8,4 +8,11 @@ export class AssociazioneIntervento {
     strutturaAssociazione: StrutturaTre
     
     modicitaDiCosto: number|number[]
+    efficacia: number|number[]
+    supIntonacate: number|number[]
+    supEvIi: number|number[]
+    supIvEi: number|number[]
+    reversibilita: number|number[]
+    semplicitaDiCantiere: number|number[]
+    esiguitaDiIngombro: number|number[]
 }
