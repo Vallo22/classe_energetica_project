@@ -48,10 +48,24 @@ export class AssociazioneInterventoService {
       if (!raggruppamento[key]) {
         raggruppamento[key] = {
           ...value,
-          modicitaDiCosto: []
+          modicitaDiCosto: [],
+          efficacia: [],
+          supIntonacate: [],
+          supEvIi: [],
+          supIvEi: [],
+          reversibilita: [],
+          semplicitaDiCantiere: [],
+          esiguitaDiIngombro: []
         }
       }
       raggruppamento[key].modicitaDiCosto.push(value.modicitaDiCosto)
+      raggruppamento[key].efficacia.push(value.efficacia)
+      raggruppamento[key].supIntonacate.push(value.supIntonacate)
+      raggruppamento[key].supEvIi.push(value.supEvIi)
+      raggruppamento[key].supIvEi.push(value.supIvEi)
+      raggruppamento[key].reversibilita.push(value.reversibilita)
+      raggruppamento[key].semplicitaDiCantiere.push(value.semplicitaDiCantiere)
+      raggruppamento[key].esiguitaDiIngombro.push(value.esiguitaDiIngombro)
     }
     for (const key in raggruppamento) {
       result.push(raggruppamento[key])

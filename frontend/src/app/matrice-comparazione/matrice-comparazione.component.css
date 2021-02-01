@@ -1,0 +1,16 @@
+.crGood{
+    background-color: green;
+}
+
+.crBad{
+    background-color: #d62828;
+}
+
+.pulsante{
+    text-align: center;
+}
+
+.legenda{
+    font-size: 86%;
+    white-space: nowrap;
+}
