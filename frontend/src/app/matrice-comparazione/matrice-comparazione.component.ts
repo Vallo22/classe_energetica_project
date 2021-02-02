@@ -39,35 +39,63 @@ export class MatriceComparazioneComponent implements OnInit {
   idStruttura: number = 0;
   idCaratteristica: number = 0;
   
+  scelta = ''
+  scelta2 = ''
+  scelta3 = ''
+  scelta4 = ''
+  scelta5 = ''
+  scelta6 = ''
+  scelta7 = ''
+  scelta8 = ''
+  scelta9 = ''
+  scelta10 = ''
+  scelta11 = ''
+  scelta12 = ''
+  scelta13 = ''
+  scelta14 = ''
+  scelta15 = ''
 
-  arrayScelta = [
-    { id: 1, char:"è più importante di" },
-    { id: 2, char:"è meno importante di" }
+  arrayComparazioneFrazioni = [
+    { id: 1, char: "1", num: 1 / 9 },
+    { id: 2, char: "2", num: 1 / 8 },
+    { id: 3, char: "3", num: 1 / 7 },
+    { id: 4, char: "4", num: 1 / 6 },
+    { id: 5, char: "5", num: 1 / 5 },
+    { id: 6, char: "6", num: 1 / 4 },
+    { id: 7, char: "7", num: 1 / 3 },
+    { id: 8, char: "8", num: 1 / 2 }
   ]
 
-  arrayComparazione = [
-    { id: 1, char: "1/9", num: 1 / 9, sceltaId: 2 },
-    { id: 2, char: "1/8", num: 1 / 8, sceltaId: 2 },
-    { id: 3, char: "1/7", num: 1 / 7, sceltaId: 2 },
-    { id: 4, char: "1/6", num: 1 / 6, sceltaId: 2 },
-    { id: 5, char: "1/5", num: 1 / 5, sceltaId: 2 },
-    { id: 6, char: "1/4", num: 1 / 4, sceltaId: 2 },
-    { id: 7, char: "1/3", num: 1 / 3, sceltaId: 2 },
-    { id: 8, char: "1/2", num: 1 / 2, sceltaId: 2 },
-    { id: 9, char: "2", num: 2, sceltaId: 1 },
-    { id: 10, char: "3", num: 3, sceltaId: 1 },
-    { id: 11, char: "4", num: 4, sceltaId: 1 },
-    { id: 12, char: "5", num: 5, sceltaId: 1 },
-    { id: 13, char: "6", num: 6, sceltaId: 1 },
-    { id: 14, char: "7", num: 7, sceltaId: 1 },
-    { id: 15, char: "8", num: 8, sceltaId: 1 },
-    { id: 16, char: "9", num: 9, sceltaId: 1 }
+  arrayComparazioneInteri = [
+    { id: 1, char: "1", num: 2 },
+    { id: 2, char: "2", num: 3 },
+    { id: 3, char: "3", num: 4 },
+    { id: 4, char: "4", num: 5 },
+    { id: 5, char: "5", num: 6 },
+    { id: 6, char: "6", num: 7 },
+    { id: 7, char: "7", num: 8 },
+    { id: 8, char: "8", num: 9 }
   ]
-
-  comparazioneId = undefined;
-  comparazioneListDrop = [];
-  sceltaId = undefined
   
+  arrayComparazione = [
+    { id: 1, char: "1/9", num: 1 / 9 },
+    { id: 2, char: "1/8", num: 1 / 8 },
+    { id: 3, char: "1/7", num: 1 / 7 },
+    { id: 4, char: "1/6", num: 1 / 6 },
+    { id: 5, char: "1/5", num: 1 / 5 },
+    { id: 6, char: "1/4", num: 1 / 4 },
+    { id: 7, char: "1/3", num: 1 / 3 },
+    { id: 8, char: "1/2", num: 1 / 2 },
+    { id: 9, char: "2", num: 2 },
+    { id: 10, char: "3", num: 3 },
+    { id: 11, char: "4", num: 4 },
+    { id: 12, char: "5", num: 5 },
+    { id: 13, char: "6", num: 6 },
+    { id: 14, char: "7", num: 7 },
+    { id: 15, char: "8", num: 8 },
+    { id: 16, char: "9", num: 9 }
+  ]
+
   ngOnInit() {
     this.variabileIntervento = window.history.state.variabileIntervento
     this.caratteristiche = window.history.state.caratteristiche
@@ -160,13 +188,6 @@ export class MatriceComparazioneComponent implements OnInit {
         , interventoSelezionato: this.interventoSelezionato
       }
     })
-  }
-
-  public onChangeScelta() {
-    this.comparazioneId = undefined;
-    this.comparazioneListDrop = this.arrayComparazione.filter(
-      c => c.sceltaId === this.sceltaId
-    );
   }
 
 }
