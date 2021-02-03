@@ -122,9 +122,12 @@ export class TipoStrutturaComponent implements OnInit {
     this.caratteristiche = this.selectedElementDue[index].carattQualit
     this.selectArr = 0;
     this.onChangeCaratteristicheQualitative(0);
+    
   }
 
   onChangeCaratteristicheQualitative(index: number) {
+    if(index === 0) {
+      this.variabileIntervento = null} else {
     this.variabileIntervento = []
     let elemento = this.selectedElementDue[this.selectedIndexDue]
     let caratteristica = this.caratteristiche[index]
@@ -133,6 +136,7 @@ export class TipoStrutturaComponent implements OnInit {
         this.variabileIntervento.push(t);
       } 
     })
+  }
     console.log(this.variabileIntervento)
   }
 

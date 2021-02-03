@@ -55,6 +55,15 @@ export class MatriceComparazioneComponent implements OnInit {
   scelta14 = ''
   scelta15 = ''
 
+  arrayStringhe = [
+    "MDC",
+    "EFF",
+    "CV",
+    "REV",
+    "SDC",
+    "EDI"
+  ]
+
   arrayComparazioneFrazioni = [
     { id: 1, char: "1.", num: 1 / 9 },
     { id: 2, char: "2. poco più importante", num: 1 / 8 },

@@ -1,39 +1,40 @@
 <div class="container">
+
     <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
         <p><strong>Comparazione a coppie tra i criteri (Analytic Hierarchy Process)</strong>
     </div>
 
     <div class="card my-5">
         <div class="card-header" style="text-align: center; font-size: 17px;">
-        <div class="row justify-content-md-center">
-            <div *ngFor="let row of matrix; index as r">
-                <div class="col-md-auto" *ngIf="r === 0">
-                    <strong>Modicità di costo</strong><br>
-                    {{ponderazione[r]*100 | number: '1.0-0'}}% 
-                </div>
-                <div class="col-md-auto" *ngIf="r === 1">
-                    <strong>Efficacia</strong><br>
-                    {{ponderazione[r]*100 | number: '1.0-0'}}% 
-                </div>
-                <div class="col-md-auto" *ngIf="r === 2">
-                    <strong>Compatibilità visiva</strong><br>
-                    {{ponderazione[r]*100 | number: '1.0-0'}}% 
-                </div>
-                <div class="col-md-auto" *ngIf="r === 3">
-                    <strong>Reversibilità</strong><br>
-                    {{ponderazione[r]*100 | number: '1.0-0'}}% 
-                </div>
-                <div class="col-md-auto" *ngIf="r === 4">
-                    <strong>Semplicità di cantiere</strong><br>
-                    {{ponderazione[r]*100 | number: '1.0-0'}}% 
-                </div>
-                <div class="col-md-auto" *ngIf="r === 5">
-                    <strong>Esiguità di ingombro</strong><br>
-                    {{ponderazione[r]*100 | number: '1.0-0'}}% 
+            <div class="row justify-content-md-center">
+                <div *ngFor="let row of matrix; index as r">
+                    <div class="col-md-auto" *ngIf="r === 0">
+                        <strong>Modicità di costo</strong><br>
+                        {{ponderazione[r]*100 | number: '1.0-0'}}%
+                    </div>
+                    <div class="col-md-auto" *ngIf="r === 1">
+                        <strong>Efficacia</strong><br>
+                        {{ponderazione[r]*100 | number: '1.0-0'}}%
+                    </div>
+                    <div class="col-md-auto" *ngIf="r === 2">
+                        <strong>Compatibilità visiva</strong><br>
+                        {{ponderazione[r]*100 | number: '1.0-0'}}%
+                    </div>
+                    <div class="col-md-auto" *ngIf="r === 3">
+                        <strong>Reversibilità</strong><br>
+                        {{ponderazione[r]*100 | number: '1.0-0'}}%
+                    </div>
+                    <div class="col-md-auto" *ngIf="r === 4">
+                        <strong>Semplicità di cantiere</strong><br>
+                        {{ponderazione[r]*100 | number: '1.0-0'}}%
+                    </div>
+                    <div class="col-md-auto" *ngIf="r === 5">
+                        <strong>Esiguità di ingombro</strong><br>
+                        {{ponderazione[r]*100 | number: '1.0-0'}}%
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
         <div class="card-body">
 
@@ -69,7 +70,7 @@
                     </td>
                     </tr>
                 </li>
-            
+
 
                 <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
@@ -161,7 +162,7 @@
                     </tr>
                     </td>
                     </tr>
-                
+
                     <br>
 
                     <tr *ngFor="let row of matrix; index as r">
@@ -191,8 +192,8 @@
                     </tr>
                     </td>
                     </tr>
-                
-                    <br> 
+
+                    <br>
 
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
@@ -252,7 +253,7 @@
                     </tr>
                     </td>
                     </tr>
-                
+
                     <br>
 
                     <tr *ngFor="let row of matrix; index as r">
@@ -282,7 +283,7 @@
                     </tr>
                     </td>
                     </tr>
-                
+
                     <br>
 
                     <tr *ngFor="let row of matrix; index as r">
@@ -312,7 +313,7 @@
                     </tr>
                     </td>
                     </tr>
-                    
+
                     <br>
 
                     <tr *ngFor="let row of matrix; index as r">
@@ -373,7 +374,7 @@
                     </tr>
                     </td>
                     </tr>
-                
+
                     <br>
 
                     <tr *ngFor="let row of matrix; index as r">
@@ -403,7 +404,7 @@
                     </tr>
                     </td>
                     </tr>
-                
+
                     <br>
 
                     <tr *ngFor="let row of matrix; index as r">
@@ -433,7 +434,7 @@
                     </tr>
                     </td>
                     </tr>
-               
+
                     <br>
 
                     <tr *ngFor="let row of matrix; index as r">
@@ -463,7 +464,7 @@
                     </tr>
                     </td>
                     </tr>
-                
+
                     <br>
 
                     <tr *ngFor="let row of matrix; index as r">
@@ -494,114 +495,123 @@
                     </td>
                     </tr>
                 </li>
+                <li class="card">
+                    <div class="card-body" [ngClass]="{'crGood': cr < 0.1, 'crBad': cr >= 0.1}"
+                        style="text-align: center;">
+                        <div style="color: white">
+                            <strong>Finché il colore non diventa verde (CR < 0.10), non sarà possibile utilizzare i
+                                    pesi.</strong>
+                        </div>
+                        <strong> VALORE CR: {{cr | number: '1.2-2'}}</strong>
+                        <div class="pulsante">
+                            <button *ngIf="cr < 0.1" class="btn btn-info" style="align-content: center;"
+                                (click)="trasferisciPonderazione()">
+                                Premi per ottenere i pesi
+                            </button>
+                        </div>
+                    </div>
+                </li>
             </ul>
-
         </div>
     </div>
 
+    <hr>
 
+    <div class="overflow-auto">
+        <div class="row">
 
-
-
-    <tr *ngFor="let row of matrix; index as r">
-        <td *ngFor="let column of row; index as c">
-
-            <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)" *ngIf="r > c">
-                <option [ngValue]="a.num" *ngFor="let a of arrayComparazione">
-                    {{a.char}}
-                </option>
-
-            </select>
-            <div *ngIf=" c >= r">
-                {{oggetto[r][c]}}
-            </div>
-        </td>
-    </tr>
-
-
-
-
-    <div [ngClass]="{'crGood': cr < 0.1, 'crBad': cr >= 0.1}"
-        style="margin-bottom: 30px; margin-top: 40px; text-align: center;">
-        <div style="color: white">
-            <strong>Finché il colore non diventa verde (CR < 0.10), non sarà possibile utilizzare i pesi.</strong>
-        </div>
-        <strong> VALORE CR: {{cr | number: '1.2-2'}}</strong>
-    </div>
-    <div class="pulsante">
-        <button *ngIf="cr < 0.1" class="btn btn-info" style="align-content: center;"
-            (click)="trasferisciPonderazione()">
-            Premi per ottenere i pesi
-        </button>
-        <!---->
-    </div>
-
-
-    <label></label>
-
-    <div class="container tabelle">
-
-        <!-- Colonne per tabelle -->
-        <div class="overflow-auto">
-            <div class="row">
-                <div class="col-lg-4">
-                    <details>
-                        <summary><b>Matrice Normalizzata</b></summary>
-                        <div class="Second_table" style="float: left; margin-right: 30px;">
-                            <table class="table table-bordered">
-                                <thead class="thead-dark">
-                                    <th>
-                                        MATRICE NORMALIZZATA
+            <div class="col-lg-3">
+                <details>
+                    <summary><strong>Matrice A di comparazione</strong></summary>
+                    <td class="tabella">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                                <tr style="font-size: 20px;">
+                                    <th scope="col">
                                     </th>
-                                    <th>
+                                    <th scope="col">MDC
                                     </th>
-                                    <th>
+                                    <th scope="col">EFF
                                     </th>
-                                    <th>
+                                    <th scope="col">CV
                                     </th>
-                                    <th>
+                                    <th scope="col">REV
                                     </th>
-                                    <th>
+                                    <th scope="col">SDC
                                     </th>
-                                    <th>
-                                        PONDERAZIONE (VETTORE P)
+                                    <th scope="col">EDI
                                     </th>
-                                </thead>
-                                <tr *ngFor="let row of matrix; index as r">
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of matrix; index as r ">
+                                    <th scope="row" style="font-size: 20px;">{{arrayStringhe[r]}}
+                                    </th>
                                     <td *ngFor="let column of row; index as c">
-                                        <div>
-                                            {{matriceNormalizzata[r][c] | number: '1.2-2' }}
+                                        <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)" *ngIf="r > c"
+                                            style="font-size: 15px;">
+                                            <option [ngValue]="a.num" *ngFor="let a of arrayComparazione">
+                                                {{a.char}}
+                                            </option>
+                                        </select>
+                                        <div *ngIf=" c >= r" style="font-size: 15px;">
+                                            {{oggetto[r][c]}}
                                         </div>
                                     </td>
-                                    <td>
-                                        {{ponderazione[r] | number: '1.2-2'}}
-                                        <!--{{ponderazione[r] * 100 | number: '1.0-0'}}%-->
+                                </tr>
+                                <tr>
+                                    <th scope="row" style="font-size: 20px;">TOT
+                                    </th>
+                                    <td style="font-size: 15px;" *ngFor="let risultato of matrixRisultati">
+                                        {{risultato | number: '1.2-2'}}
                                     </td>
                                 </tr>
-                            </table>
-                        </div>
-                    </details>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <!-- Colonna vuota -->
-                </div><!-- /.col-lg-4 -->
+                            </tbody>
+                        </table>
+                    </td>
+                </details>
+            </div>
 
-                <div class="col-lg-4">
-                    <table class="table table-bordered" style="text-align: center; width: 30px; margin-top: 25px;">
-                        <thead class="thead-dark">
-                            <th>
-                                TABELLA PERCENTUALI
-                            </th>
-                        </thead>
-                        <tr *ngFor="let row of matrix; index as r">
-                            <td>
-                                {{ponderazione[r]*100 | number: '1.0-0'}}%
-                                <!--{{ponderazione[r] * 100 | number: '1.0-0'}}%-->
-                            </td>
-                        </tr>
-                    </table>
-                </div><!-- /.col-lg-4 -->
-            </div><!-- /.row -->
+            <div class="col-lg-3"></div>
+
+            <div class="col-lg-3">
+                <details>
+                    <summary><strong>Matrice A Normalizzata</strong></summary>
+                    <div class="Second_table" style="float: left; margin-right: 30px;">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                                <th>
+                                </th>
+                                <th>
+                                </th>
+                                <th>
+                                </th>
+                                <th>
+                                </th>
+                                <th>
+                                </th>
+                                <th>
+                                </th>
+                                <th style="font-size: 20px;">
+                                    PONDERAZIONE
+                                </th>
+                            </thead>
+                            <tr *ngFor="let row of matrix; index as r">
+                                <td *ngFor="let column of row; index as c">
+                                    <div>
+                                        {{matriceNormalizzata[r][c] | number: '1.2-2' }}
+                                    </div>
+                                </td>
+                                <td>
+                                    {{ponderazione[r] | number: '1.2-2'}}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </details>
+            </div>
         </div>
-    </div><!-- /.container -->
+    </div>
+<label></label>
+<br><br>
 </div>

@@ -47,6 +47,7 @@
         <div class="form-group">
           <select [(ngModel)]="selectArr" style="margin-top: 30px;" value="struttura" (change)="onChangeCaratteristicheQualitative($event.target.value)" 
           class="form-control" id="structure" name="struttura">
+          <option disabled selected [value]="0">Seleziona</option>
             <option [value]="i" *ngFor="let array4 of caratteristiche; index as i">
               {{array4.caratteristicheQualitative}}
             </option>
