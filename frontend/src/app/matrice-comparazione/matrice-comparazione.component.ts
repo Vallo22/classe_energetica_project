@@ -56,25 +56,25 @@ export class MatriceComparazioneComponent implements OnInit {
   scelta15 = ''
 
   arrayComparazioneFrazioni = [
-    { id: 1, char: "1", num: 1 / 9 },
-    { id: 2, char: "2", num: 1 / 8 },
-    { id: 3, char: "3", num: 1 / 7 },
-    { id: 4, char: "4", num: 1 / 6 },
-    { id: 5, char: "5", num: 1 / 5 },
-    { id: 6, char: "6", num: 1 / 4 },
-    { id: 7, char: "7", num: 1 / 3 },
-    { id: 8, char: "8", num: 1 / 2 }
+    { id: 1, char: "1.", num: 1 / 9 },
+    { id: 2, char: "2. poco più importante", num: 1 / 8 },
+    { id: 3, char: "3.", num: 1 / 7 },
+    { id: 4, char: "4. abbastanza più importante", num: 1 / 6 },
+    { id: 5, char: "5.", num: 1 / 5 },
+    { id: 6, char: "6. decisamente più importante", num: 1 / 4 },
+    { id: 7, char: "7.", num: 1 / 3 },
+    { id: 8, char: "8. assolutamente più importante", num: 1 / 2 }
   ]
 
   arrayComparazioneInteri = [
-    { id: 1, char: "1", num: 2 },
-    { id: 2, char: "2", num: 3 },
-    { id: 3, char: "3", num: 4 },
-    { id: 4, char: "4", num: 5 },
-    { id: 5, char: "5", num: 6 },
-    { id: 6, char: "6", num: 7 },
-    { id: 7, char: "7", num: 8 },
-    { id: 8, char: "8", num: 9 }
+    { id: 1, char: "1.", num: 2 },
+    { id: 2, char: "2. poco meno importante", num: 3 },
+    { id: 3, char: "3.", num: 4 },
+    { id: 4, char: "4. abbastanza meno importante", num: 5 },
+    { id: 5, char: "5.", num: 6 },
+    { id: 6, char: "6. decisamente meno importante", num: 7 },
+    { id: 7, char: "7.", num: 8 },
+    { id: 8, char: "8. assolutamente meno importante", num: 9 }
   ]
   
   arrayComparazione = [
@@ -113,13 +113,22 @@ export class MatriceComparazioneComponent implements OnInit {
           this.oggetto[r][c] = 1
         }
         if (r > c) {
+          this.matrix[r].push(1 / 2)
+          this.oggetto[r][c] = 1 / 2
+        }
+        if (r > c+1) {
           this.matrix[r].push(1 / 9)
           this.oggetto[r][c] = 1 / 9
         }
-        else if (r < c) {
+        else if (r+1 < c) {
           this.matrix[r].push(9)
           this.oggetto[r][c] = 9
         }
+        else if (r < c) {
+          this.matrix[r].push(2)
+          this.oggetto[r][c] = 2
+        }
+        
       }
     }
     this.onSelectChange(0, 0)

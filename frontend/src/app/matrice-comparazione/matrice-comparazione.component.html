@@ -1,61 +1,63 @@
 <div class="container">
     <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-        <p><strong>Assegnazione dei pesi ai criteri in relazione alle esigenze dell'utente</strong>
+        <p><strong>Comparazione a coppie tra i criteri (Analytic Hierarchy Process)</strong>
     </div>
 
     <div class="card my-5">
-        <div class="card-header" style="text-align: center; font-size: 20px;">
-            <p><strong>SELEZIONA MATRICE SCOMPOSTA</strong></p>
+        <div class="card-header" style="text-align: center; font-size: 17px;">
+        <div class="row justify-content-md-center">
+            <div *ngFor="let row of matrix; index as r">
+                <div class="col-md-auto" *ngIf="r === 0">
+                    <strong>Modicità di costo</strong><br>
+                    {{ponderazione[r]*100 | number: '1.0-0'}}% 
+                </div>
+                <div class="col-md-auto" *ngIf="r === 1">
+                    <strong>Efficacia</strong><br>
+                    {{ponderazione[r]*100 | number: '1.0-0'}}% 
+                </div>
+                <div class="col-md-auto" *ngIf="r === 2">
+                    <strong>Compatibilità visiva</strong><br>
+                    {{ponderazione[r]*100 | number: '1.0-0'}}% 
+                </div>
+                <div class="col-md-auto" *ngIf="r === 3">
+                    <strong>Reversibilità</strong><br>
+                    {{ponderazione[r]*100 | number: '1.0-0'}}% 
+                </div>
+                <div class="col-md-auto" *ngIf="r === 4">
+                    <strong>Semplicità di cantiere</strong><br>
+                    {{ponderazione[r]*100 | number: '1.0-0'}}% 
+                </div>
+                <div class="col-md-auto" *ngIf="r === 5">
+                    <strong>Esiguità di ingombro</strong><br>
+                    {{ponderazione[r]*100 | number: '1.0-0'}}% 
+                </div>
+            </div>
         </div>
+    </div>
+
         <div class="card-body">
+
             <ul class="list-group">
-
-                <!--
-                <li class="list-group-item">     
-                    <tr *ngFor="let row of matrix; index as r">
-                        <td *ngFor="let columns of row; index as c">
-                            <tr *ngIf="r === 1">
-                                <td *ngIf="c === 0">
-                                    prova  
-                                    <input type="range" class="form-range" min="1" max="8" step="1" id="customRange" list="arrayComparazioneFrazioni" [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c) ">
-                                    <datalist id="arrayComparazioneFrazioni">
-                                        <option char="1"></option> 
-                                        <option value="2"></option>  
-                                        <option value="3"></option>
-                                        <option value="4"></option>
-                                        <option value="5"></option>
-                                        <option value="6"></option>
-                                        <option value="7"></option>
-                                        <option value="8"></option>
-                                    </datalist>    
-                                      {{oggetto[r][c]}}
-                                    rispetto a prova
-                                </td>
-                            </tr>
-                        </td>
-                    </tr> 
-                </li>-->
-
 
                 <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 1">
                         <td *ngIf="c === 0">
-                            Efficacia
+                            <strong>Efficacia:</strong><br>
                             <select [(ngModel)]="scelta">
                                 <option value="yes">è più importante di</option>
                                 <option value="no">è meno importante di</option>
                             </select>
-                            modicità di costo. Scegli un valore da 1 a 8:
-                            <div *ngIf="scelta === 'yes'">
+                            modicità di costo. Di quanto?
+                            <div *ngIf="scelta === 'yes'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta === 'no'">
+                            <div *ngIf="scelta === 'no'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -67,26 +69,27 @@
                     </td>
                     </tr>
                 </li>
+            
 
                 <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 2">
                         <td *ngIf="c === 0">
-                            Compatibilità visiva
+                            <strong>Compatibilità visiva:</strong> <br>
                             <select [(ngModel)]="scelta2">
                                 <option value="yes">è più importante di</option>
                                 <option value="no">è meno importante di</option>
                             </select>
-                            modicità di costo. Scegli un valore da 1 a 8:
-                            <div *ngIf="scelta2 === 'yes'">
+                            modicità di costo. Di quanto?
+                            <div *ngIf="scelta2 === 'yes'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta2 === 'no'">
+                            <div *ngIf="scelta2 === 'no'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -97,27 +100,26 @@
                     </tr>
                     </td>
                     </tr>
-                </li>
 
-                <li class="list-group-item">
+                    <br>
+
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 2">
                         <td *ngIf="c === 1">
-                            Compatibilità visiva
                             <select [(ngModel)]="scelta3">
                                 <option value="yes">è più importante di</option>
                                 <option value="no">è meno importante di</option>
                             </select>
-                            efficacia. Scegli un valore da 1 a 8:
-                            <div *ngIf="scelta3 === 'yes'">
+                            efficacia. Di quanto?
+                            <div *ngIf="scelta3 === 'yes'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta3 === 'no'">
+                            <div *ngIf="scelta3 === 'no'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -135,20 +137,20 @@
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 3">
                         <td *ngIf="c === 0">
-                            Reversibilità
+                            <strong>Reversibilità:</strong> <br>
                             <select [(ngModel)]="scelta4">
                                 <option value="yes">è più importante di</option>
                                 <option value="no">è meno importante di</option>
                             </select>
-                            modicità di costo. Scegli un valore da 1 a 8:
-                            <div *ngIf="scelta4 === 'yes'">
+                            modicità di costo. Di quanto?
+                            <div *ngIf="scelta4 === 'yes'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta4 === 'no'">
+                            <div *ngIf="scelta4 === 'no'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -159,27 +161,26 @@
                     </tr>
                     </td>
                     </tr>
-                </li>
+                
+                    <br>
 
-                <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 3">
                         <td *ngIf="c === 1">
-                            Reversibilità
                             <select [(ngModel)]="scelta5">
                                 <option value="yes">è più importante di</option>
                                 <option value="no">è meno importante di</option>
                             </select>
-                            efficacia. Scegli un valore da 1 a 8:
-                            <div *ngIf="scelta5 === 'yes'">
+                            efficacia. Di quanto?
+                            <div *ngIf="scelta5 === 'yes'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta5 === 'no'">
+                            <div *ngIf="scelta5 === 'no'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -190,27 +191,26 @@
                     </tr>
                     </td>
                     </tr>
-                </li>
+                
+                    <br> 
 
-                <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 3">
                         <td *ngIf="c === 2">
-                            Reversibilità
                             <select [(ngModel)]="scelta6">
                                 <option value="yes">è più importante di</option>
                                 <option value="no">è meno importante di</option>
                             </select>
-                            compatibilità visiva. Scegli un valore da 1 a 8:
-                            <div *ngIf="scelta6 === 'yes'">
+                            compatibilità visiva. Di quanto?
+                            <div *ngIf="scelta6 === 'yes'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta6 === 'no'">
+                            <div *ngIf="scelta6 === 'no'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -228,20 +228,20 @@
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 4">
                         <td *ngIf="c === 0">
-                            Semplicità di cantiere
+                            <strong>Semplicità di cantiere:</strong> <br>
                             <select [(ngModel)]="scelta7">
                                 <option value="yes">è più importante di</option>
                                 <option value="no">è meno importante di</option>
                             </select>
-                            modicità di costo. Scegli un valore da 1 a 8:
-                            <div *ngIf="scelta7 === 'yes'">
+                            modicità di costo. Di quanto?
+                            <div *ngIf="scelta7 === 'yes'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta7 === 'no'">
+                            <div *ngIf="scelta7 === 'no'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -252,27 +252,26 @@
                     </tr>
                     </td>
                     </tr>
-                </li>
+                
+                    <br>
 
-                <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 4">
                         <td *ngIf="c === 1">
-                            Semplicità di cantiere
                             <select [(ngModel)]="scelta8">
                                 <option value="yes">è più importante di</option>
                                 <option value="no">è meno importante di</option>
                             </select>
-                            efficacia. Scegli un valore da 1 a 8:
-                            <div *ngIf="scelta8 === 'yes'">
+                            efficacia. Di quanto?
+                            <div *ngIf="scelta8 === 'yes'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta8 === 'no'">
+                            <div *ngIf="scelta8 === 'no'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -283,27 +282,26 @@
                     </tr>
                     </td>
                     </tr>
-                </li>
+                
+                    <br>
 
-                <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 4">
                         <td *ngIf="c === 2">
-                            Semplicità di cantiere
                             <select [(ngModel)]="scelta9">
                                 <option value="yes">è più importante di</option>
                                 <option value="no">è meno importante di</option>
                             </select>
-                            compatibilità visiva. Scegli un valore da 1 a 8:
-                            <div *ngIf="scelta9 === 'yes'">
+                            compatibilità visiva. Di quanto?
+                            <div *ngIf="scelta9 === 'yes'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta9 === 'no'">
+                            <div *ngIf="scelta9 === 'no'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -314,27 +312,26 @@
                     </tr>
                     </td>
                     </tr>
-                </li>
+                    
+                    <br>
 
-                <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 4">
                         <td *ngIf="c === 3">
-                            Semplicità di cantiere
                             <select [(ngModel)]="scelta10">
                                 <option value="yes">è più importante di</option>
                                 <option value="no">è meno importante di</option>
                             </select>
-                            reversibilità. Scegli un valore da 1 a 8:
-                            <div *ngIf="scelta10 === 'yes'">
+                            reversibilità. Di quanto?
+                            <div *ngIf="scelta10 === 'yes'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta10 === 'no'">
+                            <div *ngIf="scelta10 === 'no'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -352,20 +349,20 @@
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 5">
                         <td *ngIf="c === 0">
-                            Esiguità di ingobro
+                            <strong>Esiguità di ingombro:</strong> <br>
                             <select [(ngModel)]="scelta11">
                                 <option value="yes">è più importante di</option>
                                 <option value="no">è meno importante di</option>
                             </select>
-                            modicità di costo. Scegli un valore da 1 a 8:
-                            <div *ngIf="scelta11 === 'yes'">
+                            modicità di costo. Di quanto?
+                            <div *ngIf="scelta11 === 'yes'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta11 === 'no'">
+                            <div *ngIf="scelta11 === 'no'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -376,27 +373,26 @@
                     </tr>
                     </td>
                     </tr>
-                </li>
+                
+                    <br>
 
-                <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 5">
                         <td *ngIf="c === 1">
-                            Esiguità di ingobro
                             <select [(ngModel)]="scelta12">
                                 <option value="yes">è più importante di</option>
                                 <option value="no">è meno importante di</option>
                             </select>
-                            efficacia. Scegli un valore da 1 a 8:
-                            <div *ngIf="scelta12 === 'yes'">
+                            efficacia. Di quanto?
+                            <div *ngIf="scelta12 === 'yes'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta12 === 'no'">
+                            <div *ngIf="scelta12 === 'no'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -407,27 +403,26 @@
                     </tr>
                     </td>
                     </tr>
-                </li>
+                
+                    <br>
 
-                <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 5">
                         <td *ngIf="c === 2">
-                            Esiguità di ingobro
                             <select [(ngModel)]="scelta13">
                                 <option value="yes">è più importante di</option>
                                 <option value="no">è meno importante di</option>
                             </select>
-                            compatibilità visiva. Scegli un valore da 1 a 8:
-                            <div *ngIf="scelta13 === 'yes'">
+                            compatibilità visiva. Di quanto?
+                            <div *ngIf="scelta13 === 'yes'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta13 === 'no'">
+                            <div *ngIf="scelta13 === 'no'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -438,27 +433,26 @@
                     </tr>
                     </td>
                     </tr>
-                </li>
+               
+                    <br>
 
-                <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 5">
                         <td *ngIf="c === 3">
-                            Esiguità di ingobro
                             <select [(ngModel)]="scelta14">
                                 <option value="yes">è più importante di</option>
                                 <option value="no">è meno importante di</option>
                             </select>
-                            reversibilità. Scegli un valore da 1 a 8:
-                            <div *ngIf="scelta14 === 'yes'">
+                            reversibilità. Di quanto?
+                            <div *ngIf="scelta14 === 'yes'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta14 === 'no'">
+                            <div *ngIf="scelta14 === 'no'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -469,27 +463,26 @@
                     </tr>
                     </td>
                     </tr>
-                </li>
+                
+                    <br>
 
-                <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 5">
                         <td *ngIf="c === 4">
-                            Esiguità di ingobro
                             <select [(ngModel)]="scelta15">
                                 <option value="yes">è più importante di</option>
                                 <option value="no">è meno importante di</option>
                             </select>
-                            semplicità di cantiere. Scegli un valore da 1 a 8:
-                            <div *ngIf="scelta15 === 'yes'">
+                            semplicità di cantiere. Di quanto?
+                            <div *ngIf="scelta15 === 'yes'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta15 === 'no'">
+                            <div *ngIf="scelta15 === 'no'" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
