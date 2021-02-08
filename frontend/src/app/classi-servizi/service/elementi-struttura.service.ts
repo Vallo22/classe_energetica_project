@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Struttura } from '../classes/strutture/struttura';
 import { StrutturaDue } from '../classes/strutture/struttura-due';
 import { StrutturaTre } from '../classes/strutture/struttura-tre';
+import { CaratteristicheQualitative } from '../classes/caratteristiche-qualitative';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,10 @@ export class ElementiStrutturaService {
 
    public getStrutturaTre():Observable<StrutturaTre[]> {
     return this.http.get<StrutturaTre[]>(`${this.url}${"strutturaTre"}`);
+  }
+
+  public getCaratteristicheQualitative():Observable<CaratteristicheQualitative[]>{
+    return this.http.get<CaratteristicheQualitative[]>(this.url + 'caratteristicheQualitative');
   }
 
   }

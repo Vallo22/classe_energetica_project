@@ -143,7 +143,8 @@ export class TipoStrutturaComponent implements OnInit {
   trasferisciOggetti() {
     this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche[this.selectArr])
     this.router.navigate(['/matrice'], {
-      state: { variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche[this.selectArr] }
+      state: { variabileIntervento: this.variabileIntervento, 
+        caratteristiche: this.caratteristiche[this.selectArr] }
     })
   }
 

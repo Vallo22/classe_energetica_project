@@ -9,13 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { TipoStrutturaComponent } from './tipo-struttura/tipo-struttura.component';
 import { RouterModule } from '@angular/router';
 import { MatriceComparazioneComponent } from './matrice-comparazione/matrice-comparazione.component';
+import { McdmComponent } from './mcdm/mcdm.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TipoStrutturaComponent,
-    MatriceComparazioneComponent
+    MatriceComparazioneComponent,
+    McdmComponent
   ],
   imports: [
     BrowserModule,

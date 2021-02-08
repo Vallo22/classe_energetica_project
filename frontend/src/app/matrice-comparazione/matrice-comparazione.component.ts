@@ -16,7 +16,6 @@ export class MatriceComparazioneComponent implements OnInit {
     private router: Router
   ) { }
 
-
   numeroArray: number = 0;
   x: number = 1;
   y: number;
@@ -39,21 +38,21 @@ export class MatriceComparazioneComponent implements OnInit {
   idStruttura: number = 0;
   idCaratteristica: number = 0;
   
-  scelta = ''
-  scelta2 = ''
-  scelta3 = ''
-  scelta4 = ''
-  scelta5 = ''
-  scelta6 = ''
-  scelta7 = ''
-  scelta8 = ''
-  scelta9 = ''
-  scelta10 = ''
-  scelta11 = ''
-  scelta12 = ''
-  scelta13 = ''
-  scelta14 = ''
-  scelta15 = ''
+  scelta: boolean = true
+  scelta2: boolean = true
+  scelta3: boolean = true
+  scelta4: boolean = true
+  scelta5: boolean = true
+  scelta6: boolean = true
+  scelta7: boolean = true
+  scelta8: boolean = true
+  scelta9: boolean = true
+  scelta10: boolean = true
+  scelta11: boolean = true
+  scelta12: boolean = true
+  scelta13: boolean = true
+  scelta14: boolean = true
+  scelta15: boolean = true
 
   arrayStringhe = [
     "MDC",
@@ -125,19 +124,18 @@ export class MatriceComparazioneComponent implements OnInit {
           this.matrix[r].push(1 / 2)
           this.oggetto[r][c] = 1 / 2
         }
-        if (r > c+1) {
-          this.matrix[r].push(1 / 9)
-          this.oggetto[r][c] = 1 / 9
-        }
-        else if (r+1 < c) {
-          this.matrix[r].push(9)
-          this.oggetto[r][c] = 9
-        }
+        //if (r > c+1) {
+          //this.matrix[r].push(1 / 9)
+          //this.oggetto[r][c] = 1 / 9
+        //}
+        //if (r+1 < c) {
+          //this.matrix[r].push(9)
+          //this.oggetto[r][c] = 9
+        //}
         else if (r < c) {
           this.matrix[r].push(2)
           this.oggetto[r][c] = 2
         }
-        
       }
     }
     this.onSelectChange(0, 0)

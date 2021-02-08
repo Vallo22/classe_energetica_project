@@ -35,6 +35,7 @@ public class AssociazioneIntervento {
     private int reversibilita;
     private int semplicitaDiCantiere;
     private int esiguitaDiIngombro;
+    private String variante;
 
 	public long getId() {
 		return id;
@@ -130,6 +131,14 @@ public class AssociazioneIntervento {
 
 	public void setEsiguitaDiIngombro(int esiguitaDiIngombro) {
 		this.esiguitaDiIngombro = esiguitaDiIngombro;
+	}
+
+	public String getVariante() {
+		return variante;
+	}
+
+	public void setVariante(String variante) {
+		this.variante = variante;
 	}
 	
 }

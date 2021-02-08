@@ -48,6 +48,7 @@ export class AssociazioneInterventoService {
       if (!raggruppamento[key]) {
         raggruppamento[key] = {
           ...value,
+          varianti: [],
           modicitaDiCosto: [],
           efficacia: [],
           supIntonacate: [],
@@ -58,6 +59,7 @@ export class AssociazioneInterventoService {
           esiguitaDiIngombro: []
         }
       }
+      raggruppamento[key].varianti.push(value.varianti)
       raggruppamento[key].modicitaDiCosto.push(value.modicitaDiCosto)
       raggruppamento[key].efficacia.push(value.efficacia)
       raggruppamento[key].supIntonacate.push(value.supIntonacate)

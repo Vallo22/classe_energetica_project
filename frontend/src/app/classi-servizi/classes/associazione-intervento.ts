@@ -15,4 +15,12 @@ export class AssociazioneIntervento {
     reversibilita: number|number[]
     semplicitaDiCantiere: number|number[]
     esiguitaDiIngombro: number|number[]
+
+    totale: number[]
+    varianti?: string[]
+    variante: string
+    ugualeA0?: boolean = false
+
+    maxVariante?: number
+    minVariante?: number
 }

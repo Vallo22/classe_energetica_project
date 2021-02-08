@@ -3,7 +3,7 @@
     <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
         <p><strong>Comparazione a coppie tra i criteri (Analytic Hierarchy Process)</strong>
     </div>
-
+    <!-- HEADER % -->
     <div class="card my-5">
         <div class="card-header" style="text-align: center; font-size: 17px;">
             <div class="row justify-content-md-center">
@@ -35,30 +35,34 @@
                 </div>
             </div>
         </div>
-
+        
+        <!-- GRUPPO LISTA -->
         <div class="card-body">
-
             <ul class="list-group">
-
+                <!-- RIGA 1 - COLONNA 0 -->
                 <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 1">
                         <td *ngIf="c === 0">
                             <strong>Efficacia:</strong><br>
-                            <select [(ngModel)]="scelta">
-                                <option value="yes">è più importante di</option>
-                                <option value="no">è meno importante di</option>
-                            </select>
-                            modicità di costo. Di quanto?
-                            <div *ngIf="scelta === 'yes'" class="d-inline-block">
+                                <label class="form-check-inline">   
+                                <input class="form-check-input" type="radio" name="scelta" [(ngModel)]="scelta" [value]="true">
+                                  è più importante di
+                                </label>
+                                <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="scelta" [(ngModel)]="scelta" [value]="false">
+                                  è meno importante di
+                                </label>
+                            <strong>modicità di costo</strong>. Di quanto?
+                            <div *ngIf="scelta === true" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta === 'no'" class="d-inline-block">
+                            <div *ngIf="scelta === false" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -71,26 +75,30 @@
                     </tr>
                 </li>
 
-
+                <!-- RIGA 2 - COLONNA 0 -->
                 <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 2">
                         <td *ngIf="c === 0">
                             <strong>Compatibilità visiva:</strong> <br>
-                            <select [(ngModel)]="scelta2">
-                                <option value="yes">è più importante di</option>
-                                <option value="no">è meno importante di</option>
-                            </select>
-                            modicità di costo. Di quanto?
-                            <div *ngIf="scelta2 === 'yes'" class="d-inline-block">
+                            <label class="form-check-inline">   
+                                <input class="form-check-input" type="radio" name="scelta2" [(ngModel)]="scelta2" [value]="true">
+                                  è più importante di
+                                </label>
+                                <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="scelta2" [(ngModel)]="scelta2" [value]="false">
+                                  è meno importante di
+                                </label>
+                            <strong>modicità di costo</strong>. Di quanto?
+                            <div *ngIf="scelta2 === true" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta2 === 'no'" class="d-inline-block">
+                            <div *ngIf="scelta2 === false" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -101,26 +109,29 @@
                     </tr>
                     </td>
                     </tr>
-
                     <br>
-
+                    <!-- RIGA 2 - COLONNA 1 -->
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 2">
                         <td *ngIf="c === 1">
-                            <select [(ngModel)]="scelta3">
-                                <option value="yes">è più importante di</option>
-                                <option value="no">è meno importante di</option>
-                            </select>
-                            efficacia. Di quanto?
-                            <div *ngIf="scelta3 === 'yes'" class="d-inline-block">
+                            <label class="form-check-inline">   
+                                <input class="form-check-input" type="radio" name="scelta3" [(ngModel)]="scelta3" [value]="true">
+                                  è più importante di
+                                </label>
+                                <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="scelta3" [(ngModel)]="scelta3" [value]="false">
+                                  è meno importante di
+                                </label>
+                            <strong>efficacia</strong>. Di quanto?
+                            <div *ngIf="scelta3 === true" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta3 === 'no'" class="d-inline-block">
+                            <div *ngIf="scelta3 === false" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -132,26 +143,31 @@
                     </td>
                     </tr>
                 </li>
-
+                
+                <!-- RIGA 3 - COLONNA 0 -->
                 <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 3">
                         <td *ngIf="c === 0">
                             <strong>Reversibilità:</strong> <br>
-                            <select [(ngModel)]="scelta4">
-                                <option value="yes">è più importante di</option>
-                                <option value="no">è meno importante di</option>
-                            </select>
-                            modicità di costo. Di quanto?
-                            <div *ngIf="scelta4 === 'yes'" class="d-inline-block">
+                            <label class="form-check-inline">   
+                                <input class="form-check-input" type="radio" name="scelta4" [(ngModel)]="scelta4" [value]="true">
+                                  è più importante di
+                                </label>
+                                <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="scelta4" [(ngModel)]="scelta4" [value]="false">
+                                  è meno importante di
+                                </label>
+                            <strong>modicità di costo</strong>. Di quanto?
+                            <div *ngIf="scelta4 === true" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta4 === 'no'" class="d-inline-block">
+                            <div *ngIf="scelta4 === false" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -162,26 +178,29 @@
                     </tr>
                     </td>
                     </tr>
-
                     <br>
-
+                    <!-- RIGA 3 - COLONNA 1 -->
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 3">
                         <td *ngIf="c === 1">
-                            <select [(ngModel)]="scelta5">
-                                <option value="yes">è più importante di</option>
-                                <option value="no">è meno importante di</option>
-                            </select>
-                            efficacia. Di quanto?
-                            <div *ngIf="scelta5 === 'yes'" class="d-inline-block">
+                            <label class="form-check-inline">   
+                                <input class="form-check-input" type="radio" name="scelta5" [(ngModel)]="scelta5" [value]="true">
+                                  è più importante di
+                                </label>
+                                <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="scelta5" [(ngModel)]="scelta5" [value]="false">
+                                  è meno importante di
+                                </label>
+                            <strong>efficacia</strong>. Di quanto?
+                            <div *ngIf="scelta5 === true" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta5 === 'no'" class="d-inline-block">
+                            <div *ngIf="scelta5 === false" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -192,26 +211,29 @@
                     </tr>
                     </td>
                     </tr>
-
                     <br>
-
+                    <!-- RIGA 3 - COLONNA 2 -->
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 3">
                         <td *ngIf="c === 2">
-                            <select [(ngModel)]="scelta6">
-                                <option value="yes">è più importante di</option>
-                                <option value="no">è meno importante di</option>
-                            </select>
-                            compatibilità visiva. Di quanto?
-                            <div *ngIf="scelta6 === 'yes'" class="d-inline-block">
+                            <label class="form-check-inline">   
+                                <input class="form-check-input" type="radio" name="scelta6" [(ngModel)]="scelta6" [value]="true">
+                                  è più importante di
+                                </label>
+                                <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="scelta6" [(ngModel)]="scelta6" [value]="false">
+                                  è meno importante di
+                                </label>
+                            <strong>compatibilità visiva</strong>. Di quanto?
+                            <div *ngIf="scelta6 === true" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta6 === 'no'" class="d-inline-block">
+                            <div *ngIf="scelta6 === false" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -223,26 +245,31 @@
                     </td>
                     </tr>
                 </li>
-
+                
+                <!-- RIGA 4 - COLONNA 0 -->
                 <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 4">
                         <td *ngIf="c === 0">
                             <strong>Semplicità di cantiere:</strong> <br>
-                            <select [(ngModel)]="scelta7">
-                                <option value="yes">è più importante di</option>
-                                <option value="no">è meno importante di</option>
-                            </select>
-                            modicità di costo. Di quanto?
-                            <div *ngIf="scelta7 === 'yes'" class="d-inline-block">
+                            <label class="form-check-inline">   
+                                <input class="form-check-input" type="radio" name="scelta7" [(ngModel)]="scelta7" [value]="true">
+                                  è più importante di
+                                </label>
+                                <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="scelta7" [(ngModel)]="scelta7" [value]="false">
+                                  è meno importante di
+                                </label>
+                            <strong>modicità di costo</strong>. Di quanto?
+                            <div *ngIf="scelta7 === true" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta7 === 'no'" class="d-inline-block">
+                            <div *ngIf="scelta7 === false" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -253,26 +280,29 @@
                     </tr>
                     </td>
                     </tr>
-
                     <br>
-
+                    <!-- RIGA 4 - COLONNA 1 -->
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 4">
                         <td *ngIf="c === 1">
-                            <select [(ngModel)]="scelta8">
-                                <option value="yes">è più importante di</option>
-                                <option value="no">è meno importante di</option>
-                            </select>
-                            efficacia. Di quanto?
-                            <div *ngIf="scelta8 === 'yes'" class="d-inline-block">
+                            <label class="form-check-inline">   
+                                <input class="form-check-input" type="radio" name="scelta8" [(ngModel)]="scelta8" [value]="true">
+                                  è più importante di
+                                </label>
+                                <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="scelta8" [(ngModel)]="scelta8" [value]="false">
+                                  è meno importante di
+                                </label>
+                            <strong>efficacia</strong>. Di quanto?
+                            <div *ngIf="scelta8 === true" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta8 === 'no'" class="d-inline-block">
+                            <div *ngIf="scelta8 === false" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -283,26 +313,29 @@
                     </tr>
                     </td>
                     </tr>
-
                     <br>
-
+                    <!-- RIGA 4 - COLONNA 2 -->
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 4">
                         <td *ngIf="c === 2">
-                            <select [(ngModel)]="scelta9">
-                                <option value="yes">è più importante di</option>
-                                <option value="no">è meno importante di</option>
-                            </select>
-                            compatibilità visiva. Di quanto?
-                            <div *ngIf="scelta9 === 'yes'" class="d-inline-block">
+                            <label class="form-check-inline">   
+                                <input class="form-check-input" type="radio" name="scelta9" [(ngModel)]="scelta9" [value]="true">
+                                  è più importante di
+                                </label>
+                                <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="scelta9" [(ngModel)]="scelta9" [value]="false">
+                                  è meno importante di
+                                </label>
+                            <strong>compatibilità visiva</strong>. Di quanto?
+                            <div *ngIf="scelta9 === true" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta9 === 'no'" class="d-inline-block">
+                            <div *ngIf="scelta9 === false" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -313,26 +346,29 @@
                     </tr>
                     </td>
                     </tr>
-
                     <br>
-
+                    <!-- RIGA 4 - COLONNA 3 -->
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 4">
                         <td *ngIf="c === 3">
-                            <select [(ngModel)]="scelta10">
-                                <option value="yes">è più importante di</option>
-                                <option value="no">è meno importante di</option>
-                            </select>
-                            reversibilità. Di quanto?
-                            <div *ngIf="scelta10 === 'yes'" class="d-inline-block">
+                            <label class="form-check-inline">   
+                                <input class="form-check-input" type="radio" name="scelta10" [(ngModel)]="scelta10" [value]="true">
+                                  è più importante di
+                                </label>
+                                <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="scelta10" [(ngModel)]="scelta10" [value]="false">
+                                  è meno importante di
+                                </label>
+                            <strong>reversibilità</strong>. Di quanto?
+                            <div *ngIf="scelta10 === true" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta10 === 'no'" class="d-inline-block">
+                            <div *ngIf="scelta10 === false" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -344,26 +380,31 @@
                     </td>
                     </tr>
                 </li>
-
+                
+                <!-- RIGA 5 - COLONNA 0 -->
                 <li class="list-group-item">
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 5">
                         <td *ngIf="c === 0">
                             <strong>Esiguità di ingombro:</strong> <br>
-                            <select [(ngModel)]="scelta11">
-                                <option value="yes">è più importante di</option>
-                                <option value="no">è meno importante di</option>
-                            </select>
-                            modicità di costo. Di quanto?
-                            <div *ngIf="scelta11 === 'yes'" class="d-inline-block">
+                            <label class="form-check-inline">   
+                                <input class="form-check-input" type="radio" name="scelta11" [(ngModel)]="scelta11" [value]="true">
+                                  è più importante di
+                                </label>
+                                <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="scelta11" [(ngModel)]="scelta11" [value]="false">
+                                  è meno importante di
+                                </label>
+                            <strong>modicità di costo</strong>. Di quanto?
+                            <div *ngIf="scelta11 === true" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta11 === 'no'" class="d-inline-block">
+                            <div *ngIf="scelta11 === false" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -374,26 +415,29 @@
                     </tr>
                     </td>
                     </tr>
-
                     <br>
-
+                    <!-- RIGA 5 - COLONNA 1 -->
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 5">
                         <td *ngIf="c === 1">
-                            <select [(ngModel)]="scelta12">
-                                <option value="yes">è più importante di</option>
-                                <option value="no">è meno importante di</option>
-                            </select>
-                            efficacia. Di quanto?
-                            <div *ngIf="scelta12 === 'yes'" class="d-inline-block">
+                            <label class="form-check-inline">   
+                                <input class="form-check-input" type="radio" name="scelta12" [(ngModel)]="scelta12" [value]="true">
+                                  è più importante di
+                                </label>
+                                <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="scelta12" [(ngModel)]="scelta12" [value]="false">
+                                  è meno importante di
+                                </label>
+                            <strong>efficacia</strong>. Di quanto?
+                            <div *ngIf="scelta12 === true" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta12 === 'no'" class="d-inline-block">
+                            <div *ngIf="scelta12 === false" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -404,26 +448,29 @@
                     </tr>
                     </td>
                     </tr>
-
                     <br>
-
+                    <!-- RIGA 5 - COLONNA 2 -->
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 5">
                         <td *ngIf="c === 2">
-                            <select [(ngModel)]="scelta13">
-                                <option value="yes">è più importante di</option>
-                                <option value="no">è meno importante di</option>
-                            </select>
-                            compatibilità visiva. Di quanto?
-                            <div *ngIf="scelta13 === 'yes'" class="d-inline-block">
+                            <label class="form-check-inline">   
+                                <input class="form-check-input" type="radio" name="scelta13" [(ngModel)]="scelta13" [value]="true">
+                                  è più importante di
+                                </label>
+                                <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="scelta13" [(ngModel)]="scelta13" [value]="false">
+                                  è meno importante di
+                                </label>
+                            <strong>compatibilità visiva</strong>. Di quanto?
+                            <div *ngIf="scelta13 === true" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta13 === 'no'" class="d-inline-block">
+                            <div *ngIf="scelta13 === false" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -434,26 +481,29 @@
                     </tr>
                     </td>
                     </tr>
-
                     <br>
-
+                    <!-- RIGA 5 - COLONNA 3 -->
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 5">
                         <td *ngIf="c === 3">
-                            <select [(ngModel)]="scelta14">
-                                <option value="yes">è più importante di</option>
-                                <option value="no">è meno importante di</option>
-                            </select>
-                            reversibilità. Di quanto?
-                            <div *ngIf="scelta14 === 'yes'" class="d-inline-block">
+                            <label class="form-check-inline">   
+                                <input class="form-check-input" type="radio" name="scelta14" [(ngModel)]="scelta14" [value]="true">
+                                  è più importante di
+                                </label>
+                                <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="scelta14" [(ngModel)]="scelta14" [value]="false">
+                                  è meno importante di
+                                </label>
+                            <strong>reversibilità</strong>. Di quanto?
+                            <div *ngIf="scelta14 === true" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta14 === 'no'" class="d-inline-block">
+                            <div *ngIf="scelta14 === false" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -464,26 +514,29 @@
                     </tr>
                     </td>
                     </tr>
-
                     <br>
-
+                    <!-- RIGA 5 - COLONNA 4 -->
                     <tr *ngFor="let row of matrix; index as r">
                         <td *ngFor="let columns of row; index as c">
                     <tr *ngIf="r === 5">
                         <td *ngIf="c === 4">
-                            <select [(ngModel)]="scelta15">
-                                <option value="yes">è più importante di</option>
-                                <option value="no">è meno importante di</option>
-                            </select>
-                            semplicità di cantiere. Di quanto?
-                            <div *ngIf="scelta15 === 'yes'" class="d-inline-block">
+                            <label class="form-check-inline">   
+                                <input class="form-check-input" type="radio" name="scelta15" [(ngModel)]="scelta15" [value]="true">
+                                  è più importante di
+                                </label>
+                                <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="scelta15" [(ngModel)]="scelta15" [value]="false">
+                                  è meno importante di
+                                </label>
+                            <strong>semplicità di cantiere</strong>. Di quanto?
+                            <div *ngIf="scelta15 === true" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneFrazioni">
                                         {{a.char}}
                                     </option>
                                 </select>
                             </div>
-                            <div *ngIf="scelta15 === 'no'" class="d-inline-block">
+                            <div *ngIf="scelta15 === false" class="d-inline-block">
                                 <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)">
                                     <option [ngValue]="a.num" *ngFor="let a of arrayComparazioneInteri">
                                         {{a.char}}
@@ -495,6 +548,7 @@
                     </td>
                     </tr>
                 </li>
+                <!-- VALORE CR + BOTTONE -->
                 <li class="card">
                     <div class="card-body" [ngClass]="{'crGood': cr < 0.1, 'crBad': cr >= 0.1}"
                         style="text-align: center;">
@@ -519,7 +573,7 @@
 
     <div class="overflow-auto">
         <div class="row">
-
+            <!-- MATRICE COMPARAZIONE -->
             <div class="col-lg-3">
                 <details>
                     <summary><strong>Matrice A di comparazione</strong></summary>
@@ -549,14 +603,20 @@
                                     </th>
                                     <td *ngFor="let column of row; index as c">
                                         <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)" *ngIf="r > c"
-                                            style="font-size: 15px;">
+                                            style="font-size: 15px;" disabled>
                                             <option [ngValue]="a.num" *ngFor="let a of arrayComparazione">
                                                 {{a.char}}
                                             </option>
                                         </select>
-                                        <div *ngIf=" c >= r" style="font-size: 15px;">
+                                        <div *ngIf="c == r">
                                             {{oggetto[r][c]}}
                                         </div>
+                                        <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)" *ngIf="c > r"
+                                            style="font-size: 15px;" disabled>
+                                            <option [ngValue]="a.num" *ngFor="let a of arrayComparazione">
+                                                {{a.char}}
+                                            </option>
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr>
@@ -572,8 +632,10 @@
                 </details>
             </div>
 
-            <div class="col-lg-3"></div>
+            <!-- VUOTA -->
+            <div class="col-lg-3"></div> 
 
+            <!-- MATRICE NORMALIZZATA -->
             <div class="col-lg-3">
                 <details>
                     <summary><strong>Matrice A Normalizzata</strong></summary>
@@ -612,6 +674,6 @@
             </div>
         </div>
     </div>
-<label></label>
-<br><br>
+    <label></label>
+    <br><br>
 </div>
