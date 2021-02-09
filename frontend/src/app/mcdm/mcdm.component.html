@@ -1,15 +1,12 @@
-<div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-  <p><b>Valutazione multicriterio delle alternative di intervento</b>
+<div class="titolo" style="text-align: center; margin-top: 30px; font-size: 30px;">
+  <p><strong>Valutazione multicriterio delle alternative di intervento</strong>
 </div>
 
 <div class="card my-5">
   <div class="card-body">
-    <div>
 
-      <hr>
-
-      <div class=row>
-        <div class="col-sm">
+    <div class=row>
+      <div class="col-sm">
         <summary><strong>Legenda scelta interventi</strong></summary>
         <div class='my-legend'>
           <div class='legend-scale'>
@@ -21,7 +18,7 @@
         </div>
       </div>
       <div class="col-sm">
-        <summary><strong>Legenda Compatibilità Visiva</strong></summary>
+        <summary><strong>Legenda compatibilità visiva*</strong></summary>
         <div class='my-legend-CV' *ngFor="let interventi of variabileIntervento;">
           <div class='legend-scale'>
             <ul class='legend-labels' *ngIf="interventi.intervento.codice == 'B3' ||
@@ -43,14 +40,14 @@
              interventi.intervento.codice == 'C8'">
               <li>a. Seleziona la Compatibilità visiva</li>
             </ul>
-
           </div>
         </div>
+        <p style="font-size: 10px;"><strong>* quando il valore della compatibilità è zero non può essere
+            selezionato</strong></p>
       </div>
       <div class="col-sm"></div>
-      </div>
-
     </div>
+
 
     <hr>
 
@@ -76,10 +73,11 @@
               <td>{{interventi.modicitaDiCosto[j]}}</td>
               <td>{{interventi.efficacia[j]}}</td>
               <td><select [(ngModel)]="tipo_superficie" (change)="calcolaTotale()">
-                <option selected disabled [value]="0">Seleziona</option>
-                <option [value]="1" [attr.disabled]="interventi.supIntonacate[j] === 0 ? 'disabled' : null">a. {{interventi.supIntonacate[j]}}</option>
-                
-                <option *ngIf="interventi.intervento.codice == 'B1' ||
+                  <option selected disabled [value]="0">Seleziona</option>
+                  <option [value]="1" [attr.disabled]="interventi.supIntonacate[j] === 0 ? 'disabled' : null">a.
+                    {{interventi.supIntonacate[j]}}</option>
+
+                  <option *ngIf="interventi.intervento.codice == 'B1' ||
                 interventi.intervento.codice == 'B2' ||
                  interventi.intervento.codice == 'B3' ||
                  interventi.intervento.codice == 'B4' ||
@@ -104,10 +102,11 @@
                  interventi.intervento.codice == 'A5' ||
                  interventi.intervento.codice == 'A6' ||
                  interventi.intervento.codice == 'A7' ||
-                 interventi.intervento.codice == 'A8'"
-                [value]="2" [attr.disabled]="interventi.supEvIi[j] === 0 ? 'disabled' : null">b. {{interventi.supEvIi[j]}}</option>
-                
-                <option *ngIf="interventi.intervento.codice == 'B1' ||
+                 interventi.intervento.codice == 'A8'" [value]="2"
+                    [attr.disabled]="interventi.supEvIi[j] === 0 ? 'disabled' : null">b. {{interventi.supEvIi[j]}}
+                  </option>
+
+                  <option *ngIf="interventi.intervento.codice == 'B1' ||
                  interventi.intervento.codice == 'B2' ||
                  interventi.intervento.codice == 'B3' ||
                  interventi.intervento.codice == 'B4' ||
@@ -120,12 +119,15 @@
                  interventi.intervento.codice == 'B11' ||
                  interventi.intervento.codice == 'B12' ||
                  interventi.intervento.codice == 'B13' ||
-                 interventi.intervento.codice == 'B14'" 
-                 [value]="3" [attr.disabled]="interventi.supIvEi[j] === 0 ? 'disabled' : null">c. {{interventi.supIvEi[j]}}</option></select></td>
+                 interventi.intervento.codice == 'B14'" [value]="3"
+                    [attr.disabled]="interventi.supIvEi[j] === 0 ? 'disabled' : null">c. {{interventi.supIvEi[j]}}
+                  </option>
+                </select></td>
               <td>{{interventi.reversibilita[j]}}</td>
               <td>{{interventi.semplicitaDiCantiere[j]}}</td>
               <td>{{interventi.esiguitaDiIngombro[j]}}</td>
-              <td [ngStyle]="{'background-color':interventi.maxVariante === j ? '#228b22' : interventi.minVariante === j ? '#d62828' : 'white'}">
+              <td
+                [ngStyle]="{'background-color':interventi.maxVariante === j ? '#228b22' : interventi.minVariante === j ? '#d62828' : 'white'}">
                 {{interventi.totale[j] | number: '1.2-2'}}</td>
               <td>ok</td>
             </tr>
