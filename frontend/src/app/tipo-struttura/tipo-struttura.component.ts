@@ -68,7 +68,7 @@ export class TipoStrutturaComponent implements OnInit {
   imgD2 = false
   imgD3 = false
   imgD4 = false
-  
+
   constructor(
     private service: ElementiStrutturaService,
     private serviceAssociazione: AssociazioneInterventoService,
@@ -78,7 +78,7 @@ export class TipoStrutturaComponent implements OnInit {
 
   ngOnInit() {
     this.service.getStruttura().subscribe(data => {
-      this.strutt = data; 
+      this.strutt = data;
       console.log(this.strutt)
     })
     this.service.getStrutturaDue().subscribe(data => {
@@ -92,16 +92,16 @@ export class TipoStrutturaComponent implements OnInit {
     this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
       this.associazioneIntervento = this.serviceAssociazione.interventGrouping(data);
       console.log(this.associazioneIntervento)
-    }) 
+    })
   }
 
   onChange(index: number) {
     this.selectedElement = []
     this.strutt2.forEach(t => {
       if (t.struttura_id !== undefined) {
-       if (t.struttura_id.id === this.strutt[index].id) {
+        if (t.struttura_id.id === this.strutt[index].id) {
           this.selectedElement.push(t)
-       }
+        }
       }
     })
     this.selectedIndex = 0;
@@ -111,9 +111,9 @@ export class TipoStrutturaComponent implements OnInit {
   onChangeSecondo(index: number) {
     this.selectedElementDue = []
     this.strutt3.forEach(t => {
-       if (t.struttura_due_id.id === this.selectedElement[index].id) {
-          this.selectedElementDue.push(t)
-       }
+      if (t.struttura_due_id.id === this.selectedElement[index].id) {
+        this.selectedElementDue.push(t)
+      }
     })
     this.selectedIndexDue = 0;
     this.onChangeTerzo(0);
@@ -123,34 +123,37 @@ export class TipoStrutturaComponent implements OnInit {
     this.caratteristiche = this.selectedElementDue[index].carattQualit
     this.selectArr = 0;
     this.onChangeCaratteristicheQualitative(0);
-    
+
   }
 
   onChangeCaratteristicheQualitative(index: number) {
-    if(index === 0) {
-      this.variabileIntervento = null } else {
-    this.variabileIntervento = []
-    let elemento = this.selectedElementDue[this.selectedIndexDue]
-    let caratteristica = this.caratteristiche[index]
-    this.associazioneIntervento.forEach(t => {
-      if (elemento.id == t.strutturaAssociazione.id && caratteristica.id == t.caratteristicaAssociazioneIntervento.id) {
-        this.variabileIntervento.push(t);
-      } 
-    })
-  }
+    if (index === 0) {
+      this.variabileIntervento = null
+    } else {
+      this.variabileIntervento = []
+      let elemento = this.selectedElementDue[this.selectedIndexDue]
+      let caratteristica = this.caratteristiche[index]
+      this.associazioneIntervento.forEach(t => {
+        if (elemento.id == t.strutturaAssociazione.id && caratteristica.id == t.caratteristicaAssociazioneIntervento.id) {
+          this.variabileIntervento.push(t);
+        }
+      })
+    }
     console.log(this.variabileIntervento)
   }
 
   trasferisciOggetti() {
-    if(this.variabileIntervento == null) {
+    if (this.variabileIntervento == null) {
       this.alert = true
       window.scrollTo(0, 0)
     } else {
       this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche[this.selectArr])
-    this.router.navigate(['/matrice'], {
-      state: { variabileIntervento: this.variabileIntervento, 
-        caratteristiche: this.caratteristiche[this.selectArr] }
-    })
+      this.router.navigate(['/matrice'], {
+        state: {
+          variabileIntervento: this.variabileIntervento,
+          caratteristiche: this.caratteristiche[this.selectArr]
+        }
+      })
     }
   }
 
@@ -192,119 +195,119 @@ export class TipoStrutturaComponent implements OnInit {
     this.imgD2 = false
     this.imgD3 = false
     this.imgD4 = false
-    
+
     console.log(codice)
-    if(codice == "A1"){
+    if (codice == "A1") {
       this.imgA1 = true
-    } 
-    else if(codice == "A2"){
+    }
+    else if (codice == "A2") {
       this.imgA2 = true
     }
-    else if(codice == "A3"){
+    else if (codice == "A3") {
       this.imgA3 = true
     }
-    else if(codice == "A4"){
+    else if (codice == "A4") {
       this.imgA4 = true
     }
-    else if(codice == "A5"){
+    else if (codice == "A5") {
       this.imgA5 = true
     }
-    else if(codice == "A6"){
+    else if (codice == "A6") {
       this.imgA6 = true
     }
-    else if(codice == "A7"){
+    else if (codice == "A7") {
       this.imgA7 = true
     }
-    else if(codice == "A8"){
+    else if (codice == "A8") {
       this.imgA8 = true
     }
-    else if(codice == "B1"){
+    else if (codice == "B1") {
       this.imgB1 = true
     }
-    else if(codice == "B2"){
+    else if (codice == "B2") {
       this.imgB2 = true
     }
-    else if(codice == "B3"){
+    else if (codice == "B3") {
       this.imgB3 = true
-    }    
-    else if(codice == "B4"){
+    }
+    else if (codice == "B4") {
       this.imgB4 = true
-    }   
-    else if(codice == "B5"){
+    }
+    else if (codice == "B5") {
       this.imgB5 = true
-    }    
-    else if(codice == "B6"){
+    }
+    else if (codice == "B6") {
       this.imgB6 = true
-    }    
-    else if(codice == "B7"){
+    }
+    else if (codice == "B7") {
       this.imgB7 = true
-    }    
-    else if(codice == "B8"){
+    }
+    else if (codice == "B8") {
       this.imgB8 = true
-    }    
-    else if(codice == "B9"){
+    }
+    else if (codice == "B9") {
       this.imgB9 = true
-    }    
-    else if(codice == "B10"){
+    }
+    else if (codice == "B10") {
       this.imgB10 = true
-    }     
-    else if(codice == "B11"){
+    }
+    else if (codice == "B11") {
       this.imgB11 = true
     }
-    else if(codice == "B12"){
+    else if (codice == "B12") {
       this.imgB12 = true
-    }    
-    else if(codice == "B13"){
+    }
+    else if (codice == "B13") {
       this.imgB13 = true
-    }   
-    else if(codice == "B14"){
+    }
+    else if (codice == "B14") {
       this.imgB14 = true
     }
-    else if(codice == "C1"){
+    else if (codice == "C1") {
       this.imgC1 = true
-    }    
-    else if(codice == "C2"){
+    }
+    else if (codice == "C2") {
       this.imgC2 = true
-    }    
-    else if(codice == "C3"){
+    }
+    else if (codice == "C3") {
       this.imgC3 = true
-    }    
-    else if(codice == "C4"){
+    }
+    else if (codice == "C4") {
       this.imgC4 = true
-    }   
-    else if(codice == "C5"){
+    }
+    else if (codice == "C5") {
       this.imgC5 = true
     }
-    else if(codice == "C6"){
+    else if (codice == "C6") {
       this.imgC6 = true
-    }    
-    else if(codice == "C7"){
+    }
+    else if (codice == "C7") {
       this.imgC7 = true
-    }   
-    else if(codice == "C8"){
+    }
+    else if (codice == "C8") {
       this.imgC8 = true
     }
-    else if(codice == "C9"){
+    else if (codice == "C9") {
       this.imgC9 = true
-    } 
-    else if(codice == "C10"){
+    }
+    else if (codice == "C10") {
       this.imgC10 = true
-    } 
-    else if(codice == "C11"){
+    }
+    else if (codice == "C11") {
       this.imgC11 = true
     }
-    else if(codice == "D1"){
+    else if (codice == "D1") {
       this.imgD1 = true
-    }    
-    else if(codice == "D2"){
+    }
+    else if (codice == "D2") {
       this.imgD2 = true
-    }    
-    else if(codice == "D3"){
+    }
+    else if (codice == "D3") {
       this.imgD3 = true
-    }    
-    else if(codice == "D4"){
+    }
+    else if (codice == "D4") {
       this.imgD4 = true
-    }    
+    }
 
   }
 
