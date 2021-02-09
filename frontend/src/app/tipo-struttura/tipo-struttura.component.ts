@@ -29,6 +29,7 @@ export class TipoStrutturaComponent implements OnInit {
   selectedElementDue = [];
   selectedIndexDue: number;
   selectArr: number;
+  alert: boolean = false
 
   imgA1 = false
   imgA2 = false
@@ -127,7 +128,7 @@ export class TipoStrutturaComponent implements OnInit {
 
   onChangeCaratteristicheQualitative(index: number) {
     if(index === 0) {
-      this.variabileIntervento = null} else {
+      this.variabileIntervento = null } else {
     this.variabileIntervento = []
     let elemento = this.selectedElementDue[this.selectedIndexDue]
     let caratteristica = this.caratteristiche[index]
@@ -141,11 +142,16 @@ export class TipoStrutturaComponent implements OnInit {
   }
 
   trasferisciOggetti() {
-    this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche[this.selectArr])
+    if(this.variabileIntervento == null) {
+      this.alert = true
+      window.scrollTo(0, 0)
+    } else {
+      this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche[this.selectArr])
     this.router.navigate(['/matrice'], {
       state: { variabileIntervento: this.variabileIntervento, 
         caratteristiche: this.caratteristiche[this.selectArr] }
     })
+    }
   }
 
   visualizzaCodiceIntervento(codice: string) {

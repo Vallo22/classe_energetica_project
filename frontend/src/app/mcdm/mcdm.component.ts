@@ -62,7 +62,6 @@ export class McdmComponent {
   bottoneVisibile1: boolean = false
   ugualeA0: boolean = false
   tipo_superficie: number = 0
-  message: string = "null"
 
 
 

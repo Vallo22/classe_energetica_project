@@ -580,7 +580,7 @@
                     <td class="tabella">
                         <table class="table table-bordered">
                             <thead class="thead-dark">
-                                <tr style="font-size: 20px;">
+                                <tr style="font-size: 16px;">
                                     <th scope="col">
                                     </th>
                                     <th scope="col">MDC
@@ -599,7 +599,7 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let row of matrix; index as r ">
-                                    <th scope="row" style="font-size: 20px;">{{arrayStringhe[r]}}
+                                    <th scope="row" style="font-size: 16px;">{{arrayStringhe[r]}}
                                     </th>
                                     <td *ngFor="let column of row; index as c">
                                         <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)" *ngIf="r > c"
@@ -620,7 +620,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row" style="font-size: 20px;">TOT
+                                    <th scope="row" style="font-size: 16px;">TOT
                                     </th>
                                     <td style="font-size: 15px;" *ngFor="let risultato of matrixRisultati">
                                         {{risultato | number: '1.2-2'}}
@@ -644,21 +644,25 @@
                             <thead class="thead-dark">
                                 <th>
                                 </th>
-                                <th>
+                                <th>MDC
                                 </th>
-                                <th>
+                                <th>EFF
                                 </th>
-                                <th>
+                                <th>CV
                                 </th>
-                                <th>
+                                <th>REV
                                 </th>
-                                <th>
+                                <th>SDC
                                 </th>
-                                <th style="font-size: 20px;">
-                                    PONDERAZIONE
+                                <th>EDI
+                                </th>
+                                <th style="font-size: 16px;">
+                                    PONDERAZ.
                                 </th>
                             </thead>
                             <tr *ngFor="let row of matrix; index as r">
+                                <th scope="row" style="font-size: 16px;">{{arrayStringhe[r]}}
+                                </th>
                                 <td *ngFor="let column of row; index as c">
                                     <div>
                                         {{matriceNormalizzata[r][c] | number: '1.2-2' }}
