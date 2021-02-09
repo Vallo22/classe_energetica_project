@@ -16,18 +16,9 @@ export class MatriceComparazioneComponent implements OnInit {
     private router: Router
   ) { }
 
-  numeroArray: number = 0;
-  x: number = 1;
-  y: number;
-  a: number;
   cr: number;
   mxp: number[] = [0, 0, 0, 0, 0, 0];
   ponderazione: number[] = [0, 0, 0, 0, 0, 0];
-  arrayOpposite: number[];
-  arr: number[];
-  arrayProva: number[] = [];
-  numeroPrimario;
-  z: number;
   matriceNormalizzata: number[][] = [];
   oggetto: any = {};
   matrix: number[][] = [];
@@ -37,7 +28,7 @@ export class MatriceComparazioneComponent implements OnInit {
   interventoSelezionato: AssociazioneIntervento | null = null;
   idStruttura: number = 0;
   idCaratteristica: number = 0;
-  
+
   scelta: boolean = true
   scelta2: boolean = true
   scelta3: boolean = true
@@ -84,7 +75,7 @@ export class MatriceComparazioneComponent implements OnInit {
     { id: 7, char: "7.", num: 8 },
     { id: 8, char: "8. assolutamente meno importante", num: 9 }
   ]
-  
+
   arrayComparazione = [
     { id: 1, char: "1/9", num: 1 / 9 },
     { id: 2, char: "1/8", num: 1 / 8 },
@@ -123,16 +114,7 @@ export class MatriceComparazioneComponent implements OnInit {
         if (r > c) {
           this.matrix[r].push(1 / 2)
           this.oggetto[r][c] = 1 / 2
-        }
-        //if (r > c+1) {
-          //this.matrix[r].push(1 / 9)
-          //this.oggetto[r][c] = 1 / 9
-        //}
-        //if (r+1 < c) {
-          //this.matrix[r].push(9)
-          //this.oggetto[r][c] = 9
-        //}
-        else if (r < c) {
+        } else if (r < c) {
           this.matrix[r].push(2)
           this.oggetto[r][c] = 2
         }
@@ -142,7 +124,7 @@ export class MatriceComparazioneComponent implements OnInit {
   }
 
   onSelectChange(r: number, c: number) {
-    //i risultati della prima matrice
+    // Risultati prima matrice
     this.oggetto[c][r] = 1 / this.oggetto[r][c]
     this.matrixRisultati = [0, 0, 0, 0, 0, 0]
     for (let r = 0; r < this.matrix.length; r++) {
@@ -152,13 +134,13 @@ export class MatriceComparazioneComponent implements OnInit {
     }
     console.log(this.matrix)
     console.log(this.matrixRisultati)
-    //La seconda matrice
+    // Seconda matrice
     for (let r = 0; r < this.matriceNormalizzata.length; r++) {
       for (let c = 0; c < this.matriceNormalizzata[r].length; c++) {
         this.matriceNormalizzata[r][c] = this.oggetto[r][c] / this.matrixRisultati[c]
       }
     }
-    //i risultati della secconda matrice
+    // Risultati seconda matrice
     this.ponderazione = [0, 0, 0, 0, 0, 0]
     for (let r = 0; r < this.matriceNormalizzata.length; r++) {
       for (let c = 0; c < this.matriceNormalizzata[r].length; c++) {
@@ -166,7 +148,7 @@ export class MatriceComparazioneComponent implements OnInit {
       }
       this.ponderazione[r] = this.ponderazione[r] / this.matriceNormalizzata.length
     }
-    //Matrice x 
+    // Matrice x 
     for (let r = 0; r < 6; r++) {
       let riga = []
       for (let c = 0; c < 6; c++) {
@@ -174,7 +156,7 @@ export class MatriceComparazioneComponent implements OnInit {
       }
       this.mxp[r] = this.prodottoVettoriale(riga, this.ponderazione)
     }
-    //Calcolo di lambda e di cr
+    // Calcolo lambda & cr
     let lambda = 0
     for (let r in this.mxp) {
       lambda += this.mxp[r] / this.ponderazione[r]
@@ -196,7 +178,7 @@ export class MatriceComparazioneComponent implements OnInit {
   trasferisciPonderazione() {
     this.router.navigate(['/mcdm'], {
       state: {
-         caratteristiche: this.caratteristiche
+        caratteristiche: this.caratteristiche
         , ponderazione: this.ponderazione
         , variabileIntervento: this.variabileIntervento
         , idStruttura: this.idStruttura
