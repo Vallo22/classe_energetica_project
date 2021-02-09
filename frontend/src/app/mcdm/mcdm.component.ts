@@ -18,6 +18,7 @@ export class McdmComponent {
   variabileIntervento: AssociazioneIntervento[]
   caratteristiche: CaratteristicheQualitative
   car: CaratteristicheQualitative[]
+
   modCos: number
   effic: number
   supInton: number
@@ -26,7 +27,12 @@ export class McdmComponent {
   revers: number
   semplCant: number
   esigIngom: number
+
   tipo_superficie: number = 0
+  maxIntervento: AssociazioneIntervento
+  minIntervento: AssociazioneIntervento
+  maxIndex: number
+  minIndex: number
 
   ngOnInit() {
     this.caratteristiche = window.history.state.caratteristiche
@@ -87,28 +93,24 @@ export class McdmComponent {
   massimoNumero() {
     let min = Infinity
     let max = 0
-    let maxIndex: number
-    let maxIntervento: AssociazioneIntervento
-    let minIntervento: AssociazioneIntervento
-    let minIndex: number
     this.variabileIntervento.forEach(interventi => {
       for (let index in interventi.varianti) {
         if (interventi.totale[index] != 0) {
           if (interventi.totale[index] >= max) {
             max = interventi.totale[index]
-            maxIntervento = interventi
-            maxIndex = parseInt(index)
+            this.maxIntervento = interventi
+            this.maxIndex = parseInt(index)
           }
           if (interventi.totale[index] < min) {
             min = interventi.totale[index]
-            minIntervento = interventi
-            minIndex = parseInt(index)
+            this.minIntervento = interventi
+            this.minIndex = parseInt(index)
           }
         }
       }
     })
-    maxIntervento.maxVariante = maxIndex
-    minIntervento.minVariante = minIndex
+    this.maxIntervento.maxVariante = this.maxIndex
+    this.minIntervento.minVariante = this.minIndex
   }
 
 }

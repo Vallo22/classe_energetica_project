@@ -126,8 +126,7 @@
               <td>{{interventi.reversibilita[j]}}</td>
               <td>{{interventi.semplicitaDiCantiere[j]}}</td>
               <td>{{interventi.esiguitaDiIngombro[j]}}</td>
-              <td
-                [ngStyle]="{'background-color':interventi.maxVariante === j ? '#228b22' : interventi.minVariante === j ? '#d62828' : 'white'}">
+              <td [ngStyle]="{'background-color':interventi.maxVariante === j ? '#228b22' : interventi.minVariante === j ? '#d62828' : 'white' }">
                 {{interventi.totale[j] | number: '1.2-2'}}</td>
               <td>ok</td>
             </tr>

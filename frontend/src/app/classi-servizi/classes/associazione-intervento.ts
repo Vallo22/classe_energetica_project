@@ -19,7 +19,6 @@ export class AssociazioneIntervento {
     totale: number[]
     varianti?: string[]
     variante: string
-    ugualeA0?: boolean = false
 
     maxVariante?: number
     minVariante?: number
