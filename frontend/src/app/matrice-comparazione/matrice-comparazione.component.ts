@@ -28,6 +28,7 @@ export class MatriceComparazioneComponent implements OnInit {
   interventoSelezionato: AssociazioneIntervento | null = null;
   idStruttura: number = 0;
   idCaratteristica: number = 0;
+  showDiv: boolean = true
 
   scelta: boolean = true
   scelta2: boolean = true
@@ -56,24 +57,24 @@ export class MatriceComparazioneComponent implements OnInit {
 
   arrayComparazioneFrazioni = [
     { id: 1, char: "1.", num: 1 / 9 },
-    { id: 2, char: "2. poco più importante", num: 1 / 8 },
+    { id: 2, char: "2. di poco", num: 1 / 8 },
     { id: 3, char: "3.", num: 1 / 7 },
-    { id: 4, char: "4. abbastanza più importante", num: 1 / 6 },
+    { id: 4, char: "4. abbastanza", num: 1 / 6 },
     { id: 5, char: "5.", num: 1 / 5 },
-    { id: 6, char: "6. decisamente più importante", num: 1 / 4 },
+    { id: 6, char: "6. decisamente", num: 1 / 4 },
     { id: 7, char: "7.", num: 1 / 3 },
-    { id: 8, char: "8. assolutamente più importante", num: 1 / 2 }
+    { id: 8, char: "8. assolutamente", num: 1 / 2 }
   ]
 
   arrayComparazioneInteri = [
     { id: 1, char: "1.", num: 2 },
-    { id: 2, char: "2. poco meno importante", num: 3 },
+    { id: 2, char: "2. di poco", num: 3 },
     { id: 3, char: "3.", num: 4 },
-    { id: 4, char: "4. abbastanza meno importante", num: 5 },
+    { id: 4, char: "4. abbastanza", num: 5 },
     { id: 5, char: "5.", num: 6 },
-    { id: 6, char: "6. decisamente meno importante", num: 7 },
+    { id: 6, char: "6. decisamente", num: 7 },
     { id: 7, char: "7.", num: 8 },
-    { id: 8, char: "8. assolutamente meno importante", num: 9 }
+    { id: 8, char: "8. assolutamente", num: 9 }
   ]
 
   arrayComparazione = [
@@ -173,6 +174,10 @@ export class MatriceComparazioneComponent implements OnInit {
       risultato = risultato + array1[r] * array2[r]
     }
     return risultato
+  }
+
+  mostra() {
+    this.showDiv = false;
   }
 
   trasferisciPonderazione() {

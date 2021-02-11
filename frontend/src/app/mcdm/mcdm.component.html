@@ -18,32 +18,39 @@
         </div>
       </div>
       <div class="col-sm">
-        <summary><strong>Legenda compatibilità visiva*</strong></summary>
+        <summary><strong>Finitura delle superfici</strong></summary>
         <div class='my-legend-CV' *ngFor="let interventi of variabileIntervento;">
           <div class='legend-scale'>
-            <ul class='legend-labels' *ngIf="interventi.intervento.codice == 'B3' ||
-             interventi.intervento.codice == 'B8'">
-              <li>a. Tutte le superfici intonacate</li>
-              <li>b. Esterno a vista, interno intonacato</li>
-              <li>c. Interno a vista, esterno intonacato</li>
+            <ul class='legend-labels'
+              *ngIf="interventi.intervento.codice == 'B3' || interventi.intervento.codice == 'B8'">
+              <select [(ngModel)]="tipo_superficie" (change)="calcolaTotale()">
+                <option selected disabled [value]="0">Seleziona</option>
+                <option [value]="1">Tutte le superfici intonacate</option>
+                <option [value]="2">Esterno a vista, interno intonacato</option>
+                <option [value]="3">Interno a vista, esterno intonacato</option>
+              </select>
             </ul>
             <ul class='legend-labels' *ngIf="interventi.intervento.codice == 'D1' ||
              interventi.intervento.codice == 'D3' ||
              interventi.intervento.codice == 'D4' ||
              interventi.intervento.codice == 'A2' ||
              interventi.intervento.codice == 'A5'">
-              <li>a. Intradosso a vista</li>
-              <li>b. Intradosso non a vista</li>
+              <select [(ngModel)]="tipo_superficie" (change)="calcolaTotale()">
+                <option selected disabled [value]="0">Seleziona</option>
+                <option [value]="1">Intradosso a vista</option>
+                <option [value]="2">Intradosso non a vista</option>
+              </select>
             </ul>
             <ul class='legend-labels' *ngIf="interventi.intervento.codice == 'C1' ||
              interventi.intervento.codice == 'C7' ||
              interventi.intervento.codice == 'C8'">
-              <li>a. Seleziona la Compatibilità visiva</li>
+              <select [(ngModel)]="tipo_superficie" (change)="calcolaTotale()">
+                <option selected disabled [value]="0">Seleziona</option>
+                <option [value]="1">Compatibilità visiva</option>
+              </select>
             </ul>
           </div>
         </div>
-        <p style="font-size: 10px;"><strong>* quando il valore della compatibilità è zero non può essere
-            selezionato</strong></p>
       </div>
       <div class="col-sm"></div>
     </div>
@@ -72,57 +79,10 @@
               <td>{{interventi.intervento.codice}}</td>
               <td>{{interventi.modicitaDiCosto[j]}}</td>
               <td>{{interventi.efficacia[j]}}</td>
-              <td><select [(ngModel)]="tipo_superficie" (change)="calcolaTotale()">
-                  <option selected disabled [value]="0">Seleziona</option>
-                  <option [value]="1" [attr.disabled]="interventi.supIntonacate[j] === 0 ? 'disabled' : null">a.
-                    {{interventi.supIntonacate[j]}}</option>
-
-                  <option *ngIf="interventi.intervento.codice == 'B1' ||
-                interventi.intervento.codice == 'B2' ||
-                 interventi.intervento.codice == 'B3' ||
-                 interventi.intervento.codice == 'B4' ||
-                 interventi.intervento.codice == 'B5' ||
-                 interventi.intervento.codice == 'B6' ||
-                 interventi.intervento.codice == 'B7' ||
-                 interventi.intervento.codice == 'B8' ||
-                 interventi.intervento.codice == 'B9' ||
-                 interventi.intervento.codice == 'B10' ||
-                 interventi.intervento.codice == 'B11' ||
-                 interventi.intervento.codice == 'B12' ||
-                 interventi.intervento.codice == 'B13' ||
-                 interventi.intervento.codice == 'B14' ||
-                 interventi.intervento.codice == 'D1' ||
-                 interventi.intervento.codice == 'D2' ||
-                 interventi.intervento.codice == 'D3' ||
-                 interventi.intervento.codice == 'D4' ||
-                 interventi.intervento.codice == 'A1' ||
-                 interventi.intervento.codice == 'A2' ||
-                 interventi.intervento.codice == 'A3' ||
-                 interventi.intervento.codice == 'A4' ||
-                 interventi.intervento.codice == 'A5' ||
-                 interventi.intervento.codice == 'A6' ||
-                 interventi.intervento.codice == 'A7' ||
-                 interventi.intervento.codice == 'A8'" [value]="2"
-                    [attr.disabled]="interventi.supEvIi[j] === 0 ? 'disabled' : null">b. {{interventi.supEvIi[j]}}
-                  </option>
-
-                  <option *ngIf="interventi.intervento.codice == 'B1' ||
-                 interventi.intervento.codice == 'B2' ||
-                 interventi.intervento.codice == 'B3' ||
-                 interventi.intervento.codice == 'B4' ||
-                 interventi.intervento.codice == 'B5' ||
-                 interventi.intervento.codice == 'B6' ||
-                 interventi.intervento.codice == 'B7' ||
-                 interventi.intervento.codice == 'B8' ||
-                 interventi.intervento.codice == 'B9' ||
-                 interventi.intervento.codice == 'B10' ||
-                 interventi.intervento.codice == 'B11' ||
-                 interventi.intervento.codice == 'B12' ||
-                 interventi.intervento.codice == 'B13' ||
-                 interventi.intervento.codice == 'B14'" [value]="3"
-                    [attr.disabled]="interventi.supIvEi[j] === 0 ? 'disabled' : null">c. {{interventi.supIvEi[j]}}
-                  </option>
-                </select></td>
+              <td *ngIf="tipo_superficie == 0">Seleziona</td>
+              <td *ngIf="tipo_superficie == 1">{{interventi.supIntonacate[j]}}</td>
+              <td *ngIf="tipo_superficie == 2">{{interventi.supEvIi[j]}}</td>
+              <td *ngIf="tipo_superficie == 3">{{interventi.supIvEi[j]}}</td>
               <td>{{interventi.reversibilita[j]}}</td>
               <td>{{interventi.semplicitaDiCantiere[j]}}</td>
               <td>{{interventi.esiguitaDiIngombro[j]}}</td>

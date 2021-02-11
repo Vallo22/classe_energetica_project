@@ -10,27 +10,21 @@
                 <div *ngFor="let row of matrix; index as r">
                     <div class="col-md-auto" *ngIf="r === 0">
                         <strong>Modicità di costo</strong><br>
-                        {{ponderazione[r]*100 | number: '1.0-0'}}%
                     </div>
                     <div class="col-md-auto" *ngIf="r === 1">
                         <strong>Efficacia</strong><br>
-                        {{ponderazione[r]*100 | number: '1.0-0'}}%
                     </div>
                     <div class="col-md-auto" *ngIf="r === 2">
                         <strong>Compatibilità visiva</strong><br>
-                        {{ponderazione[r]*100 | number: '1.0-0'}}%
                     </div>
                     <div class="col-md-auto" *ngIf="r === 3">
                         <strong>Reversibilità</strong><br>
-                        {{ponderazione[r]*100 | number: '1.0-0'}}%
                     </div>
                     <div class="col-md-auto" *ngIf="r === 4">
                         <strong>Semplicità di cantiere</strong><br>
-                        {{ponderazione[r]*100 | number: '1.0-0'}}%
                     </div>
                     <div class="col-md-auto" *ngIf="r === 5">
                         <strong>Esiguità di ingombro</strong><br>
-                        {{ponderazione[r]*100 | number: '1.0-0'}}%
                     </div>
                 </div>
             </div>
@@ -578,25 +572,61 @@
                     </td>
                     </tr>
                 </li>
-                <!-- VALORE CR + BOTTONE -->
-                <li class="card">
-                    <div class="card-body" [ngClass]="{'crGood': cr < 0.1, 'crBad': cr >= 0.1}"
-                        style="text-align: center;">
-                        <div style="color: white">
-                            <strong>Finché il colore non diventa verde (CR < 0.10), non sarà possibile utilizzare i
-                                    pesi.</strong>
-                        </div>
-                        <strong> VALORE CR: {{cr | number: '1.2-2'}}</strong>
-                        <div class="pulsante">
-                            <button *ngIf="cr < 0.1" class="btn btn-info" style="align-content: center;"
-                                (click)="trasferisciPonderazione()">
-                                Premi per ottenere i pesi
-                            </button>
-                        </div>
-                    </div>
-                </li>
             </ul>
         </div>
+
+        <!-- VALORE CR + BOTTONE -->
+        <div class="card-footer">
+            <p [ngClass]="{'crGood': cr < 0.1, 'crBad': cr >= 0.1}" style="text-align: center;"><strong>Finché il colore
+                    non diventa verde (CR < 0.10), non sarà possibile ottenere i pesi.</strong><br>
+                        <strong> VALORE CR: {{cr | number: '1.2-2'}}</strong></p>
+            <div class="nascosta" *ngIf="cr < 0.1">
+                <div class="pulsante">
+                    <button class="btn btn-outline-success" (click)="mostra()">
+                        Convalida scelte per ottenere i pesi
+                    </button>
+                </div>
+                <hr>
+                <div class="percentuali" *ngIf="showDiv == false">
+                    <div class="row justify-content-md-center">
+                        <div *ngFor="let row of matrix; index as r">
+                            <div class="col-md-auto" *ngIf="r === 0">
+                                <strong>Modicità di costo</strong><br>
+                                {{ponderazione[r]*100 | number: '1.0-0'}}%
+                            </div>
+                            <div class="col-md-auto" *ngIf="r === 1">
+                                <strong>Efficacia</strong><br>
+                                {{ponderazione[r]*100 | number: '1.0-0'}}%
+                            </div>
+                            <div class="col-md-auto" *ngIf="r === 2">
+                                <strong>Compatibilità visiva</strong><br>
+                                {{ponderazione[r]*100 | number: '1.0-0'}}%
+                            </div>
+                            <div class="col-md-auto" *ngIf="r === 3">
+                                <strong>Reversibilità</strong><br>
+                                {{ponderazione[r]*100 | number: '1.0-0'}}%
+                            </div>
+                            <div class="col-md-auto" *ngIf="r === 4">
+                                <strong>Semplicità di cantiere</strong><br>
+                                {{ponderazione[r]*100 | number: '1.0-0'}}%
+                            </div>
+                            <div class="col-md-auto" *ngIf="r === 5">
+                                <strong>Esiguità di ingombro</strong><br>
+                                {{ponderazione[r]*100 | number: '1.0-0'}}%
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="pulsante">
+                        <button class="btn btn-primary"
+                            (click)="trasferisciPonderazione()">
+                            Avanti &raquo;
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <hr>

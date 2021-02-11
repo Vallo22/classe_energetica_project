@@ -113,4 +113,12 @@ export class McdmComponent {
     this.minIntervento.minVariante = this.minIndex
   }
 
+  deleteRow(id){
+    for(let i = 0; i < this.variabileIntervento.length; ++i){
+        if (this.variabileIntervento[i].totale === id) {
+            this.variabileIntervento.splice(i,1);
+        }
+    }
+}
+
 }
