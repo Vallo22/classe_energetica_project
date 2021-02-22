@@ -10,6 +10,7 @@ import { TipoStrutturaComponent } from './tipo-struttura/tipo-struttura.componen
 import { RouterModule } from '@angular/router';
 import { MatriceComparazioneComponent } from './matrice-comparazione/matrice-comparazione.component';
 import { McdmComponent } from './mcdm/mcdm.component';
+import { PerformanceEnergeticaComponent } from './performance-energetica/performance-energetica.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { McdmComponent } from './mcdm/mcdm.component';
     HomeComponent,
     TipoStrutturaComponent,
     MatriceComparazioneComponent,
-    McdmComponent
+    McdmComponent,
+    PerformanceEnergeticaComponent
   ],
   imports: [
     BrowserModule,

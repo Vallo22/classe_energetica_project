@@ -75,7 +75,8 @@
         </thead>
         <tbody>
           <ng-container *ngFor="let interventi of variabileIntervento; index as i">
-            <tr *ngFor="let variante of interventi.varianti; index as j">
+            <ng-container *ngFor="let variante of interventi.varianti; index as j">
+              <tr *ngIf="interventi.totale[j] != 0">
               <td>{{interventi.intervento.codice}}</td>
               <td>{{interventi.modicitaDiCosto[j]}}</td>
               <td>{{interventi.efficacia[j]}}</td>
@@ -89,7 +90,8 @@
               <td [ngStyle]="{'background-color':interventi.maxVariante === j ? '#228b22' : interventi.minVariante === j ? '#d62828' : 'white' }">
                 {{interventi.totale[j] | number: '1.2-2'}}</td>
               <td>ok</td>
-            </tr>
+              </tr>
+            </ng-container>
           </ng-container>
         </tbody>
       </table>

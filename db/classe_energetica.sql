@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Feb 11, 2021 alle 11:53
+-- Creato il: Feb 12, 2021 alle 17:43
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -159,6 +159,36 @@ INSERT INTO `caratteristiche_qualitative` (`id`, `caratteristiche_qualitative`) 
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `classe_indicatore`
+--
+
+CREATE TABLE `classe_indicatore` (
+  `id` bigint(20) NOT NULL,
+  `descrizione` varchar(255) DEFAULT NULL,
+  `punteggio` int(11) NOT NULL,
+  `indicatore_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `classe_indicatore`
+--
+
+INSERT INTO `classe_indicatore` (`id`, `descrizione`, `punteggio`, `indicatore_id`) VALUES
+(26, 'edificio isolato', 0, 3),
+(27, 'edificio con un lato attiguo', 0, 3),
+(28, 'edifico con due lati attigui', 0, 3),
+(29, 'edificio con tre lati attigui', 0, 3),
+(30, 'edificio intercluso', 0, 3),
+(31, 'edificio con lato attiguo a sud', 0, 4),
+(32, 'edificio con lato esposto sia a sud che nord', 0, 4),
+(33, 'edificio con lato esposto a sud e attiguo a nord', 0, 4),
+(34, 'rotazione di 0° rispetto agli assi N-S e E-O con lati esposti N, NEO, NO, NSO, O,SO', 0, 5),
+(35, 'altri casi', 0, 5),
+(36, 'rotazione di 0° rispetto agli assi N-S e E-O con esposizioni E, ES, ESO, NE, NES, S', 0, 5);
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `codice_intervento`
 --
 
@@ -227,6 +257,36 @@ INSERT INTO `codice_intervento` (`id`, `codice`, `descrizione`) VALUES
 (52, 'F2', 'Realizzazione di una serra solare\r\n'),
 (53, 'F3', 'Realizzazione di camini di luce\r\n'),
 (54, 'F4', 'Realizzazione di un camino di ventilazione\r\n');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `indicatore`
+--
+
+CREATE TABLE `indicatore` (
+  `id` bigint(20) NOT NULL,
+  `indicatore` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `indicatore`
+--
+
+INSERT INTO `indicatore` (`id`, `indicatore`) VALUES
+(1, 'Rapporto S/V'),
+(2, 'Percentuale di superfici finestrate'),
+(3, 'Posizione planimetrica all\'interno dell\'aggregato'),
+(4, 'Esposizione delle facciate libere'),
+(5, 'Orientamento'),
+(6, 'Qualità della copertura'),
+(7, 'Qualità delle pareti'),
+(8, 'Qualità delle superfici trasparenti'),
+(9, 'Qualità del solaio a terra'),
+(10, 'Ponti termici'),
+(11, 'Rendimento dell\'impianto di climatizzazione invernale'),
+(12, 'Rendimento dell\'impianto di climatizzazione estiva'),
+(13, 'Rendimento dell\'impianto per l\'acqua calda sanitaria');
 
 -- --------------------------------------------------------
 
@@ -367,9 +427,22 @@ ALTER TABLE `caratteristiche_qualitative`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indici per le tabelle `classe_indicatore`
+--
+ALTER TABLE `classe_indicatore`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FKcv0llisc9wfd2vewap8gb87bd` (`indicatore_id`);
+
+--
 -- Indici per le tabelle `codice_intervento`
 --
 ALTER TABLE `codice_intervento`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `indicatore`
+--
+ALTER TABLE `indicatore`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -416,10 +489,22 @@ ALTER TABLE `caratteristiche_qualitative`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT per la tabella `classe_indicatore`
+--
+ALTER TABLE `classe_indicatore`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
 -- AUTO_INCREMENT per la tabella `codice_intervento`
 --
 ALTER TABLE `codice_intervento`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+
+--
+-- AUTO_INCREMENT per la tabella `indicatore`
+--
+ALTER TABLE `indicatore`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT per la tabella `struttura`
@@ -450,6 +535,12 @@ ALTER TABLE `associazione_intervento`
   ADD CONSTRAINT `FK46uhq35u5o5505o35ra1kjor2` FOREIGN KEY (`struttura_associazione_id`) REFERENCES `struttura_tre` (`id`),
   ADD CONSTRAINT `FKf69pmge2ud5tbnx1a8bucebk4` FOREIGN KEY (`caratteristica_associazione_intervento_id`) REFERENCES `caratteristiche_qualitative` (`id`),
   ADD CONSTRAINT `FKgg9x8sypaf66qi9st6mln8rfv` FOREIGN KEY (`intervento_id`) REFERENCES `codice_intervento` (`id`);
+
+--
+-- Limiti per la tabella `classe_indicatore`
+--
+ALTER TABLE `classe_indicatore`
+  ADD CONSTRAINT `FKcv0llisc9wfd2vewap8gb87bd` FOREIGN KEY (`indicatore_id`) REFERENCES `indicatore` (`id`);
 
 --
 -- Limiti per la tabella `struttura_due`
