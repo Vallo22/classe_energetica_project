@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { PerformanceEnergeticaComponent } from './performance-energetica/performance-energetica.component';
-import { TipoStrutturaComponent } from './tipo-struttura/tipo-struttura.component';
-import { MatriceComparazioneComponent } from './matrice-comparazione/matrice-comparazione.component';
-import { McdmComponent } from './mcdm/mcdm.component';
+import { PerformanceEnergeticaCeComponent } from './performance-energetica-ce/performance-energetica-ce.component';
+import { TipoStrutturaCeComponent } from './tipo-struttura-ce/tipo-struttura-ce.component';
+import { MatriceCeComponent } from './matrice-ce/matrice-ce.component';
+import { ValutazioneInterventiCeComponent } from './valutazione-interventi-ce/valutazione-interventi-ce.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'performance-energetica', component: PerformanceEnergeticaComponent },
-  { path: 'tipo-struttura', component: TipoStrutturaComponent },
-  { path: 'matrice', component: MatriceComparazioneComponent },
-  { path: 'mcdm', component: McdmComponent }
+  { path: 'performance-energetica-ce', component: PerformanceEnergeticaCeComponent },
+  { path: 'tipo-struttura-ce', component: TipoStrutturaCeComponent },
+  { path: 'matrice-ce', component: MatriceCeComponent },
+  { path: 'valutazione-interventi-ce', component: ValutazioneInterventiCeComponent}
 ];
 
 @NgModule({

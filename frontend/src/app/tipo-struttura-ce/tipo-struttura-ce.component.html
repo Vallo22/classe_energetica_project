@@ -1,0 +1,298 @@
+<div class="container">
+    <div class="titolo" style="text-align: center; margin-top: 30px; font-size: 30px;">
+      <p><strong>Individuazione degli interventi</strong></p>
+    </div>
+  
+    <!-- ALERT -->
+    <div class="alert alert-danger" role="alert" *ngIf="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      Seleziona una struttura e una caratteristica qualitativa per proseguire!
+    </div>
+  
+    <div class="card my-5">
+      <div class="card-header" style="text-align: center; font-size: 20px;">
+        <p><strong>Tipo di struttura</strong></p>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <!-- STRUTTURA UNO -->
+            <select value="structure" class="form-control" id="structure" (change)="onChange($event.target.value)"
+              name="struttura">
+              <option selected disabled>
+                Seleziona
+              </option>
+              <option [value]="i" *ngFor="let array1 of strutt; index as i">
+                {{ array1.struttura }}
+              </option>
+            </select>
+  
+            <!-- STRUTTURA DUE -->
+            <select [(ngModel)]="selectedIndex" style="margin-top: 30px;" (change)="onChangeSecondo($event.target.value)"
+              value="struttura" class="form-control" id="structure" name="struttura">
+              <option [value]="i" *ngFor="let array2 of selectedElement; index as i">
+                {{ array2.strutturaDue }}
+              </option>
+            </select>
+  
+            <!-- STRUTTURA TRE -->
+            <select [(ngModel)]="selectedIndexDue" style="margin-top: 30px;" (change)="onChangeTerzo($event.target.value)"
+              value="struttura" class="form-control" id="structure" name="struttura">
+              <option [value]="i" *ngFor="let array3 of selectedElementDue; index as i">
+                {{ array3.strutturaTre }}
+              </option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+    <!-- CARATTERISTICHE QUALITATIVE -->
+    <div class="card my-5">
+      <div class="card-header" style="text-align: center; font-size: 20px;">
+        <p><strong>Caratteristiche qualitative</strong></p>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <select [(ngModel)]="selectArr" style="margin-top: 30px;" value="struttura"
+              (change)="onChangeCaratteristicheQualitative($event.target.value)" class="form-control" id="structure"
+              name="struttura">
+              <option disabled selected [value]="0">Seleziona</option>
+              <option [value]="i" *ngFor="let array4 of caratteristiche; index as i">
+                {{array4.caratteristicheQualitative}}
+              </option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+    <!-- INTERVENTI -->
+    <div class="card my-5">
+      <div class="card-header" style="text-align: center; font-size: 20px;">
+        <p><strong>Interventi</strong></p>
+      </div>
+      <div class="card-body">
+        <form>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let arr of variabileIntervento; index as i">
+              <td><strong>
+                Codice: {{arr.intervento.codice}}
+                - {{arr.intervento.descrizione}}</strong>
+  
+                <!-- APPUNTI -->
+                <div *ngIf="arr.intervento.codice == 'B6' ">
+                  <div class="appunto">*questo intervento può essere effettuato solo su 2 paramenti con intercapedine
+                    vuota o combinata con intervento strutturale D13</div>
+                </div>
+                <div *ngIf="arr.intervento.codice == 'B8' ">
+                  <div class="appunto">*l'intervento può comportare problematiche di tipo statico</div>
+                </div>
+                <div *ngIf="arr.intervento.codice == 'B7' ">
+                  <div class="appunto">*gli interventi richiedono una progettazione approfondita e una più attenta
+                    valutazione di applicabilità;<br>
+                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali
+                  </div>
+                </div>
+                <div *ngIf="arr.intervento.codice == 'B12' ">
+                  <div class="appunto">*gli interventi richiedono una progettazione approfondita e una più attenta
+                    valutazione di applicabilità;<br>
+                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali
+                  </div>
+                </div>
+                <div *ngIf="arr.intervento.codice == 'B13' ">
+                  <div class="appunto">*gli interventi richiedono una progettazione approfondita e una più attenta
+                    valutazione di applicabilità;<br>
+                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali
+                  </div>
+                </div>
+                <div *ngIf="arr.intervento.codice == 'B14' ">
+                  <div class="appunto">*gli interventi richiedono una progettazione approfondita e una più attenta
+                    valutazione di applicabilità;<br>
+                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali
+                  </div>
+                </div>
+                <div *ngIf="arr.intervento.codice == 'A7' ">
+                  <div class="appunto">*l'intervento richiede una valutazione più approfondita di applicabilità</div>
+                </div>
+                <div *ngIf="arr.intervento.codice == 'A8' ">
+                  <div class="appunto">*l'intervento richiede una valutazione più approfondita di applicabilità</div>
+                </div>
+                <div *ngIf="arr.intervento.codice == 'A5' ">
+                  <div class="appunto">*gli interventi richiedono una progettazione approfondita e una più attenta
+                    valutazione di applicabilità;<br>
+                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali
+                  </div>
+                </div>
+                <div *ngIf="arr.intervento.codice == 'A6' ">
+                  <div class="appunto">*gli interventi richiedono una progettazione approfondita e una più attenta
+                    valutazione di applicabilità;<br>
+                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali
+                  </div>
+                </div>
+                <div *ngIf="arr.intervento.codice == 'C1' ">
+                  <div class="appunto">*l'intervento riveste anche una funzione coibente</div>
+                </div>
+                <div *ngIf="arr.intervento.codice == 'C2' ">
+                  <div class="appunto">*l'intervento riveste anche una funzione coibente</div>
+                </div>
+                <div *ngIf="arr.intervento.codice == 'C3' ">
+                  <div class="appunto">*l'intervento riveste anche una funzione coibente</div>
+                </div>
+                <div *ngIf="arr.intervento.codice == 'C4' ">
+                  <div class="appunto">*l'intervento riveste anche una funzione coibente</div>
+                </div>
+                <div *ngIf="arr.intervento.codice == 'C11' ">
+                  <div class="appunto">*l'intervento promuove la diffusione della luce in profondità</div>
+                </div>
+  
+              </td>
+              <button style="margin-left: 20px; float: right;" class="btn btn-outline-primary"
+                (click)="visualizzaCodiceIntervento(arr.intervento.codice)" data-toggle="modal"
+                data-target=".bd-example-modal-lg">
+                Vai all'intervento
+              </button>
+            </li>
+          </ul>
+        </form>
+      </div>
+      <div class="pulsante">
+        <button class="btn btn-primary" class="btn btn-primary" style="width: 94px;" style="margin-bottom: 15px;"
+          (click)="trasferisciOggetti()">
+          Avanti &raquo;
+        </button>
+      </div>
+    </div>
+  
+    <!-- MODAL -->
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+  
+            <!-- X -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+  
+          <!-- IMMAGINI -->
+          <div *ngIf="imgA1">
+            <img src="assets\images\A1.jpg" alt="Codice A1">
+          </div>
+          <div *ngIf="imgA2">
+            <img src="assets\images\A2.jpg" alt="Codice A2">
+          </div>
+          <div *ngIf="imgA3">
+            <img src="assets\images\A3.jpg" alt="Codice A3">
+          </div>
+          <div *ngIf="imgA4">
+            <img src="assets\images\A4.jpg" alt="Codice A4">
+          </div>
+          <div *ngIf="imgA5">
+            <img src="assets\images\A5.jpg" alt="Codice A5">
+          </div>
+          <div *ngIf="imgA6">
+            <img src="assets\images\A6.jpg" alt="Codice A6">
+          </div>
+          <div *ngIf="imgA7">
+            <img src="assets\images\A7.jpg" alt="Codice A7">
+          </div>
+          <div *ngIf="imgA8">
+            <img src="assets\images\A8.jpg" alt="Codice A8">
+          </div>
+          <div *ngIf="imgB1">
+            <img src="assets\images\B1.jpg" alt="Codice B1">
+          </div>
+          <div *ngIf="imgB2">
+            <img src="assets\images\B2.jpg" alt="Codice B2">
+          </div>
+          <div *ngIf="imgB3">
+            <img src="assets\images\B3.jpg" alt="Codice B3">
+          </div>
+          <div *ngIf="imgB4">
+            <img src="assets\images\B4.jpg" alt="Codice B4">
+          </div>
+          <div *ngIf="imgB5">
+            <img src="assets\images\B5.jpg" alt="Codice B5">
+          </div>
+          <div *ngIf="imgB6">
+            <img src="assets\images\B6.jpg" alt="Codice B6">
+          </div>
+          <div *ngIf="imgB7">
+            <img src="assets\images\B7.jpg" alt="Codice B7">
+          </div>
+          <div *ngIf="imgB8">
+            <img src="assets\images\B8.jpg" alt="Codice B8">
+          </div>
+          <div *ngIf="imgB9">
+            <img src="assets\images\B9.jpg" alt="Codice B9">
+          </div>
+          <div *ngIf="imgB10">
+            <img src="assets\images\B10.jpg" alt="Codice B10">
+          </div>
+          <div *ngIf="imgB11">
+            <img src="assets\images\B11.jpg" alt="Codice B11">
+          </div>
+          <div *ngIf="imgB12">
+            <img src="assets\images\B12.jpg" alt="Codice B12">
+          </div>
+          <div *ngIf="imgB13">
+            <img src="assets\images\B13.jpg" alt="Codice B13">
+          </div>
+          <div *ngIf="imgB14">
+            <img src="assets\images\B14.jpg" alt="Codice B14">
+          </div>
+          <div *ngIf="imgC1">
+            <img src="assets\images\C1.jpg" alt="Codice C1">
+          </div>
+          <div *ngIf="imgC2">
+            <img src="assets\images\C2.jpg" alt="Codice C2">
+          </div>
+          <div *ngIf="imgC3">
+            <img src="assets\images\C3.jpg" alt="Codice C3">
+          </div>
+          <div *ngIf="imgC4">
+            <img src="assets\images\C4.jpg" alt="Codice C4">
+          </div>
+          <div *ngIf="imgC5">
+            <img src="assets\images\C5.jpg" alt="Codice C5">
+          </div>
+          <div *ngIf="imgC6">
+            <img src="assets\images\C6.jpg" alt="Codice C6">
+          </div>
+          <div *ngIf="imgC7">
+            <img src="assets\images\C7.jpg" alt="Codice C7">
+          </div>
+          <div *ngIf="imgC8">
+            <img src="assets\images\C8.jpg" alt="Codice C8">
+          </div>
+          <div *ngIf="imgC9">
+            <img src="assets\images\C9.jpg" alt="Codice C9">
+          </div>
+          <div *ngIf="imgC10">
+            <img src="assets\images\C10.jpg" alt="Codice C10">
+          </div>
+          <div *ngIf="imgC11">
+            <img src="assets\images\C11.jpg" alt="Codice C11">
+          </div>
+          <div *ngIf="imgD1">
+            <img src="assets\images\D1.jpg" alt="Codice D1">
+          </div>
+          <div *ngIf="imgD2">
+            <img src="assets\images\D2.jpg" alt="Codice D2">
+          </div>
+          <div *ngIf="imgD3">
+            <img src="assets\images\D3.jpg" alt="Codice D3">
+          </div>
+          <div *ngIf="imgD4">
+            <img src="assets\images\D4.jpg" alt="Codice D4">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

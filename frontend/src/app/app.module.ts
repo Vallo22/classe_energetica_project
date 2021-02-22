@@ -6,20 +6,20 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { TipoStrutturaComponent } from './tipo-struttura/tipo-struttura.component';
 import { RouterModule } from '@angular/router';
-import { MatriceComparazioneComponent } from './matrice-comparazione/matrice-comparazione.component';
-import { McdmComponent } from './mcdm/mcdm.component';
-import { PerformanceEnergeticaComponent } from './performance-energetica/performance-energetica.component';
+import { PerformanceEnergeticaCeComponent } from './performance-energetica-ce/performance-energetica-ce.component';
+import { TipoStrutturaCeComponent } from './tipo-struttura-ce/tipo-struttura-ce.component';
+import { MatriceCeComponent } from './matrice-ce/matrice-ce.component';
+import { ValutazioneInterventiCeComponent } from './valutazione-interventi-ce/valutazione-interventi-ce.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    TipoStrutturaComponent,
-    MatriceComparazioneComponent,
-    McdmComponent,
-    PerformanceEnergeticaComponent
+    PerformanceEnergeticaCeComponent,
+    TipoStrutturaCeComponent,
+    MatriceCeComponent,
+    ValutazioneInterventiCeComponent
   ],
   imports: [
     BrowserModule,

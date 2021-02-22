@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `associazione_intervento`
+-- Struttura della tabella `associazione_intervento_ce`
 --
 
-CREATE TABLE `associazione_intervento` (
+CREATE TABLE `associazione_intervento_ce` (
   `id` bigint(20) NOT NULL,
   `caratteristica_associazione_intervento_id` bigint(20) DEFAULT NULL,
   `intervento_id` bigint(20) DEFAULT NULL,
@@ -44,10 +44,10 @@ CREATE TABLE `associazione_intervento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `associazione_intervento`
+-- Dump dei dati per la tabella `associazione_intervento_ce`
 --
 
-INSERT INTO `associazione_intervento` (`id`, `caratteristica_associazione_intervento_id`, `intervento_id`, `struttura_associazione_id`, `modicita_di_costo`, `efficacia`, `sup_intonacate`, `sup_ev_ii`, `sup_iv_ei`, `reversibilita`, `semplicita_di_cantiere`, `esiguita_di_ingombro`, `variante`) VALUES
+INSERT INTO `associazione_intervento_ce` (`id`, `caratteristica_associazione_intervento_id`, `intervento_id`, `struttura_associazione_id`, `modicita_di_costo`, `efficacia`, `sup_intonacate`, `sup_ev_ii`, `sup_iv_ei`, `reversibilita`, `semplicita_di_cantiere`, `esiguita_di_ingombro`, `variante`) VALUES
 (1, 1, 9, 1, 2, 2, 3, 3, 0, 2, 2, 2, NULL),
 (2, 1, 10, 1, 2, 1, 3, 3, 0, 2, 3, 3, NULL),
 (3, 1, 11, 1, 1, 3, 3, 0, 3, 2, 2, 1, NULL),
@@ -132,19 +132,19 @@ INSERT INTO `associazione_intervento` (`id`, `caratteristica_associazione_interv
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `caratteristiche_qualitative`
+-- Struttura della tabella `caratteristiche_qualitative_ce`
 --
 
-CREATE TABLE `caratteristiche_qualitative` (
+CREATE TABLE `caratteristiche_qualitative_ce` (
   `id` bigint(20) NOT NULL,
   `caratteristiche_qualitative` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `caratteristiche_qualitative`
+-- Dump dei dati per la tabella `caratteristiche_qualitative_ce`
 --
 
-INSERT INTO `caratteristiche_qualitative` (`id`, `caratteristiche_qualitative`) VALUES
+INSERT INTO `caratteristiche_qualitative_ce` (`id`, `caratteristiche_qualitative`) VALUES
 (1, 'Scarso potere coibente'),
 (2, 'Scarsa capacità di dissipare calore'),
 (3, 'Umidità per risalita capillare'),
@@ -159,10 +159,10 @@ INSERT INTO `caratteristiche_qualitative` (`id`, `caratteristiche_qualitative`) 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `classe_indicatore`
+-- Struttura della tabella `classe_indicatore_ce`
 --
 
-CREATE TABLE `classe_indicatore` (
+CREATE TABLE `classe_indicatore_ce` (
   `id` bigint(20) NOT NULL,
   `descrizione` varchar(255) DEFAULT NULL,
   `punteggio` int(11) NOT NULL,
@@ -170,10 +170,10 @@ CREATE TABLE `classe_indicatore` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `classe_indicatore`
+-- Dump dei dati per la tabella `classe_indicatore_ce`
 --
 
-INSERT INTO `classe_indicatore` (`id`, `descrizione`, `punteggio`, `indicatore_id`) VALUES
+INSERT INTO `classe_indicatore_ce` (`id`, `descrizione`, `punteggio`, `indicatore_id`) VALUES
 (26, 'edificio isolato', 0, 3),
 (27, 'edificio con un lato attiguo', 0, 3),
 (28, 'edifico con due lati attigui', 0, 3),
@@ -189,20 +189,20 @@ INSERT INTO `classe_indicatore` (`id`, `descrizione`, `punteggio`, `indicatore_i
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `codice_intervento`
+-- Struttura della tabella `codice_intervento_ce`
 --
 
-CREATE TABLE `codice_intervento` (
+CREATE TABLE `codice_intervento_ce` (
   `id` bigint(20) NOT NULL,
   `codice` varchar(255) DEFAULT NULL,
   `descrizione` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `codice_intervento`
+-- Dump dei dati per la tabella `codice_intervento_ce`
 --
 
-INSERT INTO `codice_intervento` (`id`, `codice`, `descrizione`) VALUES
+INSERT INTO `codice_intervento_ce` (`id`, `codice`, `descrizione`) VALUES
 (1, 'A1', 'Isolamento termico all\'estradosso non ventilato\r\n'),
 (2, 'A2', 'Isolamento termico all\'estradosso ventilato\r\n'),
 (3, 'A3', 'Isolamento termico all\'intradosso\r\n'),
@@ -261,19 +261,19 @@ INSERT INTO `codice_intervento` (`id`, `codice`, `descrizione`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `indicatore`
+-- Struttura della tabella `indicatore_ce`
 --
 
-CREATE TABLE `indicatore` (
+CREATE TABLE `indicatore_ce` (
   `id` bigint(20) NOT NULL,
   `indicatore` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `indicatore`
+-- Dump dei dati per la tabella `indicatore_ce`
 --
 
-INSERT INTO `indicatore` (`id`, `indicatore`) VALUES
+INSERT INTO `indicatore_ce` (`id`, `indicatore`) VALUES
 (1, 'Rapporto S/V'),
 (2, 'Percentuale di superfici finestrate'),
 (3, 'Posizione planimetrica all\'interno dell\'aggregato'),
@@ -291,19 +291,19 @@ INSERT INTO `indicatore` (`id`, `indicatore`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `struttura`
+-- Struttura della tabella `struttura_ce`
 --
 
-CREATE TABLE `struttura` (
+CREATE TABLE `struttura_ce` (
   `id` bigint(20) NOT NULL,
   `struttura` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `struttura`
+-- Dump dei dati per la tabella `struttura_ce`
 --
 
-INSERT INTO `struttura` (`id`, `struttura`) VALUES
+INSERT INTO `struttura_ce` (`id`, `struttura`) VALUES
 (1, 'Strutture di elevazione verticale'),
 (2, 'Strutture di elevazione orizzontale'),
 (3, 'Strutture di elevazione inclinate'),
@@ -313,20 +313,20 @@ INSERT INTO `struttura` (`id`, `struttura`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `struttura_due`
+-- Struttura della tabella `struttura_due_ce`
 --
 
-CREATE TABLE `struttura_due` (
+CREATE TABLE `struttura_due_ce` (
   `id` bigint(20) NOT NULL,
   `struttura_due` varchar(255) DEFAULT NULL,
   `struttura_id_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `struttura_due`
+-- Dump dei dati per la tabella `struttura_due_ce`
 --
 
-INSERT INTO `struttura_due` (`id`, `struttura_due`, `struttura_id_id`) VALUES
+INSERT INTO `struttura_due_ce` (`id`, `struttura_due`, `struttura_id_id`) VALUES
 (1, 'Strutture a pareti portanti in muratura', 1),
 (2, 'Strutture per impalcati piani', 2),
 (3, 'Strutture per coperture piane', 2),
@@ -337,20 +337,20 @@ INSERT INTO `struttura_due` (`id`, `struttura_due`, `struttura_id_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `struttura_tre`
+-- Struttura della tabella `struttura_tre_ce`
 --
 
-CREATE TABLE `struttura_tre` (
+CREATE TABLE `struttura_tre_ce` (
   `id` bigint(20) NOT NULL,
   `struttura_tre` varchar(255) DEFAULT NULL,
   `struttura_due_id_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `struttura_tre`
+-- Dump dei dati per la tabella `struttura_tre_ce`
 --
 
-INSERT INTO `struttura_tre` (`id`, `struttura_tre`, `struttura_due_id_id`) VALUES
+INSERT INTO `struttura_tre_ce` (`id`, `struttura_tre`, `struttura_due_id_id`) VALUES
 (1, 'Strutture a pareti portanti in muratura', 1),
 (2, 'Solai a terra', 2),
 (3, 'Solai inferiori', 2),
@@ -364,19 +364,19 @@ INSERT INTO `struttura_tre` (`id`, `struttura_tre`, `struttura_due_id_id`) VALUE
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `struttura_tre_caratt_qualit`
+-- Struttura della tabella `struttura_tre_ce_caratt_qualit`
 --
 
-CREATE TABLE `struttura_tre_caratt_qualit` (
-  `struttura_tre_id` bigint(20) NOT NULL,
+CREATE TABLE `struttura_tre_ce_caratt_qualit` (
+  `struttura_tre_ce_id` bigint(20) NOT NULL,
   `caratt_qualit_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `struttura_tre_caratt_qualit`
+-- Dump dei dati per la tabella `struttura_tre_ce_caratt_qualit`
 --
 
-INSERT INTO `struttura_tre_caratt_qualit` (`struttura_tre_id`, `caratt_qualit_id`) VALUES
+INSERT INTO `struttura_tre_ce_caratt_qualit` (`struttura_tre_ce_id`, `caratt_qualit_id`) VALUES
 (1, 1),
 (1, 2),
 (1, 3),
@@ -412,116 +412,116 @@ INSERT INTO `struttura_tre_caratt_qualit` (`struttura_tre_id`, `caratt_qualit_id
 --
 
 --
--- Indici per le tabelle `associazione_intervento`
+-- Indici per le tabelle `associazione_intervento_ce`
 --
-ALTER TABLE `associazione_intervento`
+ALTER TABLE `associazione_intervento_ce`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FKf69pmge2ud5tbnx1a8bucebk4` (`caratteristica_associazione_intervento_id`),
   ADD KEY `FKgg9x8sypaf66qi9st6mln8rfv` (`intervento_id`),
   ADD KEY `FK46uhq35u5o5505o35ra1kjor2` (`struttura_associazione_id`);
 
 --
--- Indici per le tabelle `caratteristiche_qualitative`
+-- Indici per le tabelle `caratteristiche_qualitative_ce`
 --
-ALTER TABLE `caratteristiche_qualitative`
+ALTER TABLE `caratteristiche_qualitative_ce`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `classe_indicatore`
+-- Indici per le tabelle `classe_indicatore_ce`
 --
-ALTER TABLE `classe_indicatore`
+ALTER TABLE `classe_indicatore_ce`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FKcv0llisc9wfd2vewap8gb87bd` (`indicatore_id`);
 
 --
--- Indici per le tabelle `codice_intervento`
+-- Indici per le tabelle `codice_intervento_ce`
 --
-ALTER TABLE `codice_intervento`
+ALTER TABLE `codice_intervento_ce`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `indicatore`
+-- Indici per le tabelle `indicatore_ce`
 --
-ALTER TABLE `indicatore`
+ALTER TABLE `indicatore_ce`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `struttura`
+-- Indici per le tabelle `struttura_ce`
 --
-ALTER TABLE `struttura`
+ALTER TABLE `struttura_ce`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `struttura_due`
+-- Indici per le tabelle `struttura_due_ce`
 --
-ALTER TABLE `struttura_due`
+ALTER TABLE `struttura_due_ce`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK9eqhylq6sc1yseu3cglwffnsy` (`struttura_id_id`);
 
 --
--- Indici per le tabelle `struttura_tre`
+-- Indici per le tabelle `struttura_tre_ce`
 --
-ALTER TABLE `struttura_tre`
+ALTER TABLE `struttura_tre_ce`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FKt7ybagev1aaw5py3n0g10byt4` (`struttura_due_id_id`);
 
 --
--- Indici per le tabelle `struttura_tre_caratt_qualit`
+-- Indici per le tabelle `struttura_tre_ce_caratt_qualit`
 --
-ALTER TABLE `struttura_tre_caratt_qualit`
+ALTER TABLE `struttura_tre_ce_caratt_qualit`
   ADD KEY `FKfm9te8rqyqr9nhw8980c4f6bk` (`caratt_qualit_id`),
-  ADD KEY `FK5hyqaks3aec1trm37c1vgbmci` (`struttura_tre_id`);
+  ADD KEY `FK5hyqaks3aec1trm37c1vgbmci` (`struttura_tre_ce_id`);
 
 --
 -- AUTO_INCREMENT per le tabelle scaricate
 --
 
 --
--- AUTO_INCREMENT per la tabella `associazione_intervento`
+-- AUTO_INCREMENT per la tabella `associazione_intervento_ce`
 --
-ALTER TABLE `associazione_intervento`
+ALTER TABLE `associazione_intervento_ce`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
--- AUTO_INCREMENT per la tabella `caratteristiche_qualitative`
+-- AUTO_INCREMENT per la tabella `caratteristiche_qualitative_ce`
 --
-ALTER TABLE `caratteristiche_qualitative`
+ALTER TABLE `caratteristiche_qualitative_ce`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT per la tabella `classe_indicatore`
+-- AUTO_INCREMENT per la tabella `classe_indicatore_ce`
 --
-ALTER TABLE `classe_indicatore`
+ALTER TABLE `classe_indicatore_ce`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT per la tabella `codice_intervento`
+-- AUTO_INCREMENT per la tabella `codice_intervento_ce`
 --
-ALTER TABLE `codice_intervento`
+ALTER TABLE `codice_intervento_ce`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
--- AUTO_INCREMENT per la tabella `indicatore`
+-- AUTO_INCREMENT per la tabella `indicatore_ce`
 --
-ALTER TABLE `indicatore`
+ALTER TABLE `indicatore_ce`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT per la tabella `struttura`
+-- AUTO_INCREMENT per la tabella `struttura_ce`
 --
-ALTER TABLE `struttura`
+ALTER TABLE `struttura_ce`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT per la tabella `struttura_due`
+-- AUTO_INCREMENT per la tabella `struttura_due_ce`
 --
-ALTER TABLE `struttura_due`
+ALTER TABLE `struttura_due_ce`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT per la tabella `struttura_tre`
+-- AUTO_INCREMENT per la tabella `struttura_tre_ce`
 --
-ALTER TABLE `struttura_tre`
+ALTER TABLE `struttura_tre_ce`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
@@ -529,37 +529,37 @@ ALTER TABLE `struttura_tre`
 --
 
 --
--- Limiti per la tabella `associazione_intervento`
+-- Limiti per la tabella `associazione_intervento_ce`
 --
-ALTER TABLE `associazione_intervento`
-  ADD CONSTRAINT `FK46uhq35u5o5505o35ra1kjor2` FOREIGN KEY (`struttura_associazione_id`) REFERENCES `struttura_tre` (`id`),
-  ADD CONSTRAINT `FKf69pmge2ud5tbnx1a8bucebk4` FOREIGN KEY (`caratteristica_associazione_intervento_id`) REFERENCES `caratteristiche_qualitative` (`id`),
-  ADD CONSTRAINT `FKgg9x8sypaf66qi9st6mln8rfv` FOREIGN KEY (`intervento_id`) REFERENCES `codice_intervento` (`id`);
+ALTER TABLE `associazione_intervento_ce`
+  ADD CONSTRAINT `FK46uhq35u5o5505o35ra1kjor2` FOREIGN KEY (`struttura_associazione_id`) REFERENCES `struttura_tre_ce` (`id`),
+  ADD CONSTRAINT `FKf69pmge2ud5tbnx1a8bucebk4` FOREIGN KEY (`caratteristica_associazione_intervento_id`) REFERENCES `caratteristiche_qualitative_ce` (`id`),
+  ADD CONSTRAINT `FKgg9x8sypaf66qi9st6mln8rfv` FOREIGN KEY (`intervento_id`) REFERENCES `codice_intervento_ce` (`id`);
 
 --
--- Limiti per la tabella `classe_indicatore`
+-- Limiti per la tabella `classe_indicatore_ce`
 --
-ALTER TABLE `classe_indicatore`
-  ADD CONSTRAINT `FKcv0llisc9wfd2vewap8gb87bd` FOREIGN KEY (`indicatore_id`) REFERENCES `indicatore` (`id`);
+ALTER TABLE `classe_indicatore_ce`
+  ADD CONSTRAINT `FKcv0llisc9wfd2vewap8gb87bd` FOREIGN KEY (`indicatore_id`) REFERENCES `indicatore_ce` (`id`);
 
 --
--- Limiti per la tabella `struttura_due`
+-- Limiti per la tabella `struttura_due_ce`
 --
-ALTER TABLE `struttura_due`
-  ADD CONSTRAINT `FK9eqhylq6sc1yseu3cglwffnsy` FOREIGN KEY (`struttura_id_id`) REFERENCES `struttura` (`id`);
+ALTER TABLE `struttura_due_ce`
+  ADD CONSTRAINT `FK9eqhylq6sc1yseu3cglwffnsy` FOREIGN KEY (`struttura_id_id`) REFERENCES `struttura_ce` (`id`);
 
 --
--- Limiti per la tabella `struttura_tre`
+-- Limiti per la tabella `struttura_tre_ce`
 --
-ALTER TABLE `struttura_tre`
-  ADD CONSTRAINT `FKt7ybagev1aaw5py3n0g10byt4` FOREIGN KEY (`struttura_due_id_id`) REFERENCES `struttura_due` (`id`);
+ALTER TABLE `struttura_tre_ce`
+  ADD CONSTRAINT `FKt7ybagev1aaw5py3n0g10byt4` FOREIGN KEY (`struttura_due_id_id`) REFERENCES `struttura_due_ce` (`id`);
 
 --
--- Limiti per la tabella `struttura_tre_caratt_qualit`
+-- Limiti per la tabella `struttura_tre_ce_caratt_qualit`
 --
-ALTER TABLE `struttura_tre_caratt_qualit`
-  ADD CONSTRAINT `FK5hyqaks3aec1trm37c1vgbmci` FOREIGN KEY (`struttura_tre_id`) REFERENCES `struttura_tre` (`id`),
-  ADD CONSTRAINT `FKfm9te8rqyqr9nhw8980c4f6bk` FOREIGN KEY (`caratt_qualit_id`) REFERENCES `caratteristiche_qualitative` (`id`);
+ALTER TABLE `struttura_tre_ce_caratt_qualit`
+  ADD CONSTRAINT `FK5hyqaks3aec1trm37c1vgbmci` FOREIGN KEY (`struttura_tre_ce_id`) REFERENCES `struttura_tre_ce` (`id`),
+  ADD CONSTRAINT `FKfm9te8rqyqr9nhw8980c4f6bk` FOREIGN KEY (`caratt_qualit_id`) REFERENCES `caratteristiche_qualitative_ce` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
