@@ -1,0 +1,42 @@
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+.flex-container > div {
+    margin: 10px;
+    padding: 20px;
+  }
+.imgRisk{
+    width: 450px;
+    height: 290px;
+    margin-right: 85px;
+}
+.imgVulClass{
+    width: 285px;
+    height: 300px;
+    margin-left: 85px;
+}
+#boxPunteggio {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px  #999;
+  }
+.s{
+    align-self: right;
+}
+
+@media all and (max-width: 500px){
+  .imgRisk{
+    width: 195px;
+    height: 135px;
+    margin-right: 0px;
+    margin-left: -50px;
+    margin-top: 10px;
+}
+.imgVulClass{
+    width: 155px;
+    height: 140px;
+    margin-left: -20px;
+}
+}
