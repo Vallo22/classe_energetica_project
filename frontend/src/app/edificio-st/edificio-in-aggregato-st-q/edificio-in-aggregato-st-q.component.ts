@@ -175,7 +175,8 @@ export class EdificioInAggregatoStQComponent implements OnInit {
       } else if (this.totalePunteggio >= 30 && this.totalePunteggio <= 60) {
         this.vulnerability = 5;
       }
-    } if (this.varEmp == 6) {
+    } 
+    if (this.varEmp == 6) {
       if (this.totalePunteggio < 30) {
         this.vulnerability = 3;
       } else if (this.totalePunteggio >= 60) {
@@ -183,7 +184,8 @@ export class EdificioInAggregatoStQComponent implements OnInit {
       } else if (this.totalePunteggio >= 30 && this.totalePunteggio <= 60) {
         this.vulnerability = 4;
       }
-    } if (this.varEmp == 7) {
+    } 
+    if (this.varEmp == 7) {
       if (this.totalePunteggio < 30) {
         this.vulnerability = 2;
       } else if (this.totalePunteggio >= 60) {

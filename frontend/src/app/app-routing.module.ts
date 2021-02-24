@@ -11,6 +11,11 @@ import { EdificioInAggregatoStComponent } from './edificio-st/edificio-in-aggreg
 import { EdificioSingoloStQComponent } from './edificio-st/edificio-singolo-st-q/edificio-singolo-st-q.component';
 import { EdificioInAggregatoStQComponent } from './edificio-st/edificio-in-aggregato-st-q/edificio-in-aggregato-st-q.component';
 import { ZonaSismicaStComponent } from './zona-sismica-st/zona-sismica-st.component';
+import { TipoStrutturaStComponent } from './tipo-struttura-st/tipo-struttura-st.component';
+import { MatriceStComponent } from './matrice-st/matrice-st.component';
+import { ValutazioneInterventiStComponent } from './valutazione-interventi-st/valutazione-interventi-st.component';
+import { AggiuntaInterventoSecondarioStComponent } from './aggiunta-intervento-secondario-st/aggiunta-intervento-secondario-st.component';
+import { RiepilogoCostiStComponent } from './riepilogo-costi-st/riepilogo-costi-st.component';
 
 const routes: Routes = [
   // HOME
@@ -26,8 +31,13 @@ const routes: Routes = [
   { path: 'edificio-in-aggregato-st', component: EdificioInAggregatoStComponent },
   { path: 'edificio-singolo-st-q/:id', component: EdificioSingoloStQComponent },
   { path: 'edificio-in-aggregato-st-q/:id', component: EdificioInAggregatoStQComponent },
-  { path: 'zona-sismica-st', component: ZonaSismicaStComponent }
-
+  { path: 'zona-sismica-st', component: ZonaSismicaStComponent },
+  { path: 'tipo-struttura-st', component: TipoStrutturaStComponent },
+  { path: 'matrice-st', component: MatriceStComponent },
+  { path: 'valutazione-interventi-st', component: ValutazioneInterventiStComponent },
+  { path: 'aggiunta-intervento-secondario-st', component: AggiuntaInterventoSecondarioStComponent },
+  { path: 'valutazione-interventi-secondario-st', component: ValutazioneInterventiStComponent },
+  { path: 'riepilogo-costi-st', component: RiepilogoCostiStComponent }
 ];
 
 @NgModule({

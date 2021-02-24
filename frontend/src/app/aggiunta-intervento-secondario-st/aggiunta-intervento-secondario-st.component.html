@@ -1,0 +1,280 @@
+<div class="container">
+    <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
+      <p><b>Tipologia EMS selezionata:<br></b></p>
+      <h5>{{emsCar.length > 0 ? emsCar[emsType - 1].tipologiaStrutture: ''}}</h5>
+    </div>
+    <hr>
+    <div>
+      <summary><b>Risoluzione caratteristiche qualitative ulteriori</b></summary>
+      <div class='my-legend'>
+        <div class='legend-scale'>
+          <ul class='legend-labels'>
+            <li><span style='background:#d62828;'></span>Scelta necessaria</li>
+            <li><span style='background:#228b22;'></span>Scelta auspicabile</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <hr>
+      <div class="card my-5">
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+  
+          <label for="struttura">
+          </label>
+          <div>
+          </div>
+  
+          <label for="struttura">
+            <p><b>Caratteristiche Qualitative:</b><br></p>
+          </label>
+          <select class="form-control" (change)="selezionaCaratteristica($event.target.value)">
+            <option selected disabled>
+              Seleziona
+            </option>
+            <option [ngStyle]="{'color': arr.abilitato ? '#228b22' : arr.abilitato ? '#d62828' : '#d62828'}" [value]="arr.id" *ngFor="let arr of caratteristicheFinali; index as j">
+              <!-- carQualEms è un oggetto di tipo CaratteristicheQualitative -->
+              {{arr.caratteristicheQualitative}}
+            </option>
+          </select>
+  
+          <div class="freccia">
+            <i class="fa fa-long-arrow-down fa-3x" aria-hidden="true"></i>
+          </div>
+  
+          <label for="struttura">
+            <p><b>Strutture:</b><br></p>
+          </label>
+          <select class="form-control" (change)="selezionaInterventiByCaratteristicaAndStruttura($event.target.value)">
+            <option selected disabled>
+              Seleziona
+            </option>
+            <option [value]="a.id" *ngFor="let a of strutturaObj">
+              {{a.struttura}}
+            </option>
+          </select>
+  
+          <div class="freccia">
+            <i class="fa fa-long-arrow-down fa-3x" aria-hidden="true"></i>
+          </div>
+  
+          <label for="struttura">
+            <p><b>Interventi:</b><br></p>
+          </label>
+  
+          <table class="table table-bordered">
+            <thead class="thead-dark">
+              <th>
+                <p><b>Interventi</b></p>
+              </th>
+            </thead>
+            <tr *ngFor="let int of interventiSecondari; index as x">
+              <td>
+                Codice: {{int.intervento.codice}}{{int.variante}} - {{int.intervento.descrizione}}
+                <button style="margin-left: 20px; float: right;" class="btn btn-outline-primary" (click)="visualizzaCodiceIntervento(int.intervento.codice)" (click)="scrollToBottom()">
+                  Vai all'intervento
+                </button>
+              </td>
+            </tr>
+          </table>
+  
+          <div class="pulsante">
+          <button class="btn btn-primary" class="btn btn-info" style="width: 94px;" (click)="trasferisciOggetti()">
+            Avanti &raquo;
+          </button>
+        </div>
+  
+        </div>
+      </form>
+      <div *ngIf="imgA1 && imgA1parte2">
+        <img src="assets\images\parte_strutturale\A1_1.jpg">
+        <img src="assets\images\parte_strutturale\A1_2.jpg">
+      </div>
+      <div *ngIf="imgA2">
+        <img src="assets\images\parte_strutturale\A2.jpg">
+      </div>
+      <div *ngIf="imgA3 && imgA3parte2">
+        <img src="assets\images\parte_strutturale\A3_1.jpg">
+        <img src="assets\images\parte_strutturale\A3_2.jpg">
+      </div>
+      <div *ngIf="imgA4">
+        <img src="assets\images\parte_strutturale\A4.jpg">
+      </div>
+      <div *ngIf="imgA5">
+        <img src="assets\images\parte_strutturale\A5.jpg">
+      </div>
+      <div *ngIf="imgA6 == true && imgA6parte2 == true">
+        <img src="assets\images\parte_strutturale\A6_1.jpg">
+        <img src="assets\images\parte_strutturale\A6_2.jpg">
+      </div>
+      <div *ngIf="imgA7">
+        <img src="assets\images\parte_strutturale\A7.jpg">
+      </div>
+      <div *ngIf="imgA8">
+        <img src="assets\images\parte_strutturale\A8.jpg">
+      </div>
+      <div *ngIf="imgB1">
+        <img src="assets\images\parte_strutturale\B1.jpg">
+      </div>
+      <div *ngIf="imgB2">
+        <img src="assets\images\parte_strutturale\B2.jpg">
+      </div>
+      <div *ngIf="imgB3">
+        <img src="assets\images\parte_strutturale\B3.jpg">
+      </div>
+      <div *ngIf="imgB4">
+        <img src="assets\images\parte_strutturale\B4.jpg">
+      </div>
+      <div *ngIf="imgB5">
+        <img src="assets\images\parte_strutturale\B5.jpg">
+      </div>
+      <div *ngIf="imgB6">
+        <img src="assets\images\parte_strutturale\B6.jpg">
+      </div>
+      <div *ngIf="imgB7">
+        <img src="assets\images\parte_strutturale\B7.jpg">
+      </div>
+      <div *ngIf="imgB9">
+        <img src="assets\images\parte_strutturale\B8.jpg">
+      </div>
+      <div *ngIf="imgB10">
+        <img src="assets\images\parte_strutturale\B10.jpg">
+      </div>
+      <div *ngIf="imgB11">
+        <img src="assets\images\parte_strutturale\B11.jpg">
+      </div>
+      <div *ngIf="imgB12">
+        <img src="assets\images\parte_strutturale\B12.jpg">
+      </div>
+      <div *ngIf="imgB13">
+        <img src="assets\images\parte_strutturale\B13.jpg">
+      </div>
+      <div *ngIf="imgB14">
+        <img src="assets\images\parte_strutturale\B14.jpg">
+      </div>
+      <div *ngIf="imgB15">
+        <img src="assets\images\parte_strutturale\B15.jpg">
+      </div>
+      <div *ngIf="imgC1">
+        <img src="assets\images\parte_strutturale\C1.jpg">
+      </div>
+      <div *ngIf="imgC2">
+        <img src="assets\images\parte_strutturale\C2.jpg">
+      </div>
+      <div *ngIf="imgC3">
+        <img src="assets\images\parte_strutturale\C3.jpg">
+      </div>
+      <div *ngIf="imgC4">
+        <img src="assets\images\parte_strutturale\C4.jpg">
+      </div>
+      <div *ngIf="imgC5">
+        <img src="assets\images\parte_strutturale\C5.jpg">
+      </div>
+      <div *ngIf="imgC6">
+        <img src="assets\images\parte_strutturale\C6.jpg">
+      </div>
+      <div *ngIf="imgC7">
+        <img src="assets\images\parte_strutturale\C7.jpg">
+      </div>
+      <div *ngIf="imgC8">
+        <img src="assets\images\parte_strutturale\C8.jpg">
+      </div>
+      <div *ngIf="imgD1 == true && imgD1parte2 == true">
+        <img src="assets\images\parte_strutturale\D1_1.jpg">
+        <img src="assets\images\parte_strutturale\D1_2.jpg">
+      </div>
+      <div *ngIf="imgD2 == true && imgD2 == true">
+        <img src="assets\images\parte_strutturale\D2_1.jpg">
+        <img src="assets\images\parte_strutturale\D2_2.jpg">
+      </div>
+      <div *ngIf="imgD3">
+        <img src="assets\images\parte_strutturale\D3.jpg">
+      </div>
+      <div *ngIf="imgD4">
+        <img src="assets\images\parte_strutturale\D4.jpg">
+      </div>
+      <div *ngIf="imgD5">
+        <img src="assets\images\parte_strutturale\D5.jpg">
+      </div>
+      <div *ngIf="imgD6">
+        <img src="assets\images\parte_strutturale\D6.jpg">
+      </div>
+      <div *ngIf="imgD7 == true && imgD7parte2 == true">
+        <img src="assets\images\parte_strutturale\D7_1.jpg">
+        <img src="assets\images\parte_strutturale\D7_2.jpg">
+      </div>
+      <div *ngIf="imgD8">
+        <img src="assets\images\parte_strutturale\D8.jpg">
+      </div>
+      <div *ngIf="imgD9">
+        <img src="assets\images\parte_strutturale\D9.jpg">
+      </div>
+      <div *ngIf="imgD10">
+        <img src="assets\images\parte_strutturale\D10.jpg">
+      </div>
+      <div *ngIf="imgD11">
+        <img src="assets\images\parte_strutturale\D11.jpg">
+      </div>
+      <div *ngIf="imgD12">
+        <img src="assets\images\parte_strutturale\D12.jpg">
+      </div>
+      <div *ngIf="imgD13">
+        <img src="assets\images\parte_strutturale\D13.jpg">
+      </div>
+      <div *ngIf="imgD14">
+        <img src="assets\images\parte_strutturale\D14.jpg">
+      </div>
+      <div *ngIf="imgF1">
+        <img src="assets\images\parte_strutturale\F1.jpg">
+      </div>
+      <div *ngIf="imgF2">
+        <img src="assets\images\parte_strutturale\F2.jpg">
+      </div>
+      <div *ngIf="imgF3">
+        <img src="assets\images\parte_strutturale\F3.jpg">
+      </div>
+      <div *ngIf="imgF4">
+        <img src="assets\images\parte_strutturale\F4.jpg">
+      </div>
+      <div *ngIf="imgG1">
+        <img src="assets\images\parte_strutturale\G1.jpg">
+      </div>
+      <div *ngIf="imgG2">
+        <img src="assets\images\parte_strutturale\G2.jpg">
+      </div>
+      <div *ngIf="imgG3">
+        <img src="assets\images\parte_strutturale\G3.jpg">
+      </div>
+      <div *ngIf="imgG4">
+        <img src="assets\images\parte_strutturale\G4_1.jpg">
+        <img src="assets\images\parte_strutturale\G4_2.jpg">
+      </div>
+      <div *ngIf="imgG5">
+        <img src="assets\images\parte_strutturale\G5.jpg">
+      </div>
+      <div *ngIf="imgG6">
+        <img src="assets\images\parte_strutturale\G6.jpg">
+      </div>
+      <div *ngIf="imgG7">
+        <img src="assets\images\parte_strutturale\G7.jpg">
+      </div>
+      <div *ngIf="imgG8">
+        <img src="assets\images\parte_strutturale\G8.jpg">
+      </div>
+      <div *ngIf="imgG9">
+        <img src="assets\images\parte_strutturale\G9.jpg">
+      </div>
+      <div *ngIf="imgH1 == true && imgH1parte2 == true">
+        <img src="assets\images\parte_strutturale\H1_1.jpg">
+        <img src="assets\images\parte_strutturale\H1_2.jpg">
+      </div>
+      <div *ngIf="imgH2">
+        <img src="assets\images\parte_strutturale\H2.jpg">
+      </div>
+      <div *ngIf="imgI1">
+        <img src="assets\images\parte_strutturale\I1.jpg">
+      </div>
+    </div>
+  </div>
+</div>

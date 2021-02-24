@@ -1,0 +1,24 @@
+.fa{
+    margin: 20px 0px;
+}
+
+.freccia{
+    text-align: center;
+}
+.pulsante{
+    text-align: center;
+}
+
+    img{
+        max-width: none;
+        width: 800px;
+    }
+
+
+@media all and (max-width: 500px){
+
+    img{
+        max-width: none;
+        width: 800px;
+    }
+}

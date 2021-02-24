@@ -180,7 +180,7 @@ export class ZonaSismicaStComponent implements OnInit {
   }
 
   mandaValori() {
-    this.router.navigate(['/struttura-st'], {
+    this.router.navigate(['/tipo-struttura-st'], {
       state: { emsType: this.emsType, vulClass: this.vulClass, punteggio: this.punteggio, risk: this.risk, pam: this.pam }
     })
   }

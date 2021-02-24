@@ -1,0 +1,130 @@
+<div class="container">
+
+    <head>
+        PACCHETTO INVESTIMENTI STRUTTURALI
+    </head>
+    <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
+        <p><b>Riepilogo degli interventi e calcolo dei costi</b></p>
+    </div>
+
+    <div class="overflow-auto">
+        <div class="tabella">
+            <table class="table table-bordered" style="display: contents;">
+                <tr *ngFor="let elemento of interventi; index as j">
+                    <thead class="thead-dark">
+                        <th>
+                            Intervento:
+                        </th>
+                        <th>
+                            Prezzo unità/quantità:
+                        </th>
+                        <th>
+                            Costo parziale:
+                        </th>
+                        <th>
+                            Metri quadri:
+                        </th>
+                    </thead>
+                    <tbody>
+                        <td>
+                            {{elemento.intervento.codice}}
+                        </td>
+                        <td>
+                            {{elemento.prezzo}}€/{{elemento.unitaMisura}}
+                        </td>
+                        <td>
+                            {{elemento.prezzo * elemento.valoreCifra | number: '1.0-2'}}€
+                        </td>
+                        <td>
+                            <input type="number" [value]="elemento.valoreCifra"
+                                (input)="elemento.valoreCifra = $event.target.value" style="margin-left: 20px;">
+                        </td>
+                    </tbody>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="pulsante1">
+        <div class="scrollLaterale">
+            Fai uno scroll laterale per inserire i metri quadri
+        </div>
+        <button class="btn btn-info" style="align-content: center;" (click)="calcolaInvestimentoTotale()">
+            Calcola il costo totale di investimento
+        </button>
+
+    </div>
+
+    <hr>
+    <table class="table table-bordered" style="margin-top: 30px;">
+        <tbody>
+            <tr>
+                <td>
+                    Costo di investimento totale:
+                </td>
+                <td  style="background-color: #ffdd00;">
+                    {{totale | number: '1.0-2'}}€
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Incidenza del pacchetto di interventi sul punteggio di vulnerabilità:
+                </td>
+                <td>
+                    {{sommaPacchettoInterventi}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Cu(S) Indice di costo per decremento unitario percentuale di vulnerabilità:
+                </td>
+                <td>
+                    {{risultatoDivisione | number: '1.0-2'}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <hr>
+
+
+    <table class="table table-bordered" style="margin-top: 30px;">
+        <thead class="thead-dark">
+            <th colspan="2" style="text-align: center;">IPOTESI DI DANNO E PREVISIONE DEI COSTI DI RIPARAZIONE</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Superficie totale:
+                </td>
+                <td>
+                    <input type="number" [value]="numeroUtente" (input)="numeroUtente = $event.target.value">
+                    mq
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Livello di danno ipotizzato:
+                </td>
+                <td>
+                    <select (click)="onChangeDannoIpotizzato($event.target.value)">
+                        <option selected disabled>
+                            Seleziona:
+                        </option>
+                        <option [value]="danno.id" *ngFor="let danno of dannoIpotizzato; index as j">
+                            {{danno.valore}} {{danno.costo}}€/mq
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Costo di riparazione:
+                </td>
+                <td style="background-color: #ffdd00;">
+                    {{costoRiparazione | number: '1.0-2'}}€
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

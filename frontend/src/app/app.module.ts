@@ -17,6 +17,12 @@ import { EdificioSingoloStComponent } from './edificio-st/edificio-singolo-st/ed
 import { EdificioSingoloStQComponent } from './edificio-st/edificio-singolo-st-q/edificio-singolo-st-q.component';
 import { EdificioInAggregatoStQComponent } from './edificio-st/edificio-in-aggregato-st-q/edificio-in-aggregato-st-q.component';
 import { ZonaSismicaStComponent } from './zona-sismica-st/zona-sismica-st.component';
+import { TipoStrutturaStComponent } from './tipo-struttura-st/tipo-struttura-st.component';
+import { MatriceStComponent } from './matrice-st/matrice-st.component';
+import { ValutazioneInterventiStComponent } from './valutazione-interventi-st/valutazione-interventi-st.component';
+import { AggiuntaInterventoSecondarioStComponent } from './aggiunta-intervento-secondario-st/aggiunta-intervento-secondario-st.component';
+import { ValutazioneInterventiSecondarioStComponent } from './valutazione-interventi-secondario-st/valutazione-interventi-secondario-st.component';
+import { RiepilogoCostiStComponent } from './riepilogo-costi-st/riepilogo-costi-st.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,13 @@ import { ZonaSismicaStComponent } from './zona-sismica-st/zona-sismica-st.compon
     EdificioSingoloStComponent,
     EdificioSingoloStQComponent,
     EdificioInAggregatoStQComponent,
-    ZonaSismicaStComponent
+    ZonaSismicaStComponent,
+    TipoStrutturaStComponent,
+    MatriceStComponent,
+    ValutazioneInterventiStComponent,
+    AggiuntaInterventoSecondarioStComponent,
+    ValutazioneInterventiSecondarioStComponent,
+    RiepilogoCostiStComponent
   ],
   imports: [
     BrowserModule,
