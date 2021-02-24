@@ -79,7 +79,7 @@
         <form>
           <ul class="list-group">
             <li class="list-group-item" *ngFor="let arr of variabileIntervento; index as i">
-              <td><strong>
+              <td style="float: left;"><strong>
                 Codice: {{arr.intervento.codice}}
                 - {{arr.intervento.descrizione}}</strong>
   
@@ -150,15 +150,18 @@
                 </div>
   
               </td>
-              <button style="margin-left: 20px; float: right;" class="btn btn-outline-primary"
+              <td style="float: right">
+              <button class="btn btn-outline-primary"
                 (click)="visualizzaCodiceIntervento(arr.intervento.codice)" data-toggle="modal"
                 data-target=".bd-example-modal-lg">
                 Vai all'intervento
               </button>
+              </td>
             </li>
           </ul>
         </form>
       </div>
+
       <div class="pulsante">
         <button class="btn btn-primary" class="btn btn-primary" style="width: 94px;" style="margin-bottom: 15px;"
           (click)="trasferisciOggetti()">
