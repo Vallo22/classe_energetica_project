@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Feb 23, 2021 alle 17:04
+-- Creato il: Feb 24, 2021 alle 18:41
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -1227,13 +1227,13 @@ CREATE TABLE `tipologia_struttura_st` (
 --
 
 INSERT INTO `tipologia_struttura_st` (`id`, `tipologia_struttura`) VALUES
-(1, 'Muratura di pietra a secco \r\nOrizzontamenti in legno o comunque con scarsa rigidezza e scarso collegamento con le pareti portanti'),
-(2, 'Muratura di mattoni di terra cruda (adobe)\r\nOrizzontamenti in legno o comunque con scarsa rigidezza e scarso collegamento con le pareti portanti'),
-(3, 'Muratura di pietra sbozzata\r\nOrizzontamenti in legno o comunque con scarsa rigidezza e scarso collegamento con le pareti portanti'),
-(4, 'Muratura di pietra massiccia per costruzioni monumentali\r\nOrizzontamenti a volta o in legno con scarsa rigidezza'),
-(5, 'Muratura di mattoni e pietra lavorata\r\nOrizzontamenti in mattoni o in legno o comunque con scarsa rigidezza e scarso collegamento con le pareti portanti'),
-(6, 'Muratura di mattoni e solai di rigidezza elevata\r\nOrizzontamenti in c.a. ben collegati alla muratura\r\n'),
-(7, 'Muratura rinforzata e/o confinata\r\nOrizzontamenti in c.a. o comunque con elevata rigidezza');
+(1, 'Muratura di pietra a secco. Orizzontamenti in legno o comunque con scarsa rigidezza e scarso collegamento con le pareti portanti'),
+(2, 'Muratura di mattoni di terra cruda (adobe). Orizzontamenti in legno o comunque con scarsa rigidezza e scarso collegamento con le pareti portanti'),
+(3, 'Muratura di pietra sbozzata. Orizzontamenti in legno o comunque con scarsa rigidezza e scarso collegamento con le pareti portanti'),
+(4, 'Muratura di pietra massiccia per costruzioni monumentali. Orizzontamenti a volta o in legno con scarsa rigidezza'),
+(5, 'Muratura di mattoni e pietra lavorata. Orizzontamenti in mattoni o in legno o comunque con scarsa rigidezza e scarso collegamento con le pareti portanti'),
+(6, 'Muratura di mattoni e solai di rigidezza elevata. Orizzontamenti in c.a. ben collegati alla muratura\r\n'),
+(7, 'Muratura rinforzata e/o confinata. Orizzontamenti in c.a. o comunque con elevata rigidezza');
 
 -- --------------------------------------------------------
 
