@@ -1,31 +1,30 @@
 <div class="container ems">
-    <div class="card my-5">
-      <div class="card-body">
-  
-        <div class="form-group">
-          <label for="tipologiaStrutture"></label>
-  
-          <div class="titolo" style="text-align: center;">
-            <p><b>Tipologia strutturale EMS</b></p>
-          </div>
-  
-          <select class="form-control" id="edificioInAggregato" name="edificio" (change)="onChange($event.target.value)">
-            <option selected disabled>Seleziona la tipologia EMS</option>
-            <option [value]="tipoEdificio.id" *ngFor="let tipoEdificio of edificioInAggregato;"
-              [disabled]="tipoEdificio.abilitato">
-              {{tipoEdificio.id}} - {{ tipoEdificio.tipologiaStrutture }}
-            </option>
-          </select>
-  
-          <div class="mbr-section-btn">
-            <button class="btn btn-md1 btn-secondary display-4" style="width: 94px;" routerLink="/tipo-edificio-st"
-              routerLinkActive="active">&laquo; Indietro</button>
-            <button class="btn btn-info btn-primary display-4" [disabled]="avantiAbilitato"
-              style="margin-left: 13px; width: 94px; float: right;" (click)="outputSelezione()">Avanti &raquo;
-            </button>
-          </div>
-  
+  <div class="card my-5">
+
+    <div class="card-header" style="font-size: 20px; text-align: center">
+      <p><strong>Tipologia strutturale EMS</strong></p>
+    </div>
+    
+    <div class="card-body">
+      <div class="form-group">
+
+        <select class="form-control" id="edificioInAggregato" name="edificio" (change)="onChange($event.target.value)">
+          <option selected disabled>Seleziona la tipologia EMS</option>
+          <option [value]="tipoEdificio.id" *ngFor="let tipoEdificio of edificioInAggregato;"
+            [disabled]="tipoEdificio.abilitato">
+            {{tipoEdificio.id}} - {{ tipoEdificio.tipologiaStrutture }}
+          </option>
+        </select>
+
+        <div class="mbr-section-btn">
+          <button class="btn btn-md1 btn-secondary display-4" routerLink="/tipo-edificio-st"
+            routerLinkActive="active">&laquo; Indietro</button>
+          <button class="btn btn-md1 btn-primary display-4" [disabled]="avantiAbilitato" style="float: right"
+            (click)="outputSelezione()">Avanti &raquo;
+          </button>
         </div>
+
       </div>
     </div>
   </div>
+</div>
