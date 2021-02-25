@@ -44,6 +44,25 @@ export class ZonaSismicaStComponent implements OnInit {
     this.vulClass = window.history.state.vulClass;
     this.punteggio = window.history.state.punteggio;
     console.log(this.vulClass)
+    
+    if(this.vulClass == 1){
+      this.vulClassImg1 = true
+    }
+    if(this.vulClass == 2){
+      this.vulClassImg2 = true
+    }
+    if(this.vulClass == 3){
+      this.vulClassImg3 = true
+    }
+    if(this.vulClass == 4){
+      this.vulClassImg4 = true
+    }
+    if(this.vulClass == 5){
+      this.vulClassImg5 = true
+    }
+    if(this.vulClass == 6){
+      this.vulClassImg6 = true
+    }
   }
 
   onChange(zonaId: number) {
@@ -183,32 +202,5 @@ export class ZonaSismicaStComponent implements OnInit {
     this.router.navigate(['/tipo-struttura-st'], {
       state: { emsType: this.emsType, vulClass: this.vulClass, punteggio: this.punteggio, risk: this.risk, pam: this.pam }
     })
-  }
-
-  prova(){
-    if (this.vulClass == 1){
-      var imageshown = "assets\images\parte_strutturale\V1.png"
-      this.vulClassImg1 =true
-    }
-    if (this.vulClass == 2){
-      var imageshown = "assets\images\parte_strutturale\V2.png"
-      this.vulClassImg2 =true
-    }
-    if (this.vulClass == 3){
-      var imageshown = "assets\images\parte_strutturale\V3.png"
-      this.vulClassImg3 =true
-    }
-    if (this.vulClass == 4){
-      var imageshown = "assets\images\parte_strutturale\V4.png"
-      this.vulClassImg4 =true
-    }
-    if (this.vulClass == 5){
-      var imageshown = "assets\images\parte_strutturale\V5.png"
-      this.vulClassImg5 =true
-    }
-    if (this.vulClass == 6){
-      var imageshown = "assets\images\parte_strutturale\V6.png"
-      this.vulClassImg6 =true
-    }
   }
 }
