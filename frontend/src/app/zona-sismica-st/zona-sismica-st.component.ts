@@ -18,6 +18,7 @@ export class ZonaSismicaStComponent implements OnInit {
   value: number[] = []
   messaggio1: boolean = false
   far: boolean = false
+  valore: number
 
   classeAA: boolean = false
   classeA: boolean = false
@@ -93,7 +94,7 @@ export class ZonaSismicaStComponent implements OnInit {
     this.classeE = false
     this.classeF = false
     this.classeG = false
-    
+
     if (this.vulClass == 6 && this.riskType == 1) {
       this.risk = "G"
       this.pam = "7,5%"

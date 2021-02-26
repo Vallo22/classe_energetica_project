@@ -1,15 +1,14 @@
 <div class="container">
   <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-    <b>Determinazione della classe di rischio</b>
+    <strong>Determinazione della classe di rischio</strong>
   </div>
 
   <div class="row" style="margin-top: 30px;">
 
-
     <div class="col-sm-6" style="text-align: center;">
       <div class="card">
         <div class="card-header">
-          <p style="text-align: center;"><b>Punteggio: {{punteggio}}</b></p>
+          <p style="text-align: center;"><strong>Punteggio: {{punteggio}}</strong></p>
         </div>
         <div class="card-body">
 
@@ -40,21 +39,19 @@
     <div class="col-sm-6" style="text-align: center;">
       <div class="card">
         <div class="card-header">
-          <p style="text-align: center;"><b>Seleziona la zona sismica</b></p>
+          <p style="text-align: center;"><strong>Seleziona la zona sismica</strong></p>
         </div>
 
         <div class="card-body">
 
-          <div>
-            <select class="form-control" id="id1" (change)="onChange($event.target.value)">
-              <option selected disabled>Seleziona</option>
-              <option [value]="numero.id" *ngFor="let numero of zonaSismica;index as i">
-                {{numero.id}}
-              </option>
-            </select>
-          </div>
+          <select [(ngModel)]="valore" class="form-control" id="id1" (change)="onChange($event.target.value)">
+            <option disabled selected>Seleziona</option>
+            <option [value]="numero.id" *ngFor="let numero of zonaSismica;index as i">
+              {{numero.id}}
+            </option>
+          </select>
 
-          <div class="pulsante" style="text-align: center;">
+          <div class="pulsante" style="text-align: center;" *ngIf="valore">
             <button type="submit" (click)="gradoDiRischio()" (click)="vediValori()"
               style="margin-top: 20px; margin-bottom: 20px;" class="btn btn-outline-default">Ottieni risultato</button>
           </div>
@@ -84,15 +81,12 @@
             <div style="margin-top: 20px;" *ngIf="classeG">
               <img class="imgRisk" src="assets\images\parte_strutturale\classe G.png" alt="Generic placeholder image">
             </div>
-          </div>
 
-          <div style="text-align: center;">
-            <button *ngIf="far" style="margin-top: 20px;" (click)="mandaValori()" class="btn btn-default">Prosegui con
-              la valutazione </button>
-          </div>
+            <button *ngIf="far" style="margin-top: 20px;" (click)="mandaValori()" 
+            class="btn btn-default">Prosegui con la valutazione</button>
 
+          </div>
         </div>
-
       </div>
     </div>
   </div>

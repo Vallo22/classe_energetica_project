@@ -34,6 +34,8 @@ export class TipoStrutturaStComponent implements OnInit {
   emsType: number
   arrayPassaggio: AssociazioneInterventoSt[]
   noPass: boolean = false
+  alert: boolean = false
+
   imgA1 = false
   imgA1parte2 = false
   imgA2 = false
@@ -409,6 +411,9 @@ export class TipoStrutturaStComponent implements OnInit {
   
 
   onChangeCaratteristicheQualitative(index: number) {
+    if (index === 0) {
+      this.variabileIntervento = null
+    } else {
     this.variabileIntervento = []
     let elemento = this.selectedElement[this.selectedIndex]
     let caratteristica = this.caratteristiche[index]
@@ -417,14 +422,20 @@ export class TipoStrutturaStComponent implements OnInit {
         this.variabileIntervento.push(t);
       }
     })
+  }
     console.log(this.variabileIntervento)
   }
 
   trasferisciOggetti() {
+    if (this.variabileIntervento == null) {
+      this.alert = true
+      window.scrollTo(0, 0)
+    } else {
     this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche[this.selectArr])
     this.router.navigate(['/matrice-st'], {
       state: { emsType: this.emsType, vulClass: this.vulClass,punteggio: this.punteggio, risk: this.risk, pam: this.pam,  variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex }
     })
+  }
   }
 
   ngOnInit() {
