@@ -43,6 +43,54 @@ export class MatriceStComponent implements OnInit {
   contatoreVolte: number
   interventoSingolo: number
   interventiSecondari: AssociazioneInterventoSt[]
+  showDiv: boolean = true
+
+  scelta: boolean = true
+  scelta2: boolean = true
+  scelta3: boolean = true
+  scelta4: boolean = true
+  scelta5: boolean = true
+  scelta6: boolean = true
+  scelta7: boolean = true
+  scelta8: boolean = true
+  scelta9: boolean = true
+  scelta10: boolean = true
+  scelta11: boolean = true
+  scelta12: boolean = true
+  scelta13: boolean = true
+  scelta14: boolean = true
+  scelta15: boolean = true
+
+  arrayStringhe = [
+    "MDC",
+    "EFF",
+    "CV",
+    "REV",
+    "SDC",
+    "EDI"
+  ]
+
+  arrayComparazioneFrazioni = [
+    { id: 1, char: "1.", num: 1 / 9 },
+    { id: 2, char: "2. di poco", num: 1 / 8 },
+    { id: 3, char: "3.", num: 1 / 7 },
+    { id: 4, char: "4. abbastanza", num: 1 / 6 },
+    { id: 5, char: "5.", num: 1 / 5 },
+    { id: 6, char: "6. decisamente", num: 1 / 4 },
+    { id: 7, char: "7.", num: 1 / 3 },
+    { id: 8, char: "8. assolutamente", num: 1 / 2 }
+  ]
+
+  arrayComparazioneInteri = [
+    { id: 1, char: "1.", num: 2 },
+    { id: 2, char: "2. di poco", num: 3 },
+    { id: 3, char: "3.", num: 4 },
+    { id: 4, char: "4. abbastanza", num: 5 },
+    { id: 5, char: "5.", num: 6 },
+    { id: 6, char: "6. decisamente", num: 7 },
+    { id: 7, char: "7.", num: 8 },
+    { id: 8, char: "8. assolutamente", num: 9 }
+  ]
 
   arrayComparazione = [
     { id: 1, char: "1/9", num: 1 / 9 },
@@ -61,15 +109,6 @@ export class MatriceStComponent implements OnInit {
     { id: 14, char: "7", num: 7 },
     { id: 15, char: "8", num: 8 },
     { id: 16, char: "9", num: 9 }
-  ]
-
-  arrayStringhe = [
-    "MODICITÀ DI COSTO",
-    "EFFICACIA",
-    "COMPATIBILITÀ VISIVA",
-    "REVERSIBILITÀ",
-    "SEMPLICITÀ DI CANTIERE",
-    "ESIGUITÀ DI INGOMBRO"
   ]
 
   ngOnInit() {
@@ -167,6 +206,10 @@ export class MatriceStComponent implements OnInit {
     if (this.numeroPrimario > 1) {
       this.y = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
     }
+  }
+
+  mostra() {
+    this.showDiv = false;
   }
 
   trasferisciPonderazione() {
