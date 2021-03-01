@@ -36,6 +36,8 @@ public class AssociazioneInterventoSt {
     private int esiguitaDiIngombro;
     private String variante;
     private double prezzo;
+    private double prezzoSupInt;
+    private double prezzoEntrInt;
     private String unitaMisura;
     private int passaggio;
 
@@ -143,8 +145,25 @@ public class AssociazioneInterventoSt {
     public void setPrezzo(double prezzo) {
         this.prezzo = prezzo;
     }
+    
 
-    public String getUnitaMisura() {
+    public double getPrezzoSupInt() {
+		return prezzoSupInt;
+	}
+
+	public void setPrezzoSupInt(double prezzoSupInt) {
+		this.prezzoSupInt = prezzoSupInt;
+	}
+
+	public double getPrezzoEntrInt() {
+		return prezzoEntrInt;
+	}
+
+	public void setPrezzoEntrInt(double prezzoEntrInt) {
+		this.prezzoEntrInt = prezzoEntrInt;
+	}
+
+	public String getUnitaMisura() {
         return unitaMisura;
     }
 

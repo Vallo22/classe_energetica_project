@@ -21,6 +21,8 @@ export class AssociazioneInterventoSt {
     ante?: number
     post?: number
     prezzo: number
+    prezzoSupInt: number
+    prezzoEntrInt: number
     unitaMisura: string
     valoreCifra?: number
     totalePrezzo?: number

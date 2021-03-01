@@ -1,15 +1,28 @@
 <div class="container">
 
-    <head>
-        PACCHETTO INVESTIMENTI STRUTTURALI
-    </head>
     <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-        <p><b>Riepilogo degli interventi e calcolo dei costi</b></p>
+        <p><strong>Riepilogo degli interventi e calcolo dei costi</strong></p>
     </div>
+    <hr>
+        <div class="legenda" style="text-align: center;">
+          <summary><strong>Tipo di superfici:</strong></summary>
+            <div class='legend-scale'>
+              <ul class='legend-labels'>
+                <select [(ngModel)]="tipo_superficie">
+                  <option selected disabled [value]="0">Seleziona</option>
+                  <option [value]="1">Superfici a vista</option>
+                  <option [value]="2">Superficie intonacata</option>
+                  <option [value]="3">Entrambe le superfici intonacate</option>
+                </select>
+              </ul>        
+            </div>
+          </div>
+        <hr>
 
     <div class="overflow-auto">
         <div class="tabella">
             <table class="table table-bordered" style="display: contents;">
+                
                 <tr *ngFor="let elemento of interventi; index as j">
                     <thead class="thead-dark">
                         <th>
@@ -19,26 +32,30 @@
                             Prezzo unità/quantità:
                         </th>
                         <th>
-                            Costo parziale:
+                            Dimensione:
                         </th>
                         <th>
-                            Metri quadri:
+                            Costo parziale:
                         </th>
                     </thead>
                     <tbody>
                         <td>
                             {{elemento.intervento.codice}}
                         </td>
-                        <td>
-                            {{elemento.prezzo}}€/{{elemento.unitaMisura}}
-                        </td>
-                        <td>
-                            {{elemento.prezzo * elemento.valoreCifra | number: '1.0-2'}}€
-                        </td>
+                        <td *ngIf="tipo_superficie == 0">Seleziona</td>
+                        <td *ngIf="tipo_superficie == 1">{{elemento.prezzo}}€/{{elemento.unitaMisura}}</td>
+                        <td *ngIf="tipo_superficie == 2">{{elemento.prezzoSupInt}}€/{{elemento.unitaMisura}}</td>
+                        <td *ngIf="tipo_superficie == 3">{{elemento.prezzoEntrInt}}€/{{elemento.unitaMisura}}</td>
                         <td>
                             <input type="number" [value]="elemento.valoreCifra"
                                 (input)="elemento.valoreCifra = $event.target.value" style="margin-left: 20px;">
+                                {{elemento.unitaMisura}}
                         </td>
+                        <td *ngIf="tipo_superficie == 0">Seleziona</td>
+                        <td *ngIf="tipo_superficie == 1">{{elemento.prezzo * elemento.valoreCifra | number: '1.0-2'}}€</td>
+                        <td *ngIf="tipo_superficie == 2">{{elemento.prezzoSupInt * elemento.valoreCifra | number: '1.0-2'}}€</td>
+                        <td *ngIf="tipo_superficie == 3">{{elemento.prezzoEntrInt * elemento.valoreCifra | number: '1.0-2'}}€</td>
+                        
                     </tbody>
                 </tr>
             </table>

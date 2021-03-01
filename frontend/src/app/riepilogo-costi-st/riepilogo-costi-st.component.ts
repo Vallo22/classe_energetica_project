@@ -27,6 +27,7 @@ export class RiepilogoCostiStComponent implements OnInit {
   valoreCosto: number
   numeroUtente: number
   costoRiparazione: number
+  tipo_superficie: number = 0
 
   selezionaIntervento() {
     this.interventi.forEach(z => {
