@@ -36,6 +36,9 @@ public class AssociazioneInterventoCe {
     private int semplicitaDiCantiere;
     private int esiguitaDiIngombro;
     private String variante;
+    private double prezzoVista;
+    private double prezzoInton;
+    private String unitaMisura;
 
 	public long getId() {
 		return id;
@@ -140,5 +143,30 @@ public class AssociazioneInterventoCe {
 	public void setVariante(String variante) {
 		this.variante = variante;
 	}
+
+	public double getPrezzoVista() {
+		return prezzoVista;
+	}
+
+	public void setPrezzoVista(double prezzoVista) {
+		this.prezzoVista = prezzoVista;
+	}
+
+	public double getPrezzoInton() {
+		return prezzoInton;
+	}
+
+	public void setPrezzoInton(double prezzoInton) {
+		this.prezzoInton = prezzoInton;
+	}
+
+	public String getUnitaMisura() {
+		return unitaMisura;
+	}
+
+	public void setUnitaMisura(String unitaMisura) {
+		this.unitaMisura = unitaMisura;
+	}
+	
 	
 }

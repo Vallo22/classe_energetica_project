@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AssociazioneInterventoCe } from '../classes-services/classes/associazione-intervento-ce';
 import { CaratteristicheQualitativeCe } from '../classes-services/classes/caratteristiche-qualitative-ce';
+import { RisultatoSelezioneCeService } from '../classes-services/services/risultato-selezione-ce.service';
 import { TipoStrutturaCeService } from '../classes-services/services/tipo-struttura-ce.service';
 
 @Component({
@@ -11,7 +13,9 @@ import { TipoStrutturaCeService } from '../classes-services/services/tipo-strutt
 export class ValutazioneInterventiCeComponent implements OnInit {
 
   constructor(
-    private service: TipoStrutturaCeService
+    private service: TipoStrutturaCeService,
+    private router: Router,
+    private risultatoSelezione: RisultatoSelezioneCeService
   ) { }
 
   ponderazione: number[] = [0, 0, 0, 0, 0, 0]
@@ -33,6 +37,8 @@ export class ValutazioneInterventiCeComponent implements OnInit {
   minIntervento: AssociazioneInterventoCe
   maxIndex: number
   minIndex: number
+  mostraBottone: boolean = false;
+  arraySelezionati: AssociazioneInterventoCe[] = []
 
   ngOnInit() {
     this.caratteristiche = window.history.state.caratteristiche
@@ -112,5 +118,18 @@ export class ValutazioneInterventiCeComponent implements OnInit {
     this.maxIntervento.maxVariante = this.maxIndex
     this.minIntervento.minVariante = this.minIndex
   }
-  
+
+  premiBottone(selezionato: AssociazioneInterventoCe) {
+    const nuovo = Object.assign({}, selezionato)
+    this.arraySelezionati.push(nuovo)
+    this.mostraBottone = true
+    this.massimoNumero()
+    this.risultatoSelezione.aggiungiIntervento(this.arraySelezionati[0])
+}
+
+  trasferisciIntervento() {
+    this.router.navigate(['/riepilogo-costi-ce'])
+
+  }
+
 }

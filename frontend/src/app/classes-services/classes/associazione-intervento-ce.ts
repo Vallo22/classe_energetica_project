@@ -15,8 +15,11 @@ export class AssociazioneInterventoCe {
     reversibilita: number|number[]
     semplicitaDiCantiere: number|number[]
     esiguitaDiIngombro: number|number[]
+    prezzoVista: number
+    prezzoInton: number
 
     totale: number[]
+    valoreCifra?: number
     varianti?: string[]
     variante: string
 

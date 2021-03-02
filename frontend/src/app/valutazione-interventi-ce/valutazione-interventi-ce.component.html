@@ -90,12 +90,23 @@
                 <td>{{interventi.esiguitaDiIngombro[j]}}</td>
                 <td [ngStyle]="{'background-color':interventi.maxVariante === j ? '#228b22' : interventi.minVariante === j ? '#d62828' : 'white' }">
                   {{interventi.totale[j] | number: '1.2-2'}}</td>
-                <td>ok</td>
+                <td>
+                  <div class="custom-control custom-checkbox" *ngIf="tipo_superficie == 1 || tipo_superficie == 2 || tipo_superficie == 3">
+                    <input type="checkbox" class="form-check-input"
+                      (click)="premiBottone(interventi)">
+                  </div>
+                </td>
                 </tr>
               </ng-container>
             </ng-container>
           </tbody>
         </table>
+      </div>
+
+      <div style="text-align: center;" *ngIf="mostraBottone == true">
+        <button class="btn btn-default" style="margin-top: 20px;" (click)="trasferisciIntervento()">
+          Avanti &raquo;
+        </button>
       </div>
     </div>
   </div>

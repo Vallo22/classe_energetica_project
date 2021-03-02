@@ -16,6 +16,7 @@ import { MatriceStComponent } from './matrice-st/matrice-st.component';
 import { ValutazioneInterventiStComponent } from './valutazione-interventi-st/valutazione-interventi-st.component';
 import { AggiuntaInterventoSecondarioStComponent } from './aggiunta-intervento-secondario-st/aggiunta-intervento-secondario-st.component';
 import { RiepilogoCostiStComponent } from './riepilogo-costi-st/riepilogo-costi-st.component';
+import { RiepilogoCostiCeComponent } from './riepilogo-costi-ce/riepilogo-costi-ce.component';
 
 const routes: Routes = [
   // HOME
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'tipo-struttura-ce', component: TipoStrutturaCeComponent },
   { path: 'matrice-ce', component: MatriceCeComponent },
   { path: 'valutazione-interventi-ce', component: ValutazioneInterventiCeComponent },
+  { path: 'riepilogo-costi-ce', component: RiepilogoCostiCeComponent },
   // PARTE STRUTTURALE
   { path: 'tipo-edificio-st', component: TipoEdificioStComponent },
   { path: 'edificio-singolo-st', component: EdificioSingoloStComponent },

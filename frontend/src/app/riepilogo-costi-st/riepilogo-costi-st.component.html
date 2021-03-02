@@ -11,8 +11,8 @@
                 <select [(ngModel)]="tipo_superficie">
                   <option selected disabled [value]="0">Seleziona</option>
                   <option [value]="1">Superfici a vista</option>
-                  <option [value]="2">Superficie intonacata</option>
-                  <option [value]="3">Entrambe le superfici intonacate</option>
+                  <option *ngFor="let elemento of interventi;" [attr.disabled]="elemento.prezzoSupInt === 0 ? 'disabled' : null" [value]="2">Superficie intonacata</option>
+                  <option *ngFor="let elemento of interventi;" [attr.disabled]="elemento.prezzoEntrInt === 0 ? 'disabled' : null" [value]="3">Entrambe le superfici intonacate</option>
                 </select>
               </ul>        
             </div>
