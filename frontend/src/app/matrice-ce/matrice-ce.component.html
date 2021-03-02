@@ -639,9 +639,10 @@
                     <summary><strong>Matrice A di comparazione</strong></summary>
                     <td class="tabella">
                         <table class="table table-bordered">
-                            <thead class="thead-dark">
-                                <tr style="font-size: 16px;">
+                            <thead style="background:#3f675e; color: white;">
+                                <tr style="font-size: 16px; text-align: center;">
                                     <th scope="col">
+                                        x
                                     </th>
                                     <th scope="col">MDC
                                     </th>
@@ -659,7 +660,8 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let row of matrix; index as r ">
-                                    <th scope="row" style="font-size: 16px;">{{arrayStringhe[r]}}
+                                    <th scope="row" style="font-size: 16px; text-align: center; background:#3f675e; color: white;">
+                                        {{arrayStringhe[r]}}
                                     </th>
                                     <td *ngFor="let column of row; index as c">
                                         <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)" *ngIf="r > c"
@@ -680,7 +682,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row" style="font-size: 16px;">TOT
+                                    <th scope="row" style="font-size: 16px; text-align: center; background:#3f675e; color: white;">TOT
                                     </th>
                                     <td style="font-size: 15px;" *ngFor="let risultato of matrixRisultati">
                                         {{risultato | number: '1.2-2'}}
@@ -701,8 +703,9 @@
                     <summary><strong>Matrice A Normalizzata</strong></summary>
                     <div class="Second_table" style="float: left; margin-right: 30px;">
                         <table class="table table-bordered">
-                            <thead class="thead-dark">
+                            <thead style="font-size: 16px; text-align: center; background:#3f675e; color: white;">
                                 <th>
+                                    x
                                 </th>
                                 <th>MDC
                                 </th>
@@ -721,7 +724,7 @@
                                 </th>
                             </thead>
                             <tr *ngFor="let row of matrix; index as r">
-                                <th scope="row" style="font-size: 16px;">{{arrayStringhe[r]}}
+                                <th scope="row" style="font-size: 16px; text-align: center; background:#3f675e; color: white;">{{arrayStringhe[r]}}
                                 </th>
                                 <td *ngFor="let column of row; index as c">
                                     <div>
