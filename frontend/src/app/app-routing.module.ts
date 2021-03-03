@@ -17,6 +17,7 @@ import { ValutazioneInterventiStComponent } from './valutazione-interventi-st/va
 import { AggiuntaInterventoSecondarioStComponent } from './aggiunta-intervento-secondario-st/aggiunta-intervento-secondario-st.component';
 import { RiepilogoCostiStComponent } from './riepilogo-costi-st/riepilogo-costi-st.component';
 import { RiepilogoCostiCeComponent } from './riepilogo-costi-ce/riepilogo-costi-ce.component';
+import { ValutazioneInterventiSecondarioStComponent } from './valutazione-interventi-secondario-st/valutazione-interventi-secondario-st.component';
 
 const routes: Routes = [
   // HOME
@@ -38,7 +39,7 @@ const routes: Routes = [
   { path: 'matrice-st', component: MatriceStComponent },
   { path: 'valutazione-interventi-st', component: ValutazioneInterventiStComponent },
   { path: 'aggiunta-intervento-secondario-st', component: AggiuntaInterventoSecondarioStComponent },
-  { path: 'valutazione-interventi-secondario-st', component: ValutazioneInterventiStComponent },
+  { path: 'valutazione-interventi-secondario-st', component: ValutazioneInterventiSecondarioStComponent },
   { path: 'riepilogo-costi-st', component: RiepilogoCostiStComponent }
 ];
 
