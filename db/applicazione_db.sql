@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Mar 02, 2021 alle 12:39
+-- Creato il: Mar 08, 2021 alle 16:28
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -301,6 +301,29 @@ INSERT INTO `associazione_intervento_st` (`id`, `efficacia`, `esiguita_di_ingomb
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `attrezzature_ce`
+--
+
+CREATE TABLE `attrezzature_ce` (
+  `id` bigint(20) NOT NULL,
+  `codice` varchar(255) DEFAULT NULL,
+  `descrizione` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `attrezzature_ce`
+--
+
+INSERT INTO `attrezzature_ce` (`id`, `codice`, `descrizione`) VALUES
+(1, 'A', 'Trabattelli ad uso interno'),
+(2, 'B', 'Ponteggi esterni'),
+(3, 'C', 'Piattaforma aerea verticale'),
+(4, 'D', 'Parapetti'),
+(5, 'E', 'Puntellatura');
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `caratteristiche_qualitative_ce`
 --
 
@@ -584,68 +607,107 @@ INSERT INTO `classe_indicatore_ce` (`id`, `descrizione`, `punteggio`, `indicator
 CREATE TABLE `codice_intervento_ce` (
   `id` bigint(20) NOT NULL,
   `codice` varchar(255) DEFAULT NULL,
-  `descrizione` varchar(255) DEFAULT NULL
+  `descrizione` varchar(255) DEFAULT NULL,
+  `appunto` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `codice_intervento_ce`
 --
 
-INSERT INTO `codice_intervento_ce` (`id`, `codice`, `descrizione`) VALUES
-(1, 'A1', 'Isolamento termico all\'estradosso non ventilato\r\n'),
-(2, 'A2', 'Isolamento termico all\'estradosso ventilato\r\n'),
-(3, 'A3', 'Isolamento termico all\'intradosso\r\n'),
-(4, 'A4', 'Isolamento termico all\'intradosso ventilato\r\n'),
-(5, 'A5', 'Integrazione del fotovoltaico \r\n(tegole e coppi fotovoltaici)*\r\n'),
-(6, 'A6', 'Integrazione del solare termico \r\n(collettori solari con decalcomanie forate)*\r\n'),
-(7, 'A7', 'Green roof*\r\n'),
-(8, 'A8', 'Roof pond*\r\n'),
-(9, 'B1', 'Isolamento termico a pannelli sulla superficie interna della parete \r\n'),
-(10, 'B2', 'Isolamento tramite intonaco termoisolante sulla superficie interna della parete\r\n'),
-(11, 'B3', 'Isolamento termico a pannelli sulla superficie esterna della parete ventilato\r\n'),
-(12, 'B4', 'Isolamento termico a pannelli sulla superficie esterna della parete non ventilato\r\n'),
-(13, 'B5', 'Isolamento tramite intonaco termoisolante sulla superficie esterna della parete\r\n'),
-(14, 'B6', 'Isolamento termico all\'interno dell\'intercapedine*\r\n'),
-(15, 'B7', 'Sistemi di accumulo a cambiamento di fase* \r\n'),
-(16, 'B8', 'Realizzazione di barriere fisiche alla risalita capillare*\r\n'),
-(17, 'B9', 'Realizzazione di barriere chimiche alla risalita capillare\r\n'),
-(18, 'B10', 'Realizzazione di sistemi di evacuazione dell\'umidità tramite intonaci macroporosi\r\n'),
-(19, 'B11', 'Realizzazione di sistemi di evacuazione dell\'umidità tramite sistemi elettro-fisici\r\n'),
-(20, 'B12', 'Green wall*\r\n'),
-(21, 'B13', 'Muro di Trombe*\r\n'),
-(22, 'B14', 'Sistemi di accumulo ad acqua* \r\n'),
-(23, 'C1', 'Sostituzione dei serramenti con modelli ad alta prestazione energetica*\r\n'),
-(24, 'C2', 'Sostituzione dei vetri con modelli isolanti o captanti su telaio esistente*\r\n'),
-(25, 'C3', 'Messa in opera di una seconda anta vetrata*\r\n'),
-(26, 'C4', 'Messa in opera di una seconda lastra vetrata*\r\n'),
-(27, 'C5', 'Isolamento e tenuta all\'aria del telaio\r\n'),
-(28, 'C6', 'Applicazione al vetro di pellicole speciali isolanti o captanti\r\n'),
-(29, 'C7', 'Meccanizzazione del serramento\r\n'),
-(30, 'C8', 'Applicazione al vetro di pellicole a controllo solare\r\n'),
-(31, 'C9', 'Installazione di schermi interni\r\n'),
-(32, 'C10', 'Installazione di schermi esterni\r\n'),
-(33, 'C11', 'Applicazione di una mensola di luce*\r\n'),
-(34, 'D1', 'Isolamento termico all\'intradosso del solaio\r\n'),
-(35, 'D2', 'Isolamento termico all\'intradosso del solaio superiore\r\n'),
-(36, 'D3', 'Isolamento termico all\'estradosso del solaio superiore\r\n'),
-(37, 'D4', 'Isolamento termico all\'estradosso del solaio inferiore \r\n'),
-(38, 'E1', 'Revisione del modello di riscaldamento esistente, con la previsione di soluzioni radianti a pavimento o a parete\r\n'),
-(39, 'E2', 'Sostituzione dei corpi illuminanti con lampade a risparmio energetico\r\n'),
-(40, 'E3', 'Inserimento di sistemi automatizzati di gestione e controllo \r\n'),
-(41, 'E4', 'Installazione di generatori di calore a condensazione\r\n'),
-(42, 'E5', 'Installazione di pompe di calore\r\n'),
-(43, 'E6', 'Installazione di testine termostatiche sui terminali di impianto\r\n'),
-(44, 'E7', 'Inserimento di termostati ambiente\r\n'),
-(45, 'E8', 'Installazione di sensori di presenza negli ambienti\r\n'),
-(46, 'E9', 'Installazione di caldaia a biomasse\r\n'),
-(47, 'E10', 'Installazione di sonde geotermiche\r\n'),
-(48, 'E11', 'Installazione di impianto di cogenerazione\r\n'),
-(49, 'E12', 'Installazione di regolatori di flusso collegati a rilevatori di luce\r\n'),
-(50, 'E13', 'Installazione di sistemi di deumidificazione attiva con macchine a funzionamento elettrico\r\n'),
-(51, 'F1', 'Introduzione di sistemi di ombreggiamento all\'intorno\r\n'),
-(52, 'F2', 'Realizzazione di una serra solare\r\n'),
-(53, 'F3', 'Realizzazione di camini di luce\r\n'),
-(54, 'F4', 'Realizzazione di un camino di ventilazione\r\n');
+INSERT INTO `codice_intervento_ce` (`id`, `codice`, `descrizione`, `appunto`) VALUES
+(1, 'A1', 'Isolamento termico all\'estradosso non ventilato\r\n', NULL),
+(2, 'A2', 'Isolamento termico all\'estradosso ventilato\r\n', NULL),
+(3, 'A3', 'Isolamento termico all\'intradosso\r\n', NULL),
+(4, 'A4', 'Isolamento termico all\'intradosso ventilato\r\n', NULL),
+(5, 'A5', 'Integrazione del fotovoltaico \r\n(tegole e coppi fotovoltaici)*\r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta valutazione di applicabilità;\r\nnon è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali'),
+(6, 'A6', 'Integrazione del solare termico \r\n(collettori solari con decalcomanie forate)*\r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali'),
+(7, 'A7', 'Green roof*\r\n', '*l\'intervento richiede una valutazione più approfondita di applicabilità'),
+(8, 'A8', 'Roof pond*\r\n', '*l\'intervento richiede una valutazione più approfondita di applicabilità'),
+(9, 'B1', 'Isolamento termico a pannelli sulla superficie interna della parete \r\n', NULL),
+(10, 'B2', 'Isolamento tramite intonaco termoisolante sulla superficie interna della parete\r\n', NULL),
+(11, 'B3', 'Isolamento termico a pannelli sulla superficie esterna della parete ventilato\r\n', NULL),
+(12, 'B4', 'Isolamento termico a pannelli sulla superficie esterna della parete non ventilato\r\n', NULL),
+(13, 'B5', 'Isolamento tramite intonaco termoisolante sulla superficie esterna della parete\r\n', NULL),
+(14, 'B6', 'Isolamento termico all\'interno dell\'intercapedine*\r\n', '*questo intervento può essere effettuato solo su 2 paramenti con intercapedine\r\n                    vuota o combinata con intervento strutturale D13'),
+(15, 'B7', 'Sistemi di accumulo a cambiamento di fase* \r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali'),
+(16, 'B8', 'Realizzazione di barriere fisiche alla risalita capillare*\r\n', '*l\'intervento può comportare problematiche di tipo statico'),
+(17, 'B9', 'Realizzazione di barriere chimiche alla risalita capillare\r\n', NULL),
+(18, 'B10', 'Realizzazione di sistemi di evacuazione dell\'umidità tramite intonaci macroporosi\r\n', NULL),
+(19, 'B11', 'Realizzazione di sistemi di evacuazione dell\'umidità tramite sistemi elettro-fisici\r\n', NULL),
+(20, 'B12', 'Green wall*\r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali'),
+(21, 'B13', 'Muro di Trombe*\r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali'),
+(22, 'B14', 'Sistemi di accumulo ad acqua* \r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali'),
+(23, 'C1', 'Sostituzione dei serramenti con modelli ad alta prestazione energetica*\r\n', '*l\'intervento riveste anche una funzione coibente'),
+(24, 'C2', 'Sostituzione dei vetri con modelli isolanti o captanti su telaio esistente*\r\n', '*l\'intervento riveste anche una funzione coibente'),
+(25, 'C3', 'Messa in opera di una seconda anta vetrata*\r\n', '*l\'intervento riveste anche una funzione coibente'),
+(26, 'C4', 'Messa in opera di una seconda lastra vetrata*\r\n', '*l\'intervento riveste anche una funzione coibente'),
+(27, 'C5', 'Isolamento e tenuta all\'aria del telaio\r\n', NULL),
+(28, 'C6', 'Applicazione al vetro di pellicole speciali isolanti o captanti\r\n', NULL),
+(29, 'C7', 'Meccanizzazione del serramento\r\n', NULL),
+(30, 'C8', 'Applicazione al vetro di pellicole a controllo solare\r\n', NULL),
+(31, 'C9', 'Installazione di schermi interni\r\n', NULL),
+(32, 'C10', 'Installazione di schermi esterni\r\n', NULL),
+(33, 'C11', 'Applicazione di una mensola di luce*\r\n', '*l\'intervento promuove la diffusione della luce in profondità'),
+(34, 'D1', 'Isolamento termico all\'intradosso del solaio\r\n', NULL),
+(35, 'D2', 'Isolamento termico all\'intradosso del solaio superiore\r\n', NULL),
+(36, 'D3', 'Isolamento termico all\'estradosso del solaio superiore\r\n', NULL),
+(37, 'D4', 'Isolamento termico all\'estradosso del solaio inferiore \r\n', NULL),
+(38, 'E1', 'Revisione del modello di riscaldamento esistente, con la previsione di soluzioni radianti a pavimento o a parete\r\n', NULL),
+(39, 'E2', 'Sostituzione dei corpi illuminanti con lampade a risparmio energetico\r\n', NULL),
+(40, 'E3', 'Inserimento di sistemi automatizzati di gestione e controllo \r\n', NULL),
+(41, 'E4', 'Installazione di generatori di calore a condensazione\r\n', NULL),
+(42, 'E5', 'Installazione di pompe di calore\r\n', NULL),
+(43, 'E6', 'Installazione di testine termostatiche sui terminali di impianto\r\n', NULL),
+(44, 'E7', 'Inserimento di termostati ambiente\r\n', NULL),
+(45, 'E8', 'Installazione di sensori di presenza negli ambienti\r\n', NULL),
+(46, 'E9', 'Installazione di caldaia a biomasse\r\n', NULL),
+(47, 'E10', 'Installazione di sonde geotermiche\r\n', NULL),
+(48, 'E11', 'Installazione di impianto di cogenerazione\r\n', NULL),
+(49, 'E12', 'Installazione di regolatori di flusso collegati a rilevatori di luce\r\n', NULL),
+(50, 'E13', 'Installazione di sistemi di deumidificazione attiva con macchine a funzionamento elettrico\r\n', NULL),
+(51, 'F1', 'Introduzione di sistemi di ombreggiamento all\'intorno\r\n', NULL),
+(52, 'F2', 'Realizzazione di una serra solare\r\n', NULL),
+(53, 'F3', 'Realizzazione di camini di luce\r\n', NULL),
+(54, 'F4', 'Realizzazione di un camino di ventilazione\r\n', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `codice_intervento_ce_attrezzature_associate`
+--
+
+CREATE TABLE `codice_intervento_ce_attrezzature_associate` (
+  `codice_intervento_ce_id` bigint(20) NOT NULL,
+  `attrezzature_associate_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `codice_intervento_ce_attrezzature_associate`
+--
+
+INSERT INTO `codice_intervento_ce_attrezzature_associate` (`codice_intervento_ce_id`, `attrezzature_associate_id`) VALUES
+(1, 2),
+(1, 4),
+(2, 2),
+(2, 4),
+(3, 1),
+(4, 1),
+(7, 2),
+(7, 4),
+(9, 1),
+(10, 1),
+(11, 2),
+(12, 2),
+(13, 2),
+(14, 1),
+(18, 1),
+(18, 2),
+(28, 3),
+(28, 3),
+(32, 3),
+(35, 1),
+(37, 1);
 
 -- --------------------------------------------------------
 
@@ -1405,6 +1467,12 @@ ALTER TABLE `associazione_intervento_st`
   ADD KEY `FK960ocw9x1ss67pq837j89runj` (`struttura_associazione_id`);
 
 --
+-- Indici per le tabelle `attrezzature_ce`
+--
+ALTER TABLE `attrezzature_ce`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indici per le tabelle `caratteristiche_qualitative_ce`
 --
 ALTER TABLE `caratteristiche_qualitative_ce`
@@ -1450,6 +1518,13 @@ ALTER TABLE `classe_indicatore_ce`
 --
 ALTER TABLE `codice_intervento_ce`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `codice_intervento_ce_attrezzature_associate`
+--
+ALTER TABLE `codice_intervento_ce_attrezzature_associate`
+  ADD KEY `FK6wpm4eiuxfetvs3qsjlua9q5c` (`attrezzature_associate_id`),
+  ADD KEY `FKr8r7kejtxfhpegi3gno1xkptm` (`codice_intervento_ce_id`);
 
 --
 -- Indici per le tabelle `codice_intervento_st`
@@ -1577,6 +1652,12 @@ ALTER TABLE `associazione_intervento_ce`
 --
 ALTER TABLE `associazione_intervento_st`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+
+--
+-- AUTO_INCREMENT per la tabella `attrezzature_ce`
+--
+ALTER TABLE `attrezzature_ce`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT per la tabella `caratteristiche_qualitative_ce`
@@ -1732,6 +1813,13 @@ ALTER TABLE `caratteristiche_struttura_st`
 --
 ALTER TABLE `classe_indicatore_ce`
   ADD CONSTRAINT `FKcv0llisc9wfd2vewap8gb87bd` FOREIGN KEY (`indicatore_id`) REFERENCES `indicatore_ce` (`id`);
+
+--
+-- Limiti per la tabella `codice_intervento_ce_attrezzature_associate`
+--
+ALTER TABLE `codice_intervento_ce_attrezzature_associate`
+  ADD CONSTRAINT `FK6wpm4eiuxfetvs3qsjlua9q5c` FOREIGN KEY (`attrezzature_associate_id`) REFERENCES `attrezzature_ce` (`id`),
+  ADD CONSTRAINT `FKr8r7kejtxfhpegi3gno1xkptm` FOREIGN KEY (`codice_intervento_ce_id`) REFERENCES `codice_intervento_ce` (`id`);
 
 --
 -- Limiti per la tabella `edificio_st`

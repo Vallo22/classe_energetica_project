@@ -4,3 +4,7 @@
     width: fit-content;
     text-align: center;
 }
+
+.card-header{
+    height: 50px;
+}

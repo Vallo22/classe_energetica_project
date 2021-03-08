@@ -93,7 +93,6 @@ export class ValutazioneInterventiCeComponent implements OnInit {
       }
       console.log("Totale: ", t.totale);
     })
-    this.massimoNumero()
   }
 
   massimoNumero() {

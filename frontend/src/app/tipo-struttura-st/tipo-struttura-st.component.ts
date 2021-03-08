@@ -404,12 +404,7 @@ export class TipoStrutturaStComponent implements OnInit {
       this.imgI1 = true
     }    
   }
-
-  scrollToBottom(){
-    window.scrollTo(0,document.body.scrollHeight);
-    }
   
-
   onChangeCaratteristicheQualitative(index: number) {
     if (index === 0) {
       this.variabileIntervento = null

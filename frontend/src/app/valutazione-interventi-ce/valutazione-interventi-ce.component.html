@@ -23,7 +23,7 @@
             <div class='legend-scale'>
               <ul class='legend-labels'
                 *ngIf="interventi.intervento.codice == 'B3' || interventi.intervento.codice == 'B8'">
-                <select [(ngModel)]="tipo_superficie" (change)="calcolaTotale()">
+                <select [(ngModel)]="tipo_superficie" (change)="calcolaTotale()" (change)="massimoNumero()">
                   <option selected disabled [value]="0">Seleziona</option>
                   <option [value]="1">Tutte le superfici intonacate</option>
                   <option [value]="2">Esterno a vista, interno intonacato</option>
@@ -35,7 +35,7 @@
                interventi.intervento.codice == 'D4' ||
                interventi.intervento.codice == 'A2' ||
                interventi.intervento.codice == 'A5'">
-                <select [(ngModel)]="tipo_superficie" (change)="calcolaTotale()">
+                <select [(ngModel)]="tipo_superficie" (change)="calcolaTotale()" (change)="massimoNumero()">
                   <option selected disabled [value]="0">Seleziona</option>
                   <option [value]="1">Intradosso a vista</option>
                   <option [value]="2">Intradosso non a vista</option>
@@ -44,7 +44,7 @@
               <ul class='legend-labels' *ngIf="interventi.intervento.codice == 'C1' ||
                interventi.intervento.codice == 'C7' ||
                interventi.intervento.codice == 'C8'">
-                <select [(ngModel)]="tipo_superficie" (change)="calcolaTotale()">
+                <select [(ngModel)]="tipo_superficie" (change)="calcolaTotale()" (change)="massimoNumero()">
                   <option selected disabled [value]="0">Seleziona</option>
                   <option [value]="1">Compatibilità visiva</option>
                 </select>

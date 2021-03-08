@@ -4,51 +4,40 @@
         <p><strong>Riepilogo degli interventi e calcolo dei costi</strong></p>
     </div>
     <hr>
-        <div class="legenda" style="text-align: center;">
-          <summary><strong>Tipo di superfici:</strong></summary>
-            <div class='legend-scale'>
-              <ul class='legend-labels'>
-                <select [(ngModel)]="tipo_superficie">
-                  <option selected disabled [value]="0">Seleziona</option>
-                  <option [value]="1">Superfici a vista</option>
-                  <option *ngFor="let elemento of interventi;" [attr.disabled]="elemento.prezzoInton === 0 ? 'disabled' : null" [value]="2">Superficie intonacata</option>
-                </select>
-              </ul>        
-            </div>
-          </div>
-        <hr>
 
     <div class="overflow-auto">
         <div class="tabella">
             <table class="table table-bordered" style="display: contents;">
-                
+                <caption></caption>
                 <tr *ngFor="let elemento of interventi; index as j">
                     <thead style="background:#3f675e; color: white;">
-                        <th>
-                            Intervento:
-                        </th>
-                        <th>
-                            Prezzo unità/quantità:
-                        </th>
-                        <th>
-                            Dimensione:
-                        </th>
-                        <th>
-                            Costo parziale:
-                        </th>
+                        <th scope="colgroup">Intervento:</th>
+                        <th scope="colgroup">Tipo di superficie:</th>
+                        <th scope="colgroup">Prezzo unità/quantità:</th>
+                        <th scope="colgroup">Dimensione:</th>
+                        <th scope="colgroup">Costo parziale:</th>
                     </thead>
                     <tbody>
+                        <td>{{elemento.intervento.codice}}</td>
+
                         <td>
-                            {{elemento.intervento.codice}}
+                            <select [(ngModel)]="tipo_superficie">
+                                <option selected disabled [value]="0">Seleziona</option>
+                                <option [value]="1">Superfici a vista</option>
+                                <option *ngFor="let elemento of interventi;" [attr.disabled]="elemento.prezzoInton === 0 ? 'disabled' : null" [value]="2">Superficie intonacata</option>
+                            </select>
                         </td>
+
                         <td *ngIf="tipo_superficie == 0">Seleziona</td>
                         <td *ngIf="tipo_superficie == 1">{{elemento.prezzoVista}}€/{{elemento.unitaMisura}}</td>
                         <td *ngIf="tipo_superficie == 2">{{elemento.prezzoInton}}€/{{elemento.unitaMisura}}</td>
+                        
                         <td>
                             <input type="number" [value]="elemento.valoreCifra"
                                 (input)="elemento.valoreCifra = $event.target.value" style="margin-left: 20px;">
                                 {{elemento.unitaMisura}} 
                         </td>
+
                         <td *ngIf="tipo_superficie == 0">Seleziona</td>
                         <td *ngIf="tipo_superficie == 1">{{elemento.prezzoVista * elemento.valoreCifra | number: '1.0-2'}}€</td>
                         <td *ngIf="tipo_superficie == 2">{{elemento.prezzoInton * elemento.valoreCifra | number: '1.0-2'}}€</td>
@@ -58,3 +47,26 @@
             </table>
         </div>
     </div>
+
+    <hr>
+
+    <div class="card">
+        <div class="card-header" style="text-align: center; font-size: 20px;">
+            <p><strong>Si consideri in aggiunta il costo per le attrezzature per la sicurezza di tipo:</strong></p>
+        </div>
+
+        <div class="card-body">
+            <form>
+                <ul class="list-group">
+                  <li class="list-group-item"
+                    *ngFor="let att of interv[a].attrezzatureAssociate; index as i">
+                    <td>
+                        {{att.codice}} - {{att.descrizione}}
+                    </td>
+                  </li>
+                </ul>
+              </form>
+        </div>
+    </div>
+    
+</div>
