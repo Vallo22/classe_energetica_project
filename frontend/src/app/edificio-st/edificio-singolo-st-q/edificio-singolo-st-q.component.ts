@@ -26,7 +26,7 @@ export class EdificioSingoloStQComponent implements OnInit {
   msg1: boolean = false
   edificioByQuality: { [key: number]: EdificioInAggregatoSt[] } = {}
   subscriptionsToDelete: Subscription = new Subscription()
-  Colors: Array<any> = ["#d62828","#ff8c00","#228b22"]
+  Colors: Array<any> = ["#ce5e59","#fad677","#5a8982"]
   emsType: number
 
 

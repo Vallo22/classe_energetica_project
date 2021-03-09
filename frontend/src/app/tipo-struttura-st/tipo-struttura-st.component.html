@@ -13,12 +13,11 @@
 
   <div class="card my-5">
     <div class="card-header" style="text-align: center; font-size: 20px;">
-      <p><strong>Tipo di struttura</strong></p>
+      <p><strong>Alternative tecniche</strong></p>
     </div>
     <div class="card-body">
-      <form>
-        <div class="form-group">
           <!-- STRUTTURA UNO -->
+          <p style="font-size: 17px;"><strong>• Classi primarie di elementi tecnici (LV3)</strong></p>
           <select value="structure" class="form-control" id="structure" (change)="onChange($event.target.value)"
             name="struttura">
             <option selected disabled>
@@ -28,9 +27,10 @@
               {{ array.typeName }}
             </option>
           </select>
-
+          <label></label>
           <!-- STRUTTURA DUE -->
-          <select [(ngModel)]="selectedIndex" (change)="onChangeSecondo($event.target.value)" style="margin-top: 30px;"
+          <p style="font-size: 17px;"><strong>• Classi secondarie di elementi tecnici (LV4)</strong></p>
+          <select [(ngModel)]="selectedIndex" (change)="onChangeSecondo($event.target.value)"
             value="struttura" class="form-control" id="structure" name="struttura">
             <option selected disabled>
               Seleziona
@@ -40,8 +40,6 @@
             </option>
           </select>
 
-        </div>
-      </form>
     </div>
   </div>
 
@@ -52,9 +50,7 @@
       <p><strong>Caratteristiche qualitative</strong></p>
     </div>
     <div class="card-body">
-      <form>
-        <div class="form-group">
-          <select [(ngModel)]="selectArr" style="margin-top: 30px;" value="struttura"
+          <select [(ngModel)]="selectArr" value="struttura"
             (change)="onChangeCaratteristicheQualitative($event.target.value)" class="form-control" id="structure"
             name="struttura">
             <option disabled selected [value]="0">Seleziona</option>
@@ -62,8 +58,6 @@
               {{car.caratteristicheQualitative}}
             </option>
           </select>
-        </div>
-      </form>
     </div>
   </div>
 
@@ -77,7 +71,6 @@
       <p><strong>Interventi</strong></p>
     </div>
     <div class="card-body">
-      <form>
         <ul class="list-group">
           <li class="list-group-item" *ngFor="let arr of variabileIntervento; index as i">
             <td style="float: left; max-width:850px; word-wrap:break-word;"><strong>
@@ -92,7 +85,6 @@
             </td>
           </li>
         </ul>
-      </form>
     </div>
   </div>
 
@@ -102,11 +94,10 @@
       <p><strong>Meccanismi</strong></p>
     </div>
     <div class="card-body">
-      <form>
         <ul class="list-group">
           <li class="list-group-item"
             *ngFor="let meccanismo of caratteristiche[selectArr].meccanismiAssociati; index as i">
-            <td>
+            <td style="float: left; max-width:850px; word-wrap:break-word;">
               <strong>{{meccanismo.descrizione}}</strong>
               <br>
               Modi di danno alle strutture orizzontali:
@@ -115,9 +106,14 @@
               Modi di danno alle strutture verticali:
               {{meccanismo.modi_di_danno_alle_strutture_verticali}}
             </td>
+            <td style="float: right;">
+              <button style="margin-top: 17px;" class="btn btn-outline-default"
+                data-toggle="modal" data-target=".bd-example-modal-lg">
+                Vai al meccanismo
+              </button>
+            </td>
           </li>
         </ul>
-      </form>
 
       <div class="pulsante">
         <button class="btn btn-default" style="margin-top: 20px;" (click)="trasferisciOggetti()">

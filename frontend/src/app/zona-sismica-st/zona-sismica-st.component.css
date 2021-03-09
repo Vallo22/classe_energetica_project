@@ -19,26 +19,27 @@
 }
 
 .btn-default, .btn-default:active, .btn-default:visited {
-  background-color: #3f675e !important;
+  background-color: #ce5e59 !important;
   color: white;
 }
 
 .btn-default:hover {
-  background-color: #32534c !important;
+  background-color: #853a36 !important;
   color: white;
 }
 
 .btn-outline-default, .btn-outline-default:active, .btn-outline-default:visited {
   background-color: white !important;
-  color: #3f675e;
-  border-color: #3f675e;
+  color: #ce5e59;
+  border-color: #ce5e59;
 }
 
 .btn-outline-default:hover {
-  background-color: #3f675e !important;
+  background-color: #ce5e59 !important;
   color: white;
 }
 
 .card-header{
   height: 50px;
 }
+
