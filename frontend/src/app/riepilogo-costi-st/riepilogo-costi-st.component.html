@@ -3,45 +3,33 @@
     <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
         <p><strong>Riepilogo degli interventi e calcolo dei costi</strong></p>
     </div>
-    <hr>
-        <div class="legenda" style="text-align: center;">
-          <summary><strong>Tipo di superfici:</strong></summary>
-            <div class='legend-scale'>
-              <ul class='legend-labels'>
-                <select [(ngModel)]="tipo_superficie">
-                  <option selected disabled [value]="0">Seleziona</option>
-                  <option [value]="1">Superfici a vista</option>
-                  <option *ngFor="let elemento of interventi;" [attr.disabled]="elemento.prezzoSupInt === 0 ? 'disabled' : null" [value]="2">Superficie intonacata</option>
-                  <option *ngFor="let elemento of interventi;" [attr.disabled]="elemento.prezzoEntrInt === 0 ? 'disabled' : null" [value]="3">Entrambe le superfici intonacate</option>
-                </select>
-              </ul>        
-            </div>
-          </div>
-        <hr>
 
     <div class="overflow-auto">
         <div class="tabella">
             <table class="table table-bordered" style="display: contents;">
-                
+                <caption></caption>
                 <tr *ngFor="let elemento of interventi; index as j">
-                    <thead class="thead-dark">
-                        <th>
-                            Intervento:
-                        </th>
-                        <th>
-                            Prezzo unità/quantità:
-                        </th>
-                        <th>
-                            Dimensione:
-                        </th>
-                        <th>
-                            Costo parziale:
-                        </th>
+                    <thead style="background:#ce5e59; color: white;">
+                        <th scope="colgroup">Intervento:</th>
+                        <th scope="colgroup">Tipo di superficie:</th>
+                        <th scope="colgroup">Prezzo unità/quantità:</th>
+                        <th scope="colgroup">Dimensione:</th>
+                        <th scope="colgroup">Costo parziale:</th>
                     </thead>
                     <tbody>
                         <td>
                             {{elemento.intervento.codice}}
                         </td>
+                        
+                        <td>
+                            <select [(ngModel)]="tipo_superficie">
+                                <option selected disabled [value]="0">Seleziona</option>
+                                <option [value]="1">Superfici a vista</option>
+                                <option *ngFor="let elemento of interventi;" [attr.disabled]="elemento.prezzoSupInt === 0 ? 'disabled' : null" [value]="2">Superficie intonacata</option>
+                                <option *ngFor="let elemento of interventi;" [attr.disabled]="elemento.prezzoEntrInt === 0 ? 'disabled' : null" [value]="3">Entrambe le superfici intonacate</option>
+                              </select>
+                        </td>
+
                         <td *ngIf="tipo_superficie == 0">Seleziona</td>
                         <td *ngIf="tipo_superficie == 1">{{elemento.prezzo}}€/{{elemento.unitaMisura}}</td>
                         <td *ngIf="tipo_superficie == 2">{{elemento.prezzoSupInt}}€/{{elemento.unitaMisura}}</td>
@@ -61,11 +49,12 @@
             </table>
         </div>
     </div>
+
     <div class="pulsante1">
         <div class="scrollLaterale">
             Fai uno scroll laterale per inserire i metri quadri
         </div>
-        <button class="btn btn-info" style="align-content: center;" (click)="calcolaInvestimentoTotale()">
+        <button class="btn btn-outline-default" style="align-content: center;" (click)="calcolaInvestimentoTotale()">
             Calcola il costo totale di investimento
         </button>
 
@@ -73,12 +62,13 @@
 
     <hr>
     <table class="table table-bordered" style="margin-top: 30px;">
+        <caption></caption>
         <tbody>
             <tr>
                 <td>
                     Costo di investimento totale:
                 </td>
-                <td  style="background-color: #ffdd00;">
+                <td  style="background-color: #fad677;">
                     {{totale | number: '1.0-2'}}€
                 </td>
             </tr>
@@ -106,8 +96,9 @@
 
 
     <table class="table table-bordered" style="margin-top: 30px;">
-        <thead class="thead-dark">
-            <th colspan="2" style="text-align: center;">IPOTESI DI DANNO E PREVISIONE DEI COSTI DI RIPARAZIONE</th>
+        <caption></caption>
+        <thead style="background-color: #ce5e59; color: white;">
+            <th scope="colgroup" colspan="2" style="text-align: center;">IPOTESI DI DANNO E PREVISIONE DEI COSTI DI RIPARAZIONE</th>
         </thead>
         <tbody>
             <tr>
@@ -124,7 +115,7 @@
                     Livello di danno ipotizzato:
                 </td>
                 <td>
-                    <select (click)="onChangeDannoIpotizzato($event.target.value)">
+                    <select>
                         <option selected disabled>
                             Seleziona:
                         </option>
@@ -132,13 +123,16 @@
                             {{danno.valore}} {{danno.costo}}€/mq
                         </option>
                     </select>
+                    <button style="margin-left: 5px;"class="btn btn-outline-default" (click)="onChangeDannoIpotizzato($event.target.value)">
+                        Calcola
+                    </button>
                 </td>
             </tr>
             <tr>
                 <td>
                     Costo di riparazione:
                 </td>
-                <td style="background-color: #ffdd00;">
+                <td style="background-color: #fad677;">
                     {{costoRiparazione | number: '1.0-2'}}€
                 </td>
             </tr>

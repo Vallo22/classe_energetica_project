@@ -92,7 +92,7 @@
                   {{interventi.totale[j] | number: '1.2-2'}}</td>
                 <td>
                   <div class="custom-control custom-checkbox" *ngIf="tipo_superficie == 1 || tipo_superficie == 2 || tipo_superficie == 3">
-                    <input type="checkbox" class="form-check-input"
+                    <input type="checkbox" class="form-check-input" [disabled]="arraySelezionati.length > 0"
                       (click)="premiBottone(interventi)">
                   </div>
                 </td>

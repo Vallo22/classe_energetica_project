@@ -22,28 +22,14 @@
     border: 1px solid #999;
     }
 
-    .floatLeft { width: 50%; float: left; inline-size: fit-content; text-align: center; margin-top: 55px;}
-.floatRight {width: 50%; float: right; }
 .container { overflow: hidden; display: block;}
 
-.pulsante{
+.centro{
         text-align: center;
     }
-    
-#boxPunteggio {
-      border: 1px solid;
-      padding: 10px;
-      box-shadow: 5px 10px  #228b22;
-      width: 288px;
-      margin: auto;
-    }
-
-    
-.btn-info {
-        color: #fff;
-        background-color: #17a2b8;
-        border-color: #17a2b8;
-        width: max-content;
+  
+    .pulsante {
+      text-align: center;
     }
 
     @media all and (max-width: 500px){
@@ -59,3 +45,18 @@
           width: 300px;
         }
       }
+
+
+.card-header {
+  height: 50px;
+}
+
+.btn-default, .btn-default:active, .btn-default:visited {
+  background-color: #ce5e59 !important;
+  color: white;
+}
+
+.btn-default:hover {
+  background-color: #853a36 !important;
+  color: white;
+}
