@@ -1,12 +1,18 @@
 <div class="container">
 
     <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-        <p><strong>Comparazione a coppie tra i criteri (Analytic Hierarchy Process)</strong>
+        <strong>Analisi multicriterio per la selezione degli interventi (AHP)</strong>
     </div>
+    <div class="sottotitolo" style="text-align: center; font-size: 20px;">
+        <strong>Comparazione a coppie tra i criteri di valutazione</strong>
+    </div>
+
     <!-- HEADER % -->
     <div class="card my-5">
-        <div class="card-header" style="text-align: center; font-size: 17px;">
-            <div class="row justify-content-md-center">
+        <div class="card-header" style="text-align: center;">
+            <div style="font-size: 20px;"><strong>Criteri</strong></div>
+            <hr>
+            <div class="row justify-content-md-center" style="font-size: 17px;">
                 <div *ngFor="let row of matrix; index as r">
                     <div class="col-md-auto" *ngIf="r === 0">
                         <strong>Modicità di costo</strong><br>
@@ -639,7 +645,7 @@
                     <summary><strong>Matrice A di comparazione</strong></summary>
                     <td class="tabella">
                         <table class="table table-bordered">
-                            <thead style="background:#3f675e; color: white;">
+                            <thead style="background:#ce5e59; color: white;">
                                 <tr style="font-size: 16px; text-align: center;">
                                     <th scope="col">
                                         x
@@ -660,7 +666,7 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let row of matrix; index as r ">
-                                    <th scope="row" style="font-size: 16px; text-align: center; background:#3f675e; color: white;">
+                                    <th scope="row" style="font-size: 16px; text-align: center; background:#ce5e59; color: white;">
                                         {{arrayStringhe[r]}}
                                     </th>
                                     <td *ngFor="let column of row; index as c">
@@ -682,7 +688,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row" style="font-size: 16px; text-align: center; background:#3f675e; color: white;">TOT
+                                    <th scope="row" style="font-size: 16px; text-align: center; background:#ce5e59; color: white;">TOT
                                     </th>
                                     <td style="font-size: 15px;" *ngFor="let risultato of matrixRisultati">
                                         {{risultato | number: '1.2-2'}}
@@ -703,7 +709,7 @@
                     <summary><strong>Matrice A Normalizzata</strong></summary>
                     <div class="Second_table" style="float: left; margin-right: 30px;">
                         <table class="table table-bordered">
-                            <thead style="font-size: 16px; text-align: center; background:#3f675e; color: white;">
+                            <thead style="font-size: 16px; text-align: center; background:#ce5e59; color: white;">
                                 <th>
                                     x
                                 </th>
@@ -724,7 +730,7 @@
                                 </th>
                             </thead>
                             <tr *ngFor="let row of matrix; index as r">
-                                <th scope="row" style="font-size: 16px; text-align: center; background:#3f675e; color: white;">{{arrayStringhe[r]}}
+                                <th scope="row" style="font-size: 16px; text-align: center; background:#ce5e59; color: white;">{{arrayStringhe[r]}}
                                 </th>
                                 <td *ngFor="let column of row; index as c">
                                     <div>

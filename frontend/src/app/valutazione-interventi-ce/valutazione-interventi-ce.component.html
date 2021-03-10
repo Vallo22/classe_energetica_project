@@ -11,8 +11,8 @@
           <div class='my-legend'>
             <div class='legend-scale'>
               <ul class='legend-labels'>
-                <li><span style='background:#d62828;'></span>Intervento meno conveniente</li>
-                <li><span style='background:#228b22;'></span>Intervento più conveniente</li>
+                <li><span style='background:#fad677;'></span>Intervento meno conveniente</li>
+                <li><span style='background:#5a8982;'></span>Intervento più conveniente</li>
               </ul>
             </div>
           </div>
@@ -61,7 +61,7 @@
       <div class="overflow-auto">
         <table class="table table-hover table-bordered table-striped">
           <caption></caption>
-          <thead style="background:#3f675e; color: white;">
+          <thead style="background:#ce5e59; color: white;">
             <tr>
               <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="1" scope="colgroup">Codice</th>
               <th style="text-align: center;" rowspan="2" scope="colgroup">Modicità di costo</th>
@@ -88,7 +88,7 @@
                 <td>{{interventi.reversibilita[j]}}</td>
                 <td>{{interventi.semplicitaDiCantiere[j]}}</td>
                 <td>{{interventi.esiguitaDiIngombro[j]}}</td>
-                <td [ngStyle]="{'background-color':interventi.maxVariante === j ? '#228b22' : interventi.minVariante === j ? '#d62828' : 'white' }">
+                <td [ngStyle]="{'background-color':interventi.maxVariante === j ? '#5a8982' : interventi.minVariante === j ? '#fad677' : 'white' }">
                   {{interventi.totale[j] | number: '1.2-2'}}</td>
                 <td>
                   <div class="custom-control custom-checkbox" *ngIf="tipo_superficie == 1 || tipo_superficie == 2 || tipo_superficie == 3">

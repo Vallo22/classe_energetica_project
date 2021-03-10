@@ -65,4 +65,18 @@
   }
 }
 
+.card-header {
+  height: 50px;
+}
+
+.btn-default, .btn-default:active, .btn-default:visited {
+  background-color: #ce5e59 !important;
+  color: white;
+}
+
+.btn-default:hover {
+  background-color: #853a36 !important;
+  color: white;
+}
+
 
