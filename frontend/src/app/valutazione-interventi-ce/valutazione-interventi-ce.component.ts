@@ -128,7 +128,6 @@ export class ValutazioneInterventiCeComponent implements OnInit {
 
   trasferisciIntervento() {
     this.router.navigate(['/riepilogo-costi-ce'])
-
   }
 
 }

@@ -167,6 +167,5 @@ public class AssociazioneInterventoCe {
 	public void setUnitaMisura(String unitaMisura) {
 		this.unitaMisura = unitaMisura;
 	}
-	
-	
+		
 }

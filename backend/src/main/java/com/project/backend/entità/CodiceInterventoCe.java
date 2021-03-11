@@ -1,14 +1,10 @@
 package com.project.backend.entità;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,9 +19,8 @@ public class CodiceInterventoCe {
     private String codice;
     private String descrizione;
     private String appunto;
-    
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<AttrezzatureCe> attrezzatureAssociate;
+    private String attrezzatura;
+    private String descrizioneAttrezzatura;
 
 	public long getId() {
 		return id;
@@ -59,12 +54,22 @@ public class CodiceInterventoCe {
 		this.appunto = appunto;
 	}
 
-	public List<AttrezzatureCe> getAttrezzatureAssociate() {
-		return attrezzatureAssociate;
+	public String getAttrezzatura() {
+		return attrezzatura;
 	}
 
-	public void setAttrezzatureAssociate(List<AttrezzatureCe> attrezzatureAssociate) {
-		this.attrezzatureAssociate = attrezzatureAssociate;
+	public void setAttrezzatura(String attrezzatura) {
+		this.attrezzatura = attrezzatura;
 	}
+
+	public String getDescrizioneAttrezzatura() {
+		return descrizioneAttrezzatura;
+	}
+
+	public void setDescrizioneAttrezzatura(String descrizioneAttrezzatura) {
+		this.descrizioneAttrezzatura = descrizioneAttrezzatura;
+	}
+	
+	
     
 }

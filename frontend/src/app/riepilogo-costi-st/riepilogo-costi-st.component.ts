@@ -113,8 +113,4 @@ export class RiepilogoCostiStComponent implements OnInit {
       this.costoRiparazione = this.dannoIpotizzato[i - 1].costo * this.numeroUtente
   }
 
-  valoreCR(){
-
-  }
-
 }

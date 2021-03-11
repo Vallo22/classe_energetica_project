@@ -18,6 +18,9 @@ public class CodiceInterventoSt {
     @Column
     private String codice;
     private String descrizione;
+    private String attrezzatura;
+    private String descrizioneAttrezzatura;
+    private String dettaglio;
 
     public long getId() {
         return id;
@@ -41,5 +44,31 @@ public class CodiceInterventoSt {
 
     public void setDescrizione(String descrizione) {
         this.descrizione = descrizione;
-    }    
+    }
+
+	public String getAttrezzatura() {
+		return attrezzatura;
+	}
+
+	public void setAttrezzatura(String attrezzatura) {
+		this.attrezzatura = attrezzatura;
+	}
+
+	public String getDescrizioneAttrezzatura() {
+		return descrizioneAttrezzatura;
+	}
+
+	public void setDescrizioneAttrezzatura(String descrizioneAttrezzatura) {
+		this.descrizioneAttrezzatura = descrizioneAttrezzatura;
+	}
+
+	public String getDettaglio() {
+		return dettaglio;
+	}
+
+	public void setDettaglio(String dettaglio) {
+		this.dettaglio = dettaglio;
+	}    
+    
+	
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Mar 08, 2021 alle 16:28
+-- Creato il: Mar 11, 2021 alle 18:35
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -301,29 +301,6 @@ INSERT INTO `associazione_intervento_st` (`id`, `efficacia`, `esiguita_di_ingomb
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `attrezzature_ce`
---
-
-CREATE TABLE `attrezzature_ce` (
-  `id` bigint(20) NOT NULL,
-  `codice` varchar(255) DEFAULT NULL,
-  `descrizione` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `attrezzature_ce`
---
-
-INSERT INTO `attrezzature_ce` (`id`, `codice`, `descrizione`) VALUES
-(1, 'A', 'Trabattelli ad uso interno'),
-(2, 'B', 'Ponteggi esterni'),
-(3, 'C', 'Piattaforma aerea verticale'),
-(4, 'D', 'Parapetti'),
-(5, 'E', 'Puntellatura');
-
--- --------------------------------------------------------
-
---
 -- Struttura della tabella `caratteristiche_qualitative_ce`
 --
 
@@ -608,106 +585,70 @@ CREATE TABLE `codice_intervento_ce` (
   `id` bigint(20) NOT NULL,
   `codice` varchar(255) DEFAULT NULL,
   `descrizione` varchar(255) DEFAULT NULL,
-  `appunto` varchar(255) DEFAULT NULL
+  `appunto` varchar(255) DEFAULT NULL,
+  `attrezzatura` varchar(255) DEFAULT NULL,
+  `descrizione_attrezzatura` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `codice_intervento_ce`
 --
 
-INSERT INTO `codice_intervento_ce` (`id`, `codice`, `descrizione`, `appunto`) VALUES
-(1, 'A1', 'Isolamento termico all\'estradosso non ventilato\r\n', NULL),
-(2, 'A2', 'Isolamento termico all\'estradosso ventilato\r\n', NULL),
-(3, 'A3', 'Isolamento termico all\'intradosso\r\n', NULL),
-(4, 'A4', 'Isolamento termico all\'intradosso ventilato\r\n', NULL),
-(5, 'A5', 'Integrazione del fotovoltaico \r\n(tegole e coppi fotovoltaici)*\r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta valutazione di applicabilità;\r\nnon è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali'),
-(6, 'A6', 'Integrazione del solare termico \r\n(collettori solari con decalcomanie forate)*\r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali'),
-(7, 'A7', 'Green roof*\r\n', '*l\'intervento richiede una valutazione più approfondita di applicabilità'),
-(8, 'A8', 'Roof pond*\r\n', '*l\'intervento richiede una valutazione più approfondita di applicabilità'),
-(9, 'B1', 'Isolamento termico a pannelli sulla superficie interna della parete \r\n', NULL),
-(10, 'B2', 'Isolamento tramite intonaco termoisolante sulla superficie interna della parete\r\n', NULL),
-(11, 'B3', 'Isolamento termico a pannelli sulla superficie esterna della parete ventilato\r\n', NULL),
-(12, 'B4', 'Isolamento termico a pannelli sulla superficie esterna della parete non ventilato\r\n', NULL),
-(13, 'B5', 'Isolamento tramite intonaco termoisolante sulla superficie esterna della parete\r\n', NULL),
-(14, 'B6', 'Isolamento termico all\'interno dell\'intercapedine*\r\n', '*questo intervento può essere effettuato solo su 2 paramenti con intercapedine\r\n                    vuota o combinata con intervento strutturale D13'),
-(15, 'B7', 'Sistemi di accumulo a cambiamento di fase* \r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali'),
-(16, 'B8', 'Realizzazione di barriere fisiche alla risalita capillare*\r\n', '*l\'intervento può comportare problematiche di tipo statico'),
-(17, 'B9', 'Realizzazione di barriere chimiche alla risalita capillare\r\n', NULL),
-(18, 'B10', 'Realizzazione di sistemi di evacuazione dell\'umidità tramite intonaci macroporosi\r\n', NULL),
-(19, 'B11', 'Realizzazione di sistemi di evacuazione dell\'umidità tramite sistemi elettro-fisici\r\n', NULL),
-(20, 'B12', 'Green wall*\r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali'),
-(21, 'B13', 'Muro di Trombe*\r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali'),
-(22, 'B14', 'Sistemi di accumulo ad acqua* \r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali'),
-(23, 'C1', 'Sostituzione dei serramenti con modelli ad alta prestazione energetica*\r\n', '*l\'intervento riveste anche una funzione coibente'),
-(24, 'C2', 'Sostituzione dei vetri con modelli isolanti o captanti su telaio esistente*\r\n', '*l\'intervento riveste anche una funzione coibente'),
-(25, 'C3', 'Messa in opera di una seconda anta vetrata*\r\n', '*l\'intervento riveste anche una funzione coibente'),
-(26, 'C4', 'Messa in opera di una seconda lastra vetrata*\r\n', '*l\'intervento riveste anche una funzione coibente'),
-(27, 'C5', 'Isolamento e tenuta all\'aria del telaio\r\n', NULL),
-(28, 'C6', 'Applicazione al vetro di pellicole speciali isolanti o captanti\r\n', NULL),
-(29, 'C7', 'Meccanizzazione del serramento\r\n', NULL),
-(30, 'C8', 'Applicazione al vetro di pellicole a controllo solare\r\n', NULL),
-(31, 'C9', 'Installazione di schermi interni\r\n', NULL),
-(32, 'C10', 'Installazione di schermi esterni\r\n', NULL),
-(33, 'C11', 'Applicazione di una mensola di luce*\r\n', '*l\'intervento promuove la diffusione della luce in profondità'),
-(34, 'D1', 'Isolamento termico all\'intradosso del solaio\r\n', NULL),
-(35, 'D2', 'Isolamento termico all\'intradosso del solaio superiore\r\n', NULL),
-(36, 'D3', 'Isolamento termico all\'estradosso del solaio superiore\r\n', NULL),
-(37, 'D4', 'Isolamento termico all\'estradosso del solaio inferiore \r\n', NULL),
-(38, 'E1', 'Revisione del modello di riscaldamento esistente, con la previsione di soluzioni radianti a pavimento o a parete\r\n', NULL),
-(39, 'E2', 'Sostituzione dei corpi illuminanti con lampade a risparmio energetico\r\n', NULL),
-(40, 'E3', 'Inserimento di sistemi automatizzati di gestione e controllo \r\n', NULL),
-(41, 'E4', 'Installazione di generatori di calore a condensazione\r\n', NULL),
-(42, 'E5', 'Installazione di pompe di calore\r\n', NULL),
-(43, 'E6', 'Installazione di testine termostatiche sui terminali di impianto\r\n', NULL),
-(44, 'E7', 'Inserimento di termostati ambiente\r\n', NULL),
-(45, 'E8', 'Installazione di sensori di presenza negli ambienti\r\n', NULL),
-(46, 'E9', 'Installazione di caldaia a biomasse\r\n', NULL),
-(47, 'E10', 'Installazione di sonde geotermiche\r\n', NULL),
-(48, 'E11', 'Installazione di impianto di cogenerazione\r\n', NULL),
-(49, 'E12', 'Installazione di regolatori di flusso collegati a rilevatori di luce\r\n', NULL),
-(50, 'E13', 'Installazione di sistemi di deumidificazione attiva con macchine a funzionamento elettrico\r\n', NULL),
-(51, 'F1', 'Introduzione di sistemi di ombreggiamento all\'intorno\r\n', NULL),
-(52, 'F2', 'Realizzazione di una serra solare\r\n', NULL),
-(53, 'F3', 'Realizzazione di camini di luce\r\n', NULL),
-(54, 'F4', 'Realizzazione di un camino di ventilazione\r\n', NULL);
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `codice_intervento_ce_attrezzature_associate`
---
-
-CREATE TABLE `codice_intervento_ce_attrezzature_associate` (
-  `codice_intervento_ce_id` bigint(20) NOT NULL,
-  `attrezzature_associate_id` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `codice_intervento_ce_attrezzature_associate`
---
-
-INSERT INTO `codice_intervento_ce_attrezzature_associate` (`codice_intervento_ce_id`, `attrezzature_associate_id`) VALUES
-(1, 2),
-(1, 4),
-(2, 2),
-(2, 4),
-(3, 1),
-(4, 1),
-(7, 2),
-(7, 4),
-(9, 1),
-(10, 1),
-(11, 2),
-(12, 2),
-(13, 2),
-(14, 1),
-(18, 1),
-(18, 2),
-(28, 3),
-(28, 3),
-(32, 3),
-(35, 1),
-(37, 1);
+INSERT INTO `codice_intervento_ce` (`id`, `codice`, `descrizione`, `appunto`, `attrezzatura`, `descrizione_attrezzatura`) VALUES
+(1, 'A1', 'Isolamento termico all\'estradosso non ventilato\r\n', NULL, 'B e D', 'Ponteggi esterni e Parapetti'),
+(2, 'A2', 'Isolamento termico all\'estradosso ventilato\r\n', NULL, 'B e D', 'Ponteggi esterni e Parapetti'),
+(3, 'A3', 'Isolamento termico all\'intradosso\r\n', NULL, 'A', 'Trabattelli ad uso interno'),
+(4, 'A4', 'Isolamento termico all\'intradosso ventilato\r\n', NULL, 'A', 'Trabattelli ad uso interno'),
+(5, 'A5', 'Integrazione del fotovoltaico \r\n(tegole e coppi fotovoltaici)*\r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta valutazione di applicabilità;\r\nnon è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali', NULL, NULL),
+(6, 'A6', 'Integrazione del solare termico \r\n(collettori solari con decalcomanie forate)*\r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali', NULL, NULL),
+(7, 'A7', 'Green roof*\r\n', '*l\'intervento richiede una valutazione più approfondita di applicabilità', 'B e D', 'Ponteggi esterni e Parapetti'),
+(8, 'A8', 'Roof pond*\r\n', '*l\'intervento richiede una valutazione più approfondita di applicabilità', NULL, NULL),
+(9, 'B1', 'Isolamento termico a pannelli sulla superficie interna della parete \r\n', NULL, 'A', 'Trabattelli ad uso interno'),
+(10, 'B2', 'Isolamento tramite intonaco termoisolante sulla superficie interna della parete\r\n', NULL, 'A', 'Trabattelli ad uso interno'),
+(11, 'B3', 'Isolamento termico a pannelli sulla superficie esterna della parete ventilato\r\n', NULL, 'B', 'Ponteggi esterni'),
+(12, 'B4', 'Isolamento termico a pannelli sulla superficie esterna della parete non ventilato\r\n', NULL, 'B', 'Ponteggi esterni'),
+(13, 'B5', 'Isolamento tramite intonaco termoisolante sulla superficie esterna della parete\r\n', NULL, 'B', 'Ponteggi esterni'),
+(14, 'B6', 'Isolamento termico all\'interno dell\'intercapedine*\r\n', '*questo intervento può essere effettuato solo su 2 paramenti con intercapedine\r\n                    vuota o combinata con intervento strutturale D13', 'A', 'Trabattelli ad uso interno'),
+(15, 'B7', 'Sistemi di accumulo a cambiamento di fase* \r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali', NULL, NULL),
+(16, 'B8', 'Realizzazione di barriere fisiche alla risalita capillare*\r\n', '*l\'intervento può comportare problematiche di tipo statico', NULL, NULL),
+(17, 'B9', 'Realizzazione di barriere chimiche alla risalita capillare\r\n', NULL, NULL, NULL),
+(18, 'B10', 'Realizzazione di sistemi di evacuazione dell\'umidità tramite intonaci macroporosi\r\n', NULL, 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni'),
+(19, 'B11', 'Realizzazione di sistemi di evacuazione dell\'umidità tramite sistemi elettro-fisici\r\n', NULL, NULL, NULL),
+(20, 'B12', 'Green wall*\r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali', NULL, NULL),
+(21, 'B13', 'Muro di Trombe*\r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali', NULL, NULL),
+(22, 'B14', 'Sistemi di accumulo ad acqua* \r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali', NULL, NULL),
+(23, 'C1', 'Sostituzione dei serramenti con modelli ad alta prestazione energetica*\r\n', '*l\'intervento riveste anche una funzione coibente', NULL, NULL),
+(24, 'C2', 'Sostituzione dei vetri con modelli isolanti o captanti su telaio esistente*\r\n', '*l\'intervento riveste anche una funzione coibente', NULL, NULL),
+(25, 'C3', 'Messa in opera di una seconda anta vetrata*\r\n', '*l\'intervento riveste anche una funzione coibente', NULL, NULL),
+(26, 'C4', 'Messa in opera di una seconda lastra vetrata*\r\n', '*l\'intervento riveste anche una funzione coibente', NULL, NULL),
+(27, 'C5', 'Isolamento e tenuta all\'aria del telaio\r\n', NULL, NULL, NULL),
+(28, 'C6', 'Applicazione al vetro di pellicole speciali isolanti o captanti\r\n', NULL, 'C', 'Piattaforma aerea verticale'),
+(29, 'C7', 'Meccanizzazione del serramento\r\n', NULL, NULL, NULL),
+(30, 'C8', 'Applicazione al vetro di pellicole a controllo solare\r\n', NULL, 'C', 'Piattaforma aerea verticale'),
+(31, 'C9', 'Installazione di schermi interni\r\n', NULL, NULL, NULL),
+(32, 'C10', 'Installazione di schermi esterni\r\n', NULL, 'C', 'Piattaforma aerea verticale'),
+(33, 'C11', 'Applicazione di una mensola di luce*\r\n', '*l\'intervento promuove la diffusione della luce in profondità', NULL, NULL),
+(34, 'D1', 'Isolamento termico all\'intradosso del solaio\r\n', NULL, NULL, NULL),
+(35, 'D2', 'Isolamento termico all\'intradosso del solaio superiore\r\n', NULL, 'A', 'Trabattelli ad uso interno'),
+(36, 'D3', 'Isolamento termico all\'estradosso del solaio superiore\r\n', NULL, NULL, NULL),
+(37, 'D4', 'Isolamento termico all\'estradosso del solaio inferiore \r\n', NULL, 'A', 'Trabattelli ad uso interno'),
+(38, 'E1', 'Revisione del modello di riscaldamento esistente, con la previsione di soluzioni radianti a pavimento o a parete\r\n', NULL, NULL, NULL),
+(39, 'E2', 'Sostituzione dei corpi illuminanti con lampade a risparmio energetico\r\n', NULL, NULL, NULL),
+(40, 'E3', 'Inserimento di sistemi automatizzati di gestione e controllo \r\n', NULL, NULL, NULL),
+(41, 'E4', 'Installazione di generatori di calore a condensazione\r\n', NULL, NULL, NULL),
+(42, 'E5', 'Installazione di pompe di calore\r\n', NULL, NULL, NULL),
+(43, 'E6', 'Installazione di testine termostatiche sui terminali di impianto\r\n', NULL, NULL, NULL),
+(44, 'E7', 'Inserimento di termostati ambiente\r\n', NULL, NULL, NULL),
+(45, 'E8', 'Installazione di sensori di presenza negli ambienti\r\n', NULL, NULL, NULL),
+(46, 'E9', 'Installazione di caldaia a biomasse\r\n', NULL, NULL, NULL),
+(47, 'E10', 'Installazione di sonde geotermiche\r\n', NULL, NULL, NULL),
+(48, 'E11', 'Installazione di impianto di cogenerazione\r\n', NULL, NULL, NULL),
+(49, 'E12', 'Installazione di regolatori di flusso collegati a rilevatori di luce\r\n', NULL, NULL, NULL),
+(50, 'E13', 'Installazione di sistemi di deumidificazione attiva con macchine a funzionamento elettrico\r\n', NULL, NULL, NULL),
+(51, 'F1', 'Introduzione di sistemi di ombreggiamento all\'intorno\r\n', NULL, NULL, NULL),
+(52, 'F2', 'Realizzazione di una serra solare\r\n', NULL, NULL, NULL),
+(53, 'F3', 'Realizzazione di camini di luce\r\n', NULL, NULL, NULL),
+(54, 'F4', 'Realizzazione di un camino di ventilazione\r\n', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -718,90 +659,93 @@ INSERT INTO `codice_intervento_ce_attrezzature_associate` (`codice_intervento_ce
 CREATE TABLE `codice_intervento_st` (
   `id` bigint(20) NOT NULL,
   `codice` varchar(255) DEFAULT NULL,
-  `descrizione` varchar(255) DEFAULT NULL
+  `descrizione` varchar(255) DEFAULT NULL,
+  `attrezzatura` varchar(255) DEFAULT NULL,
+  `descrizione_attrezzatura` varchar(255) DEFAULT NULL,
+  `dettaglio` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `codice_intervento_st`
 --
 
-INSERT INTO `codice_intervento_st` (`id`, `codice`, `descrizione`) VALUES
-(1, 'A1', 'Inserimento di tiranti ancorati alle murature mediante capochiave -bolzoni o piastre-'),
-(2, 'A2', 'Introduzione di tiranti ancorati alle murature mediante ancoraggi per aderenza'),
-(3, 'A3', 'Inserimento di cerchiature esterne con elementi metallici o materiali compositi'),
-(4, 'A4', 'Scuci-cuci agli ammorsamenti'),
-(5, 'A5', 'Realizzazione di perforazioni armate con barre metalliche'),
-(6, 'A6', 'Realizzazione di cordoli in sommità'),
-(7, 'A7', 'Ancoraggio delle teste di travi alle murature tramite elementi metallici o in altro materiale resistente a trazione (capichiave)'),
-(8, 'A8', 'Cordoli di piano in acciaio'),
-(9, 'B1', 'Irrigidimento con introduzione di un secondo tavolato all’estradosso disposto con andamento ortogonale o inclinato'),
-(10, 'B2', 'Irrigidimento con introduzione di bandelle metalliche o di materiali compositi fissate al tavolato con andamento incrociato'),
-(11, 'B3', 'Controventamento realizzato con tiranti metallici'),
-(12, 'B4', 'Irrigidimento attraverso soletta collaborante in calcestruzzo eventualmente alleggerito'),
-(13, 'B5', 'Irrigidimento tramite saldatura dei profili con bandelle metalliche trasversali poste all’estradosso'),
-(14, 'B6', 'Irrigidimento tramite saldatura dei profili con bandelle metalliche trasversali poste all’intradosso'),
-(15, 'B7', 'Inserimento di profili metallici collaboranti'),
-(16, 'B8', 'Applicazione di lamine di materiale composito'),
-(17, 'B9', 'Sostituzione della trave lignea'),
-(18, 'B10', 'Introduzione di travi ascellari (travi collaboranti in profilato metallico) ai lati delle orditure principali in legno'),
-(19, 'B11', 'Rinforzo delle travi lignee con fasce e tiranti d\'intradosso'),
-(20, 'B12', 'Rinforzo delle travi lignee con tirante d\'intradosso e contraffissi (struttura reticolare)'),
-(21, 'B13', 'Trasformazione della trave lignea in una struttura con sezione a T attraverso il collocamento di un tavolato nello spessore del massetto (struttura composta legno-legno)'),
-(22, 'B14', 'Trasformazione della trave lignea in una struttura con sezione a T attraverso l\'introduzione di un profilato metallico collaborante (struttura composta legno-metallo)'),
-(23, 'C1', 'Irrigidimento della falda di copertura con doppio tavolato continuo con assetto preferibilmente a 45°'),
-(24, 'C2', 'Irrigidimento della falda di copertura con controventi in acciaio all\'intradosso/estradosso - croci di S.Andrea'),
-(25, 'C3', 'Irrigidimento della falda di copertura con cls alleggerito con rete elettrosaldata zincata'),
-(26, 'C4', 'Introduzione di tiranti metallici'),
-(27, 'C5', 'Sostituzione della trave lignea'),
-(28, 'C6', 'Applicazione di lamine di materiale composito'),
-(29, 'C7', 'Introduzione di travi ascellari (travi collaboranti in profilato metallico) ai lati delle orditure principali in legno'),
-(30, 'C8', 'Placcaggio con tavole di legno'),
-(31, 'D1', 'Ripristino della continuità muraria attraverso scuci e cuci'),
-(32, 'D2', 'Iniezioni di miscele leganti'),
-(33, 'D3', 'Ristilatura dei giunti della muratura'),
-(34, 'D4', 'Inserimento di diatoni artificiali in fori di carotaggio: c.a. e acciaio'),
-(35, 'D5', 'Inserimento di pietre passanti'),
-(36, 'D6', 'Inserimento di tirantini antiesplusivi'),
-(37, 'D7', 'Inserimento di tirantature diffuse/CAM'),
-(38, 'D8', 'Inserimento di tiranti verticali post-tesi'),
-(39, 'D9', 'Placcaggio delle murature con intonaco armato su entrambi i paramenti'),
-(40, 'D10', 'Placcaggio con tessuti o lamine in materiale fibroriforzato'),
-(41, 'D11', 'Inserimento di nuovo setto di spina con relativa fondazione'),
-(42, 'D12', 'Richiusura di nicchie e bucature'),
-(43, 'D13', 'Realizzazione di una nuova parte affiancata e resa solidale a quella esistente mediante barre in acciaio inox e resina epossidica'),
-(44, 'D14', 'Rivestimento delle pareti verticali all\'esterno con cappotto sismico'),
-(45, 'E1', 'Esecuzione di piastra di collegamento delle murature alla base'),
-(46, 'E2', 'Introduzione di pali e micropali da estendere all\'intero edificio'),
-(47, 'E3', 'Consolidamento dei terreni di fondazione per iniezione nel terreno di resine e di malte cementizie'),
-(48, 'E4', 'Realizzazione di sottofondazioni in muratura ammorsate a profondità idonea'),
-(49, 'E5', 'Irrigidimento e cerchiaggio della fondazione attraverso la realizzazione di travi in c.a. affiancate alla fondazione esistente (interno/esterno) e collegate tra loro mediante traversi in c.a.'),
-(50, 'F1', 'Inserimento di elementi di riquadratura: telai in c.a. o in acciaio'),
-(51, 'F2', 'Inserimento di profili in acciaio collegati tra loro da barre filettate in acciaio inox'),
-(52, 'F3', 'Consolidamento con inserimento di fibre in carbonio'),
-(53, 'F4', 'Consolidamento di piattabande tramite splintaggio degli elementi laterizi'),
-(54, 'G1', 'Inserimento di catene alle reni di archi e volte'),
-(55, 'G2', 'Realizzazione di contrafforti esterni'),
-(56, 'G3', 'Placcaggio all\'estradosso con fasce di materiale composito'),
-(57, 'G4', 'Placcaggio all\'intradosso con fasce di mareriale composito'),
-(58, 'G5', 'Iniezioni di malta per ripristinare le lesioni'),
-(59, 'G6', 'Incuneatura di elementi in legno o metallo con sigillatura e iniezione tramite prodotti specifici'),
-(60, 'G7', 'Realizzazione sull\'arco di perforazioni incrociate'),
-(61, 'G8', 'Rinforzo tramite accostamento di tavole e solidarizzazione degli elementi portanti tramite fascette in ferro chiodate alla struttura lignea'),
-(62, 'G9', 'Alleggerimento/svuotamento del riempimento della volta ed inserimento di frenelli'),
-(63, 'H1', 'Cerchiature e tassellature'),
-(64, 'H2', 'Incamiciatura di calcestruzzo armato'),
-(65, 'H3', 'Incatenamenti e tirantature'),
-(66, 'I1', 'Collegamenti puntuali e diffusi dell\'elemento non strutturale alla struttura muraria'),
-(67, 'I2', 'Calastrelli in acciaio per comignoli'),
-(68, 'L1', 'Inserimento di setti di irrigidimento'),
-(69, 'L2', 'Inserimento di controventi dissipativi'),
-(70, 'L3', 'Isolamento alla base'),
-(71, 'L4', 'Adeguamento di giunti non sismici tra unità strutturali distinte'),
-(72, 'L5', 'Inserimento di giunti sismici in edifici irregolari'),
-(73, 'L6', 'Realizzazione di collegamenti strutturali'),
-(74, 'Tab.01', NULL),
-(75, 'Tab.02', NULL),
-(76, 'B15', 'Placcaggio con tavole di legno');
+INSERT INTO `codice_intervento_st` (`id`, `codice`, `descrizione`, `attrezzatura`, `descrizione_attrezzatura`, `dettaglio`) VALUES
+(1, 'A1', 'Inserimento di tiranti ancorati alle murature mediante capochiave -bolzoni o piastre-', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
+(2, 'A2', 'Introduzione di tiranti ancorati alle murature mediante ancoraggi per aderenza', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
+(3, 'A3', 'Inserimento di cerchiature esterne con elementi metallici o materiali compositi', 'B', 'Ponteggi esterni', NULL),
+(4, 'A4', 'Scuci-cuci agli ammorsamenti', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
+(5, 'A5', 'Realizzazione di perforazioni armate con barre metalliche', 'B', 'Ponteggi esterni', NULL),
+(6, 'A6', 'Realizzazione di cordoli in sommità', 'A, B ed E', 'Trabattelli ad uso interno, Ponteggi esterni e Puntellatura', NULL),
+(7, 'A7', 'Ancoraggio delle teste di travi alle murature tramite elementi metallici o in altro materiale resistente a trazione (capichiave)', 'B', 'Ponteggi esterni', NULL),
+(8, 'A8', 'Cordoli di piano in acciaio', 'A', 'Trabattelli ad uso interno', NULL),
+(9, 'B1', 'Irrigidimento con introduzione di un secondo tavolato all’estradosso disposto con andamento ortogonale o inclinato', NULL, NULL, NULL),
+(10, 'B2', 'Irrigidimento con introduzione di bandelle metalliche o di materiali compositi fissate al tavolato con andamento incrociato', NULL, NULL, NULL),
+(11, 'B3', 'Controventamento realizzato con tiranti metallici', NULL, NULL, NULL),
+(12, 'B4', 'Irrigidimento attraverso soletta collaborante in calcestruzzo eventualmente alleggerito', NULL, NULL, NULL),
+(13, 'B5', 'Irrigidimento tramite saldatura dei profili con bandelle metalliche trasversali poste all’estradosso', NULL, NULL, NULL),
+(14, 'B6', 'Irrigidimento tramite saldatura dei profili con bandelle metalliche trasversali poste all’intradosso', NULL, NULL, NULL),
+(15, 'B7', 'Inserimento di profili metallici collaboranti', NULL, NULL, NULL),
+(16, 'B8', 'Applicazione di lamine di materiale composito', NULL, NULL, NULL),
+(17, 'B9', 'Sostituzione della trave lignea', NULL, NULL, NULL),
+(18, 'B10', 'Introduzione di travi ascellari (travi collaboranti in profilato metallico) ai lati delle orditure principali in legno', NULL, NULL, NULL),
+(19, 'B11', 'Rinforzo delle travi lignee con fasce e tiranti d\'intradosso', NULL, NULL, NULL),
+(20, 'B12', 'Rinforzo delle travi lignee con tirante d\'intradosso e contraffissi (struttura reticolare)', NULL, NULL, NULL),
+(21, 'B13', 'Trasformazione della trave lignea in una struttura con sezione a T attraverso il collocamento di un tavolato nello spessore del massetto (struttura composta legno-legno)', NULL, NULL, NULL),
+(22, 'B14', 'Trasformazione della trave lignea in una struttura con sezione a T attraverso l\'introduzione di un profilato metallico collaborante (struttura composta legno-metallo)', NULL, NULL, NULL),
+(23, 'C1', 'Irrigidimento della falda di copertura con doppio tavolato continuo con assetto preferibilmente a 45°', 'B e D', 'Ponteggi esterni e Parapetti', NULL),
+(24, 'C2', 'Irrigidimento della falda di copertura con controventi in acciaio all\'intradosso/estradosso - croci di S.Andrea', 'B e D', 'Ponteggi esterni e Parapetti', NULL),
+(25, 'C3', 'Irrigidimento della falda di copertura con cls alleggerito con rete elettrosaldata zincata', 'B e D', 'Ponteggi esterni e Parapetti', NULL),
+(26, 'C4', 'Introduzione di tiranti metallici', NULL, NULL, NULL),
+(27, 'C5', 'Sostituzione della trave lignea', NULL, NULL, NULL),
+(28, 'C6', 'Applicazione di lamine di materiale composito', NULL, NULL, NULL),
+(29, 'C7', 'Introduzione di travi ascellari (travi collaboranti in profilato metallico) ai lati delle orditure principali in legno', NULL, NULL, NULL),
+(30, 'C8', 'Placcaggio con tavole di legno', NULL, NULL, NULL),
+(31, 'D1', 'Ripristino della continuità muraria attraverso scuci e cuci', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
+(32, 'D2', 'Iniezioni di miscele leganti', 'B', 'Ponteggi esterni', NULL),
+(33, 'D3', 'Ristilatura dei giunti della muratura', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
+(34, 'D4', 'Inserimento di diatoni artificiali in fori di carotaggio: c.a. e acciaio', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
+(35, 'D5', 'Inserimento di pietre passanti', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
+(36, 'D6', 'Inserimento di tirantini antiesplusivi', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
+(37, 'D7', 'Inserimento di tirantature diffuse/CAM', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
+(38, 'D8', 'Inserimento di tiranti verticali post-tesi', 'B', 'Ponteggi esterni', NULL),
+(39, 'D9', 'Placcaggio delle murature con intonaco armato su entrambi i paramenti', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
+(40, 'D10', 'Placcaggio con tessuti o lamine in materiale fibroriforzato', 'A', 'Trabattelli ad uso interno ', NULL),
+(41, 'D11', 'Inserimento di nuovo setto di spina con relativa fondazione', 'A', 'Trabattelli ad uso interno', 'Per l\'intervento D11 si consideri un costo aggiuntivo relativo all\'adeguamento delle fondazioni'),
+(42, 'D12', 'Richiusura di nicchie e bucature', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', 'Per l\'intervento D12 si devono considerare due superfici se si richiude un\'apertura (no nicchia)'),
+(43, 'D13', 'Realizzazione di una nuova parte affiancata e resa solidale a quella esistente mediante barre in acciaio inox e resina epossidica', 'B', 'Ponteggi esterni', 'Per l\'intervento D13 si consideri un costo aggiuntivo relativo all\'adeguamento delle fondazioni'),
+(44, 'D14', 'Rivestimento delle pareti verticali all\'esterno con cappotto sismico', 'B', 'Ponteggi esterni', NULL),
+(45, 'E1', 'Esecuzione di piastra di collegamento delle murature alla base', NULL, NULL, NULL),
+(46, 'E2', 'Introduzione di pali e micropali da estendere all\'intero edificio', NULL, NULL, NULL),
+(47, 'E3', 'Consolidamento dei terreni di fondazione per iniezione nel terreno di resine e di malte cementizie', NULL, NULL, NULL),
+(48, 'E4', 'Realizzazione di sottofondazioni in muratura ammorsate a profondità idonea', NULL, NULL, NULL),
+(49, 'E5', 'Irrigidimento e cerchiaggio della fondazione attraverso la realizzazione di travi in c.a. affiancate alla fondazione esistente (interno/esterno) e collegate tra loro mediante traversi in c.a.', NULL, NULL, NULL),
+(50, 'F1', 'Inserimento di elementi di riquadratura: telai in c.a. o in acciaio', 'A e C', 'Trabattelli ad uso interno e Piattaforma aerea verticale', NULL),
+(51, 'F2', 'Inserimento di profili in acciaio collegati tra loro da barre filettate in acciaio inox', 'A e C', 'Trabattelli ad uso interno e Piattaforma aerea verticale', NULL),
+(52, 'F3', 'Consolidamento con inserimento di fibre in carbonio', 'A e C', 'Trabattelli ad uso interno e Piattaforma aerea verticale', NULL),
+(53, 'F4', 'Consolidamento di piattabande tramite splintaggio degli elementi laterizi', 'A e C', 'Trabattelli ad uso interno e Piattaforma aerea verticale', NULL),
+(54, 'G1', 'Inserimento di catene alle reni di archi e volte', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
+(55, 'G2', 'Realizzazione di contrafforti esterni', 'B', 'Ponteggi esterni', 'Per l\'intervento G2 si consideri un costo aggiuntivo relativo all\'adeguamento delle fondazioni'),
+(56, 'G3', 'Placcaggio all\'estradosso con fasce di materiale composito', 'E', NULL, NULL),
+(57, 'G4', 'Placcaggio all\'intradosso con fasce di mareriale composito', 'A', 'Trabattelli ad uso interno ', NULL),
+(58, 'G5', 'Iniezioni di malta per ripristinare le lesioni', 'A', 'Trabattelli ad uso interno ', NULL),
+(59, 'G6', 'Incuneatura di elementi in legno o metallo con sigillatura e iniezione tramite prodotti specifici', 'A', 'Trabattelli ad uso interno ', NULL),
+(60, 'G7', 'Realizzazione sull\'arco di perforazioni incrociate', 'A', 'Trabattelli ad uso interno ', NULL),
+(61, 'G8', 'Rinforzo tramite accostamento di tavole e solidarizzazione degli elementi portanti tramite fascette in ferro chiodate alla struttura lignea', 'E', 'Puntellatura', NULL),
+(62, 'G9', 'Alleggerimento/svuotamento del riempimento della volta ed inserimento di frenelli', 'E', 'Puntellatura', NULL),
+(63, 'H1', 'Cerchiature e tassellature', NULL, NULL, NULL),
+(64, 'H2', 'Incamiciatura di calcestruzzo armato', NULL, NULL, NULL),
+(65, 'H3', 'Incatenamenti e tirantature', NULL, NULL, NULL),
+(66, 'I1', 'Collegamenti puntuali e diffusi dell\'elemento non strutturale alla struttura muraria', NULL, NULL, NULL),
+(67, 'I2', 'Calastrelli in acciaio per comignoli', NULL, NULL, NULL),
+(68, 'L1', 'Inserimento di setti di irrigidimento', NULL, NULL, NULL),
+(69, 'L2', 'Inserimento di controventi dissipativi', NULL, NULL, NULL),
+(70, 'L3', 'Isolamento alla base', NULL, NULL, NULL),
+(71, 'L4', 'Adeguamento di giunti non sismici tra unità strutturali distinte', NULL, NULL, NULL),
+(72, 'L5', 'Inserimento di giunti sismici in edifici irregolari', NULL, NULL, NULL),
+(73, 'L6', 'Realizzazione di collegamenti strutturali', NULL, NULL, NULL),
+(74, 'Tab.01', NULL, NULL, NULL, NULL),
+(75, 'Tab.02', NULL, NULL, NULL, NULL),
+(76, 'B15', 'Placcaggio con tavole di legno', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1467,12 +1411,6 @@ ALTER TABLE `associazione_intervento_st`
   ADD KEY `FK960ocw9x1ss67pq837j89runj` (`struttura_associazione_id`);
 
 --
--- Indici per le tabelle `attrezzature_ce`
---
-ALTER TABLE `attrezzature_ce`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indici per le tabelle `caratteristiche_qualitative_ce`
 --
 ALTER TABLE `caratteristiche_qualitative_ce`
@@ -1518,13 +1456,6 @@ ALTER TABLE `classe_indicatore_ce`
 --
 ALTER TABLE `codice_intervento_ce`
   ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `codice_intervento_ce_attrezzature_associate`
---
-ALTER TABLE `codice_intervento_ce_attrezzature_associate`
-  ADD KEY `FK6wpm4eiuxfetvs3qsjlua9q5c` (`attrezzature_associate_id`),
-  ADD KEY `FKr8r7kejtxfhpegi3gno1xkptm` (`codice_intervento_ce_id`);
 
 --
 -- Indici per le tabelle `codice_intervento_st`
@@ -1652,12 +1583,6 @@ ALTER TABLE `associazione_intervento_ce`
 --
 ALTER TABLE `associazione_intervento_st`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
-
---
--- AUTO_INCREMENT per la tabella `attrezzature_ce`
---
-ALTER TABLE `attrezzature_ce`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT per la tabella `caratteristiche_qualitative_ce`
@@ -1813,13 +1738,6 @@ ALTER TABLE `caratteristiche_struttura_st`
 --
 ALTER TABLE `classe_indicatore_ce`
   ADD CONSTRAINT `FKcv0llisc9wfd2vewap8gb87bd` FOREIGN KEY (`indicatore_id`) REFERENCES `indicatore_ce` (`id`);
-
---
--- Limiti per la tabella `codice_intervento_ce_attrezzature_associate`
---
-ALTER TABLE `codice_intervento_ce_attrezzature_associate`
-  ADD CONSTRAINT `FK6wpm4eiuxfetvs3qsjlua9q5c` FOREIGN KEY (`attrezzature_associate_id`) REFERENCES `attrezzature_ce` (`id`),
-  ADD CONSTRAINT `FKr8r7kejtxfhpegi3gno1xkptm` FOREIGN KEY (`codice_intervento_ce_id`) REFERENCES `codice_intervento_ce` (`id`);
 
 --
 -- Limiti per la tabella `edificio_st`
