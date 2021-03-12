@@ -71,7 +71,6 @@ export class TipoStrutturaStComponent implements OnInit {
   imgC7 = false
   imgC8 = false
   imgD1 = false
-  imgD1parte2 = false
   imgD2 = false
   imgD2parte2 = false
   imgD3 = false
@@ -82,7 +81,6 @@ export class TipoStrutturaStComponent implements OnInit {
   imgD7parte2 = false
   imgD8 = false
   imgD9 = false
-  imgD9parte2 = false
   imgD10 = false
   imgD11 = false
   imgD12 = false
@@ -95,6 +93,7 @@ export class TipoStrutturaStComponent implements OnInit {
   imgG1 = false
   imgG2 = false
   imgG3 = false
+  imgG3parte2 = false
   imgG4 = false
   imgG4parte2 = false
   imgG5 = false
@@ -103,11 +102,8 @@ export class TipoStrutturaStComponent implements OnInit {
   imgG8 = false
   imgG9 = false
   imgH1 = false
-  imgH1parte2 = false
   imgH2 = false
-  Tab01 = false
   imgI1 = false
-  I2 = false
 
 
   constructor(
@@ -172,7 +168,6 @@ export class TipoStrutturaStComponent implements OnInit {
     this.imgC7 = false
     this.imgC8 = false
     this.imgD1 = false
-    this.imgD1parte2 = false
     this.imgD2 = false
     this.imgD2parte2 = false
     this.imgD3 = false
@@ -183,7 +178,6 @@ export class TipoStrutturaStComponent implements OnInit {
     this.imgD7parte2 = false
     this.imgD8 = false
     this.imgD9 = false
-    this.imgD9parte2 = false
     this.imgD10 = false
     this.imgD11 = false
     this.imgD12 = false
@@ -196,6 +190,7 @@ export class TipoStrutturaStComponent implements OnInit {
     this.imgG1 = false
     this.imgG2 = false
     this.imgG3 = false
+    this.imgG3parte2 = false
     this.imgG4 = false
     this.imgG4parte2 = false
     this.imgG5 = false
@@ -204,11 +199,8 @@ export class TipoStrutturaStComponent implements OnInit {
     this.imgG8 = false
     this.imgG9 = false
     this.imgH1 = false
-    this.imgH1parte2 = false
     this.imgH2 = false
-    this.Tab01 = false
     this.imgI1 = false
-    this.I2 = false
   
     console.log(codice)
     if(codice == "A1"){
@@ -309,7 +301,6 @@ export class TipoStrutturaStComponent implements OnInit {
     }    
     else if(codice == "D1"){
       this.imgD1 = true
-      this.imgD1parte2 = true
     }    
     else if(codice == "D2"){
       this.imgD2 = true
@@ -336,7 +327,6 @@ export class TipoStrutturaStComponent implements OnInit {
     }   
     else if(codice == "D9"){
       this.imgD9 = true
-      this.imgD9parte2 = true
     }    
     else if(codice == "D10"){
       this.imgD10 = true
@@ -373,6 +363,7 @@ export class TipoStrutturaStComponent implements OnInit {
     }    
     else if(codice == "G3"){
       this.imgG3 = true
+      this.imgG3parte2 = true
     }    
     else if(codice == "G4"){
       this.imgG4 = true
@@ -395,7 +386,6 @@ export class TipoStrutturaStComponent implements OnInit {
     }   
     else if(codice == "H1"){
       this.imgH1 = true
-      this.imgH1parte2 = true
     }    
     else if(codice == "H2"){
       this.imgH2 = true

@@ -37,6 +37,7 @@ export class TipoStrutturaCeComponent implements OnInit {
   imgA5 = false
   imgA6 = false
   imgA7 = false
+  imgA7parte2 = false
   imgA8 = false
   imgB1 = false
   imgB2 = false
@@ -164,6 +165,7 @@ export class TipoStrutturaCeComponent implements OnInit {
     this.imgA5 = false
     this.imgA6 = false
     this.imgA7 = false
+    this.imgA7parte2 = false
     this.imgA8 = false
     this.imgB1 = false
     this.imgB2 = false
@@ -216,6 +218,7 @@ export class TipoStrutturaCeComponent implements OnInit {
     }
     else if (codice == "A7") {
       this.imgA7 = true
+      this.imgA7parte2 = true
     }
     else if (codice == "A8") {
       this.imgA8 = true
