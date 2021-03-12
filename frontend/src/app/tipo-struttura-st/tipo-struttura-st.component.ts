@@ -104,7 +104,8 @@ export class TipoStrutturaStComponent implements OnInit {
   imgH1 = false
   imgH2 = false
   imgI1 = false
-
+  imgTab01 = false
+  imgTab02 = false
 
   constructor(
     private risultatoSelezione: RisultatoSelezioneStService,
@@ -201,6 +202,8 @@ export class TipoStrutturaStComponent implements OnInit {
     this.imgH1 = false
     this.imgH2 = false
     this.imgI1 = false
+    this.imgTab01 = false
+    this.imgTab02 = false
   
     console.log(codice)
     if(codice == "A1"){
@@ -392,6 +395,12 @@ export class TipoStrutturaStComponent implements OnInit {
     }    
     else if(codice == "I1"){
       this.imgI1 = true
+    }
+    else if(codice == "Tab.01"){
+      this.imgTab01 = true
+    }
+    else if(codice == "Tab.02"){
+      this.imgTab02 = true
     }    
   }
   

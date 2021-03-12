@@ -198,116 +198,116 @@ export class TipoStrutturaCeComponent implements OnInit {
     this.imgD4 = false
 
     console.log(codice)
-    if (codice == "A1") {
+    if (codice == "a1") {
       this.imgA1 = true
     }
-    else if (codice == "A2") {
+    else if (codice == "a2") {
       this.imgA2 = true
     }
-    else if (codice == "A3") {
+    else if (codice == "a3") {
       this.imgA3 = true
     }
-    else if (codice == "A4") {
+    else if (codice == "a4") {
       this.imgA4 = true
     }
-    else if (codice == "A5") {
+    else if (codice == "a5") {
       this.imgA5 = true
     }
-    else if (codice == "A6") {
+    else if (codice == "a6") {
       this.imgA6 = true
     }
-    else if (codice == "A7") {
+    else if (codice == "a7") {
       this.imgA7 = true
       this.imgA7parte2 = true
     }
-    else if (codice == "A8") {
+    else if (codice == "a8") {
       this.imgA8 = true
     }
-    else if (codice == "B1") {
+    else if (codice == "b1") {
       this.imgB1 = true
     }
-    else if (codice == "B2") {
+    else if (codice == "b2") {
       this.imgB2 = true
     }
-    else if (codice == "B3") {
+    else if (codice == "b3") {
       this.imgB3 = true
     }
-    else if (codice == "B4") {
+    else if (codice == "b4") {
       this.imgB4 = true
     }
-    else if (codice == "B5") {
+    else if (codice == "b5") {
       this.imgB5 = true
     }
-    else if (codice == "B6") {
+    else if (codice == "b6") {
       this.imgB6 = true
     }
-    else if (codice == "B7") {
+    else if (codice == "b7") {
       this.imgB7 = true
     }
-    else if (codice == "B8") {
+    else if (codice == "b8") {
       this.imgB8 = true
     }
-    else if (codice == "B9") {
+    else if (codice == "b9") {
       this.imgB9 = true
     }
-    else if (codice == "B10") {
+    else if (codice == "b10") {
       this.imgB10 = true
     }
-    else if (codice == "B11") {
+    else if (codice == "b11") {
       this.imgB11 = true
     }
-    else if (codice == "B12") {
+    else if (codice == "b12") {
       this.imgB12 = true
     }
-    else if (codice == "B13") {
+    else if (codice == "b13") {
       this.imgB13 = true
     }
-    else if (codice == "B14") {
+    else if (codice == "b14") {
       this.imgB14 = true
     }
-    else if (codice == "C1") {
+    else if (codice == "c1") {
       this.imgC1 = true
     }
-    else if (codice == "C2") {
+    else if (codice == "c2") {
       this.imgC2 = true
     }
-    else if (codice == "C3") {
+    else if (codice == "c3") {
       this.imgC3 = true
     }
-    else if (codice == "C4") {
+    else if (codice == "c4") {
       this.imgC4 = true
     }
-    else if (codice == "C5") {
+    else if (codice == "c5") {
       this.imgC5 = true
     }
-    else if (codice == "C6") {
+    else if (codice == "c6") {
       this.imgC6 = true
     }
-    else if (codice == "C7") {
+    else if (codice == "c7") {
       this.imgC7 = true
     }
-    else if (codice == "C8") {
+    else if (codice == "c8") {
       this.imgC8 = true
     }
-    else if (codice == "C9") {
+    else if (codice == "c9") {
       this.imgC9 = true
     }
-    else if (codice == "C10") {
+    else if (codice == "c10") {
       this.imgC10 = true
     }
-    else if (codice == "C11") {
+    else if (codice == "c11") {
       this.imgC11 = true
     }
-    else if (codice == "D1") {
+    else if (codice == "d1") {
       this.imgD1 = true
     }
-    else if (codice == "D2") {
+    else if (codice == "d2") {
       this.imgD2 = true
     }
-    else if (codice == "D3") {
+    else if (codice == "d3") {
       this.imgD3 = true
     }
-    else if (codice == "D4") {
+    else if (codice == "d4") {
       this.imgD4 = true
     }
 

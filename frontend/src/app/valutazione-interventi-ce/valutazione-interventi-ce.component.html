@@ -22,7 +22,7 @@
           <div class='my-legend-CV' *ngFor="let interventi of variabileIntervento;">
             <div class='legend-scale'>
               <ul class='legend-labels'
-                *ngIf="interventi.intervento.codice == 'B3' || interventi.intervento.codice == 'B8'">
+                *ngIf="interventi.intervento.codice == 'b3' || interventi.intervento.codice == 'b8'">
                 <select [(ngModel)]="tipo_superficie" (change)="calcolaTotale()" (change)="massimoNumero()">
                   <option selected disabled [value]="0">Seleziona</option>
                   <option [value]="1">Tutte le superfici intonacate</option>
@@ -30,20 +30,20 @@
                   <option [value]="3">Interno a vista, esterno intonacato</option>
                 </select>
               </ul>
-              <ul class='legend-labels' *ngIf="interventi.intervento.codice == 'D1' ||
-               interventi.intervento.codice == 'D3' ||
-               interventi.intervento.codice == 'D4' ||
-               interventi.intervento.codice == 'A2' ||
-               interventi.intervento.codice == 'A5'">
+              <ul class='legend-labels' *ngIf="interventi.intervento.codice == 'd1' ||
+               interventi.intervento.codice == 'd3' ||
+               interventi.intervento.codice == 'd4' ||
+               interventi.intervento.codice == 'a2' ||
+               interventi.intervento.codice == 'a5'">
                 <select [(ngModel)]="tipo_superficie" (change)="calcolaTotale()" (change)="massimoNumero()">
                   <option selected disabled [value]="0">Seleziona</option>
                   <option [value]="1">Intradosso a vista</option>
                   <option [value]="2">Intradosso non a vista</option>
                 </select>
               </ul>
-              <ul class='legend-labels' *ngIf="interventi.intervento.codice == 'C1' ||
-               interventi.intervento.codice == 'C7' ||
-               interventi.intervento.codice == 'C8'">
+              <ul class='legend-labels' *ngIf="interventi.intervento.codice == 'c1' ||
+               interventi.intervento.codice == 'c7' ||
+               interventi.intervento.codice == 'c8'">
                 <select [(ngModel)]="tipo_superficie" (change)="calcolaTotale()" (change)="massimoNumero()">
                   <option selected disabled [value]="0">Seleziona</option>
                   <option [value]="1">Compatibilità visiva</option>
