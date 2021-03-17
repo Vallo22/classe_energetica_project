@@ -22,16 +22,16 @@
                         <td style="vertical-align: middle;">{{elemento.intervento.codice}}</td>
 
                         <td style="vertical-align: middle;">
-                            <select [(ngModel)]="tipo_superficie">
+                            <select [(ngModel)]="elemento.tipo_superficie">
                                 <option selected disabled [value]="0">Seleziona</option>
-                                <option [value]="1">Superfici a vista</option>
-                                <option *ngFor="let elemento of interventi;" [attr.disabled]="elemento.prezzoInton === 0 ? 'disabled' : null" [value]="2">Superficie intonacata</option>
+                                <option [value]="1" [attr.disabled]="elemento.prezzoVista === 0 ? 'disabled' : null">Superfici a vista</option>
+                                <option [value]="2" [attr.disabled]="elemento.prezzoInton === 0 ? 'disabled' : null">Superficie intonacata</option>
                             </select>
                         </td>
 
-                        <td style="vertical-align: middle;" *ngIf="tipo_superficie == 0">Seleziona</td>
-                        <td style="vertical-align: middle;" *ngIf="tipo_superficie == 1">{{elemento.prezzoVista}}€/{{elemento.unitaMisura}}</td>
-                        <td style="vertical-align: middle;" *ngIf="tipo_superficie == 2">{{elemento.prezzoInton}}€/{{elemento.unitaMisura}}</td>
+                        <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 0">Seleziona</td>
+                        <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 1">{{elemento.prezzoVista}}€/{{elemento.unitaMisura}}</td>
+                        <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 2">{{elemento.prezzoInton}}€/{{elemento.unitaMisura}}</td>
                         
                         <td style="vertical-align: middle;">
                             <input type="number" [value]="elemento.valoreCifra"
@@ -39,9 +39,9 @@
                                 {{elemento.unitaMisura}} 
                         </td>
 
-                        <td style="vertical-align: middle;" *ngIf="tipo_superficie == 0">Seleziona</td>
-                        <td style="vertical-align: middle;" *ngIf="tipo_superficie == 1">{{elemento.prezzoVista * elemento.valoreCifra | number: '1.0-2'}}€</td>
-                        <td style="vertical-align: middle;" *ngIf="tipo_superficie == 2">{{elemento.prezzoInton * elemento.valoreCifra | number: '1.0-2'}}€</td>
+                        <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 0">Seleziona</td>
+                        <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 1">{{elemento.prezzoVista * elemento.valoreCifra | number: '1.0-2'}}€</td>
+                        <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 2">{{elemento.prezzoInton * elemento.valoreCifra | number: '1.0-2'}}€</td>
                         
                         <td>Codice {{elemento.intervento.attrezzatura}}:<br>
                             {{elemento.intervento.descrizioneAttrezzatura}}</td>

@@ -31,29 +31,12 @@
     .pulsante {
       text-align: center;
     }
-    
-    .t{
-      float: left;
-    }
 
 
     :disabled {
       color: rgb(177, 176, 176);
     }
 
-@media all and (max-width: 500px){
-  .floatLeft { width: 50%; float: left; inline-size: fit-content; text-align: center; margin-top: 55px;}
-  .floatRight {width: 50%; float: none; }
-  .container { overflow: hidden; display: block;}
-  .pulsante{
-    text-align: center;
-    margin-bottom: 15px;
-    margin-top: -5px;
-}
-  .table-bordered{
-    width: 300px;
-  }
-}
 
 .card-header {
   height: 50px;

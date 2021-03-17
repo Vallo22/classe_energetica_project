@@ -39,7 +39,7 @@ export class RiepilogoCostiStComponent implements OnInit {
     this.totale = 0
     this.prezzoSingoloIntervento = []
     this.interventi.forEach(z => {
-      z.totalePrezzo = z.valoreCifra * z.prezzo
+      z.totalePrezzo = (z.valoreCifra * z.prezzo) + (z.valoreCifra * z.prezzoEntrInt) + (z.valoreCifra * z.prezzoSupInt)
       this.prezzoSingoloIntervento.push(z.totalePrezzo)
       console.log(this.prezzoSingoloIntervento)
     })

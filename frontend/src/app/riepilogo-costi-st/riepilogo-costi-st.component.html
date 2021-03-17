@@ -4,60 +4,73 @@
         <p><strong>Riepilogo degli interventi e calcolo dei costi</strong></p>
     </div>
 
-    <div class="overflow-auto" *ngFor="let elemento of interventi; index as j">
+    <div class="overflow-auto">
         <div class="tabella">
-            <table class="table table-bordered" style="display: contents;">
+            <table class="table table-hover table-bordered table-striped" style="display: contents;">
                 <caption></caption>
-                <tr>
-                    <thead style="background:#ce5e59; color: white;">
-                        <th scope="colgroup">Intervento:</th>
-                        <th scope="colgroup">Tipo di superficie:</th>
+                <thead style="background:#ce5e59; color: white;">
+                    <tr>
+                        <th scope="colgroup" style="vertical-align: middle;">Intervento:</th>
+                        <th scope="colgroup" style="vertical-align: middle;">Tipo di superficie:</th>
                         <th scope="colgroup">Prezzo unità/quantità:</th>
-                        <th scope="colgroup">Dimensione:</th>
+                        <th scope="colgroup" style="vertical-align: middle;">Dimensione:</th>
                         <th scope="colgroup">Costo parziale:</th>
-                        <th scope="colgroup">Attrezzature aggiuntive:</th>
-                    </thead>
+                        <th scope="colgroup" style="vertical-align: middle;">Attrezzature aggiuntive:</th>
+                    </tr>
+                </thead>
                     <tbody>
-                        <td style="vertical-align: middle;">
-                            {{elemento.intervento.codice}}
-                        </td>
-                        
-                        <td style="vertical-align: middle;">
-                            <select [(ngModel)]="tipo_superficie">
-                                <option selected disabled [value]="0">Seleziona</option>
-                                <option [value]="1">Superfici a vista</option>
-                                <option *ngFor="let elemento of interventi;" [attr.disabled]="elemento.prezzoSupInt === 0 ? 'disabled' : null" [value]="2">Superficie intonacata</option>
-                                <option *ngFor="let elemento of interventi;" [attr.disabled]="elemento.prezzoEntrInt === 0 ? 'disabled' : null" [value]="3">Entrambe le superfici intonacate</option>
-                              </select>
-                        </td>
+                        <ng-container *ngFor="let elemento of interventi; index as j">
+                            <tr>
+                                <td style="vertical-align: middle;">{{elemento.intervento.codice}}</td>
 
-                        <td style="vertical-align: middle;" *ngIf="tipo_superficie == 0">Seleziona</td>
-                        <td style="vertical-align: middle;" *ngIf="tipo_superficie == 1">{{elemento.prezzo}}€/{{elemento.unitaMisura}}</td>
-                        <td style="vertical-align: middle;" *ngIf="tipo_superficie == 2">{{elemento.prezzoSupInt}}€/{{elemento.unitaMisura}}</td>
-                        <td style="vertical-align: middle;" *ngIf="tipo_superficie == 3">{{elemento.prezzoEntrInt}}€/{{elemento.unitaMisura}}</td>
-                        <td style="vertical-align: middle;">
-                            <input type="number" [value]="elemento.valoreCifra"
-                                (input)="elemento.valoreCifra = $event.target.value" style="margin-left: 20px;">
-                                {{elemento.unitaMisura}}
-                        </td>
-                        <td style="vertical-align: middle;" *ngIf="tipo_superficie == 0">Seleziona</td>
-                        <td style="vertical-align: middle;" *ngIf="tipo_superficie == 1">{{elemento.prezzo * elemento.valoreCifra | number: '1.0-2'}}€</td>
-                        <td style="vertical-align: middle;" *ngIf="tipo_superficie == 2">{{elemento.prezzoSupInt * elemento.valoreCifra | number: '1.0-2'}}€</td>
-                        <td style="vertical-align: middle;" *ngIf="tipo_superficie == 3">{{elemento.prezzoEntrInt * elemento.valoreCifra | number: '1.0-2'}}€</td>
-                        
-                        <td>Codice {{elemento.intervento.attrezzatura}}:<br>
-                            {{elemento.intervento.descrizioneAttrezzatura}}</td>
+                                <td style="vertical-align: middle;">
+                                    <select [(ngModel)]="elemento.tipo_superficie">
+                                        <option selected disabled value="0">Seleziona</option>
+                                        <option value="1" [attr.disabled]="elemento.prezzo === 0 ? 'disabled' : null">Superfici a vista</option>
+                                        <option value="2" [attr.disabled]="elemento.prezzoSupInt === 0 ? 'disabled' : null">Superficie intonacata</option>
+                                        <option value="3" [attr.disabled]="elemento.prezzoEntrInt === 0 ? 'disabled' : null">Entrambe le superfici intonacate</option>
+                                      </select>
+                                </td>
+
+                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 0">Seleziona</td>
+                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 1">{{elemento.prezzo}}€/{{elemento.unitaMisura}}</td>
+                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 2">{{elemento.prezzoSupInt}}€/{{elemento.unitaMisura}}</td>
+                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 3">{{elemento.prezzoEntrInt}}€/{{elemento.unitaMisura}}</td>
+                                
+                                <td style="vertical-align: middle;">
+                                    <input type="number" [value]="elemento.valoreCifra"
+                                        (input)="elemento.valoreCifra = $event.target.value" style="margin-left: 20px;">
+                                        {{elemento.unitaMisura}}
+                                </td>
+
+                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 0">Seleziona</td>
+                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 1">{{elemento.prezzo * elemento.valoreCifra | number: '1.0-2'}}€</td>
+                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 2">{{elemento.prezzoSupInt * elemento.valoreCifra | number: '1.0-2'}}€</td>
+                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 3">{{elemento.prezzoEntrInt * elemento.valoreCifra | number: '1.0-2'}}€</td>
+
+                                <td>Codice {{elemento.intervento.attrezzatura}}:<br>
+                                    {{elemento.intervento.descrizioneAttrezzatura}}<br>
+                                    <div *ngIf="elemento.intervento.dettagli !== null">
+                                        <button class="btn btn-outline-default" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                            Dettagli
+                                        </button>
+                                        <div class="collapse" id="collapseExample">
+                                            <div class="card card-body" style="font-size: 15px; text-align: center;">
+                                                {{elemento.intervento.dettaglio}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </ng-container>
                     </tbody>
-                </tr>
             </table>
         </div>
-        <p style="text-align: center; font-size: 15px;">{{elemento.intervento.dettaglio}}</p>
+        <!--<p style="text-align: center; font-size: 15px;">{{elemento.intervento.dettaglio}}</p>-->
     </div>
 
     <div class="pulsante1">
-        <div class="scrollLaterale">
-            Fai uno scroll laterale per inserire i metri quadri
-        </div>
         <button class="btn btn-outline-default" style="align-content: center;" (click)="calcolaInvestimentoTotale()">
             Calcola il costo totale di investimento
         </button>

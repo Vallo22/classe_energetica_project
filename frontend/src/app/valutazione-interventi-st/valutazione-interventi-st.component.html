@@ -3,6 +3,7 @@
     <p><strong>Valutazione multicriterio delle alternative di intervento</strong>
   </div>
 
+  <div *ngIf="pass == true">
   <div>
     <div class="form-check">
       <input type="checkbox" class="form-check-input" id="checkbox1" [(ngModel)]="toggleSuperficie"
@@ -71,6 +72,7 @@
       </tbody>
     </table>
   </div>
+</div>
 
   <div class="overflow-auto">
     <div class="card my-5">
@@ -105,9 +107,6 @@
                   <tr>
                     <th scope="row">Soglia di punteggio per il passaggio alla classe inferiore </th>
                     <td>{{soglia}}</td>
-                  </tr>
-                  <tr>
-                    <th scope="col" colspan="2" style="text-align: center; background-color: #ce5e59;"></th>
                   </tr>
                   <tr>
                     <th scope="row">Δpunteggio per il passaggio di classe</th>
@@ -208,14 +207,15 @@
                 <caption></caption>
                 <tbody>
                   <tr>
-                    <th scope="col" colspan="2" style="text-align: center;">
-                      <strong>È stato conseguito il passaggio<br>
-                        alla classe di vulnerabilità inferiore.
-                      </strong>
-                    </th>
+                    <th scope="col" colspan="2" style="text-align: center; background-color:#ce5e59; color: white;">
+                    ESITO
+                  </th>
                   </tr>
                   <tr>
-                    <th style="text-align: center;" scope="col" colspan="2">
+                    <th scope="col" colspan="2" style="text-align: center; background-color: #5a8982; color: white">
+                      <strong>È STATO conseguito il passaggio<br>
+                        alla classe di vulnerabilità inferiore.
+                      </strong>
                       <div class="pulsante">
                         <button class="btn btn-default" (click)="trasferisciClasseDiRischio()">
                           Prosegui
@@ -232,8 +232,13 @@
                 <caption></caption>
                 <tbody>
                   <tr>
-                    <th scope="col" colspan="2" style="text-align: center;">
-                      <strong>NON è stato conseguito il passaggio<br>
+                    <th scope="col" colspan="2" style="text-align: center; background-color:#ce5e59; color: white;">
+                    ESITO
+                  </th>
+                  </tr>
+                  <tr>
+                    <th scope="col" colspan="2" style="text-align: center; background-color: #fad677;">
+                      <strong>NON È STATO conseguito il passaggio<br>
                         alla classe di vulnerabilità inferiore.<br>
                         Per abbassare la classe di vulnerabilità<br>
                         consigliamo di aggiungere un ulteriore intervento.<br>
@@ -244,7 +249,7 @@
                     </th>
                   </tr>
                   <tr>
-                    <th scope="col" colspan="2" style="text-align: center;">
+                    <th scope="col" colspan="2" style="text-align: center; background-color: #fad677;">
                       <strong>Se si vuole comunque passare al riepilogo<br>
                         costi, premere il pulsante in basso.<br>
                       </strong>

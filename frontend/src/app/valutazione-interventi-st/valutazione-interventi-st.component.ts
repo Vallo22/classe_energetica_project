@@ -62,7 +62,15 @@ export class ValutazioneInterventiStComponent implements OnInit {
   bottoneVisibile: boolean = false
   bottoneVisibile1: boolean = false
   ugualeA0: boolean = false
+  pass: boolean = false
 
+  passaggioTrue() {
+    this.variabileIntervento.forEach(t => {
+      if(t.passaggio == 0) {
+        this.pass = true
+      }
+    })
+  }
   ngOnInit() {
     this.emsType = window.history.state.emsType
     this.vulClass = window.history.state.vulClass;
@@ -77,6 +85,7 @@ export class ValutazioneInterventiStComponent implements OnInit {
       this.car = data
     })
     console.log(this.ponderazione)
+    this.passaggioTrue()
     this.cambiaTotale()
     this.calcoloSoglia()
     this.massimoNumero()
