@@ -302,12 +302,8 @@
           <div class="col-lg-12">
             <div class="alert">
               <div id="boxPunteggio">
-                <p>
-                  Il risultato della somma dei punteggi è: <strong>{{totalePunteggio}}</strong>
-                </p>
-                <p>
-                  La classe di vulnerabilità è: <strong>V{{vulnerability}}</strong>
-                </p>
+                <p>Il risultato della somma dei punteggi è: <strong>{{totalePunteggio}}</strong></p>
+                <p>La classe di vulnerabilità è: <strong>V<sub>{{vulnerability}}</sub></strong></p> 
                 <button type="submit" (click)="trasferisciClassVul()" class="btn btn-default">
                   Scegli il tipo di zona sismica</button>
               </div>

@@ -104,7 +104,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Classe di vulnerabilità</th>
-                                        <td>V{{vulClass}}</td>
+                                        <td>V<sub>{{vulClass}}</sub></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Soglia di punteggio per il passaggio alla classe inferiore </th>
@@ -276,6 +276,9 @@
                                           </strong>
                                           <button class="btn btn-default" (click)="aggiuntaInterventoSecondario()">
                                             Aggiungi un intervento ulteriore
+                                          </button>
+                                          <button class="btn btn-default" (click)="trasferisciClasseDiRischio()" style="margin-left: 10px;">
+                                            Termina e calcola costi
                                           </button>
                                         </th>
                                       </tr>

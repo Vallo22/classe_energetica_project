@@ -102,7 +102,7 @@
                   </tr>
                   <tr>
                     <th scope="row">Classe di vulnerabilità</th>
-                    <td>V{{vulClass}}</td>
+                    <td>V<sub>{{vulClass}}</sub></td>
                   </tr>
                   <tr>
                     <th scope="row">Soglia di punteggio per il passaggio alla classe inferiore </th>
@@ -239,22 +239,13 @@
                   <tr>
                     <th scope="col" colspan="2" style="text-align: center; background-color: #fad677;">
                       <strong>NON È STATO conseguito il passaggio<br>
-                        alla classe di vulnerabilità inferiore.<br>
-                        Per abbassare la classe di vulnerabilità<br>
-                        consigliamo di aggiungere un ulteriore intervento.<br>
+                        alla classe di vulnerabilità inferiore<br>
                       </strong>
                       <button class="btn btn-default" (click)="aggiuntaInterventoSecondario()">
                         Aggiungi un intervento ulteriore
                       </button>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th scope="col" colspan="2" style="text-align: center; background-color: #fad677;">
-                      <strong>Se si vuole comunque passare al riepilogo<br>
-                        costi, premere il pulsante in basso.<br>
-                      </strong>
-                      <button class="btn btn-default" (click)="trasferisciClasseDiRischio()">
-                        Prosegui al riepilogo costi
+                      <button class="btn btn-default" (click)="trasferisciClasseDiRischio()" style="margin-left: 10px;">
+                        Termina e calcola costi
                       </button>
                     </th>
                   </tr>

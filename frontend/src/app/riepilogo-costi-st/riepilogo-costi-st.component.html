@@ -15,7 +15,7 @@
                         <th scope="colgroup">Prezzo unità/quantità:</th>
                         <th scope="colgroup" style="vertical-align: middle;">Dimensione:</th>
                         <th scope="colgroup">Costo parziale:</th>
-                        <th scope="colgroup" style="vertical-align: middle;">Attrezzature aggiuntive:</th>
+                        <th scope="colgroup" style="vertical-align: middle;">Costi aggiuntivi per le attrezzature della sicurezza:</th>
                     </tr>
                 </thead>
                     <tbody>
@@ -48,18 +48,8 @@
                                 <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 2">{{elemento.prezzoSupInt * elemento.valoreCifra | number: '1.0-2'}}€</td>
                                 <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 3">{{elemento.prezzoEntrInt * elemento.valoreCifra | number: '1.0-2'}}€</td>
 
-                                <td>Codice {{elemento.intervento.attrezzatura}}:<br>
-                                    {{elemento.intervento.descrizioneAttrezzatura}}<br>
-                                    <div *ngIf="elemento.intervento.dettagli !== null">
-                                        <button class="btn btn-outline-default" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                            Dettagli
-                                        </button>
-                                        <div class="collapse" id="collapseExample">
-                                            <div class="card card-body" style="font-size: 15px; text-align: center;">
-                                                {{elemento.intervento.dettaglio}}
-                                            </div>
-                                        </div>
-                                    </div>
+                                <td style="vertical-align: middle;">{{elemento.intervento.descrizioneAttrezzatura}}<br>
+                                    <p style="font-size: 10px;">• {{elemento.intervento.dettaglio}}</p>  
                                 </td>
 
                             </tr>
