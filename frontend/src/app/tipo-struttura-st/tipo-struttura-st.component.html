@@ -74,7 +74,7 @@
             </td>
             <td style="float: right">
               <button class="btn btn-outline-default" (click)="visualizzaCodiceIntervento(arr.intervento.codice)"
-                data-toggle="modal" data-target=".bd-example-modal-lg">
+                data-toggle="modal" data-target="#modal-1">
                 Vai all'intervento
               </button>
             </td>
@@ -102,8 +102,8 @@
               {{meccanismo.modi_di_danno_alle_strutture_verticali}}
             </td>
             <td style="float: right;">
-              <button style="margin-top: 17px;" class="btn btn-outline-default"
-                data-toggle="modal" data-target=".bd-example-modal-lg">
+              <button style="margin-top: 17px;" class="btn btn-outline-default" (click)="visualizzaCodiceMeccanismo(meccanismo.codice)"
+                data-toggle="modal" data-target="#modal-2">
                 Vai al meccanismo
               </button>
             </td>
@@ -118,11 +118,9 @@
 
     </div>
   </div>
-
-
-
-  <!-- MODAL -->
-  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+  
+  <!-- MODAL INTERVENTI -->
+  <div class="modal fade" id="modal-1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -330,6 +328,72 @@
         </div>
         <div *ngIf="imgTab02">
           <img src="assets\images\parte_strutturale\Tab02.png" alt="Codice Tab02">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL MECCANISMI -->
+  <div class="modal fade" id="modal-2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <!-- X -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <!-- IMMAGINI -->
+        <div *ngIf="imgM1">
+          <img src="assets\images\parte_strutturale\M1.png" alt="Meccanismo M1">
+        </div>
+        <div *ngIf="imgM2">
+          <img src="assets\images\parte_strutturale\M2.png" alt="Meccanismo M2">
+        </div>
+        <div *ngIf="imgM3">
+          <img src="assets\images\parte_strutturale\M3.png" alt="Meccanismo M3">
+        </div>
+        <div *ngIf="imgM4">
+          <img src="assets\images\parte_strutturale\M4.png" alt="Meccanismo M4">
+        </div>
+        <div *ngIf="imgM5">
+          <img src="assets\images\parte_strutturale\M5.png" alt="Meccanismo M5">
+        </div>
+        <div *ngIf="imgM6">
+          <img src="assets\images\parte_strutturale\M6.png" alt="Meccanismo M6">
+        </div>
+        <div *ngIf="imgM7">
+          <img src="assets\images\parte_strutturale\M7.png" alt="Meccanismo M7">
+        </div>
+        <div *ngIf="imgM8">
+          <img src="assets\images\parte_strutturale\M8.png" alt="Meccanismo M8">
+        </div>
+        <div *ngIf="imgM9">
+          <img src="assets\images\parte_strutturale\M9.png" alt="Meccanismo M9">
+        </div>
+        <div *ngIf="imgM10">
+          <img src="assets\images\parte_strutturale\M10.png" alt="Meccanismo M10">
+        </div>
+        <div *ngIf="imgM11">
+          <img src="assets\images\parte_strutturale\M11.png" alt="Meccanismo M11">
+        </div>
+        <div *ngIf="imgM12">
+          <img src="assets\images\parte_strutturale\M12.png" alt="Meccanismo M12">
+        </div>
+        <div *ngIf="imgM13">
+          <img src="assets\images\parte_strutturale\M13.png" alt="Meccanismo M13">
+        </div>
+        <div *ngIf="imgM14">
+          <img src="assets\images\parte_strutturale\M14.png" alt="Meccanismo M14">
+        </div>
+        <div *ngIf="imgM15">
+          <img src="assets\images\parte_strutturale\M15.png" alt="Meccanismo M15">
+        </div>
+        <div *ngIf="imgM16">
+          <img src="assets\images\parte_strutturale\M16.png" alt="Meccanismo M16">
         </div>
       </div>
     </div>

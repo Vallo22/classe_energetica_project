@@ -107,6 +107,23 @@ export class TipoStrutturaStComponent implements OnInit {
   imgTab01 = false
   imgTab02 = false
 
+  imgM1 = false
+  imgM2 = false
+  imgM3 = false
+  imgM4 = false
+  imgM5 = false
+  imgM6 = false
+  imgM7 = false
+  imgM8 = false
+  imgM9 = false
+  imgM10 = false
+  imgM11 = false
+  imgM12 = false
+  imgM13 = false
+  imgM14 = false
+  imgM15 = false
+  imgM16 = false
+
   constructor(
     private risultatoSelezione: RisultatoSelezioneStService,
     private router: Router,
@@ -131,6 +148,74 @@ export class TipoStrutturaStComponent implements OnInit {
     })
     this.selectedIndex = 0;
     this.onChangeSecondo(0);
+  }
+
+  visualizzaCodiceMeccanismo(meccanismo: string) {
+    this.imgM1 = false
+    this.imgM2 = false
+    this.imgM3 = false
+    this.imgM4 = false
+    this.imgM5 = false
+    this.imgM6 = false
+    this.imgM7 = false
+    this.imgM8 = false
+    this.imgM9 = false
+    this.imgM10 = false
+    this.imgM11 = false
+    this.imgM12 = false
+    this.imgM13 = false
+    this.imgM14 = false
+    this.imgM15 = false
+    this.imgM16 = false
+    console.log(meccanismo)
+    if(meccanismo == "1"){
+      this.imgM1 = true
+    }
+    else if(meccanismo == "2"){
+      this.imgM2 = true
+    }
+    else if(meccanismo == "3"){
+      this.imgM3 = true
+    }
+    else if(meccanismo == "4"){
+      this.imgM4 = true
+    }
+    else if(meccanismo == "5"){
+      this.imgM5 = true
+    }
+    else if(meccanismo == "6"){
+      this.imgM6 = true
+    }
+    else if(meccanismo == "7"){
+      this.imgM7 = true
+    }
+    else if(meccanismo == "8"){
+      this.imgM8 = true
+    }
+    else if(meccanismo == "9"){
+      this.imgM9 = true
+    }
+    else if(meccanismo == "10"){
+      this.imgM10 = true
+    }
+    else if(meccanismo == "11"){
+      this.imgM11 = true
+    }
+    else if(meccanismo == "12"){
+      this.imgM12 = true
+    }
+    else if(meccanismo == "13"){
+      this.imgM13 = true
+    }
+    else if(meccanismo == "14"){
+      this.imgM14 = true
+    }
+    else if(meccanismo == "15"){
+      this.imgM15 = true
+    }
+    else if(meccanismo == "16"){
+      this.imgM16 = true
+    }
   }
 
   visualizzaCodiceIntervento(codice: string){
@@ -204,6 +289,7 @@ export class TipoStrutturaStComponent implements OnInit {
     this.imgI1 = false
     this.imgTab01 = false
     this.imgTab02 = false
+    this.imgM3 = false
   
     console.log(codice)
     if(codice == "A1"){
@@ -401,7 +487,7 @@ export class TipoStrutturaStComponent implements OnInit {
     }
     else if(codice == "Tab.02"){
       this.imgTab02 = true
-    }    
+    }  
   }
   
   onChangeCaratteristicheQualitative(index: number) {
