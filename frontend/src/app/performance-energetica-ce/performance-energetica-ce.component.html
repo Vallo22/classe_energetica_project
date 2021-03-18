@@ -4,7 +4,7 @@
     </div>
   
     <div class="card my-5">
-      <div class="card-body">
+      <div class="card-body"> 
         <form>
           <div>
             <div name="indicatore">
@@ -29,7 +29,7 @@
               </div>
             </div>
             <select [(ngModel)]="selezione[1]" style="margin-top: 10px;" class="form-control" name="classe1" id="id1">
-              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:0:5; index as i">
+              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:5:10; index as i">
                 {{ classe.descrizione }} <p>|</p>
                 {{ classe.punteggio }}
               </option>
@@ -45,7 +45,7 @@
               </div>
             </div>
             <select [(ngModel)]="selezione[2]" style="margin-top: 10px;" class="form-control" name="classe2" id="id2">
-              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:0:5; index as i">
+              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:10:15; index as i">
                 {{ classe.descrizione }} <p>|</p>
                 {{ classe.punteggio }}
               </option>
@@ -61,7 +61,7 @@
               </div>
             </div>
             <select [(ngModel)]="selezione[3]" style="margin-top: 10px;" class="form-control" name="classe3" id="id3">
-              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:5:8; index as i">
+              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:15:18; index as i">
                 {{ classe.descrizione }} <p>|</p>
                 {{ classe.punteggio }}
               </option>
@@ -77,7 +77,7 @@
               </div>
             </div>
             <select [(ngModel)]="selezione[4]" style="margin-top: 10px;" class="form-control" name="classe4" id="id4">
-              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:8:11; index as i">
+              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:18:21; index as i">
                 {{ classe.descrizione }} <p>|</p>
                 {{ classe.punteggio }}
               </option>
@@ -93,7 +93,7 @@
               </div>
             </div>
             <select [(ngModel)]="selezione[5]" style="margin-top: 10px;" class="form-control" name="classe5" id="id5">
-              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:0:5; index as i">
+              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:21:28; index as i">
                 {{ classe.descrizione }} <p>|</p>
                 {{ classe.punteggio }}
               </option>
@@ -109,7 +109,7 @@
               </div>
             </div>
             <select [(ngModel)]="selezione[6]" style="margin-top: 10px;" class="form-control" name="classe6" id="id6">
-              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:0:5; index as i">
+              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:28:33; index as i">
                 {{ classe.descrizione }} <p>|</p>
                 {{ classe.punteggio }}
               </option>
@@ -125,7 +125,7 @@
               </div>
             </div>
             <select [(ngModel)]="selezione[7]" style="margin-top: 10px;" class="form-control" name="classe7" id="id7">
-              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:0:5; index as i">
+              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:33:37; index as i">
                 {{ classe.descrizione }} <p>|</p>
                 {{ classe.punteggio }}
               </option>
@@ -141,7 +141,7 @@
               </div>
             </div>
             <select [(ngModel)]="selezione[8]" style="margin-top: 10px;" class="form-control" name="classe8" id="id8">
-              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:0:5; index as i">
+              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:37:43; index as i">
                 {{ classe.descrizione }} <p>|</p>
                 {{ classe.punteggio }}
               </option>
@@ -157,7 +157,7 @@
               </div>
             </div>
             <select [(ngModel)]="selezione[9]" style="margin-top: 10px;" class="form-control" name="classe9" id="id9">
-              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:0:5; index as i">
+              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:43:46; index as i">
                 {{ classe.descrizione }} <p>|</p>
                 {{ classe.punteggio }}
               </option>
@@ -173,7 +173,7 @@
               </div>
             </div>
             <select [(ngModel)]="selezione[10]" style="margin-top: 10px;" class="form-control" name="classe10" id="id10">
-              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:0:5; index as i">
+              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:46:53; index as i">
                 {{ classe.descrizione }} <p>|</p>
                 {{ classe.punteggio }}
               </option>
@@ -189,7 +189,7 @@
               </div>
             </div>
             <select [(ngModel)]="selezione[11]" style="margin-top: 10px;" class="form-control" name="classe11" id="id11">
-              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:0:5; index as i">
+              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:53:57; index as i">
                 {{ classe.descrizione }} <p>|</p>
                 {{ classe.punteggio }}
               </option>
@@ -205,7 +205,7 @@
               </div>
             </div>
             <select [(ngModel)]="selezione[12]" style="margin-top: 10px;" class="form-control" name="classe12" id="id12">
-              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:0:5; index as i">
+              <option [ngValue]="classe.id" *ngFor="let classe of classeIndicatore | slice:57:61; index as i">
                 {{ classe.descrizione }} <p>|</p>
                 {{ classe.punteggio }}
               </option>

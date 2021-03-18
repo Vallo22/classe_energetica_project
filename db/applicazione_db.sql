@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Mar 12, 2021 alle 14:51
+-- Creato il: Mar 18, 2021 alle 12:27
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -553,7 +553,7 @@ INSERT INTO `caratteristiche_struttura_st` (`id`, `caratteristica_id`, `struttur
 CREATE TABLE `classe_indicatore_ce` (
   `id` bigint(20) NOT NULL,
   `descrizione` varchar(255) DEFAULT NULL,
-  `punteggio` int(11) NOT NULL,
+  `punteggio` double NOT NULL,
   `indicatore_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -562,17 +562,67 @@ CREATE TABLE `classe_indicatore_ce` (
 --
 
 INSERT INTO `classe_indicatore_ce` (`id`, `descrizione`, `punteggio`, `indicatore_id`) VALUES
-(26, 'edificio isolato', 0, 3),
-(27, 'edificio con un lato attiguo', 0, 3),
-(28, 'edifico con due lati attigui', 0, 3),
-(29, 'edificio con tre lati attigui', 0, 3),
-(30, 'edificio intercluso', 0, 3),
-(31, 'edificio con lato attiguo a sud', 0, 4),
-(32, 'edificio con lato esposto sia a sud che nord', 0, 4),
-(33, 'edificio con lato esposto a sud e attiguo a nord', 0, 4),
-(34, 'rotazione di 0° rispetto agli assi N-S e E-O con lati esposti N, NEO, NO, NSO, O,SO', 0, 5),
-(35, 'altri casi', 0, 5),
-(36, 'rotazione di 0° rispetto agli assi N-S e E-O con esposizioni E, ES, ESO, NE, NES, S', 0, 5);
+(1, 'S/V>2,2', 3.96, 1),
+(2, '1,56<S/V≤2,02', 3.06, 1),
+(3, '1,09<S/V≤1,56', 2.16, 1),
+(4, '0,63<S/V≤1,09', 1.26, 1),
+(5, 'S/V≤0,63', 0.36, 1),
+(6, '>33%', 0.07, 2),
+(7, 'tra 26% e 33%', 0.06, 2),
+(8, 'tra 19% e 26%', 0.05, 2),
+(9, 'tra 12% e 19%', 0.04, 2),
+(10, '≤12%', 0.03, 2),
+(11, 'edificio isolato', 0.07, 3),
+(12, 'edificio con 1 lato attiguo', 0.05, 3),
+(13, 'edificio con 2 lati attigui', 0.04, 3),
+(14, 'edificio con 3 lati attigui', 0.03, 3),
+(15, 'edificio intercluso', 0.02, 3),
+(16, 'edificio con lato attiguo a sud', 0.05, 4),
+(17, 'edificio con lato esposto sia a sud che nord', 0.03, 4),
+(18, 'edificio con lato esposto a sud e attiguo a nord', 0.02, 4),
+(19, 'rotazione di 0° rispetto agli assi N-S e E-O con lati esposti N, NEO, NO, NSO, O,SO', 0.011, 5),
+(20, 'altri casi', 0.007, 5),
+(21, 'rotazione di 0° rispetto agli assi N-S e E-O con esposizioni E, ES, ESO, NE, NES, S', 0.004, 5),
+(22, '>3,10 W/m2K', 0.78, 6),
+(23, '2,64÷3,10 W/m2K', 0.68, 6),
+(24, '2,17÷2,64 W/m2K', 0.57, 6),
+(25, '1,70÷2,17 W/m2K', 0.47, 6),
+(26, '1,23÷1,70 W/m2K', 0.36, 6),
+(27, '0,77÷1,23 W/m2K', 0.26, 6),
+(28, '≤0,77 W/m2K', 0.16, 6),
+(29, '>2,78 W/m2K', 0.59, 7),
+(30, '2,16÷2,78 W/m2K', 0.47, 7),
+(31, '1,54÷2,16 W/m2K', 0.35, 7),
+(32, '0,92÷1,54 W/m2K', 0.22, 7),
+(33, '≤0,92 W/m2K', 0.1, 7),
+(34, '>4,40 W/m2K', 0.21, 8),
+(35, '3,10÷4,40 W/m2K', 0.16, 8),
+(36, '1,80÷3,10 W/m2K', 0.1, 8),
+(37, '≤1,80 W/m2K', 0.04, 8),
+(38, '>2,78 W/m2K', 0.15, 9),
+(39, '>1,76 W/m2K', 0.13, 9),
+(40, '1,19÷1,47 W/m2K', 0.1, 9),
+(41, '0,90÷1,19 W/m2K', 0.08, 9),
+(42, '0,62÷0,90 W/m2K', 0.06, 9),
+(43, '≤0,62 W/m2K', 0.04, 9),
+(44, 'Pareti con isolamento dall\'esterno (a cappotto) con aggetti/balconi o pareti a cassa vuota con isolamento nell\'intercapedine (ponte termico non corretto)', 0.08, 10),
+(45, 'Pareti a cassa vuota con mattoni forati (senza isolante) o pareti a cassa vuota con isolamento nell\'intercapedine (ponte termico corretto)', 0.06, 10),
+(46, 'Pareti con isolamento dall\'esterno (a cappotto) senza aggetti/balconi e ponti termici corretti o pareti omogenee in mattoni pieni o pietra (senza isolante)', 0.03, 10),
+(47, '>0,91', 0.14, 11),
+(48, '0,84÷0,91', 0.21, 11),
+(49, '0,77÷0,84', 0.28, 11),
+(50, '0,71÷0,77', 0.35, 11),
+(51, '0,64÷0,71', 0.42, 11),
+(52, '0,57÷0,64', 0.49, 11),
+(53, '≤0,57', 0.56, 11),
+(54, '>0,86', 0.03, 12),
+(55, '0,74÷0,86', 0.05, 12),
+(56, '0,62÷0,74', 0.07, 12),
+(57, '≤0,62', 0.09, 12),
+(58, '>0,86', 0.03, 13),
+(59, '0,74÷0,86', 0.05, 13),
+(60, '0,62÷0,74', 0.07, 13),
+(61, '≤0,62', 0.09, 13);
 
 -- --------------------------------------------------------
 
@@ -1447,7 +1497,7 @@ ALTER TABLE `caratteristiche_struttura_st`
 --
 ALTER TABLE `classe_indicatore_ce`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FKcv0llisc9wfd2vewap8gb87bd` (`indicatore_id`);
+  ADD KEY `FKqdt1pth7dmk00j2xi0holxgci` (`indicatore_id`);
 
 --
 -- Indici per le tabelle `codice_intervento_ce`
@@ -1604,7 +1654,7 @@ ALTER TABLE `caratteristiche_struttura_st`
 -- AUTO_INCREMENT per la tabella `classe_indicatore_ce`
 --
 ALTER TABLE `classe_indicatore_ce`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT per la tabella `codice_intervento_ce`
@@ -1735,7 +1785,7 @@ ALTER TABLE `caratteristiche_struttura_st`
 -- Limiti per la tabella `classe_indicatore_ce`
 --
 ALTER TABLE `classe_indicatore_ce`
-  ADD CONSTRAINT `FKcv0llisc9wfd2vewap8gb87bd` FOREIGN KEY (`indicatore_id`) REFERENCES `indicatore_ce` (`id`);
+  ADD CONSTRAINT `FKqdt1pth7dmk00j2xi0holxgci` FOREIGN KEY (`indicatore_id`) REFERENCES `indicatore_ce` (`id`);
 
 --
 -- Limiti per la tabella `edificio_st`

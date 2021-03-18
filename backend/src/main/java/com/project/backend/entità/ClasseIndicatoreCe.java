@@ -20,7 +20,7 @@ public class ClasseIndicatoreCe {
 	
 	@Column
     private String descrizione;
-    private int punteggio;
+    private double punteggio;
     
     @ManyToOne(cascade = CascadeType.ALL)
     private IndicatoreCe indicatore;
@@ -41,11 +41,11 @@ public class ClasseIndicatoreCe {
 		this.descrizione = descrizione;
 	}
 
-	public int getPunteggio() {
+	public double getPunteggio() {
 		return punteggio;
 	}
 
-	public void setPunteggio(int punteggio) {
+	public void setPunteggio(double punteggio) {
 		this.punteggio = punteggio;
 	}
 
