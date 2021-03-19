@@ -214,6 +214,16 @@
   
         </form>
       </div>
+
+      <div class="card-footer" style="text-align: center;">
+        <button type="submit" (click)="outputTotale()" style="margin-top: 5px"
+          class="btn btn-outline-default">Ottieni risultato</button>
+          <hr>
+          <div class="row" style="justify-content: center;" *ngIf="msg1">          
+            <p>Il risultato della somma dei punteggi è: <strong>{{totalePunteggio}}</strong></p> 
+          </div>
+      </div>
+      <!--
       <div class="bottoni" style="text-align: center;">
         <div class="pulsante1" style="display: inline-block">
           <button style="margin-right: 30px;" class="btn btn-defaultn display-4" routerLink="/home" 
@@ -224,6 +234,8 @@
           routerLinkActive="active">Avanti &raquo;</button>
         </div>
       </div>
+      -->
+
       <label></label>
     </div>
   
