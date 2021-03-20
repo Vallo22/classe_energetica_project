@@ -29,43 +29,12 @@ export class EdificioSingoloStQComponent implements OnInit {
   Colors: Array<any> = ["#ce5e59","#fad677","#5a8982"]
   emsType: number
 
-
-
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private qualità: QualitaEdificiStService,
   ) {
   }
-
-  getColors(index) {
-
-    let num = this.getnumber(index);
-    return this.Colors[num];
-  }
-
-  getnumber(data){
-
-    let i = data;
-    if(i > this.Colors.length-1){
-
-       i = i - this.Colors.length;
-       if(i < this.Colors.length){
-        return i;
-       }
-       else {
-        this.getnumber(i);
-       }
-
-    }
-    else {
-      return i;
-    }
-
-
-  }
-
 
   ngOnInit() {
     this.emsType = window.history.state.emsType
@@ -210,4 +179,26 @@ export class EdificioSingoloStQComponent implements OnInit {
     //Rimetto tutto qualityTempo all'interno di quality
     this.quality = qualityTemp
   }
+
+  getColors(index) {
+    let num = this.getnumber(index);
+    return this.Colors[num];
+  }
+
+  getnumber(data){
+    let i = data;
+    if(i > this.Colors.length-1){
+       i = i - this.Colors.length;
+       if(i < this.Colors.length){
+        return i;
+       }
+       else {
+        this.getnumber(i);
+       }
+    }
+    else {
+      return i;
+    }
+  }
+
 }

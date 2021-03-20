@@ -39,31 +39,6 @@ export class EdificioInAggregatoStQComponent implements OnInit {
   ) {
   }
 
-  getColors(index) {
-    let num = this.getnumber(index);
-    return this.Colors[num];
-  }
-
-  getnumber(data){
-    let i = data;
-    if(i > this.Colors.length-1){
-       i = i - this.Colors.length;
-       if(i < this.Colors.length){
-        return i;
-       }
-       else {
-        this.getnumber(i);
-       }
-    }
-    else {
-      return i;
-    }
-  }
-
-  ngOnDestroy() {
-    this.subscriptionsToDelete.unsubscribe();
-  }
-
   ngOnInit() {
     this.emsType = window.history.state.emsType
     this.subscriptionsToDelete.add(
@@ -219,4 +194,30 @@ export class EdificioInAggregatoStQComponent implements OnInit {
     //Rimetto tutto qualityTempo all'interno di quality
     this.quality = qualityTemp
   }
+
+  getColors(index) {
+    let num = this.getnumber(index);
+    return this.Colors[num];
+  }
+
+  getnumber(data){
+    let i = data;
+    if(i > this.Colors.length-1){
+       i = i - this.Colors.length;
+       if(i < this.Colors.length){
+        return i;
+       }
+       else {
+        this.getnumber(i);
+       }
+    }
+    else {
+      return i;
+    }
+  }
+
+  ngOnDestroy() {
+    this.subscriptionsToDelete.unsubscribe();
+  }
+  
 }

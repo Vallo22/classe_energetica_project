@@ -29,7 +29,11 @@ export class PerformanceEnergeticaCeComponent implements OnInit {
       this.classeIndicatore = data;
       console.log(this.classeIndicatore)
     })
-    console.log("rapportos/v: " + this.selezione[0])
+    this.classeIndicatore.forEach(element => {
+      this.indicatore.push(element.indicatore);
+      this.selezione.push(element.id)
+    })
+    this.cleanArray()
   }
 
   outputTotale() {
@@ -50,8 +54,19 @@ export class PerformanceEnergeticaCeComponent implements OnInit {
         selezionati[value] = true
       }
       this.totalePunteggio = totalePunteggio
-      console.log("rapportos/v: " + this.selezione[0])
     }
     
-
+    cleanArray() {
+      const indicatori: number[] = []
+      this.indicatore.forEach(el => {
+        indicatori.push(el.id)
+      })
+      const unico = new Set(indicatori)
+      const indicatoreTemp: IndicatoreCe[] = []
+      unico.forEach(u => {
+        indicatoreTemp.push(this.indicatore.find(qE => qE.id == u))
+      })
+      this.indicatore = indicatoreTemp
+    }
+    
 }
