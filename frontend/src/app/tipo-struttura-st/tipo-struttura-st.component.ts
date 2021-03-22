@@ -132,11 +132,30 @@ export class TipoStrutturaStComponent implements OnInit {
   ) {
   }
 
-  onChangeSecondo(index: number) {
-    this.caratteristiche = this.selectedElement[index].carQuality
-    this.selectArr = 0;
-    this.selectedMeccanicaIndex = 0;
-    this.onChangeCaratteristicheQualitative(0);
+  ngOnInit() {
+    this.risultatoSelezione.reset()
+    this.emsType = window.history.state.emsType
+    console.log("EmsType: ", this.emsType)
+    this.vulClass = window.history.state.vulClass;
+    this.punteggio = window.history.state.punteggio;
+    this.risk = window.history.state.risk;
+    this.pam = window.history.state.pam;
+    console.log("Classe vul: ", this.vulClass)
+    console.log("Punteggio: ", this.punteggio)
+    console.log("Rischio: ", this.risk)
+    console.log("Pam: ", this.pam)
+    this.service.getTypeStruttura().subscribe(data => {
+      this.typeStruttura = data;
+      console.log(this.typeStruttura)
+    })
+    this.service.getStruttura().subscribe(data => {
+      this.struttura = data;
+      console.log(this.struttura)
+    })
+    this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
+      this.associazioneIntervento = this.serviceAssociazione.interventGrouping(data);
+      console.log(this.associazioneIntervento)
+    })
   }
 
   onChange(index: number) {
@@ -150,72 +169,47 @@ export class TipoStrutturaStComponent implements OnInit {
     this.onChangeSecondo(0);
   }
 
-  visualizzaCodiceMeccanismo(meccanismo: string) {
-    this.imgM1 = false
-    this.imgM2 = false
-    this.imgM3 = false
-    this.imgM4 = false
-    this.imgM5 = false
-    this.imgM6 = false
-    this.imgM7 = false
-    this.imgM8 = false
-    this.imgM9 = false
-    this.imgM10 = false
-    this.imgM11 = false
-    this.imgM12 = false
-    this.imgM13 = false
-    this.imgM14 = false
-    this.imgM15 = false
-    this.imgM16 = false
-    console.log(meccanismo)
-    if(meccanismo == "1"){
-      this.imgM1 = true
-    }
-    else if(meccanismo == "2"){
-      this.imgM2 = true
-    }
-    else if(meccanismo == "3"){
-      this.imgM3 = true
-    }
-    else if(meccanismo == "4"){
-      this.imgM4 = true
-    }
-    else if(meccanismo == "5"){
-      this.imgM5 = true
-    }
-    else if(meccanismo == "6"){
-      this.imgM6 = true
-    }
-    else if(meccanismo == "7"){
-      this.imgM7 = true
-    }
-    else if(meccanismo == "8"){
-      this.imgM8 = true
-    }
-    else if(meccanismo == "9"){
-      this.imgM9 = true
-    }
-    else if(meccanismo == "10"){
-      this.imgM10 = true
-    }
-    else if(meccanismo == "11"){
-      this.imgM11 = true
-    }
-    else if(meccanismo == "12"){
-      this.imgM12 = true
-    }
-    else if(meccanismo == "13"){
-      this.imgM13 = true
-    }
-    else if(meccanismo == "14"){
-      this.imgM14 = true
-    }
-    else if(meccanismo == "15"){
-      this.imgM15 = true
-    }
-    else if(meccanismo == "16"){
-      this.imgM16 = true
-    }
+  onChangeSecondo(index: number) {
+    this.caratteristiche = this.selectedElement[index].carQuality
+    this.selectArr = 0;
+    this.selectedMeccanicaIndex = 0;
+    this.onChangeCaratteristicheQualitative(0);
+  }
+  
+  onChangeCaratteristicheQualitative(index: number) {
+    if (index === 0) {
+      this.variabileIntervento = null
+    } else {
+    this.variabileIntervento = []
+    let elemento = this.selectedElement[this.selectedIndex]
+    let caratteristica = this.caratteristiche[index]
+    this.associazioneIntervento.forEach(t => {
+      if (elemento.id == t.strutturaAssociazione.id && caratteristica.id == t.caratteristicaAssociazioneIntervento.id) {
+        this.variabileIntervento.push(t);
+      }
+    })
+  }
+    console.log(this.variabileIntervento)
+  }
+
+  trasferisciOggetti() {
+    if (this.variabileIntervento == null) {
+      this.alert = true
+      window.scrollTo(0, 0)
+    } else {
+    this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche[this.selectArr])
+    this.variabileIntervento.forEach(t => {
+      if(t.passaggio === 1) {
+        this.router.navigate(['/valutazione-interventi-st'], {
+          state: { emsType: this.emsType, vulClass: this.vulClass,punteggio: this.punteggio, risk: this.risk, pam: this.pam,  variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex }
+        })
+      } else {
+        this.router.navigate(['/matrice-st'], {
+          state: { emsType: this.emsType, vulClass: this.vulClass,punteggio: this.punteggio, risk: this.risk, pam: this.pam,  variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex }
+        })
+      }
+    })  
+  }
   }
 
   visualizzaCodiceIntervento(codice: string){
@@ -489,59 +483,73 @@ export class TipoStrutturaStComponent implements OnInit {
       this.imgTab02 = true
     }  
   }
-  
-  onChangeCaratteristicheQualitative(index: number) {
-    if (index === 0) {
-      this.variabileIntervento = null
-    } else {
-    this.variabileIntervento = []
-    let elemento = this.selectedElement[this.selectedIndex]
-    let caratteristica = this.caratteristiche[index]
-    this.associazioneIntervento.forEach(t => {
-      if (elemento.id == t.strutturaAssociazione.id && caratteristica.id == t.caratteristicaAssociazioneIntervento.id) {
-        this.variabileIntervento.push(t);
-      }
-    })
-  }
-    console.log(this.variabileIntervento)
-  }
 
-  trasferisciOggetti() {
-    if (this.variabileIntervento == null) {
-      this.alert = true
-      window.scrollTo(0, 0)
-    } else {
-    this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche[this.selectArr])
-    this.router.navigate(['/matrice-st'], {
-      state: { emsType: this.emsType, vulClass: this.vulClass,punteggio: this.punteggio, risk: this.risk, pam: this.pam,  variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex }
-    })
-  }
-  }
-
-  ngOnInit() {
-    this.risultatoSelezione.reset()
-    this.emsType = window.history.state.emsType
-    console.log("EmsType: ", this.emsType)
-    this.vulClass = window.history.state.vulClass;
-    this.punteggio = window.history.state.punteggio;
-    this.risk = window.history.state.risk;
-    this.pam = window.history.state.pam;
-    console.log("Classe vul: ", this.vulClass)
-    console.log("Punteggio: ", this.punteggio)
-    console.log("Rischio: ", this.risk)
-    console.log("Pam: ", this.pam)
-    this.service.getTypeStruttura().subscribe(data => {
-      this.typeStruttura = data;
-      console.log(this.typeStruttura)
-    })
-    this.service.getStruttura().subscribe(data => {
-      this.struttura = data;
-      console.log(this.struttura)
-    })
-    this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
-      this.associazioneIntervento = this.serviceAssociazione.interventGrouping(data);
-      console.log(this.associazioneIntervento)
-    })
+  visualizzaCodiceMeccanismo(meccanismo: string) {
+    this.imgM1 = false
+    this.imgM2 = false
+    this.imgM3 = false
+    this.imgM4 = false
+    this.imgM5 = false
+    this.imgM6 = false
+    this.imgM7 = false
+    this.imgM8 = false
+    this.imgM9 = false
+    this.imgM10 = false
+    this.imgM11 = false
+    this.imgM12 = false
+    this.imgM13 = false
+    this.imgM14 = false
+    this.imgM15 = false
+    this.imgM16 = false
+    console.log(meccanismo)
+    if(meccanismo == "1"){
+      this.imgM1 = true
+    }
+    else if(meccanismo == "2"){
+      this.imgM2 = true
+    }
+    else if(meccanismo == "3"){
+      this.imgM3 = true
+    }
+    else if(meccanismo == "4"){
+      this.imgM4 = true
+    }
+    else if(meccanismo == "5"){
+      this.imgM5 = true
+    }
+    else if(meccanismo == "6"){
+      this.imgM6 = true
+    }
+    else if(meccanismo == "7"){
+      this.imgM7 = true
+    }
+    else if(meccanismo == "8"){
+      this.imgM8 = true
+    }
+    else if(meccanismo == "9"){
+      this.imgM9 = true
+    }
+    else if(meccanismo == "10"){
+      this.imgM10 = true
+    }
+    else if(meccanismo == "11"){
+      this.imgM11 = true
+    }
+    else if(meccanismo == "12"){
+      this.imgM12 = true
+    }
+    else if(meccanismo == "13"){
+      this.imgM13 = true
+    }
+    else if(meccanismo == "14"){
+      this.imgM14 = true
+    }
+    else if(meccanismo == "15"){
+      this.imgM15 = true
+    }
+    else if(meccanismo == "16"){
+      this.imgM16 = true
+    }
   }
 
 }
