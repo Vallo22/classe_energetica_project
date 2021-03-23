@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Mar 18, 2021 alle 12:27
+-- Creato il: Mar 23, 2021 alle 11:24
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -627,6 +627,84 @@ INSERT INTO `classe_indicatore_ce` (`id`, `descrizione`, `punteggio`, `indicator
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `classe_indicatore_non_ce`
+--
+
+CREATE TABLE `classe_indicatore_non_ce` (
+  `id` bigint(20) NOT NULL,
+  `descrizione` varchar(255) DEFAULT NULL,
+  `punteggio` double NOT NULL,
+  `indicatore_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Dump dei dati per la tabella `classe_indicatore_non_ce`
+--
+
+INSERT INTO `classe_indicatore_non_ce` (`id`, `descrizione`, `punteggio`, `indicatore_id`) VALUES
+(1, 'S/V>2,2', 1.80, 1),
+(2, '1,56<S/V≤2,02', 1.44, 1),
+(3, '1,09<S/V≤1,56', 1.08, 1),
+(4, '0,63<S/V≤1,09', 0.72, 1),
+(5, 'S/V≤0,63', 0.36, 1),
+(6, '>33%', 0.17, 2),
+(7, 'tra 26% e 33%', 0.13, 2),
+(8, 'tra 19% e 26%', 0.10, 2),
+(9, 'tra 12% e 19%', 0.07, 2),
+(10, '≤12%', 0.03, 2),
+(11, 'edificio isolato', 0.07, 3),
+(12, 'edificio con 1 lato attiguo', 0.05, 3),
+(13, 'edificio con 2 lati attigui', 0.04, 3),
+(14, 'edificio con 3 lati attigui', 0.03, 3),
+(15, 'edificio intercluso', 0.02, 3),
+(16, 'edificio con lato attiguo a sud', 0.05, 4),
+(17, 'edificio con lato esposto sia a sud che nord', 0.03, 4),
+(18, 'edificio con lato esposto a sud e attiguo a nord', 0.02, 4),
+(19, 'rotazione di 0° rispetto agli assi N-S e E-O con lati esposti N, NEO, NO, NSO, O,SO', 0.011, 5),
+(20, 'altri casi', 0.007, 5),
+(21, 'rotazione di 0° rispetto agli assi N-S e E-O con esposizioni E, ES, ESO, NE, NES, S', 0.004, 5),
+(22, '>3,10 W/m2K', 0.78, 6),
+(23, '2,64÷3,10 W/m2K', 0.68, 6),
+(24, '2,17÷2,64 W/m2K', 0.57, 6),
+(25, '1,70÷2,17 W/m2K', 0.47, 6),
+(26, '1,23÷1,70 W/m2K', 0.36, 6),
+(27, '0,77÷1,23 W/m2K', 0.26, 6),
+(28, '≤0,77 W/m2K', 0.16, 6),
+(29, '>2,78 W/m2K', 0.30, 7),
+(30, '2,16÷2,78 W/m2K', 0.25, 7),
+(31, '1,54÷2,16 W/m2K', 0.20, 7),
+(32, '0,92÷1,54 W/m2K', 0.15, 7),
+(33, '≤0,92 W/m2K', 0.10, 7),
+(34, '>4,40 W/m2K', 0.13, 8),
+(35, '3,10÷4,40 W/m2K', 0.10, 8),
+(36, '1,80÷3,10 W/m2K', 0.07, 8),
+(37, '≤1,80 W/m2K', 0.04, 8),
+(38, '>2,78 W/m2K', 0.15, 9),
+(39, '>1,76 W/m2K', 0.13, 9),
+(40, '1,19÷1,47 W/m2K', 0.10, 9),
+(41, '0,90÷1,19 W/m2K', 0.08, 9),
+(42, '0,62÷0,90 W/m2K', 0.06, 9),
+(43, '≤0,62 W/m2K', 0.04, 9),
+(44, 'Pareti con isolamento dall\'esterno (a cappotto) con aggetti/balconi o pareti a cassa vuota con isolamento nell\'intercapedine (ponte termico non corretto)', 0.08, 10),
+(45, 'Pareti a cassa vuota con mattoni forati (senza isolante) o pareti a cassa vuota con isolamento nell\'intercapedine (ponte termico corretto)', 0.06, 10),
+(46, 'Pareti con isolamento dall\'esterno (a cappotto) senza aggetti/balconi e ponti termici corretti o pareti omogenee in mattoni pieni o pietra (senza isolante)', 0.03, 10),
+(47, '>0,91', 0.14, 11),
+(48, '0,84÷0,91', 0.21, 11),
+(49, '0,77÷0,84', 0.28, 11),
+(50, '0,71÷0,77', 0.35, 11),
+(51, '0,64÷0,71', 0.42, 11),
+(52, '0,57÷0,64', 0.49, 11),
+(53, '≤0,57', 0.56, 11),
+(54, '>0,86', 0.03, 12),
+(55, '0,74÷0,86', 0.07, 12),
+(56, '0,62÷0,74', 0.11, 12),
+(57, '≤0,62', 0.14, 12);
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `codice_intervento_ce`
 --
 
@@ -910,6 +988,37 @@ INSERT INTO `indicatore_ce` (`id`, `indicatore`) VALUES
 (11, 'Rendimento dell\'impianto di climatizzazione invernale'),
 (12, 'Rendimento dell\'impianto di climatizzazione estiva'),
 (13, 'Rendimento dell\'impianto per l\'acqua calda sanitaria');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `indicatore_non_ce`
+--
+
+CREATE TABLE `indicatore_non_ce` (
+  `id` bigint(20) NOT NULL,
+  `indicatore` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Dump dei dati per la tabella `indicatore_non_ce`
+--
+
+INSERT INTO `indicatore_non_ce` (`id`, `indicatore`) VALUES
+(1, 'Rapporto S/V'),
+(2, 'Percentuale di superfici finestrate'),
+(3, 'Posizione planimetrica all\'interno dell\'aggregato'),
+(4, 'Esposizione delle facciate libere'),
+(5, 'Orientamento'),
+(6, 'Qualità della copertura'),
+(7, 'Qualità delle pareti'),
+(8, 'Qualità delle superfici trasparenti'),
+(9, 'Qualità del solaio a terra'),
+(10, 'Ponti termici'),
+(11, 'Rendimento dell\'impianto di climatizzazione invernale'),
+(12, 'Rendimento dell\'impianto di climatizzazione estiva');
 
 -- --------------------------------------------------------
 
@@ -1500,6 +1609,13 @@ ALTER TABLE `classe_indicatore_ce`
   ADD KEY `FKqdt1pth7dmk00j2xi0holxgci` (`indicatore_id`);
 
 --
+-- Indici per le tabelle `classe_indicatore_non_ce`
+--
+ALTER TABLE `classe_indicatore_non_ce`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FKp2t99vmj8c815hbc2o9q2pa3i` (`indicatore_id`);
+
+--
 -- Indici per le tabelle `codice_intervento_ce`
 --
 ALTER TABLE `codice_intervento_ce`
@@ -1522,6 +1638,12 @@ ALTER TABLE `edificio_st`
 -- Indici per le tabelle `indicatore_ce`
 --
 ALTER TABLE `indicatore_ce`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `indicatore_non_ce`
+--
+ALTER TABLE `indicatore_non_ce`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1657,6 +1779,12 @@ ALTER TABLE `classe_indicatore_ce`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
+-- AUTO_INCREMENT per la tabella `classe_indicatore_non_ce`
+--
+ALTER TABLE `classe_indicatore_non_ce`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT per la tabella `codice_intervento_ce`
 --
 ALTER TABLE `codice_intervento_ce`
@@ -1679,6 +1807,12 @@ ALTER TABLE `edificio_st`
 --
 ALTER TABLE `indicatore_ce`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT per la tabella `indicatore_non_ce`
+--
+ALTER TABLE `indicatore_non_ce`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT per la tabella `meccanismi_st`
@@ -1786,6 +1920,12 @@ ALTER TABLE `caratteristiche_struttura_st`
 --
 ALTER TABLE `classe_indicatore_ce`
   ADD CONSTRAINT `FKqdt1pth7dmk00j2xi0holxgci` FOREIGN KEY (`indicatore_id`) REFERENCES `indicatore_ce` (`id`);
+
+--
+-- Limiti per la tabella `classe_indicatore_non_ce`
+--
+ALTER TABLE `classe_indicatore_non_ce`
+  ADD CONSTRAINT `FKp2t99vmj8c815hbc2o9q2pa3i` FOREIGN KEY (`indicatore_id`) REFERENCES `indicatore_non_ce` (`id`);
 
 --
 -- Limiti per la tabella `edificio_st`

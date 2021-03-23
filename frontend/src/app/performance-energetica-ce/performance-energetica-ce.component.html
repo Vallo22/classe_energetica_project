@@ -6,28 +6,63 @@
     <div class="card my-5">
 
       <div class="card-body">
-          <div name="selt" *ngFor="let ind of indicatore; index as j" style="font-size: 17px;">
-            <strong>• {{ ind.indicatore }}</strong>
-            <select name="sel" [(ngModel)]="selezione" style="margin-top: 10px;" class="form-control">
-              <ng-container *ngFor="let classe of classeIndicatore; index as i">
-                <option *ngIf="classe.indicatore.id === ind.id" [value]="classe.id">
-                  {{ classe.descrizione }} <p>|</p>
-                  {{ classe.punteggio }}
-                </option>            
-              </ng-container>
-            </select>
-            <label></label>
+        <div style="text-align: center;">     
+        <label class="form-check-inline">
+          <input class="form-check-input" type="radio" name="scelta" [(ngModel)]="scelta"
+              [value]="true">
+              Edificio con climatizzazione estiva
+        </label>
+        <label class="form-check-inline">
+          <input class="form-check-input" type="radio" name="scelta" [(ngModel)]="scelta"
+              [value]="false">
+              Edificio senza climatizzazione estiva
+         </label>
+        </div>
+         <hr>
+
+          <div *ngIf="scelta === true">
+            <div name="selt" *ngFor="let ind of indicatore; index as j" style="font-size: 17px;">
+              <strong>• {{ ind.indicatore }}</strong>
+              <select name="sel{{j}}" [(ngModel)]="selezione[j]" style="margin-top: 10px;" class="form-control">
+                <ng-container *ngFor="let classe of classeIndicatore; index as i">
+                  <option *ngIf="classe.indicatore.id === ind.id" [value]="classe.id">
+                    {{ classe.descrizione }} <p>|</p>
+                    {{ classe.punteggio }} 
+                  </option>            
+                </ng-container>
+              </select>
+              <label></label>
+            </div>
           </div>
+
+          <div *ngIf="scelta === false">
+            <div name="selt1" *ngFor="let ind1 of indicatoreNon; index as a" style="font-size: 17px;">
+              <strong>• {{ ind1.indicatore }}</strong>
+              <select name="sel1{{a}}" [(ngModel)]="selezione1[a]" style="margin-top: 10px;" class="form-control">
+                <ng-container *ngFor="let classe of classeIndicatoreNon; index as b">
+                  <option *ngIf="classe.indicatore.id === ind1.id" [value]="classe.id">
+                    {{ classe.descrizione }} <p>|</p>
+                    {{ classe.punteggio }} 
+                  </option>            
+                </ng-container>
+              </select>
+              <label></label>
+            </div>
+          </div>
+  
       </div>
 
       <div class="card-footer" style="text-align: center;">
         <button style="margin-right: 30px;" class="btn btn-defaultn display-4" routerLink="/home" 
           routerLinkActive="active">&laquo; Indietro</button>
-        <button type="submit" (click)="outputTotale()" style="margin-top: 5px"
+        <button type="submit" *ngIf="scelta === true" (click)="outputTotale()" style="margin-top: 5px"
+          class="btn btn-outline-default">Ottieni risultato</button>
+        <button type="submit" *ngIf="scelta === false" (click)="outputTotaleNon()" style="margin-top: 5px"
           class="btn btn-outline-default">Ottieni risultato</button>
           <hr>
           <div class="row" style="justify-content: center;" *ngIf="msg1">          
-            <p>Il risultato della somma dei punteggi è: <strong>{{totalePunteggio}}</strong></p> 
+            <p>Somma: <strong>{{totalePunteggio | number: '1.2-2'}}</strong><br>
+            Epgl: <strong>{{epgl | number: '1.2-2'}}</strong></p>  
           </div>
       </div>
       
