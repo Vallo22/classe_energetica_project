@@ -36,15 +36,15 @@ export class PerformanceEnergeticaCeComponent implements OnInit {
       this.classeIndicatore = data;
     })
 
+    this.service.getClasseIndicatoreNon().subscribe(data => {
+      this.classeIndicatoreNon = data;
+    })
+    
     this.service.getIndicatore().subscribe(data => {
       this.indicatore = data;
       this.indicatore.forEach(f =>
         this.selezione.push(this.classeIndicatore.filter(c => c.indicatore.id === f.id)[0].id)
         );
-    })
-
-    this.service.getClasseIndicatoreNon().subscribe(data => {
-      this.classeIndicatoreNon = data;
     })
 
     this.service.getIndicatoreNon().subscribe(data => {
@@ -62,7 +62,7 @@ export class PerformanceEnergeticaCeComponent implements OnInit {
     .reduce((a, c) => a + c.punteggio, 0);
     this.totaleEdificioReale = totaleEdificioReale
 
-    const epglEdificioReale = ((this.totaleEdificioReale + 1.68875) / 1.00437 )
+    const epglEdificioReale = Math.exp((this.totaleEdificioReale + 1.68875) / 1.00437 )
     this.epglEdificioReale = epglEdificioReale
 
     const parziale = this.classeIndicatore
@@ -71,7 +71,7 @@ export class PerformanceEnergeticaCeComponent implements OnInit {
     .reduce((a, c) => a + c.punteggio, 0);
     this.totaleEdificioIdeale = parziale + 0.16 + 0.1 + 0.04 + 0.04 + 0.03 + 0.35 + 0.09 + 0.03
 
-    const epglEdificioIdeale = ((this.totaleEdificioIdeale + 2.1079) / 1.2311 )
+    const epglEdificioIdeale = Math.exp((this.totaleEdificioIdeale + 2.1079) / 1.2311 )
     this.epglEdificioIdeale = epglEdificioIdeale
 
     this.msg1 = true
@@ -88,7 +88,7 @@ export class PerformanceEnergeticaCeComponent implements OnInit {
     .reduce((a, c) => a + c.punteggio, 0);
     this.totaleEdificioReale = totaleEdificioReale
 
-    const epglEdificioReale = ((this.totaleEdificioReale + 1.12725) / 0.7474 )
+    const epglEdificioReale = Math.exp((this.totaleEdificioReale + 1.12725) / 0.7474 )
     this.epglEdificioReale = epglEdificioReale
 
     const parziale = this.classeIndicatoreNon
@@ -97,7 +97,7 @@ export class PerformanceEnergeticaCeComponent implements OnInit {
     .reduce((a, c) => a + c.punteggio, 0);
     this.totaleEdificioIdeale = parziale + 0.16 + 0.1 + 0.04 + 0.04 + 0.03 + 0.35 + 0.14
 
-    const epglEdificioIdeale = ((this.totaleEdificioIdeale + 2.1079) / 1.2311 )
+    const epglEdificioIdeale = Math.exp((this.totaleEdificioIdeale + 2.7453) / 1.3044 )
     this.epglEdificioIdeale = epglEdificioIdeale
 
     this.msg1 = true
