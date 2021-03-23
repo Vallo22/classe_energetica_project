@@ -28,20 +28,26 @@ export class PerformanceEnergeticaCeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.service.getIndicatore().subscribe(data => {
-      this.indicatore = data;
-      //this.indicatore.forEach(f =>
-      //  this.selezione.push(this.classeIndicatore.filter(c => c.indicatore.id === f.id)[0].id)
-      //  );
-    })
     this.service.getClasseIndicatore().subscribe(data => {
       this.classeIndicatore = data;
     })
-    this.service.getIndicatoreNon().subscribe(data => {
-      this.indicatoreNon = data;
+
+    this.service.getIndicatore().subscribe(data => {
+      this.indicatore = data;
+      this.indicatore.forEach(f =>
+        this.selezione.push(this.classeIndicatore.filter(c => c.indicatore.id === f.id)[0].id)
+        );
     })
+
     this.service.getClasseIndicatoreNon().subscribe(data => {
       this.classeIndicatoreNon = data;
+    })
+
+    this.service.getIndicatoreNon().subscribe(data => {
+      this.indicatoreNon = data;
+      this.indicatoreNon.forEach(f =>
+        this.selezione1.push(this.classeIndicatoreNon.filter(c => c.indicatore.id === f.id)[0].id)
+        );
     })
     
   }
