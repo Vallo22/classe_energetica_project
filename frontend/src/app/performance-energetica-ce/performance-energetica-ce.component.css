@@ -18,6 +18,11 @@
   color: white;
 }
 
+.imgClasse{
+  width: 580px;
+  height: 290px;
+}
+
 .btn-outline-default, .btn-outline-default:active, .btn-outline-default:visited {
   background-color: white !important;
   color: #ce5e59;

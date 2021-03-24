@@ -9,12 +9,12 @@
         <div style="text-align: center;">     
         <label class="form-check-inline">
           <input class="form-check-input" type="radio" name="scelta" [(ngModel)]="scelta"
-              [value]="true">
+              [value]="true" (click)="inserimentoTrue()">
               Edificio con climatizzazione estiva
         </label>
         <label class="form-check-inline">
           <input class="form-check-input" type="radio" name="scelta" [(ngModel)]="scelta"
-              [value]="false">
+              [value]="false" (click)="inserimentoFalse()">
               Edificio senza climatizzazione estiva
          </label>
         </div>
@@ -60,11 +60,43 @@
         <button type="submit" *ngIf="scelta === false" (click)="outputTotaleNon()" style="margin-top: 5px"
           class="btn btn-outline-default">Ottieni risultato</button>
           <hr>
-          <div class="row" style="justify-content: center;" *ngIf="msg1">          
-            <p>Totale Edificio Reale: <strong>{{totaleEdificioReale | number: '1.2-2'}}</strong><br>
-            Epgl Edificio Reale: <strong>{{epglEdificioReale | number: '1.2-2'}}</strong><br>
-            Totale Edificio Ideale: <strong>{{totaleEdificioIdeale | number: '1.2-2'}}</strong><br>
-            Epgl Edificio Ideale: <strong>{{epglEdificioIdeale | number: '1.2-2'}}</strong></p>  
+          <div style="justify-content: center;" *ngIf="msg1">
+            <div class="row">
+              <div class="col">
+                Totale Edificio Reale: <strong>{{totaleEdificioReale | number: '1.2-2'}}</strong>
+              </div>
+              <div class="col">
+                Epgl Edificio Reale: <strong>{{epglEdificioReale | number: '1.2-2'}}</strong>
+              </div>
+              <div class="col">
+                Totale Edificio Ideale: <strong>{{totaleEdificioIdeale | number: '1.2-2'}}</strong>
+              </div>
+              <div class="col">
+                Epgl Edificio Ideale: <strong>{{epglEdificioIdeale | number: '1.2-2'}}</strong>
+              </div>
+            </div> 
+            <hr>         
+            <p style="font-size: 20px;">Classe Energetica: <strong>{{classeEnergetica}}</strong></p>
+            <div style="margin-top: 10px;" *ngIf="classeEnA">
+              <img class="imgClasse" src="assets\images\parte_energetica\ClasseA.png" alt="Generic placeholder image">
+            </div>
+            <div style="margin-top: 20px;" *ngIf="classeEnB">
+              <img class="imgClasse" src="assets\images\parte_energetica\ClasseB.png" alt="Generic placeholder image">
+            </div>
+            <div style="margin-top: 20px;" *ngIf="classeEnC">
+              <img class="imgClasse" src="assets\images\parte_energetica\ClasseC.png" alt="Generic placeholder image">
+            </div>
+            <div style="margin-top: 20px;" *ngIf="classeEnD">
+              <img class="imgClasse" src="assets\images\parte_energetica\ClasseD.png" alt="Generic placeholder image">
+            </div>
+            <div style="margin-top: 20px;" *ngIf="classeEnEF">
+              <img class="imgClasse" src="assets\images\parte_energetica\ClasseE-F.png" alt="Generic placeholder image">
+            </div>
+            <div style="margin-top: 20px;" *ngIf="classeEnG">
+              <img class="imgClasse" src="assets\images\parte_energetica\ClasseG.png" alt="Generic placeholder image">
+            </div>
+            <hr>
+            <button style="margin-top: 5px;" class="btn btn-default" (click)=prosegui()>Avanti &raquo;</button>
           </div>
       </div>
       
