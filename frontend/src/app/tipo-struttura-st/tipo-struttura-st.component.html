@@ -68,6 +68,7 @@
     <div class="card-body">
         <ul class="list-group">
           <li class="list-group-item" *ngFor="let arr of variabileIntervento; index as i">
+            <div *ngIf="arr.intervento.id != 77">
             <td style="float: left; max-width:850px; word-wrap:break-word;"><strong>
                 Codice: {{arr.intervento.codice}}
                 - {{arr.intervento.descrizione}}</strong>
@@ -78,8 +79,31 @@
                 Vai all'intervento
               </button>
             </td>
+          </div>
           </li>
         </ul>
+    </div>
+  </div>
+
+  <!-- TAB.01 -->
+  <div class="card my-5" *ngIf="showTab == true">
+    <div class="card-header" style="text-align: center; font-size: 20px;">
+      <p><strong>Tab in caso di Elevato Degrado</strong></p>
+    </div>
+    <div class="card-body" style="text-align: center;">
+      <button class="btn btn-outline-default" (click)="visualizzaTab01(1)"
+      data-toggle="modal" data-target="#modal-3">Tab.01</button>
+    </div>
+  </div>
+
+  <!-- TAB.02 -->
+  <div class="card my-5" *ngIf="showTabDue == true">
+    <div class="card-header" style="text-align: center; font-size: 20px;">
+      <p><strong>Tab in caso di Elevato Degrado</strong></p>
+    </div>
+    <div class="card-body" style="text-align: center;">
+      <button class="btn btn-outline-default" (click)="visualizzaTab02(1)"
+      data-toggle="modal" data-target="#modal-4">Tab.02</button>
     </div>
   </div>
 
@@ -394,6 +418,48 @@
         </div>
         <div *ngIf="imgM16">
           <img src="assets\images\parte_strutturale\M16.png" alt="Meccanismo M16">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL TAB.01 -->
+  <div class="modal fade" id="modal-3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <!-- X -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <!-- IMMAGINI -->
+        <div *ngIf="imgTab01">
+          <img src="assets\images\parte_strutturale\Tab01.png" alt="Tab01">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL TAB.02 -->
+  <div class="modal fade" id="modal-4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <!-- X -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <!-- IMMAGINI -->
+        <div *ngIf="imgTab02">
+          <img src="assets\images\parte_strutturale\Tab02.png" alt="Tab02">
         </div>
       </div>
     </div>

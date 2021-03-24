@@ -35,6 +35,8 @@ export class TipoStrutturaStComponent implements OnInit {
   arrayPassaggio: AssociazioneInterventoSt[]
   noPass: boolean = false
   alert: boolean = false
+  showTab: boolean = false
+  showTabDue: boolean = false
 
   imgA1 = false
   imgA1parte2 = false
@@ -104,8 +106,6 @@ export class TipoStrutturaStComponent implements OnInit {
   imgH1 = false
   imgH2 = false
   imgI1 = false
-  imgTab01 = false
-  imgTab02 = false
 
   imgM1 = false
   imgM2 = false
@@ -123,6 +123,9 @@ export class TipoStrutturaStComponent implements OnInit {
   imgM14 = false
   imgM15 = false
   imgM16 = false
+
+  imgTab01 = false
+  imgTab02 = false
 
   constructor(
     private risultatoSelezione: RisultatoSelezioneStService,
@@ -188,8 +191,11 @@ export class TipoStrutturaStComponent implements OnInit {
         this.variabileIntervento.push(t);
       }
     })
+    this.showTab = false
+    this.showTabDue = false
+    this.mostraTab()
   }
-    console.log(this.variabileIntervento)
+  console.log(this.variabileIntervento)
   }
 
   trasferisciOggetti() {
@@ -210,6 +216,47 @@ export class TipoStrutturaStComponent implements OnInit {
       }
     })  
   }
+  }
+
+  mostraTab() {
+    this.variabileIntervento.forEach(a => {
+      if(a.strutturaAssociazione.id === 1 && a.caratteristicaAssociazioneIntervento.id === 2) {
+        this.showTab = true
+      } else if(a.strutturaAssociazione.id === 2 && a.caratteristicaAssociazioneIntervento.id === 2) {
+        this.showTab = true
+      } else if(a.strutturaAssociazione.id === 3 && a.caratteristicaAssociazioneIntervento.id === 2) {
+        this.showTab = true
+      } else if(a.strutturaAssociazione.id === 8 && a.caratteristicaAssociazioneIntervento.id === 2) {
+        this.showTab = true
+      } else if(a.strutturaAssociazione.id === 10 && a.caratteristicaAssociazioneIntervento.id === 2) {
+        this.showTab = true
+      } else if(a.strutturaAssociazione.id === 11 && a.caratteristicaAssociazioneIntervento.id === 2) {
+        this.showTab = true
+      } else if(a.strutturaAssociazione.id === 13 && a.caratteristicaAssociazioneIntervento.id === 2) {
+        this.showTab = true
+      } else if(a.strutturaAssociazione.id === 4 && a.caratteristicaAssociazioneIntervento.id === 2) {
+        this.showTabDue = true
+      } else if(a.strutturaAssociazione.id === 7 && a.caratteristicaAssociazioneIntervento.id === 2) {
+        this.showTabDue = true
+      } else if(a.strutturaAssociazione.id === 12 && a.caratteristicaAssociazioneIntervento.id === 2) {
+        this.showTabDue = true
+      } else {
+        this.showTab = false
+        this.showTabDue = false
+      }
+    })
+  }
+
+  visualizzaTab01(tab: number) {
+    if(tab == 1) {
+      this.imgTab01 = true
+    }
+  }
+
+  visualizzaTab02(tab: number) {
+    if(tab == 1) {
+      this.imgTab02 = true
+    }
   }
 
   visualizzaCodiceIntervento(codice: string){
@@ -281,9 +328,6 @@ export class TipoStrutturaStComponent implements OnInit {
     this.imgH1 = false
     this.imgH2 = false
     this.imgI1 = false
-    this.imgTab01 = false
-    this.imgTab02 = false
-    this.imgM3 = false
   
     console.log(codice)
     if(codice == "A1"){
@@ -476,12 +520,6 @@ export class TipoStrutturaStComponent implements OnInit {
     else if(codice == "I1"){
       this.imgI1 = true
     }
-    else if(codice == "Tab.01"){
-      this.imgTab01 = true
-    }
-    else if(codice == "Tab.02"){
-      this.imgTab02 = true
-    }  
   }
 
   visualizzaCodiceMeccanismo(meccanismo: string) {
