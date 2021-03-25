@@ -18,7 +18,7 @@ export class RiepilogoCostiStComponent implements OnInit {
   interventi: AssociazioneInterventoSt[] = []
   elementoSelezionato: AssociazioneInterventoSt[] = []
   prezzoSingoloIntervento: number[] = []
-  totale: number
+  totale: number = 0
   risk: string
   soglia: number
   risultatoDivisione: number
@@ -28,27 +28,6 @@ export class RiepilogoCostiStComponent implements OnInit {
   numeroUtente: number
   costoRiparazione: number
   tipo_superficie: number = 0
-
-  selezionaIntervento() {
-    this.interventi.forEach(z => {
-      this.elementoSelezionato.push(z)
-    })
-  }
-
-  calcolaInvestimentoTotale(){
-    this.totale = 0
-    this.prezzoSingoloIntervento = []
-    this.interventi.forEach(z => {
-      z.totalePrezzo = (z.valoreCifra * z.prezzo) + (z.valoreCifra * z.prezzoEntrInt) + (z.valoreCifra * z.prezzoSupInt)
-      this.prezzoSingoloIntervento.push(z.totalePrezzo)
-      console.log(this.prezzoSingoloIntervento)
-    })
-    this.prezzoSingoloIntervento.reduce((previous, next) => {
-      console.log("totale", this.totale)
-      return this.totale = previous + next;
-  })
-    this.risultatoDivisione = this.totale/this.soglia
-  }
 
   ngOnInit() {
     this.sommaPacchettoInterventi = window.history.state.sommaPacchettoInterventi
@@ -62,6 +41,27 @@ export class RiepilogoCostiStComponent implements OnInit {
     this.selezionaIntervento()
     console.log(this.dannoIpotizzato)
     this.calcolaCostoRiparazione()
+  }
+
+  selezionaIntervento() {
+    this.interventi.forEach(z => {
+      this.elementoSelezionato.push(z)
+    })
+  }
+
+  calcolaInvestimentoTotale(){
+    this.interventi.forEach(z => {
+      let pr: number
+      if(z.tipo_superficie == 1) {
+        pr = z.prezzo * z.valoreCifra
+      } else if(z.tipo_superficie == 2) {
+        pr = z.prezzoSupInt * z.valoreCifra
+      } else if(z.tipo_superficie == 3) {
+        pr = z.prezzoEntrInt * z.valoreCifra
+      }
+      this.totale += pr
+    })
+    this.risultatoDivisione = this.totale/this.soglia
   }
 
   dannoIpotizzato = [

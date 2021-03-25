@@ -108,7 +108,7 @@
   </div>
 
   <!-- MECCANISMI -->
-  <div class="card my-5" *ngIf="caratteristiche[selectArr]" [(ngModel)]="selectedMeccanicaIndex">
+  <div class="card my-5" *ngIf="caratteristiche[selectArr]" [(ngModel)]="selectedMeccanicaIndex" name="selectedMeccanicaIndex" ngDefaultControl>
     <div class="card-header" style="text-align: center; font-size: 20px;">
       <p><strong>Meccanismi</strong></p>
     </div>

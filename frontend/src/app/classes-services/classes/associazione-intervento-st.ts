@@ -25,8 +25,8 @@ export class AssociazioneInterventoSt {
     prezzoEntrInt: number
     unitaMisura: string
     valoreCifra?: number
-    totalePrezzo?: number
     costoInvestimentoTotale?: number
     passaggio: number
     ugualeA0?: boolean = false
+    tipo_superficie?: number = 0
 }
