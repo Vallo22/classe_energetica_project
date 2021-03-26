@@ -138,26 +138,18 @@ export class TipoStrutturaStComponent implements OnInit {
   ngOnInit() {
     this.risultatoSelezione.reset()
     this.emsType = window.history.state.emsType
-    console.log("EmsType: ", this.emsType)
     this.vulClass = window.history.state.vulClass;
     this.punteggio = window.history.state.punteggio;
     this.risk = window.history.state.risk;
     this.pam = window.history.state.pam;
-    console.log("Classe vul: ", this.vulClass)
-    console.log("Punteggio: ", this.punteggio)
-    console.log("Rischio: ", this.risk)
-    console.log("Pam: ", this.pam)
     this.service.getTypeStruttura().subscribe(data => {
       this.typeStruttura = data;
-      console.log(this.typeStruttura)
     })
     this.service.getStruttura().subscribe(data => {
       this.struttura = data;
-      console.log(this.struttura)
     })
     this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
       this.associazioneIntervento = this.serviceAssociazione.interventGrouping(data);
-      console.log(this.associazioneIntervento)
     })
   }
 
@@ -195,7 +187,6 @@ export class TipoStrutturaStComponent implements OnInit {
     this.showTabDue = false
     this.mostraTab()
   }
-  console.log(this.variabileIntervento)
   }
 
   trasferisciOggetti() {
@@ -204,6 +195,7 @@ export class TipoStrutturaStComponent implements OnInit {
       window.scrollTo(0, 0)
     } else {
     this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche[this.selectArr])
+    console.log(this.caratteristiche[this.selectArr])
     this.variabileIntervento.forEach(t => {
       if(t.passaggio === 1) {
         this.router.navigate(['/valutazione-interventi-st'], {

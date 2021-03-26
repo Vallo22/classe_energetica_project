@@ -157,8 +157,6 @@ export class MatriceStComponent implements OnInit {
         this.matrixRisultati[c] += this.oggetto[r][c] !== undefined ? this.oggetto[r][c] : 0
       }
     }
-    console.log(this.matrix)
-    console.log(this.matrixRisultati)
     for (let r = 0; r < this.matriceNormalizzata.length; r++) {
       for (let c = 0; c < this.matriceNormalizzata[r].length; c++) {
         this.matriceNormalizzata[r][c] = this.oggetto[r][c] / this.matrixRisultati[c]
@@ -199,7 +197,6 @@ export class MatriceStComponent implements OnInit {
   metodo1(element: number) {
     this.arrayComparazione.find(t => t.id == element);
     this.numeroPrimario = element;
-    console.log(this.numeroPrimario)
     if (this.numeroPrimario < 1) {
       this.y = 1 / (this.numeroPrimario.valueOf())
     }
@@ -213,7 +210,12 @@ export class MatriceStComponent implements OnInit {
   }
 
   trasferisciPonderazione() {
-    console.log(this.contatoreVolte)
+    console.log("mod cost: " + this.ponderazione[0]*100 + "%")
+    console.log("efficacia: " + this.ponderazione[1]*100 + "%")
+    console.log("comp visiva: " + this.ponderazione[2]*100 + "%")
+    console.log("reversibilità: " + this.ponderazione[3]*100 + "%")
+    console.log("sempl di cant: " + this.ponderazione[4]*100 + "%")
+    console.log("eseg di ingomb: " + this.ponderazione[5]*100 + "%")
     if(this.contatoreVolte == 0 || this.contatoreVolte == undefined){
     this.contatoreVolte = 1
     this.router.navigate(['/valutazione-interventi-st'], {

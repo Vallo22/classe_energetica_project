@@ -41,10 +41,8 @@ export class ZonaSismicaStComponent implements OnInit {
 
   ngOnInit() {
     this.emsType = window.history.state.emsType
-    console.log("EmsType: ", this.emsType)
     this.vulClass = window.history.state.vulClass;
     this.punteggio = window.history.state.punteggio;
-    console.log(this.vulClass)
     
     if(this.vulClass == 1){
       this.vulClassImg1 = true
@@ -69,8 +67,6 @@ export class ZonaSismicaStComponent implements OnInit {
   onChange(zonaId: number) {
     this.zonaSismica.find(t => t.id == zonaId);
     this.riskType = zonaId
-    console.log(zonaId)
-
   }
 
   zonaSismica = [
@@ -79,11 +75,6 @@ export class ZonaSismicaStComponent implements OnInit {
     { id: 3 },
     { id: 4 }
   ];
-
-  vediValori() {
-    console.log("Grado di vulnerabilità da 1 a 6: " + this.vulClass)
-    console.log("Tipo di zona sismica da 1 a 4: " + this.riskType)
-  }
 
   gradoDiRischio() {
     this.classeAA = false
@@ -195,13 +186,17 @@ export class ZonaSismicaStComponent implements OnInit {
       this.pam = "≤0,5%"
       this.classeAA = true
     }
-    this.msg1 = true;
-    this.far = true;
+    this.msg1 = true
+    this.far = true
   }
 
   mandaValori() {
     this.router.navigate(['/tipo-struttura-st'], {
       state: { emsType: this.emsType, vulClass: this.vulClass, punteggio: this.punteggio, risk: this.risk, pam: this.pam }
     })
+    console.log("zona sismica: " + this.riskType)
+    console.log("rischio: " + this.risk)
+    console.log("pam: " + this.pam)
   }
+  
 }

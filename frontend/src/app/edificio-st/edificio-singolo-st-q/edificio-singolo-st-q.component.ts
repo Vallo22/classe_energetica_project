@@ -40,32 +40,19 @@ export class EdificioSingoloStQComponent implements OnInit {
     this.emsType = window.history.state.emsType
     this.subscriptionsToDelete.add(
       this.route.params.subscribe(params => {
-        console.log("questo è il valore che ho passato",params['id']);
         Object.keys(params['id'])
         this.varEmp = params['id']
       }));
-    //Prendo il metodo dal servizio e lo metto dentro un dizionario edifici
     this.qualità.getQEdificio().subscribe(data => {
-      //Creo un dizionario edifici (const edifici = new Object() è la sintassi più vecchia)
       const edifici = {}
-      //faccio un for di data, per prendere il suo contenuto e metterlo dentro edificio
       for (const edificio of data) {
-        //Creo una costante chiamata edificio, questa avrà l'attributo tipoStruttura al suo interno
         const { tipoStruttura } = edificio.quality.tQuality
-        //Se nel dizionario edifici, non c'è una chiave (Dato che nei dizionari c'è sempre almeno una chiave e un valore)
-        //La imposto io.
         if (!edifici[tipoStruttura]) {
-          //Creo un array associato all'array di chiavi tipoStruttura dove andranno i valori
           edifici[tipoStruttura] = []
         }
-        //Metto all'interno del secondo array edificio, che al suo interno aveva tutti i valori di data (const non può essere cambiato)
         edifici[tipoStruttura].push(edificio)
       }
-      //Stampo il dizionario
-      console.log(edifici)
-      //L'array di oggetti edificioInAggregato prende i valori di edifici(quindi prende le sue chiavi e i suoi)
       this.edificioInAggregato = edifici
-      //edificioInAggregato['KEY'].forEach(ELEMENTI)
       let qualityId = null
       this.edificioInAggregato['Edificio Singolo'].forEach(element => {
         this.quality.push(element.quality)
@@ -111,12 +98,10 @@ export class EdificioSingoloStQComponent implements OnInit {
     }
     this.totalePunteggio = totalePunteggio
     this.vediMuratura()
-    this.vulnerability
-    this.msg1 = true;
+    this.msg1 = true
   }
 
   vediMuratura() {
-    console.log(this.varEmp)
     if (this.varEmp == 1) {
       this.vulnerability = 6;
     }
@@ -154,6 +139,8 @@ export class EdificioSingoloStQComponent implements OnInit {
         this.vulnerability = 3;
       }
     }
+    console.log("totale punteggio: " + this.totalePunteggio)
+    console.log("classe di vulnerabilità: V" + this.vulnerability)
   }
 
   trasferisciClassVul() {
@@ -162,21 +149,15 @@ export class EdificioSingoloStQComponent implements OnInit {
   }
 
   cleanQualityArray(): void {
-    //Crea un array di numeri
     const qualityIds: number[] = [];
-    //Metto nell'array ogni ID dell'elemento scelto
     this.quality.forEach(el => {
       qualityIds.push(el.id)
-    });
-    //Questo Set filtra GLI ID DUPLICATI
+    })
     const unique = new Set(qualityIds);
-    //Creo un altro array di tipo Quality
     const qualityTemp: QualitySt[] = [];
     unique.forEach(u => {
-      //Con questo push, associo ad ongi id il resto della stringa
       qualityTemp.push(this.quality.find(qE => qE.id == u))
     });
-    //Rimetto tutto qualityTempo all'interno di quality
     this.quality = qualityTemp
   }
 

@@ -84,7 +84,6 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
     this.idStruttura = window.history.state.idStruttura
     this.risultatoSelezione.interventiSelezionati.forEach(z => {
       this.interventiDaMostrare.push(z)
-      console.log("interventi: ", this.interventiDaMostrare)
     })
     this.service.getCaratteristicheQualitative().subscribe(x => {
       this.car = x
@@ -120,11 +119,16 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
         this.esigIngom = t.esiguitaDiIngombro[i] * this.ponderazione[5]
         t.totale.push(this.modCos + this.effic + this.supInton + this.supVis + this.revers + this.semplCant + this.esigIngom)
       }
-      console.log("Totale: ", t.totale)
     })
   }
 
   aggiuntaInterventoSecondario() {
+    console.log("mod cost: " + this.ponderazione[0]*100 + "%")
+    console.log("efficacia: " + this.ponderazione[1]*100 + "%")
+    console.log("comp visiva: " + this.ponderazione[2]*100 + "%")
+    console.log("reversibilità: " + this.ponderazione[3]*100 + "%")
+    console.log("sempl di cant: " + this.ponderazione[4]*100 + "%")
+    console.log("eseg di ingomb: " + this.ponderazione[5]*100 + "%")
     this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche)
     this.router.navigate(['/aggiunta-intervento-secondario-st'], {
       state: {
@@ -178,7 +182,7 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
           max = interventi.totale[index]
           maxIntervento = interventi
           maxIndex = parseInt(index)
-        } if (interventi.totale[index] < min) {
+        } else if (interventi.totale[index] < min) {
           min = interventi.totale[index]
           minIntervento = interventi
           minIndex = parseInt(index)
@@ -190,12 +194,10 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
   }
 
   deltaPunteggio1(x: number) {
-    console.log(x)
     this.selectedElement.ante = x
   }
 
   deltaPunteggio2(y: number) {
-    console.log(y)
     this.selectedElement.post = y
   }
 
@@ -225,6 +227,8 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
 
   interventoSingoloRisultato(){
         this.interventoSingolo = this.selectedElement.ante - this.selectedElement.post
+        console.log("punteggio pre: " + this.selectedElement.ante)
+        console.log("punteggio post: " + this.selectedElement.post)
   }
 
   premiBottone(selezionato: AssociazioneInterventoSt, variante: number, index: number, checkBox: boolean) {
@@ -250,7 +254,6 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
       }
       this.massimoNumero()
     }
-    this.interventoSingoloRisultato()
     this.risultatoSelezione.aggiungiIntervento(this.arraySelezionati[0])
   }
 

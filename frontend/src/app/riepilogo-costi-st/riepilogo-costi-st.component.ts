@@ -65,12 +65,10 @@ export class RiepilogoCostiStComponent implements OnInit {
 
   ngOnInit() {
     this.sommaPacchettoInterventi = window.history.state.sommaPacchettoInterventi
-    console.log("Pacchetto interventi somma: ", this.sommaPacchettoInterventi)
     this.soglia = window.history.state.soglia
     this.risk = window.history.state.risk;
     this.risultatoSelezione.interventiSelezionati.forEach(z => {
       this.interventi.push(z)
-      console.log("interventi: ", this.interventi)
     })
   }
 
@@ -87,11 +85,13 @@ export class RiepilogoCostiStComponent implements OnInit {
       }
       this.totale += pr
     })
+    console.log("costo investimento totale: " + this.totale)
     this.risultatoDivisione = this.totale/this.soglia
   }
 
   mostraTotaleRiparazione() {
     this.costoDiRiparazione = this.inputUtente * this.selezione
+    console.log("costo di riparazione: " + this.costoDiRiparazione)
   }
 
 }

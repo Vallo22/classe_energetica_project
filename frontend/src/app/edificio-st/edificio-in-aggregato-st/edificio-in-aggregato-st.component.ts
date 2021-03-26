@@ -31,11 +31,10 @@ export class EdificioInAggregatoStComponent implements OnInit {
     this.tipoEdificioSelezionato = this.edificioInAggregato.find(t => t.id==tipoEdificioId);
     this.avantiAbilitato = this.tipoEdificioSelezionato.abilitato;
     this.emsType = this.tipoEdificioSelezionato.id
-    console.log(this.emsType)
   }
 
   outputSelezione(){
     this.router.navigate(['/edificio-in-aggregato-st-q', this.tipoEdificioSelezionato.id], { state: {emsType: this.emsType}});
-    console.log("Passo questo valore: ", this.tipoEdificioSelezionato.id)
+    console.log("tipo edificio selezionato: ", this.tipoEdificioSelezionato.id)
   }
 }

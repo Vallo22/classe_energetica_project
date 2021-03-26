@@ -84,7 +84,6 @@ export class ValutazioneInterventiStComponent implements OnInit {
     this.service.getCaratteristicheQualitative().subscribe(data => {
       this.car = data
     })
-    console.log(this.ponderazione)
     this.passaggioTrue()
     this.cambiaTotale()
     this.calcoloSoglia()
@@ -109,7 +108,6 @@ export class ValutazioneInterventiStComponent implements OnInit {
         this.esigIngom = t.esiguitaDiIngombro[i] * this.ponderazione[5]
         t.totale.push(this.modCos + this.effic + this.supInton + this.supVis + this.revers + this.semplCant + this.esigIngom)
       }
-      console.log("Totale: ", t.totale)
     })
   }
 
@@ -167,7 +165,6 @@ export class ValutazioneInterventiStComponent implements OnInit {
   }
 
   aggiuntaInterventoSecondario() {
-    console.log("Interventi nell'Array: ", this.arraySelezionati)
     this.router.navigate(['/aggiunta-intervento-secondario-st'], {
       state: {
         soglia: this.soglia
@@ -189,17 +186,17 @@ export class ValutazioneInterventiStComponent implements OnInit {
   }
 
   deltaPunteggio1(x: number) {
-    console.log(x)
     this.selectedElement.ante = x
   }
 
   deltaPunteggio2(y: number) {
-    console.log(y)
     this.selectedElement.post = y
   }
 
   interventoSingoloRisultato() {
     this.interventoSingolo = this.selectedElement.ante - this.selectedElement.post
+    console.log("punteggio pre: " + this.selectedElement.ante)
+    console.log("punteggio post: " + this.selectedElement.post)
   }
 
   risultatoDelta() {
@@ -236,8 +233,8 @@ export class ValutazioneInterventiStComponent implements OnInit {
       }
       this.massimoNumero()
     }
-    this.interventoSingoloRisultato()
     this.risultatoSelezione.aggiungiIntervento(this.arraySelezionati[0])
+    console.log(this.selectedElement)
   }
 
   trasferisciClasseDiRischio() {

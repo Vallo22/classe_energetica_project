@@ -142,7 +142,6 @@ export class AggiuntaInterventoSecondarioStComponent implements OnInit {
   ngOnInit() {
     this.caratteristicheStrutturaService.getStrutturaDalleCaratteristiche().subscribe(caratteristicheStrutture => {
       this.carStrutt = caratteristicheStrutture
-      console.log(caratteristicheStrutture)
     })
     this.interventoSingolo = window.history.state.interventoSingolo
     this.soglia = window.history.state.soglia
@@ -159,10 +158,8 @@ export class AggiuntaInterventoSecondarioStComponent implements OnInit {
     this.punteggioDiVul = window.history.state.punteggioDiVul
     this.punteggioPassaggioClasseAggiornato = window.history.state.punteggioPassaggioClasseAggiornato
     this.contatoreVolte = window.history.state.contatoreVolte
-    console.log("Contatore: ",this.contatoreVolte)
     this.strutturaService.getCaratteristicheQualitative().subscribe(data => {
       this.car = data
-      console.log("elementi da cambiare: ", this.cambiaCaratteristica)
     })
     this.emsService.getTipoEdificio().subscribe(data => {
       this.caratteristicheSelezionabili = []
@@ -184,16 +181,13 @@ export class AggiuntaInterventoSecondarioStComponent implements OnInit {
         }
       }
     })
-    console.log(this.strutturaService.test)
   }
 
   deltaPunteggio1(x: number) {
-    console.log(x)
     this.interventoSelezionato.ante = x
   }
 
   deltaPunteggio2(y: number) {
-    console.log(y)
     this.interventoSelezionato.post = y
   }
 
