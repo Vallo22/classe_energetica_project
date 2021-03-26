@@ -21,7 +21,7 @@
                     <tbody>
                         <ng-container *ngFor="let elemento of interventi; index as j">
                             <tr>
-                                <td style="vertical-align: middle;">{{elemento.intervento.codice}}</td>
+                                <td style="vertical-align: middle;">{{elemento.intervento.codice}}{{elemento.variante}}</td>
 
                                 <td style="vertical-align: middle;">
                                     <select [(ngModel)]="elemento.tipo_superficie">
@@ -49,7 +49,7 @@
                                 <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 3">{{elemento.prezzoEntrInt * elemento.valoreCifra | number: '1.0-2'}}€</td>
 
                                 <td style="vertical-align: middle;">{{elemento.intervento.descrizioneAttrezzatura}}<br>
-                                    <p style="font-size: 10px;">• {{elemento.intervento.dettaglio}}</p>  
+                                    <p style="font-size: 10px;">{{elemento.intervento.dettaglio}}</p>  
                                 </td>
 
                             </tr>
@@ -63,44 +63,35 @@
         <button class="btn btn-outline-default" style="align-content: center;" (click)="calcolaInvestimentoTotale()">
             Calcola il costo totale di investimento
         </button>
-
     </div>
 
     <hr>
+
     <table class="table table-bordered" style="margin-top: 30px;">
         <caption></caption>
+        <thead style="background-color: #ce5e59; color: white;">
+            <th scope="colgroup" colspan="2" style="text-align: center;">CALCOLO DEI COSTI</th>
+        </thead>
         <tbody>
             <tr>
-                <td>
-                    Costo di investimento totale:
-                </td>
-                <td  style="background-color: #fad677;">
+                <td>Costo di investimento totale:</td>
+                <td style="background-color: #fad677;">
                     {{totale | number: '1.0-2'}}€
                 </td>
             </tr>
             <tr>
-                <td>
-                    Incidenza del pacchetto di interventi sul punteggio di vulnerabilità:
-                </td>
-                <td>
-                    {{sommaPacchettoInterventi}}
-                </td>
+                <td>Incidenza del pacchetto di interventi sul punteggio di vulnerabilità:</td>
+                <td>{{sommaPacchettoInterventi}}</td>
             </tr>
             <tr>
-                <td>
-                    Cu(S) Indice di costo per decremento unitario percentuale di vulnerabilità:
-                </td>
-                <td>
-                    {{risultatoDivisione | number: '1.0-2'}}
-                </td>
+                <td>Cu(S) Indice di costo per decremento unitario percentuale di vulnerabilità:</td>
+                <td>{{risultatoDivisione | number: '1.0-2'}}</td>
             </tr>
         </tbody>
     </table>
 
-
     <hr>
-
-
+    
     <table class="table table-bordered" style="margin-top: 30px;">
         <caption></caption>
         <thead style="background-color: #ce5e59; color: white;">
@@ -108,38 +99,54 @@
         </thead>
         <tbody>
             <tr>
+                <td>Superficie totale:</td>
                 <td>
-                    Superficie totale:
-                </td>
-                <td>
-                    <input type="number" [value]="numeroUtente" (input)="numeroUtente = $event.target.value">
+                    <input type="number" [(ngModel)]="inputUtente">
                     mq
                 </td>
             </tr>
             <tr>
+                <td>Livello di danno ipotizzato:</td>
                 <td>
-                    Livello di danno ipotizzato:
-                </td>
-                <td>
-                    <select>
-                        <option selected disabled>
-                            Seleziona:
-                        </option>
-                        <option [value]="danno.id" *ngFor="let danno of dannoIpotizzato; index as j">
-                            {{danno.valore}} {{danno.costo}}€/mq
+                    <select *ngIf="risk == 'A+' || risk == 'A' || risk == 'B'" [(ngModel)]="selezione">
+                        <option selected disabled>Seleziona</option>
+                        <option *ngFor="let danno of costoAAB" [value]="danno.costo">
+                            {{danno.nome}}: {{danno.costo}}€/mq
                         </option>
                     </select>
-                    <button style="margin-left: 5px;"class="btn btn-outline-default" (click)="onChangeDannoIpotizzato($event.target.value)">
+                    <select *ngIf="risk == 'A+' || risk == 'A' || risk == 'B'" [(ngModel)]="selezione">
+                        <option selected disabled>Seleziona</option>
+                        <option *ngFor="let danno of costoAAB" [value]="danno.costo">
+                            {{danno.nome}}: {{danno.costo}}€/mq
+                        </option>
+                    </select>
+                    <select *ngIf="risk == 'F' || risk == 'G'" [(ngModel)]="selezione">
+                        <option selected disabled>Seleziona</option>
+                        <option *ngFor="let danno of costoFG" [value]="danno.costo">
+                            {{danno.nome}}: {{danno.costo}}€/mq
+                        </option>
+                    </select>
+                    <select *ngIf="risk == 'C'" [(ngModel)]="selezione">
+                        <option selected disabled>Seleziona</option>
+                        <option *ngFor="let danno of costoC" [value]="danno.costo">
+                            {{danno.nome}}: {{danno.costo}}€/mq
+                        </option>
+                    </select>
+                    <select *ngIf="risk == 'D' || risk == 'E'" [(ngModel)]="selezione">
+                        <option selected disabled>Seleziona</option>
+                        <option *ngFor="let danno of costoDE" [value]="danno.costo">
+                            {{danno.nome}}: {{danno.costo}}€/mq
+                        </option>
+                    </select>
+                    <button style="margin-left: 5px;"class="btn btn-outline-default" (click)="mostraTotaleRiparazione()">
                         Calcola
                     </button>
                 </td>
             </tr>
             <tr>
-                <td>
-                    Costo di riparazione:
-                </td>
+                <td>Costo di riparazione:</td>
                 <td style="background-color: #fad677;">
-                    {{costoRiparazione | number: '1.0-2'}}€
+                    {{costoDiRiparazione | number: '1.0-2'}}€
                 </td>
             </tr>
         </tbody>

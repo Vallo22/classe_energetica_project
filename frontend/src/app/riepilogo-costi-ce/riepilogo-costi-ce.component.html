@@ -43,8 +43,7 @@
                         <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 1">{{elemento.prezzoVista * elemento.valoreCifra | number: '1.0-2'}}€</td>
                         <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 2">{{elemento.prezzoInton * elemento.valoreCifra | number: '1.0-2'}}€</td>
                         
-                        <td>Codice {{elemento.intervento.attrezzatura}}:<br>
-                            {{elemento.intervento.descrizioneAttrezzatura}}</td>
+                        <td>{{elemento.intervento.descrizioneAttrezzatura}}</td>
                     </tbody>
                 </tr>
             </table>
