@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Mar 23, 2021 alle 11:24
+-- Creato il: Mar 29, 2021 alle 16:37
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -276,16 +276,6 @@ INSERT INTO `associazione_intervento_st` (`id`, `efficacia`, `esiguita_di_ingomb
 (111, 2, 3, 3, 0, 327.91, 3, 3, 2, 0, 'mq', NULL, 6, 52, 13, 0, 0),
 (112, 0, 0, 0, 1, 438.33, 0, 0, 0, 0, 'mq', NULL, 6, 53, 13, 0, 0),
 (113, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 12, 66, 14, 0, 0),
-(115, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 74, 1, 0, 0),
-(116, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 74, 2, 0, 0),
-(117, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 74, 3, 0, 0),
-(118, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 75, 4, 0, 0),
-(119, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 75, 7, 0, 0),
-(120, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 74, 8, 0, 0),
-(121, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 74, 10, 0, 0),
-(122, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 74, 11, 0, 0),
-(123, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 75, 12, 0, 0),
-(124, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 74, 13, 0, 0),
 (126, 2, 3, 2, 0, 186.31, 3, 2, 3, 2, 'mq', 'b', 1, 33, 2, 296.17, 241.24),
 (127, 3, 2, 2, 0, 63.07, 3, 2, 2, 2, 'm', 'b', 8, 6, 2, 0, 65.96),
 (128, 2, 3, 1, 0, 172.3, 1, 1, 3, 1, 'm', 'c', 8, 6, 2, 0, 0),
@@ -295,7 +285,13 @@ INSERT INTO `associazione_intervento_st` (`id`, `efficacia`, `esiguita_di_ingomb
 (132, 3, 3, 1, 0, 112.78, 1, 1, 3, 1, 'm', 'd', 4, 6, 2, 153.23, 133.01),
 (133, 3, 2, 3, 0, 63.07, 3, 2, 2, 2, 'm', 'b', 101, 6, 7, 0, 65.96),
 (134, 2, 3, 2, 0, 172.3, 1, 1, 3, 1, 'm', 'c', 101, 6, 7, 0, 0),
-(135, 3, 3, 2, 0, 112.78, 1, 1, 3, 1, 'm', 'd', 101, 6, 7, 153.23, 133.01);
+(135, 3, 3, 2, 0, 112.78, 1, 1, 3, 1, 'm', 'd', 101, 6, 7, 153.23, 133.01),
+(136, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 77, 4, 0, 0),
+(137, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 77, 7, 0, 0),
+(142, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 77, 10, 0, 0),
+(143, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 77, 11, 0, 0),
+(144, 0, 0, 0, 1, 0, 0, 0, 0, 0, '', '', 2, 77, 13, 0, 0),
+(145, 0, 0, 0, 1, 0, 0, 0, 0, 0, '', '', 2, 77, 12, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -637,21 +633,19 @@ CREATE TABLE `classe_indicatore_non_ce` (
   `indicatore_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
 -- Dump dei dati per la tabella `classe_indicatore_non_ce`
 --
 
 INSERT INTO `classe_indicatore_non_ce` (`id`, `descrizione`, `punteggio`, `indicatore_id`) VALUES
-(1, 'S/V>2,2', 1.80, 1),
+(1, 'S/V>2,2', 1.8, 1),
 (2, '1,56<S/V≤2,02', 1.44, 1),
 (3, '1,09<S/V≤1,56', 1.08, 1),
 (4, '0,63<S/V≤1,09', 0.72, 1),
 (5, 'S/V≤0,63', 0.36, 1),
 (6, '>33%', 0.17, 2),
 (7, 'tra 26% e 33%', 0.13, 2),
-(8, 'tra 19% e 26%', 0.10, 2),
+(8, 'tra 19% e 26%', 0.1, 2),
 (9, 'tra 12% e 19%', 0.07, 2),
 (10, '≤12%', 0.03, 2),
 (11, 'edificio isolato', 0.07, 3),
@@ -672,18 +666,18 @@ INSERT INTO `classe_indicatore_non_ce` (`id`, `descrizione`, `punteggio`, `indic
 (26, '1,23÷1,70 W/m2K', 0.36, 6),
 (27, '0,77÷1,23 W/m2K', 0.26, 6),
 (28, '≤0,77 W/m2K', 0.16, 6),
-(29, '>2,78 W/m2K', 0.30, 7),
+(29, '>2,78 W/m2K', 0.3, 7),
 (30, '2,16÷2,78 W/m2K', 0.25, 7),
-(31, '1,54÷2,16 W/m2K', 0.20, 7),
+(31, '1,54÷2,16 W/m2K', 0.2, 7),
 (32, '0,92÷1,54 W/m2K', 0.15, 7),
-(33, '≤0,92 W/m2K', 0.10, 7),
+(33, '≤0,92 W/m2K', 0.1, 7),
 (34, '>4,40 W/m2K', 0.13, 8),
-(35, '3,10÷4,40 W/m2K', 0.10, 8),
+(35, '3,10÷4,40 W/m2K', 0.1, 8),
 (36, '1,80÷3,10 W/m2K', 0.07, 8),
 (37, '≤1,80 W/m2K', 0.04, 8),
 (38, '>2,78 W/m2K', 0.15, 9),
 (39, '>1,76 W/m2K', 0.13, 9),
-(40, '1,19÷1,47 W/m2K', 0.10, 9),
+(40, '1,19÷1,47 W/m2K', 0.1, 9),
 (41, '0,90÷1,19 W/m2K', 0.08, 9),
 (42, '0,62÷0,90 W/m2K', 0.06, 9),
 (43, '≤0,62 W/m2K', 0.04, 9),
@@ -727,7 +721,7 @@ INSERT INTO `codice_intervento_ce` (`id`, `codice`, `descrizione`, `appunto`, `a
 (3, 'a3', 'Isolamento termico all\'intradosso\r\n', NULL, 'A', 'Trabattelli ad uso interno'),
 (4, 'a4', 'Isolamento termico all\'intradosso ventilato\r\n', NULL, 'A', 'Trabattelli ad uso interno'),
 (5, 'a5', 'Integrazione del fotovoltaico \r\n(tegole e coppi fotovoltaici)*\r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta valutazione di applicabilità;\r\nnon è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali', NULL, NULL),
-(6, 'A6', 'Integrazione del solare termico \r\n(collettori solari con decalcomanie forate)*\r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali', NULL, NULL),
+(6, 'a6', 'Integrazione del solare termico \r\n(collettori solari con decalcomanie forate)*\r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali', NULL, NULL),
 (7, 'a7', 'Green roof*\r\n', '*l\'intervento richiede una valutazione più approfondita di applicabilità', 'B e D', 'Ponteggi esterni e Parapetti'),
 (8, 'a8', 'Roof pond*\r\n', '*l\'intervento richiede una valutazione più approfondita di applicabilità', NULL, NULL),
 (9, 'b1', 'Isolamento termico a pannelli sulla superficie interna della parete \r\n', NULL, 'A', 'Trabattelli ad uso interno'),
@@ -837,9 +831,9 @@ INSERT INTO `codice_intervento_st` (`id`, `codice`, `descrizione`, `attrezzatura
 (38, 'D8', 'Inserimento di tiranti verticali post-tesi', 'B', 'Ponteggi esterni', NULL),
 (39, 'D9', 'Placcaggio delle murature con intonaco armato su entrambi i paramenti', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
 (40, 'D10', 'Placcaggio con tessuti o lamine in materiale fibroriforzato', 'A', 'Trabattelli ad uso interno ', NULL),
-(41, 'D11', 'Inserimento di nuovo setto di spina con relativa fondazione', 'A', 'Trabattelli ad uso interno', 'Per l\'intervento D11 si consideri un costo aggiuntivo relativo all\'adeguamento delle fondazioni'),
-(42, 'D12', 'Richiusura di nicchie e bucature', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', 'Per l\'intervento D12 si devono considerare due superfici se si richiude un\'apertura (no nicchia)'),
-(43, 'D13', 'Realizzazione di una nuova parte affiancata e resa solidale a quella esistente mediante barre in acciaio inox e resina epossidica', 'B', 'Ponteggi esterni', 'Per l\'intervento D13 si consideri un costo aggiuntivo relativo all\'adeguamento delle fondazioni'),
+(41, 'D11', 'Inserimento di nuovo setto di spina con relativa fondazione', 'A', 'Trabattelli ad uso interno', '• Per l\'intervento D11 si consideri un costo aggiuntivo relativo all\'adeguamento delle fondazioni'),
+(42, 'D12', 'Richiusura di nicchie e bucature', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', '• Per l\'intervento D12 si devono considerare due superfici se si richiude un\'apertura (no nicchia)'),
+(43, 'D13', 'Realizzazione di una nuova parte affiancata e resa solidale a quella esistente mediante barre in acciaio inox e resina epossidica', 'B', 'Ponteggi esterni', '• Per l\'intervento D13 si consideri un costo aggiuntivo relativo all\'adeguamento delle fondazioni• '),
 (44, 'D14', 'Rivestimento delle pareti verticali all\'esterno con cappotto sismico', 'B', 'Ponteggi esterni', NULL),
 (45, 'E1', 'Esecuzione di piastra di collegamento delle murature alla base', NULL, NULL, NULL),
 (46, 'E2', 'Introduzione di pali e micropali da estendere all\'intero edificio', NULL, NULL, NULL),
@@ -851,7 +845,7 @@ INSERT INTO `codice_intervento_st` (`id`, `codice`, `descrizione`, `attrezzatura
 (52, 'F3', 'Consolidamento con inserimento di fibre in carbonio', 'A e C', 'Trabattelli ad uso interno e Piattaforma aerea verticale', NULL),
 (53, 'F4', 'Consolidamento di piattabande tramite splintaggio degli elementi laterizi', 'A e C', 'Trabattelli ad uso interno e Piattaforma aerea verticale', NULL),
 (54, 'G1', 'Inserimento di catene alle reni di archi e volte', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
-(55, 'G2', 'Realizzazione di contrafforti esterni', 'B', 'Ponteggi esterni', 'Per l\'intervento G2 si consideri un costo aggiuntivo relativo all\'adeguamento delle fondazioni'),
+(55, 'G2', 'Realizzazione di contrafforti esterni', 'B', 'Ponteggi esterni', '• Per l\'intervento G2 si consideri un costo aggiuntivo relativo all\'adeguamento delle fondazioni'),
 (56, 'G3', 'Placcaggio all\'estradosso con fasce di materiale composito', 'E', NULL, NULL),
 (57, 'G4', 'Placcaggio all\'intradosso con fasce di mareriale composito', 'A', 'Trabattelli ad uso interno ', NULL),
 (58, 'G5', 'Iniezioni di malta per ripristinare le lesioni', 'A', 'Trabattelli ad uso interno ', NULL),
@@ -869,9 +863,8 @@ INSERT INTO `codice_intervento_st` (`id`, `codice`, `descrizione`, `attrezzatura
 (71, 'L4', 'Adeguamento di giunti non sismici tra unità strutturali distinte', NULL, NULL, NULL),
 (72, 'L5', 'Inserimento di giunti sismici in edifici irregolari', NULL, NULL, NULL),
 (73, 'L6', 'Realizzazione di collegamenti strutturali', NULL, NULL, NULL),
-(74, 'Tab.01', NULL, NULL, NULL, NULL),
-(75, 'Tab.02', NULL, NULL, NULL, NULL),
-(76, 'B15', 'Placcaggio con tavole di legno', NULL, NULL, NULL);
+(76, 'B15', 'Placcaggio con tavole di legno', NULL, NULL, NULL),
+(77, 'NULLO', 'Guarda informazioni nella TAB in basso', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -999,8 +992,6 @@ CREATE TABLE `indicatore_non_ce` (
   `id` bigint(20) NOT NULL,
   `indicatore` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
 
 --
 -- Dump dei dati per la tabella `indicatore_non_ce`
@@ -1746,13 +1737,13 @@ ALTER TABLE `valutazione_punteggio_st`
 -- AUTO_INCREMENT per la tabella `associazione_intervento_ce`
 --
 ALTER TABLE `associazione_intervento_ce`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT per la tabella `associazione_intervento_st`
 --
 ALTER TABLE `associazione_intervento_st`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
 -- AUTO_INCREMENT per la tabella `caratteristiche_qualitative_ce`
@@ -1782,7 +1773,7 @@ ALTER TABLE `classe_indicatore_ce`
 -- AUTO_INCREMENT per la tabella `classe_indicatore_non_ce`
 --
 ALTER TABLE `classe_indicatore_non_ce`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT per la tabella `codice_intervento_ce`
@@ -1794,7 +1785,7 @@ ALTER TABLE `codice_intervento_ce`
 -- AUTO_INCREMENT per la tabella `codice_intervento_st`
 --
 ALTER TABLE `codice_intervento_st`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT per la tabella `edificio_st`
@@ -1812,7 +1803,7 @@ ALTER TABLE `indicatore_ce`
 -- AUTO_INCREMENT per la tabella `indicatore_non_ce`
 --
 ALTER TABLE `indicatore_non_ce`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT per la tabella `meccanismi_st`
