@@ -20,7 +20,6 @@ export class RiepilogoCostiCeComponent implements OnInit {
   ngOnInit() {
     this.risultatoSelezione.interventiSelezionati.forEach(z => {
       this.interventi.push(z)
-      console.log("interventi: ", this.interventi)
     })
   }
 

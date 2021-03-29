@@ -47,7 +47,6 @@ export class ValutazioneInterventiCeComponent implements OnInit {
     this.service.getCaratteristicheQualitative().subscribe(data => {
       this.car = data
     })
-    console.log(this.ponderazione)
     this.calcolaTotale()
   }
 
@@ -91,7 +90,6 @@ export class ValutazioneInterventiCeComponent implements OnInit {
           }
         }
       }
-      console.log("Totale: ", t.totale);
     })
   }
 

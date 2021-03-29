@@ -79,19 +79,15 @@ export class TipoStrutturaCeComponent implements OnInit {
   ngOnInit() {
     this.service.getStruttura().subscribe(data => {
       this.strutt = data;
-      console.log(this.strutt)
     })
     this.service.getStrutturaDue().subscribe(data => {
       this.strutt2 = data;
-      console.log(this.strutt2)
     })
     this.service.getStrutturaTre().subscribe(data => {
       this.strutt3 = data;
-      console.log(this.strutt3)
     })
     this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
       this.associazioneIntervento = this.serviceAssociazione.interventGrouping(data);
-      console.log(this.associazioneIntervento)
     })
   }
 
@@ -123,7 +119,6 @@ export class TipoStrutturaCeComponent implements OnInit {
     this.caratteristiche = this.selectedElementDue[index].carattQualit
     this.selectArr = 0;
     this.onChangeCaratteristicheQualitative(0);
-
   }
 
   onChangeCaratteristicheQualitative(index: number) {
@@ -139,7 +134,6 @@ export class TipoStrutturaCeComponent implements OnInit {
         }
       })
     }
-    console.log(this.variabileIntervento)
   }
 
   trasferisciOggetti() {
@@ -148,6 +142,7 @@ export class TipoStrutturaCeComponent implements OnInit {
       window.scrollTo(0, 0)
     } else {
       this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche[this.selectArr])
+      console.log(this.caratteristiche[this.selectArr])
       this.router.navigate(['/matrice-ce'], {
         state: {
           variabileIntervento: this.variabileIntervento,
@@ -197,7 +192,7 @@ export class TipoStrutturaCeComponent implements OnInit {
     this.imgD3 = false
     this.imgD4 = false
 
-    console.log(codice)
+    console.log('intervento visualizzato: ' + codice)
     if (codice == "a1") {
       this.imgA1 = true
     }

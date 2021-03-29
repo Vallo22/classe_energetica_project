@@ -87,11 +87,6 @@ export class PerformanceEnergeticaCeComponent implements OnInit {
     this.epglEdificioIdeale = epglEdificioIdeale
 
     this.msg1 = true
-    console.log('EDIFICIO CON CLIMATIZZAZIONE ESTIVA')
-    console.log('totale ed. reale: ' + this.totaleEdificioReale)
-    console.log('epgl ed. reale: ' + this.epglEdificioReale)
-    console.log('totale ed. ideale' + this.totaleEdificioIdeale)
-    console.log('epgl ed. ideale' + this.epglEdificioIdeale)
     this.mostraClasseEnergetica()
   }
 
@@ -114,11 +109,6 @@ export class PerformanceEnergeticaCeComponent implements OnInit {
     this.epglEdificioIdeale = epglEdificioIdeale
 
     this.msg1 = true
-    console.log('EDIFICIO SENZA CLIMATIZZAZIONE ESTIVA')
-    console.log('totale ed. reale: ' + this.totaleEdificioReale)
-    console.log('epgl ed. reale: ' + this.epglEdificioReale)
-    console.log('totale ed. ideale' + this.totaleEdificioIdeale)
-    console.log('epgl ed. ideale' + this.epglEdificioIdeale)
     this.mostraClasseEnergetica()
   }
 
@@ -151,12 +141,17 @@ export class PerformanceEnergeticaCeComponent implements OnInit {
       this.classeEnergetica = "G*"
       this.classeEnG = true
     }
-    console.log('classe energetica: ' + this.classeEnergetica)
   }
 
   prosegui() {
     this.router.navigate(['/tipo-struttura-ce'], {
       state: { classeEnergetica: this.classeEnergetica }
     })
+    console.log('totale ed. reale: ' + this.totaleEdificioReale)
+    console.log('epgl ed. reale: ' + this.epglEdificioReale)
+    console.log('totale ed. ideale: ' + this.totaleEdificioIdeale)
+    console.log('epgl ed. ideale: ' + this.epglEdificioIdeale)
+    console.log('classe energetica: ' + this.classeEnergetica)
   }
+  
 }

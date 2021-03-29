@@ -321,7 +321,7 @@ export class TipoStrutturaStComponent implements OnInit {
     this.imgH2 = false
     this.imgI1 = false
   
-    console.log(codice)
+    console.log('intervento visualizzato: ' + codice)
     if(codice == "A1"){
       this.imgA1 = true
       this.imgA1parte2 = true
@@ -531,7 +531,7 @@ export class TipoStrutturaStComponent implements OnInit {
     this.imgM14 = false
     this.imgM15 = false
     this.imgM16 = false
-    console.log(meccanismo)
+    console.log('meccanismo visualizzato: ' + meccanismo)
     if(meccanismo == "1"){
       this.imgM1 = true
     }

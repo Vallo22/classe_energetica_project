@@ -123,7 +123,6 @@ export class MatriceCeComponent implements OnInit {
   }
 
   onSelectChange(r: number, c: number) {
-    // Risultati prima matrice
     this.oggetto[c][r] = 1 / this.oggetto[r][c]
     this.matrixRisultati = [0, 0, 0, 0, 0, 0]
     for (let r = 0; r < this.matrix.length; r++) {
@@ -131,15 +130,11 @@ export class MatriceCeComponent implements OnInit {
         this.matrixRisultati[c] += this.oggetto[r][c] !== undefined ? this.oggetto[r][c] : 0
       }
     }
-    console.log(this.matrix)
-    console.log(this.matrixRisultati)
-    // Seconda matrice
     for (let r = 0; r < this.matriceNormalizzata.length; r++) {
       for (let c = 0; c < this.matriceNormalizzata[r].length; c++) {
         this.matriceNormalizzata[r][c] = this.oggetto[r][c] / this.matrixRisultati[c]
       }
     }
-    // Risultati seconda matrice
     this.ponderazione = [0, 0, 0, 0, 0, 0]
     for (let r = 0; r < this.matriceNormalizzata.length; r++) {
       for (let c = 0; c < this.matriceNormalizzata[r].length; c++) {
@@ -147,7 +142,6 @@ export class MatriceCeComponent implements OnInit {
       }
       this.ponderazione[r] = this.ponderazione[r] / this.matriceNormalizzata.length
     }
-    // Matrice x 
     for (let r = 0; r < 6; r++) {
       let riga = []
       for (let c = 0; c < 6; c++) {
@@ -155,7 +149,6 @@ export class MatriceCeComponent implements OnInit {
       }
       this.mxp[r] = this.prodottoVettoriale(riga, this.ponderazione)
     }
-    // Calcolo lambda & cr
     let lambda = 0
     for (let r in this.mxp) {
       lambda += this.mxp[r] / this.ponderazione[r]
@@ -179,6 +172,12 @@ export class MatriceCeComponent implements OnInit {
   }
 
   trasferisciPonderazione() {
+    console.log("mod cost: " + this.ponderazione[0]*100 + "%")
+    console.log("efficacia: " + this.ponderazione[1]*100 + "%")
+    console.log("comp visiva: " + this.ponderazione[2]*100 + "%")
+    console.log("reversibilità: " + this.ponderazione[3]*100 + "%")
+    console.log("sempl di cant: " + this.ponderazione[4]*100 + "%")
+    console.log("eseg di ingomb: " + this.ponderazione[5]*100 + "%")
     this.router.navigate(['/valutazione-interventi-ce'], {
       state: {
         caratteristiche: this.caratteristiche
