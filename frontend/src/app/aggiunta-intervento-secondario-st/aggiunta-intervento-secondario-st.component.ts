@@ -25,8 +25,7 @@ export class AggiuntaInterventoSecondarioStComponent implements OnInit {
     private serviceAssociazione: AssociazioneInterventoStService,
     private emsService: EdificioStService,
     private caratteristicheStrutturaService: CaratteristicheStrutturaStService
-  ) {
-  }
+  ) {}
 
   a: boolean
   arraySelezionati: AssociazioneInterventoSt[] = []
@@ -165,11 +164,11 @@ export class AggiuntaInterventoSecondarioStComponent implements OnInit {
       this.caratteristicheSelezionabili = []
       this.emsCar = data
       for (let caratteristica of this.emsCar[this.emsType - 1].carQualEms) {
-        if(!this.risultatoSelezione.checkCaratteristica(caratteristica.id)){
+        if(!this.risultatoSelezione.checkCaratteristica(caratteristica.id)) {
           this.caratteristicheSelezionabili.push(caratteristica)
           const caratteristicheFinali: CaratteristicheQualitativeSt[] = []
           this.caratteristicheSelezionabili.forEach(d => {
-          const caratteristiche = new CaratteristicheQualitativeSt();
+            const caratteristiche = new CaratteristicheQualitativeSt()
             caratteristiche.id = d.id
             caratteristiche.caratteristicheQualitative = d.caratteristicheQualitative
             caratteristiche.meccanismiAssociati = d.meccanismiAssociati
@@ -181,6 +180,48 @@ export class AggiuntaInterventoSecondarioStComponent implements OnInit {
         }
       }
     })
+  }
+
+  scrollToBottom(){
+  window.scrollTo(0,document.body.scrollHeight);
+  }
+
+  selezionaCaratteristica(strCaratteristica: string) {
+    this.selectedMeccanicaIndex = 0
+    let idCaratteristica = parseInt(strCaratteristica)
+    this.strutturaService.getStruttureByCaratteristiche(idCaratteristica).subscribe(car => {
+      this.strutturaObj = car
+      this.selezionaInterventiByCaratteristicaAndStruttura(this.strutturaObj[0].id)
+    })
+    this.idCaratteristica = idCaratteristica
+  }
+
+  selezionaInterventiByCaratteristicaAndStruttura(idStruttura: number) {
+    this.idStruttura = idStruttura
+    this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(this.idCaratteristica, this.idStruttura).subscribe(z => {
+      this.interventiSecondari = z
+    })
+  }
+
+  onChangeIntervento(indexIntervento: number) {
+    this.interventoSelezionato = this.interventiSecondari[indexIntervento]
+  }
+
+  massimoNumero() {
+    let min = Infinity
+    let max = 0
+    let maxIndex: number
+    let maxIntervento: AssociazioneInterventoSt
+    this.variabileIntervento.forEach(interventi => {
+      for (let index in interventi.varianti) {
+        if (interventi.totale[index] > max) {
+          max = interventi.totale[index]
+          maxIntervento = interventi
+          maxIndex = parseInt(index)
+        }
+      }
+    })
+    maxIntervento.maxVariante = maxIndex
   }
 
   deltaPunteggio1(x: number) {
@@ -195,11 +236,27 @@ export class AggiuntaInterventoSecondarioStComponent implements OnInit {
     this.deltaPunteggioFinale = 0
     this.deltaPunteggioFinale += this.interventoSelezionato.ante - this.interventoSelezionato.post
     this.a = true
-    debugger
   }
 
-  scrollToBottom(){
-  window.scrollTo(0,document.body.scrollHeight);
+  trasferisciOggetti() {
+    this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche)
+    this.router.navigate(['/matrice-st'], {
+      state: {
+        emsType: this.emsType
+        , interventoSingolo: this.interventoSingolo
+        , caratteristiche: this.caratteristiche
+        , vulClass: this.vulClass
+        , punteggio: this.punteggio
+        , risk: this.risk
+        , pam: this.pam
+        , variabileIntervento: this.variabileIntervento
+        , interventoSelezionato: this.interventoSelezionato
+        , idCaratteristica: this.idCaratteristica
+        , idStruttura: this.idStruttura
+        , contatoreVolte: this.contatoreVolte
+        , interventiSecondari: this.interventiSecondari
+      }
+    })
   }
 
   visualizzaCodiceIntervento(codice: string){
@@ -473,62 +530,4 @@ export class AggiuntaInterventoSecondarioStComponent implements OnInit {
     }    
   }
 
-  selezionaCaratteristica(strCaratteristica: string) {
-    this.selectedMeccanicaIndex = 0
-    let idCaratteristica = parseInt(strCaratteristica)
-    this.strutturaService.getStruttureByCaratteristiche(idCaratteristica).subscribe(car => {
-      this.strutturaObj = car
-      this.selezionaInterventiByCaratteristicaAndStruttura(this.strutturaObj[0].id)
-    })
-    this.idCaratteristica = idCaratteristica
-  }
-
-  selezionaInterventiByCaratteristicaAndStruttura(idStruttura: number) {
-    this.idStruttura = idStruttura
-    this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(this.idCaratteristica, this.idStruttura).subscribe(z => {
-      this.interventiSecondari = z
-    })
-  }
-
-  onChangeIntervento(indexIntervento: number) {
-    this.interventoSelezionato = this.interventiSecondari[indexIntervento]
-  }
-
-  massimoNumero() {
-    let min = Infinity
-    let max = 0
-    let maxIndex: number
-    let maxIntervento: AssociazioneInterventoSt
-    this.variabileIntervento.forEach(interventi => {
-      for (let index in interventi.varianti) {
-        if (interventi.totale[index] > max) {
-          max = interventi.totale[index]
-          maxIntervento = interventi
-          maxIndex = parseInt(index)
-        }
-      }
-    })
-    maxIntervento.maxVariante = maxIndex
-  }
-
-  trasferisciOggetti() {
-    this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche)
-    this.router.navigate(['/matrice-st'], {
-      state: {
-        emsType: this.emsType
-        , interventoSingolo: this.interventoSingolo
-        , caratteristiche: this.caratteristiche
-        , vulClass: this.vulClass
-        , punteggio: this.punteggio
-        , risk: this.risk
-        , pam: this.pam
-        , variabileIntervento: this.variabileIntervento
-        , interventoSelezionato: this.interventoSelezionato
-        , idCaratteristica: this.idCaratteristica
-        , idStruttura: this.idStruttura
-        , contatoreVolte: this.contatoreVolte
-        , interventiSecondari: this.interventiSecondari
-      }
-    })
-  }
 }

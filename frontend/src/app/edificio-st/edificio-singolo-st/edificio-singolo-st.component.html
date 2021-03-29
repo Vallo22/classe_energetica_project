@@ -1,13 +1,13 @@
 <div class="container ems">
   <div class="card my-5">
-
+    <!-- TITOLO -->
     <div class="card-header" style="font-size: 20px; text-align: center">
       <p><strong>Tipologia strutturale EMS</strong></p>
     </div>
     
     <div class="card-body">
       <div class="form-group">
-
+        <!-- SELEZIONA TIPOLOGIA -->
         <select class="form-control" id="edificioInAggregato" name="edificio" (change)="onChange($event.target.value)">
           <option selected disabled>Seleziona la tipologia EMS</option>
           <option [value]="tipoEdificio.id" *ngFor="let tipoEdificio of edificioInAggregato;"
@@ -16,6 +16,7 @@
           </option>
         </select>
 
+        <!-- PULSANTE -->
         <div class="mbr-section-btn">
           <button class="btn btn-md1 btn-defaultn display-4" routerLink="/tipo-edificio-st"
             routerLinkActive="active">&laquo; Indietro</button>

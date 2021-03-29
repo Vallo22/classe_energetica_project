@@ -33,8 +33,7 @@ export class EdificioSingoloStQComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private qualità: QualitaEdificiStService,
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.emsType = window.history.state.emsType
@@ -56,10 +55,10 @@ export class EdificioSingoloStQComponent implements OnInit {
       let qualityId = null
       this.edificioInAggregato['Edificio Singolo'].forEach(element => {
         this.quality.push(element.quality)
-        if (qualityId !== element.quality.id) {
+        if(qualityId !== element.quality.id) {
           this.selezione.push(element.id)
         }
-        if(!this.edificioByQuality[element.quality.id]){
+        if(!this.edificioByQuality[element.quality.id]) {
           this.edificioByQuality[element.quality.id] = []
         }
         this.edificioByQuality[element.quality.id].push(element)
@@ -86,14 +85,14 @@ export class EdificioSingoloStQComponent implements OnInit {
       }
     }).bind(this))
     const selezionati = {}
-    for(const value of this.selezione){
+    for(const value of this.selezione) {
       selezionati[value] = true
     }
-    if(selezionati[37] && selezionati[40]){
+    if(selezionati[37] && selezionati[40]) {
       totalePunteggio += 15
-    }else if(selezionati[42] && selezionati[45]){
+    } else if(selezionati[42] && selezionati[45]) {
       totalePunteggio += 0
-    }else{
+    } else {
       totalePunteggio += 8
     }
     this.totalePunteggio = totalePunteggio
@@ -144,17 +143,16 @@ export class EdificioSingoloStQComponent implements OnInit {
   }
 
   trasferisciClassVul() {
-    this.router.navigate(['/zona-sismica-st'], { state: {emsType: this.emsType, vulClass: this.vulnerability, punteggio: this.totalePunteggio } 
-  })
+    this.router.navigate(['/zona-sismica-st'], { state: {emsType: this.emsType, vulClass: this.vulnerability, punteggio: this.totalePunteggio } })
   }
 
   cleanQualityArray(): void {
-    const qualityIds: number[] = [];
+    const qualityIds: number[] = []
     this.quality.forEach(el => {
       qualityIds.push(el.id)
     })
-    const unique = new Set(qualityIds);
-    const qualityTemp: QualitySt[] = [];
+    const unique = new Set(qualityIds)
+    const qualityTemp: QualitySt[] = []
     unique.forEach(u => {
       qualityTemp.push(this.quality.find(qE => qE.id == u))
     });
@@ -162,23 +160,21 @@ export class EdificioSingoloStQComponent implements OnInit {
   }
 
   getColors(index) {
-    let num = this.getnumber(index);
-    return this.Colors[num];
+    let num = this.getnumber(index)
+    return this.Colors[num]
   }
 
-  getnumber(data){
-    let i = data;
-    if(i > this.Colors.length-1){
-       i = i - this.Colors.length;
-       if(i < this.Colors.length){
-        return i;
-       }
-       else {
-        this.getnumber(i);
-       }
-    }
-    else {
-      return i;
+  getnumber(data) {
+    let i = data
+    if(i > this.Colors.length - 1) {
+      i = i - this.Colors.length
+      if(i < this.Colors.length) {
+        return i
+      } else {
+        this.getnumber(i)
+      }
+    } else {
+      return i
     }
   }
 

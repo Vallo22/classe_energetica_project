@@ -10,32 +10,31 @@ import { EdificioStService } from 'src/app/classes-services/services/edificio-st
 })
 export class EdificioSingoloStComponent implements OnInit {
 
-  edificioInAggregato: TipoEdificioSt[];
+  edificioInAggregato: TipoEdificioSt[]
   avantiAbilitato = false
-  tipoEdificioSelezionato: TipoEdificioSt;
+  tipoEdificioSelezionato: TipoEdificioSt
   emsType: number
-
 
   constructor(
     private router: Router,
     private edificioService: EdificioStService
-    ) { 
-    }
+    ) {}
 
-  ngOnInit(){
-      this.edificioService.getTipoEdificio().subscribe(data =>{
-      this.edificioInAggregato = data;
+  ngOnInit() {
+    this.edificioService.getTipoEdificio().subscribe(data => {
+      this.edificioInAggregato = data
     })
   }
 
-  onChange(tipoEdificioId: number){
-    this.tipoEdificioSelezionato = this.edificioInAggregato.find(t => t.id==tipoEdificioId);
-    this.avantiAbilitato = this.tipoEdificioSelezionato.abilitato;
+  onChange(tipoEdificioId: number) {
+    this.tipoEdificioSelezionato = this.edificioInAggregato.find(t => t.id==tipoEdificioId)
+    this.avantiAbilitato = this.tipoEdificioSelezionato.abilitato
     this.emsType = this.tipoEdificioSelezionato.id
   }
 
-  outputSelezione(){
-    this.router.navigate(['/edificio-singolo-st-q', this.tipoEdificioSelezionato.id], { state: {emsType: this.emsType}});
+  outputSelezione() {
+    this.router.navigate(['/edificio-singolo-st-q', this.tipoEdificioSelezionato.id], { state: {emsType: this.emsType} })
     console.log("tipo edificio selezionato: ", this.tipoEdificioSelezionato.id)
   }
+
 }

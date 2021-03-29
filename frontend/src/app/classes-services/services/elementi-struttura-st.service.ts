@@ -14,18 +14,15 @@ export class ElementiStrutturaStService {
   url: string
   test: string = ""
 
-  //Costruttore
   constructor(private http: HttpClient) {
     this.url = 'http://localhost:8080/';
   }
 
-  public getStruttura():Observable<StrutturaSt[]>{
+  public getStruttura():Observable<StrutturaSt[]> {
     return this.http.get<StrutturaSt[]>(this.url + 'strutturaSt');
   }
 
-  
-
-  public getStruttureByCaratteristiche(carQualId: number): Observable<StrutturaSt[]>{
+  public getStruttureByCaratteristiche(carQualId: number): Observable<StrutturaSt[]> {
     return this.http.get<StrutturaSt[]>(this.url + "getStrutturaCaratteristicaSt", {
       params: {
         carQual: `${carQualId}`
@@ -33,16 +30,16 @@ export class ElementiStrutturaStService {
     })
   }
   
-
-  public getCaratteristicheQualitative():Observable<CaratteristicheQualitativeSt[]>{
+  public getCaratteristicheQualitative():Observable<CaratteristicheQualitativeSt[]> {
     return this.http.get<CaratteristicheQualitativeSt[]>(this.url + 'caratteristicheQualitativeSt');
   }
 
-  public getValutazionePunteggio():Observable<ValutazionePunteggioSt[]>{
+  public getValutazionePunteggio():Observable<ValutazionePunteggioSt[]> {
     return this.http.get<ValutazionePunteggioSt[]>(this.url + 'valutazionePunteggioSt')
   }
 
-  public getTypeStruttura():Observable<TypeStrutturaSt[]>{
+  public getTypeStruttura():Observable<TypeStrutturaSt[]> {
     return this.http.get<TypeStrutturaSt[]>(this.url + 'typeStrutturaSt');
   }
+
 }

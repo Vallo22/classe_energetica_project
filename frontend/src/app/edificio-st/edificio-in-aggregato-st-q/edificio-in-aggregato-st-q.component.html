@@ -1,12 +1,13 @@
 <div class="container">
+  <!-- TITOLO -->
   <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
     <p><strong>Caratteristiche qualitative dell'edificio</strong></p>
     <hr>
   </div>
 
+  <!-- LEGENDA -->
   <div>
     <summary><strong>Livelli di criticità</strong></summary>
-
     <div class='my-legend'>
       <div class='legend-scale'>
         <ul class='legend-labels'>
@@ -16,7 +17,6 @@
         </ul>
       </div>
     </div>
-
   </div>
 
   <hr>
@@ -25,6 +25,7 @@
     <div class="card-body">
 
       <form>
+        <!-- TUTTE LE SELEZIONI -->
         <div>
           <div name="edificio">
             <div style="font-size: 17px;" *ngFor="let EdificioInAggregato1 of quality | slice:0:1;">
@@ -396,7 +397,10 @@
           </select>
         </div>
       </form>
+
     </div>
+
+    <!-- PULSANTI -->
     <div class="card-footer" style="text-align: center;">
       <div class="pulsante1" style="display: inline-block">
         <button style="margin-top: 5px; margin-right: 30px;" class="btn btn-md1 btn-defaultn display-4"
@@ -408,6 +412,7 @@
       </div>
       <hr>
 
+      <!-- RISULTATO -->
       <div class="row" style="justify-content: center;" *ngIf="msg1">
         <div class="col-lg-12">
           <div class="alert">

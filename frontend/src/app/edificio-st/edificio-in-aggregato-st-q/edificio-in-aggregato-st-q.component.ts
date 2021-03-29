@@ -36,8 +36,7 @@ export class EdificioInAggregatoStQComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private qualità: QualitaEdificiStService,
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.emsType = window.history.state.emsType
@@ -100,14 +99,14 @@ export class EdificioInAggregatoStQComponent implements OnInit {
       }
     }).bind(this))
     const selezionati = {}
-    for(const value of this.selezione){
+    for(const value of this.selezione) {
       selezionati[value] = true
     }
-    if(selezionati[37] && selezionati[40]){
+    if(selezionati[37] && selezionati[40]) {
       totalePunteggio += 15
-    }else if(selezionati[42] && selezionati[45]){
+    } else if(selezionati[42] && selezionati[45]) {
       totalePunteggio += 0
-    }else{
+    } else {
       totalePunteggio += 8
     }
     this.totalePunteggio = totalePunteggio
@@ -158,47 +157,38 @@ export class EdificioInAggregatoStQComponent implements OnInit {
   }
 
   trasferisciClassVul() {
-    this.router.navigate(['/zona-sismica-st'], { state: {emsType: this.emsType, vulClass: this.vulnerability, punteggio: this.totalePunteggio } 
-  })
+    this.router.navigate(['/zona-sismica-st'], { state: {emsType: this.emsType, vulClass: this.vulnerability, punteggio: this.totalePunteggio } })
   }
 
   cleanQualityArray(): void {
-    //Crea un array di numeri
-    const qualityIds: number[] = [];
-    //Metto nell'array ogni ID dell'elemento scelto
+    const qualityIds: number[] = []
     this.quality.forEach(el => {
       qualityIds.push(el.id)
     });
-    //Questo Set filtra GLI ID DUPLICATI
-    const unique = new Set(qualityIds);
-    //Creo un altro array di tipo Quality
-    const qualityTemp: QualitySt[] = [];
+    const unique = new Set(qualityIds)
+    const qualityTemp: QualitySt[] = []
     unique.forEach(u => {
-      //Con questo push, associo ad ongi id il resto della stringa
       qualityTemp.push(this.quality.find(qE => qE.id == u))
     });
-    //Rimetto tutto qualityTempo all'interno di quality
     this.quality = qualityTemp
   }
 
   getColors(index) {
-    let num = this.getnumber(index);
-    return this.Colors[num];
+    let num = this.getnumber(index)
+    return this.Colors[num]
   }
 
-  getnumber(data){
-    let i = data;
-    if(i > this.Colors.length-1){
-       i = i - this.Colors.length;
-       if(i < this.Colors.length){
-        return i;
-       }
-       else {
-        this.getnumber(i);
-       }
-    }
-    else {
-      return i;
+  getnumber(data) {
+    let i = data
+    if(i > this.Colors.length - 1) {
+      i = i - this.Colors.length
+      if(i < this.Colors.length) {
+        return i
+      } else {
+        this.getnumber(i)
+      }
+    } else {
+      return i
     }
   }
 
