@@ -83,10 +83,14 @@ export class RiepilogoCostiStComponent implements OnInit {
       } else if(z.tipo_superficie == 3) {
         pr = z.prezzoEntrInt * z.valoreCifra
       } else if(z.tipo_superficie == 4) {
-        pr = 54.96 * z.valoreCifra
+        pr = 33.83 * z.valoreCifra
       } else if(z.tipo_superficie == 5) {
-        pr = 180 * z.valoreCifra
+        pr = 54.96 * z.valoreCifra
       } else if(z.tipo_superficie == 6) {
+        pr = 728.07 * z.valoreCifra
+      } else if(z.tipo_superficie == 7) {
+        pr = 180 * z.valoreCifra
+      } else if(z.tipo_superficie == 8) {
         pr = 234.93 * z.valoreCifra
       }
       this.totale += pr
