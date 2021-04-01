@@ -46,10 +46,10 @@
                         </td>
 
                         <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 0">Seleziona</td>
-                        <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 1">{{elemento.prezzoVista * elemento.valoreCifra | number: '1.0-2'}}€</td>
-                        <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 2">{{elemento.prezzoInton * elemento.valoreCifra | number: '1.0-2'}}€</td>
-                        <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 3">{{64.22 * elemento.valoreCifra | number: '1.0-2'}}€</td>
-                        <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 4">{{56 * elemento.valoreCifra | number: '1.0-2'}}€</td>
+                        <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 1">{{elemento.prezzoVista * elemento.valoreCifra | number: '1.2-2':'fr'}}€</td>
+                        <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 2">{{elemento.prezzoInton * elemento.valoreCifra | number: '1.2-2':'fr'}}€</td>
+                        <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 3">{{64.22 * elemento.valoreCifra | number: '1.2-2':'fr'}}€</td>
+                        <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 4">{{56 * elemento.valoreCifra | number: '1.2-2':'fr'}}€</td>
                         
                         <td>{{elemento.intervento.descrizioneAttrezzatura}}</td>
                     </tbody>
@@ -57,7 +57,94 @@
             </table>
         </div>
     </div>
+    <div class="pulsante1">
+        <button class="btn btn-outline-default" style="align-content: center;" (click)="calcolaInvestimentoTotale()">
+            Calcola il costo totale di investimento
+        </button>
+    </div>
 
     <hr>
+
+    <table class="table table-bordered" style="margin-top: 30px;">
+        <caption></caption>
+        <thead style="background-color: #ce5e59; color: white;">
+            <th scope="colgroup" colspan="2" style="text-align: center;">CALCOLO DEI COSTI</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Costo di investimento totale:</td>
+                <td style="background-color: #fad677;">
+                    {{totale | number: '1.2-2':'fr'}}€
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-bordered" style="margin-top: 30px;">
+        <caption></caption>
+        <thead style="background-color: #ce5e59; color: white;">
+            <th scope="colgroup" colspan="2" style="text-align: center;">INSERIMENTO DATI</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Epgl,nren PRE [kWh/m<sup>2</sup>]:</td>
+                <td><input type="number" [(ngModel)]="pre"></td>
+            </tr>
+            <tr>
+                <td>Epgl,nren POST [kWh/m<sup>2</sup>]:</td>
+                <td><input type="number" [(ngModel)]="post"></td>
+            </tr>
+            <tr>
+                <td>Superficie utile</td>
+                <td><input type="number" [(ngModel)]="supUtile"></td>
+            </tr>
+            <tr>
+                <td>Costo combustibili:</td>
+                <td>
+                    <select [(ngModel)]="selezione">
+                        <option selected disabled>Seleziona</option>
+                        <option *ngFor="let comb of combustibili" [value]="comb.costo">
+                            {{comb.nome}}: {{comb.costo}}€/kWh
+                        </option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="pulsante1">
+        <button class="btn btn-outline-default" style="align-content: center;" (click)="calcoloRisparmi()">
+            Calcola
+        </button>
+    </div>
+
+    <hr>
+
+    <table class="table table-bordered" style="margin-top: 30px;">
+        <caption></caption>
+        <thead style="background-color: #ce5e59; color: white;">
+            <th scope="colgroup" colspan="2" style="text-align: center;">CALCOLO</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Risparmio energetico:</td>
+                <td>{{risparmioEnergetico | number: '1.2-2':'fr'}}</td>
+            </tr>
+            <tr>
+                <td>Risparmio economico:</td>
+                <td>{{risparmioEconomico | number: '1.2-2':'fr'}}</td>
+            </tr>
+            <tr>
+                <td>Tempo di ritorno:</td>
+                <td>{{tempoDiRitorno | number: '1.2-2':'fr'}}</td>
+            </tr>
+            <tr>
+                <td>Cu(E):</td>
+                <td>{{cue | number: '1.2-2':'fr'}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
     
 </div>

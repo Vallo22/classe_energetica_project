@@ -5,6 +5,9 @@ import { ClasseIndicatoreNonCe } from '../classes-services/classes/classe-indica
 import { IndicatoreCe } from '../classes-services/classes/indicatore-ce';
 import { IndicatoreNonCe } from '../classes-services/classes/indicatore-non-ce';
 import { PerformanceEnergeticaCeService } from '../classes-services/services/performance-energetica-ce.service';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr');
 
 @Component({
   selector: 'app-performance-energetica-ce',
