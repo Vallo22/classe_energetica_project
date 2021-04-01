@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AssociazioneInterventoSt } from '../classes-services/classes/associazione-intervento-st';
 import { CostoAAB } from '../classes-services/classes/damage/costo-aab';
 import { CostoC } from '../classes-services/classes/damage/costo-c';
@@ -14,6 +15,7 @@ import { RisultatoSelezioneStService } from '../classes-services/services/risult
 export class RiepilogoCostiStComponent implements OnInit {
 
   constructor(
+    private router: Router,
     private risultatoSelezione: RisultatoSelezioneStService
   ) { }
 
@@ -102,6 +104,14 @@ export class RiepilogoCostiStComponent implements OnInit {
   mostraTotaleRiparazione() {
     this.costoDiRiparazione = this.inputUtente * this.selezione
     console.log("costo di riparazione: " + this.costoDiRiparazione)
+  }
+
+  trasferisciInterventi() {
+    this.router.navigate(['/riepilogo-combinato-st'], {
+      state: {
+        interventi: this.interventi
+      }
+    })
   }
 
 }

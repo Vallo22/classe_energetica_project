@@ -18,6 +18,7 @@ import { AggiuntaInterventoSecondarioStComponent } from './aggiunta-intervento-s
 import { RiepilogoCostiStComponent } from './riepilogo-costi-st/riepilogo-costi-st.component';
 import { ValutazioneInterventiSecondarioStComponent } from './valutazione-interventi-secondario-st/valutazione-interventi-secondario-st.component';
 import { RiepilogoCostiCeComponent } from './riepilogo-costi-ce/riepilogo-costi-ce.component';
+import { RiepilogoCombinatoStComponent } from './riepilogo-combinato-st/riepilogo-combinato-st.component';
 
 const routes: Routes = [
   // HOME
@@ -40,7 +41,8 @@ const routes: Routes = [
   { path: 'valutazione-interventi-st', component: ValutazioneInterventiStComponent },
   { path: 'aggiunta-intervento-secondario-st', component: AggiuntaInterventoSecondarioStComponent },
   { path: 'valutazione-interventi-secondario-st', component: ValutazioneInterventiSecondarioStComponent },
-  { path: 'riepilogo-costi-st', component: RiepilogoCostiStComponent }
+  { path: 'riepilogo-costi-st', component: RiepilogoCostiStComponent },
+  { path: 'riepilogo-combinato-st', component: RiepilogoCombinatoStComponent }
 ];
 
 @NgModule({

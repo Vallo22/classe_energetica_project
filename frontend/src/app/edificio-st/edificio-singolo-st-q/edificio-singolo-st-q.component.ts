@@ -90,7 +90,7 @@ export class EdificioSingoloStQComponent implements OnInit {
     }
     if(selezionati[37] && selezionati[40]) {
       totalePunteggio += 15
-    } else if(selezionati[42] && selezionati[45]) {
+    } else if(selezionati[39] && selezionati[42]) {
       totalePunteggio += 0
     } else {
       totalePunteggio += 8

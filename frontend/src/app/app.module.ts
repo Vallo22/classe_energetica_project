@@ -24,6 +24,7 @@ import { AggiuntaInterventoSecondarioStComponent } from './aggiunta-intervento-s
 import { ValutazioneInterventiSecondarioStComponent } from './valutazione-interventi-secondario-st/valutazione-interventi-secondario-st.component';
 import { RiepilogoCostiStComponent } from './riepilogo-costi-st/riepilogo-costi-st.component';
 import { RiepilogoCostiCeComponent } from './riepilogo-costi-ce/riepilogo-costi-ce.component';
+import { RiepilogoCombinatoStComponent } from './riepilogo-combinato-st/riepilogo-combinato-st.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { RiepilogoCostiCeComponent } from './riepilogo-costi-ce/riepilogo-costi-
     AggiuntaInterventoSecondarioStComponent,
     ValutazioneInterventiSecondarioStComponent,
     RiepilogoCostiStComponent,
-    RiepilogoCostiCeComponent
+    RiepilogoCostiCeComponent,
+    RiepilogoCombinatoStComponent
   ],
   imports: [
     BrowserModule,
