@@ -6,6 +6,9 @@ import { CostoC } from '../classes-services/classes/damage/costo-c';
 import { CostoDE } from '../classes-services/classes/damage/costo-de';
 import { CostoFG } from '../classes-services/classes/damage/costo-fg';
 import { RisultatoSelezioneStService } from '../classes-services/services/risultato-selezione-st.service';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr');
 
 @Component({
   selector: 'app-riepilogo-costi-st',

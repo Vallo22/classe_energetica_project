@@ -56,14 +56,14 @@
                                 </td>
 
                                 <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 0">Seleziona</td>
-                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 1">{{elemento.prezzo * elemento.valoreCifra | number: '1.0-2'}}€</td>
-                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 2">{{elemento.prezzoSupInt * elemento.valoreCifra | number: '1.0-2'}}€</td>
-                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 3">{{elemento.prezzoEntrInt * elemento.valoreCifra | number: '1.0-2'}}€</td>
-                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 4">{{33.83 * elemento.valoreCifra | number: '1.0-2'}}€</td>
-                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 5">{{54.96 * elemento.valoreCifra | number: '1.0-2'}}€</td>
-                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 6">{{728.07 * elemento.valoreCifra | number: '1.0-2'}}€</td>
-                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 7">{{180 * elemento.valoreCifra | number: '1.0-2'}}€</td>
-                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 8">{{234.93 * elemento.valoreCifra | number: '1.0-2'}}€</td>
+                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 1">{{elemento.prezzo * elemento.valoreCifra | number: '1.2-2':'fr'}}€</td>
+                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 2">{{elemento.prezzoSupInt * elemento.valoreCifra | number: '1.2-2':'fr'}}€</td>
+                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 3">{{elemento.prezzoEntrInt * elemento.valoreCifra | number: '1.2-2':'fr'}}€</td>
+                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 4">{{33.83 * elemento.valoreCifra | number: '1.2-2':'fr'}}€</td>
+                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 5">{{54.96 * elemento.valoreCifra | number: '1.2-2':'fr'}}€</td>
+                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 6">{{728.07 * elemento.valoreCifra | number: '1.2-2':'fr'}}€</td>
+                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 7">{{180 * elemento.valoreCifra | number: '1.2-2':'fr'}}€</td>
+                                <td style="vertical-align: middle;" *ngIf="elemento.tipo_superficie == 8">{{234.93 * elemento.valoreCifra | number: '1.2-2':'fr'}}€</td>
 
                                 <td style="vertical-align: middle;">{{elemento.intervento.descrizioneAttrezzatura}}<br>
                                     <p style="font-size: 10px;">{{elemento.intervento.dettaglio}}</p>  
@@ -93,7 +93,7 @@
             <tr>
                 <td>Costo di investimento totale:</td>
                 <td style="background-color: #fad677;">
-                    {{totale | number: '1.0-2'}}€
+                    {{totale | number: '1.2-2':'fr'}}€
                 </td>
             </tr>
             <tr>
@@ -163,7 +163,7 @@
             <tr>
                 <td>Costo di riparazione:</td>
                 <td style="background-color: #fad677;">
-                    {{costoDiRiparazione | number: '1.0-2'}}€
+                    {{costoDiRiparazione | number: '1.2-2':'fr'}}€
                 </td>
             </tr>
         </tbody>
