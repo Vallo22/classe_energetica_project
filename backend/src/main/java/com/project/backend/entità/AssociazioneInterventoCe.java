@@ -71,7 +71,7 @@ public class AssociazioneInterventoCe {
 	public void setStrutturaAssociazione(StrutturaTreCe strutturaAssociazione) {
 		this.strutturaAssociazione = strutturaAssociazione;
 	}
-
+	
 	public int getModicitaDiCosto() {
 		return modicitaDiCosto;
 	}

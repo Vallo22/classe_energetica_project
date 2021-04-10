@@ -37,5 +37,4 @@ public class AssociazioneInterventoStController {
     public List<AssociazioneInterventoSt> getInterventoByStruttura(@RequestParam Long struttura){
         return associazione.findByStrutturaAssociazioneId(struttura);
     }
-
 }

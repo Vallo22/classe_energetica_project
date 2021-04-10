@@ -21,7 +21,7 @@ export class RiepilogoCostiStComponent implements OnInit {
     private router: Router,
     private risultatoSelezione: RisultatoSelezioneStService
   ) { }
-
+  
   interventi: AssociazioneInterventoSt[] = []
   risk: string
   soglia: number

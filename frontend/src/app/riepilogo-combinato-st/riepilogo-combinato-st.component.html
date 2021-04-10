@@ -1,3 +1,25 @@
-<ng-container *ngFor="let el of interventi; index as i">
-    <td>INTERVENTO: {{el.intervento.codice}}</td>
-</ng-container>
+<div class="container">
+    <div class="card my-5" *ngFor="let a of associazione; index as i">
+        <ng-container *ngFor="let b of interventi; index as j">
+            <div *ngIf="a.associazioneInterventoStrutturale.intervento.codice == b.intervento.codice">
+                <div class="card-header">
+                    Intervento strutturale: {{a.associazioneInterventoStrutturale.intervento.codice}}
+                </div>
+                <div class="card-body">
+                    Intervento energetico: {{a.associazioneInterventoEnergetico.intervento.codice}}
+                    <hr>
+                    Costo strutturale: {{a.associazioneInterventoStrutturale.prezzoSupInt}}<br>
+                    Costo energetico: {{a.associazioneInterventoEnergetico.prezzoVista}}
+                    <hr>
+                    Somma: {{somma}}<br>
+                    Costo integrato:
+                    <hr>
+                    Risparmio in €: <br>
+                    Risparmio in percentuale: {{a.percentuale}}%
+                    <hr>
+                    Attrezzature per la sicurezza di uso comune:
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

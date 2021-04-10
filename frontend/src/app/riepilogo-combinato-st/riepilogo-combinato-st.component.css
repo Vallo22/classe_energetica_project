@@ -1,0 +1,10 @@
+.btn-outline-default, .btn-outline-default:active, .btn-outline-default:visited {
+    background-color: white !important;
+    color: #ce5e59;
+    border-color: #ce5e59;
+  }
+  
+  .btn-outline-default:hover {
+    background-color: #ce5e59 !important;
+    color: white;
+  }

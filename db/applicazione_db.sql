@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Apr 01, 2021 alle 15:31
+-- Creato il: Apr 10, 2021 alle 10:38
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -292,6 +292,27 @@ INSERT INTO `associazione_intervento_st` (`id`, `efficacia`, `esiguita_di_ingomb
 (143, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 77, 11, 0, 0),
 (144, 0, 0, 0, 1, 0, 0, 0, 0, 0, '', '', 2, 77, 13, 0, 0),
 (145, 0, 0, 0, 1, 0, 0, 0, 0, 0, '', '', 2, 77, 12, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `associazione_riepilogo`
+--
+
+CREATE TABLE `associazione_riepilogo` (
+  `id` bigint(20) NOT NULL,
+  `percentuale` int(11) DEFAULT NULL,
+  `associazione_intervento_energetico_id` bigint(20) DEFAULT NULL,
+  `associazione_intervento_strutturale_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `associazione_riepilogo`
+--
+
+INSERT INTO `associazione_riepilogo` (`id`, `percentuale`, `associazione_intervento_energetico_id`, `associazione_intervento_strutturale_id`) VALUES
+(1, 20, 29, 7),
+(2, 20, 32, 7);
 
 -- --------------------------------------------------------
 
@@ -1559,6 +1580,14 @@ ALTER TABLE `associazione_intervento_st`
   ADD KEY `FK960ocw9x1ss67pq837j89runj` (`struttura_associazione_id`);
 
 --
+-- Indici per le tabelle `associazione_riepilogo`
+--
+ALTER TABLE `associazione_riepilogo`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FKbnif3gatxtdw1jah5y70t4v8p` (`associazione_intervento_energetico_id`),
+  ADD KEY `FK36wwhm6i25jr26v9tkj0tdb6b` (`associazione_intervento_strutturale_id`);
+
+--
 -- Indici per le tabelle `caratteristiche_qualitative_ce`
 --
 ALTER TABLE `caratteristiche_qualitative_ce`
@@ -1746,6 +1775,12 @@ ALTER TABLE `associazione_intervento_st`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
+-- AUTO_INCREMENT per la tabella `associazione_riepilogo`
+--
+ALTER TABLE `associazione_riepilogo`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT per la tabella `caratteristiche_qualitative_ce`
 --
 ALTER TABLE `caratteristiche_qualitative_ce`
@@ -1884,6 +1919,13 @@ ALTER TABLE `associazione_intervento_st`
   ADD CONSTRAINT `FK960ocw9x1ss67pq837j89runj` FOREIGN KEY (`struttura_associazione_id`) REFERENCES `struttura_st` (`id`),
   ADD CONSTRAINT `FKc9gs2ok9kwfp1b7l1r0lvaapu` FOREIGN KEY (`intervento_id`) REFERENCES `codice_intervento_st` (`id`),
   ADD CONSTRAINT `FKh7wev5qyn11ar7cp5je0mfsol` FOREIGN KEY (`caratteristica_associazione_intervento_id`) REFERENCES `caratteristiche_qualitative_st` (`id`);
+
+--
+-- Limiti per la tabella `associazione_riepilogo`
+--
+ALTER TABLE `associazione_riepilogo`
+  ADD CONSTRAINT `FK36wwhm6i25jr26v9tkj0tdb6b` FOREIGN KEY (`associazione_intervento_strutturale_id`) REFERENCES `associazione_intervento_st` (`id`),
+  ADD CONSTRAINT `FKbnif3gatxtdw1jah5y70t4v8p` FOREIGN KEY (`associazione_intervento_energetico_id`) REFERENCES `associazione_intervento_ce` (`id`);
 
 --
 -- Limiti per la tabella `caratteristiche_qualitative_st_meccanismi_associati`
