@@ -196,17 +196,17 @@ export class TipoStrutturaStComponent implements OnInit {
     } else {
     this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche[this.selectArr])
     console.log(this.caratteristiche[this.selectArr])
-    //this.variabileIntervento.forEach(t => {
-      //if(t.passaggio === 1) {
-        //this.router.navigate(['/valutazione-interventi-st'], {
-          //state: { emsType: this.emsType, vulClass: this.vulClass,punteggio: this.punteggio, risk: this.risk, pam: this.pam,  variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex }
-        //})
-      //} else {
+    this.variabileIntervento.forEach(t => {
+      if(t.passaggio === 1) {
+        this.router.navigate(['/valutazione-interventi-st'], {
+          state: { emsType: this.emsType, vulClass: this.vulClass,punteggio: this.punteggio, risk: this.risk, pam: this.pam,  variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex }
+        })
+      } else {
         this.router.navigate(['/matrice-st'], {
           state: { emsType: this.emsType, vulClass: this.vulClass,punteggio: this.punteggio, risk: this.risk, pam: this.pam,  variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex }
         })
-      //}
-    //})  
+      }
+    })  
   }
   }
 
