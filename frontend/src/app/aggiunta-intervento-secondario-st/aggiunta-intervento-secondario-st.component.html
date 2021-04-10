@@ -82,8 +82,12 @@
         <div class="form-group">
           <ul class="list-group">
             <li class="list-group-item" *ngFor="let int of interventiSecondari; index as x">
+              <div *ngIf="int.intervento.id != 77">
               <td style="float: left; max-width:850px; word-wrap:break-word;">
                 <strong>Codice: {{int.intervento.codice}}{{int.variante}} - {{int.intervento.descrizione}}</strong>
+                <div *ngIf="int.passaggio == 1" style="font-size: 8px; color: #ce5e59;">
+                  NOTA BENE: se si seleziona questo intervento, non sarà possibile proseguire al calcolo dei costi
+                </div>
               </td>
               <td style="float: right">
                 <button class="btn btn-outline-default" (click)="visualizzaCodiceIntervento(int.intervento.codice)"
@@ -91,6 +95,7 @@
                   Vai all'intervento
                 </button>
               </td>
+            </div>
             </li>
           </ul>
         </div>

@@ -50,6 +50,7 @@
             <tbody>
                 <ng-container *ngFor="let interventi of interventiSecondari; index as i">
                     <tr *ngFor="let variante of interventi.varianti; index as j">
+                        <ng-container *ngIf="interventi.passaggio != 2">
                         <td>{{interventi.intervento.codice}} {{interventi.varianti[j]}}</td>
                         <td>{{interventi.modicitaDiCosto[j]}}</td>
                         <td>{{interventi.efficacia[j]}}</td>
@@ -69,6 +70,7 @@
                                     (click)="premiBottone(interventi, j, i, $event.currentTarget.checked)">
                             </div>
                         </td>
+                    </ng-container>
                     </tr>
                 </ng-container>
             </tbody>

@@ -68,7 +68,7 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
   arrayDiNumeriIntervento: number[] = []
   sommaPacchettoInterventi: number
   bottoneVisibile: boolean = false
-
+  
   ngOnInit() {
     this.interventoSingolo = window.history.state.interventoSingolo
     this.emsType = window.history.state.emsType

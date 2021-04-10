@@ -240,24 +240,17 @@ export class AggiuntaInterventoSecondarioStComponent implements OnInit {
 
   trasferisciOggetti() {
     this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche)
-    this.router.navigate(['/matrice-st'], {
-      state: {
-        emsType: this.emsType
-        , interventoSingolo: this.interventoSingolo
-        , caratteristiche: this.caratteristiche
-        , vulClass: this.vulClass
-        , punteggio: this.punteggio
-        , risk: this.risk
-        , pam: this.pam
-        , variabileIntervento: this.variabileIntervento
-        , interventoSelezionato: this.interventoSelezionato
-        , idCaratteristica: this.idCaratteristica
-        , idStruttura: this.idStruttura
-        , contatoreVolte: this.contatoreVolte
-        , interventiSecondari: this.interventiSecondari
+        this.router.navigate(['/matrice-st'], {
+          state: {
+            emsType: this.emsType, interventoSingolo: this.interventoSingolo, caratteristiche: this.caratteristiche
+            , vulClass: this.vulClass, punteggio: this.punteggio, pam: this.pam
+            , variabileIntervento: this.variabileIntervento, interventoSelezionato: this.interventoSelezionato
+            , idCaratteristica: this.idCaratteristica, idStruttura: this.idStruttura, contatoreVolte: this.contatoreVolte
+            , interventiSecondari: this.interventiSecondari
+          }
+        })
       }
-    })
-  }
+  
 
   visualizzaCodiceIntervento(codice: string){
     this.imgA1 = false
@@ -328,8 +321,6 @@ export class AggiuntaInterventoSecondarioStComponent implements OnInit {
     this.imgH1 = false
     this.imgH2 = false
     this.imgI1 = false
-    this.imgTab01 = false
-    this.imgTab02 = false
   
     console.log(codice)
     if(codice == "A1"){
@@ -522,12 +513,6 @@ export class AggiuntaInterventoSecondarioStComponent implements OnInit {
     else if(codice == "I1"){
       this.imgI1 = true
     }
-    else if(codice == "Tab.01"){
-      this.imgTab01 = true
-    }
-    else if(codice == "Tab.02"){
-      this.imgTab02 = true
-    }    
   }
 
 }
