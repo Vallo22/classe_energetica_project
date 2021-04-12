@@ -72,6 +72,10 @@
             <td style="float: left; max-width:850px; word-wrap:break-word;"><strong>
                 Codice: {{arr.intervento.codice}}
                 - {{arr.intervento.descrizione}}</strong>
+                <!-- CASI PARTICOLARI -->
+                <div *ngIf="arr.intervento.id == 32" style="font-size: 10px;">
+                * nel caso di murature a sacco l'intervento può essere vanificato da un'eccessiva presenza di vuoti: una quantità
+                di materiale iniettato troppo elevata comporta un aumento inammissibile del peso del parametro murario.</div>
             </td>
             <td style="float: right">
               <button class="btn btn-outline-default" (click)="visualizzaCodiceIntervento(arr.intervento.codice)"
