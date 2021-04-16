@@ -12,7 +12,7 @@
             </select>
             <p style="font-size: 17px;" style="margin-top: 10px;"><strong>• Intervento Energetico</strong></p>
             <select class="form-control" (change)="onChangeEnergetico($event.target.value)">
-                <option value="0">Seleziona</option>
+                <option value selected="0">Seleziona</option>
                 <option [value]="interventoEn.prezzoRiepilogo" *ngFor="let interventoEn of interv">{{interventoEn.intervento.codice}}</option>
             </select>
 

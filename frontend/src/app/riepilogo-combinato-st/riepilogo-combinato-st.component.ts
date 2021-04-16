@@ -29,30 +29,13 @@ export class RiepilogoCombinatoStComponent implements OnInit {
   risparmioPercentuale: number
   attrezzature: string
   showDiv: boolean = true
+  elementoSelezionato = []
 
   ngOnInit() {
     this.interventi = window.history.state.interventi
-
     this.service.getAssociazioneRiepilogo().subscribe(data => {
       this.associazione = data
-
-      this.interventi.forEach(c => {
-        this.interventoSelezionato = c.id
-      })
-
-      this.associazione.forEach(t => {
-        if(this.interventoSelezionato == t.associazioneInterventoStrutturale.id) {
-          this.associazioneSelezionati.push(t)
-        }
-      })
-
-      this.associazioneSelezionati.forEach(d => {
-        this.interventoEnergetico = d?.associazioneInterventoEnergetico
-        this.interv.push(this.interventoEnergetico)
-      })
-
     })
-      
   }
 
   mostra() {
@@ -61,6 +44,28 @@ export class RiepilogoCombinatoStComponent implements OnInit {
 
   onChangeIntervento(intervento: number) {
     this.prezzoStrutturale = intervento
+    this.elementoSelezionato = []
+    this.interventi.forEach(c => {
+      if(this.prezzoStrutturale == c.prezzoRiepilogo) {
+        this.elementoSelezionato.push(c)
+      }
+    })
+    this.elementoSelezionato.forEach(a => {
+      this.interventoSelezionato = a.id
+    })
+    this.associazioneSelezionati = []
+    this.associazione.forEach(t => {
+      if(this.interventoSelezionato == t.associazioneInterventoStrutturale.id) {
+        this.associazioneSelezionati.push(t)
+      }
+    })
+    this.interventoEnergetico = null
+    this.interv = []
+    this.associazioneSelezionati.forEach(d => {
+      this.interventoEnergetico = d?.associazioneInterventoEnergetico
+      this.interv.push(this.interventoEnergetico)
+    })
+    this.showDiv = true
   }
 
   onChangeEnergetico(interventoEn: number) {
