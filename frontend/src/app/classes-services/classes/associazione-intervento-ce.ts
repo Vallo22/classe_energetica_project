@@ -17,6 +17,7 @@ export class AssociazioneInterventoCe {
     esiguitaDiIngombro: number|number[]
     prezzoVista: number
     prezzoInton: number
+    prezzoRiepilogo: number
 
     totale: number[]
     valoreCifra?: number

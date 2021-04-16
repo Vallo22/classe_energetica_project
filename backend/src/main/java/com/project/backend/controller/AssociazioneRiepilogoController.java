@@ -8,6 +8,7 @@ import com.project.backend.repository.AssociazioneRiepilogoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -20,6 +21,11 @@ public class AssociazioneRiepilogoController {
     @GetMapping("/associazioneRiepilogo")
     public List<AssociazioneRiepilogo> getAssociazioneRiepilogo() {
         return(List<AssociazioneRiepilogo>) assRiepilogo.findAll();
+    }
+
+    @GetMapping("/getAssociazioneByInterventoStrutturale")
+    public List<AssociazioneRiepilogo> getAssociazioneByInterventoStruttura(@RequestParam Long interventoStrutturale) {
+        return assRiepilogo.findByAssociazioneInterventoStrutturaleId(interventoStrutturale);
     }
 
 }

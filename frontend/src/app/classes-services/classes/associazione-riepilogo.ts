@@ -5,5 +5,6 @@ export class AssociazioneRiepilogo {
     id: number
     associazioneInterventoStrutturale: AssociazioneInterventoSt
     associazioneInterventoEnergetico: AssociazioneInterventoCe
-    percentuale: number
+    risparmioEuro: number
+    attrezzature: string
 }

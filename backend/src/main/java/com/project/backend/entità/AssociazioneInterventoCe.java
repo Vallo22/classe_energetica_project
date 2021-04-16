@@ -38,6 +38,7 @@ public class AssociazioneInterventoCe {
     private String variante;
     private double prezzoVista;
     private double prezzoInton;
+	private double prezzoRiepilogo;
     private String unitaMisura;
 
 	public long getId() {
@@ -158,6 +159,14 @@ public class AssociazioneInterventoCe {
 
 	public void setPrezzoInton(double prezzoInton) {
 		this.prezzoInton = prezzoInton;
+	}
+
+	public double getPrezzoRiepilogo() {
+		return this.prezzoRiepilogo;
+	}
+
+	public void setPrezzoRiepilogo(double prezzoRiepilogo) {
+		this.prezzoRiepilogo = prezzoRiepilogo;
 	}
 
 	public String getUnitaMisura() {

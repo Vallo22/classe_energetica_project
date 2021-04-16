@@ -1,25 +1,40 @@
 <div class="container">
-    <div class="card my-5" *ngFor="let a of associazione; index as i">
-        <ng-container *ngFor="let b of interventi; index as j">
-            <div *ngIf="a.associazioneInterventoStrutturale.intervento.codice == b.intervento.codice">
-                <div class="card-header">
-                    Intervento strutturale: {{a.associazioneInterventoStrutturale.intervento.codice}}
-                </div>
-                <div class="card-body">
-                    Intervento energetico: {{a.associazioneInterventoEnergetico.intervento.codice}}
-                    <hr>
-                    Costo strutturale: {{a.associazioneInterventoStrutturale.prezzoSupInt}}<br>
-                    Costo energetico: {{a.associazioneInterventoEnergetico.prezzoVista}}
-                    <hr>
-                    Somma: {{somma}}<br>
-                    Costo integrato:
-                    <hr>
-                    Risparmio in €: <br>
-                    Risparmio in percentuale: {{a.percentuale}}%
-                    <hr>
-                    Attrezzature per la sicurezza di uso comune:
-                </div>
-            </div>
-        </ng-container>
+    <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
+        <p><strong>RISPARMIO ECONOMICO PER AZIONI INTEGRATE</strong></p>
     </div>
+
+    <div class="card my-5">
+        <div class="card-body">
+            <p style="font-size: 17px;"><strong>• Intervento Strutturale</strong></p>
+            <select class="form-control" (change)="onChangeIntervento($event.target.value)">
+                <option>Seleziona</option>
+                <option [value]="interventoStrutturale.prezzoSupInt" *ngFor="let interventoStrutturale of interventi">{{interventoStrutturale.intervento.codice}}</option>
+            </select>
+            <p style="font-size: 17px;" style="margin-top: 10px;"><strong>• Intervento Energetico</strong></p>
+            <select class="form-control" (change)="onChangeEnergetico($event.target.value)">
+                <option>Seleziona</option>
+                <option [value]="interventoEn.prezzoRiepilogo" *ngFor="let interventoEn of interv">{{interventoEn.intervento.codice}}</option>
+            </select>
+
+            <div class="pulsante" style="margin-top: 10px;">
+                <button class="btn btn-outline-default" (click)="calcolaSomma()" (click)="mostra()">Calcola</button>
+            </div>
+        </div>
+        <div class="card-footer" *ngIf="showDiv == false">
+            Costo Intervento Strutturale: {{prezzoStrutturale}} €/mq<br>
+            Costo Intervento Energetico: {{prezzoEnergetico}} €/mq<br>
+            Somma: {{somma}} €/mq
+            <hr>
+            <strong>Risparmio in €: {{risparmioEuro}} €/mq</strong><br>
+            Costo integrato: {{costoIntegrato | number: '1.2-2'}} €/mq<br>
+            <strong>Risparmio in %: {{risparmioPercentuale | number: '1.0-0'}}%</strong>
+            <hr>
+            Attrezzature per la sicurezza di uso comune: {{attrezzature}}
+        </div> 
+    </div>
+    
+    
+    
+    
 </div>
+

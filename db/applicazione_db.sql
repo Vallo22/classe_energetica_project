@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Apr 12, 2021 alle 16:04
+-- Creato il: Apr 16, 2021 alle 13:02
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -43,94 +43,97 @@ CREATE TABLE `associazione_intervento_ce` (
   `variante` varchar(255) DEFAULT NULL,
   `prezzo_inton` double NOT NULL,
   `prezzo_vista` double NOT NULL,
-  `unita_misura` varchar(255) DEFAULT NULL
+  `unita_misura` varchar(255) DEFAULT NULL,
+  `prezzo_riepilogo` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `associazione_intervento_ce`
 --
 
-INSERT INTO `associazione_intervento_ce` (`id`, `caratteristica_associazione_intervento_id`, `intervento_id`, `struttura_associazione_id`, `modicita_di_costo`, `efficacia`, `sup_intonacate`, `sup_ev_ii`, `sup_iv_ei`, `reversibilita`, `semplicita_di_cantiere`, `esiguita_di_ingombro`, `variante`, `prezzo_inton`, `prezzo_vista`, `unita_misura`) VALUES
-(1, 1, 9, 1, 2, 2, 3, 3, 0, 2, 2, 2, NULL, 0, 61.2, 'mq'),
-(2, 1, 10, 1, 2, 1, 3, 3, 0, 2, 3, 3, NULL, 0, 56, 'mq'),
-(3, 1, 11, 1, 1, 3, 3, 0, 3, 2, 2, 1, NULL, 0, 71.27, 'mq'),
-(4, 1, 12, 1, 1, 3, 3, 0, 3, 2, 2, 2, NULL, 71.28, 56.8, 'mq'),
-(5, 1, 13, 1, 1, 2, 3, 0, 3, 2, 3, 3, NULL, 0, 56, 'mq'),
-(6, 1, 14, 1, 3, 2, 3, 3, 3, 1, 1, 3, NULL, 0, 11.26, 'mq'),
-(7, 3, 16, 1, 2, 3, 3, 2, 2, 2, 2, 3, NULL, 0, 3.53, 'm x cm'),
-(8, 3, 17, 1, 1, 2, 3, 2, 2, 2, 2, 3, NULL, 0, 6.24, 'm x cm'),
-(9, 3, 18, 1, 1, 1, 3, 0, 0, 2, 3, 2, NULL, 0, 56.04, 'mq'),
-(10, 3, 19, 1, 1, 1, 2, 2, 2, 2, 3, 3, NULL, 0, 6891.12, 'cad'),
-(11, 5, 11, 1, 1, 3, 3, 0, 3, 2, 1, 1, NULL, 0, 71.27, 'mq'),
-(12, 5, 12, 1, 2, 3, 3, 0, 3, 2, 2, 2, NULL, 71.28, 56.8, 'mq'),
-(13, 5, 13, 1, 2, 2, 3, 0, 3, 2, 3, 3, NULL, 0, 56, 'mq'),
-(14, 2, 11, 1, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL),
-(15, 6, 11, 1, 1, 3, 3, 0, 3, 2, 1, 1, NULL, 0, 71.27, 'mq'),
-(16, 6, 12, 1, 2, 3, 3, 0, 3, 2, 2, 2, NULL, 71.28, 56.8, 'mq'),
-(17, 6, 13, 1, 2, 2, 3, 0, 3, 2, 3, 3, NULL, 0, 56, 'mq'),
-(18, 6, 15, 1, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL),
-(19, 6, 20, 1, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL),
-(20, 6, 21, 1, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL),
-(21, 6, 22, 1, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL),
-(27, 1, 34, 2, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 101.88, 'mq'),
-(28, 6, 34, 2, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 101.88, 'mq'),
-(29, 1, 35, 4, 2, 2, 0, 3, 0, 2, 2, 2, NULL, 0, 0, 'mq'),
-(30, 1, 36, 4, 1, 3, 3, 3, 0, 2, 2, 3, NULL, 0, 101.88, 'mq'),
-(31, 6, 36, 4, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL),
-(32, 1, 37, 3, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL),
-(33, 6, 37, 3, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL),
-(34, 1, 1, 5, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 126.38, 'mq'),
-(35, 1, 2, 5, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 177.88, 'mq'),
-(36, 1, 3, 5, 3, 2, 0, 3, 0, 2, 2, 2, NULL, 0, 64.22, 'mq'),
-(37, 1, 4, 5, 2, 2, 0, 3, 0, 2, 2, 1, NULL, 0, 112.12, 'mq'),
-(38, 1, 7, 5, 2, 2, 3, 3, 0, 2, 1, 1, NULL, 0, 108.91, 'mq'),
-(39, 2, 2, 5, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 177.88, 'mq'),
-(40, 2, 4, 5, 2, 2, 0, 3, 0, 2, 2, 1, NULL, 0, 112.12, 'mq'),
-(41, 5, 1, 5, 2, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 126.38, 'mq'),
-(42, 5, 2, 5, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 177.88, 'mq'),
-(43, 6, 1, 5, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 126.38, 'mq'),
-(44, 6, 2, 5, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 177.88, 'mq'),
-(45, 6, 3, 5, 3, 2, 0, 3, 0, 2, 2, 2, NULL, 0, 64.22, 'mq'),
-(46, 6, 4, 5, 2, 2, 0, 3, 0, 2, 2, 1, NULL, 0, 112.12, 'mq'),
-(47, 6, 7, 5, 2, 2, 3, 3, 0, 2, 1, 1, NULL, 0, 108.91, 'mq'),
-(48, 6, 8, 5, 2, 2, 3, 3, 0, 2, 1, 1, NULL, 0, 0, NULL),
-(49, 10, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL),
-(50, 10, 6, 5, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL),
-(51, 1, 1, 6, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 126.38, 'mq'),
-(52, 1, 2, 6, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 177.88, 'mq'),
-(53, 1, 3, 6, 3, 2, 0, 3, 0, 2, 2, 2, NULL, 0, 64.22, 'mq'),
-(54, 1, 4, 6, 2, 2, 0, 3, 0, 2, 2, 1, NULL, 0, 112.12, 'mq'),
-(55, 1, 7, 6, 2, 2, 3, 3, 0, 2, 1, 1, NULL, 0, 108.91, 'mq'),
-(56, 2, 2, 6, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 177.88, 'mq'),
-(57, 2, 4, 6, 2, 2, 0, 3, 0, 2, 2, 1, NULL, 0, 112.12, 'mq'),
-(58, 5, 1, 6, 2, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 126.38, 'mq'),
-(59, 5, 2, 6, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 177.88, 'mq'),
-(60, 6, 1, 6, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 126.38, 'mq'),
-(61, 6, 2, 6, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 177.88, 'mq'),
-(62, 6, 3, 6, 3, 2, 0, 3, 0, 2, 2, 2, NULL, 0, 64.22, 'mq'),
-(63, 6, 4, 6, 2, 2, 0, 3, 0, 2, 2, 1, NULL, 0, 112.12, 'mq'),
-(64, 6, 7, 6, 2, 2, 3, 3, 0, 2, 1, 1, NULL, 0, 108.91, 'mq'),
-(66, 10, 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL),
-(67, 10, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL),
-(68, 1, 36, 7, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL),
-(69, 6, 36, 7, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL),
-(70, 1, 37, 8, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL),
-(71, 6, 37, 8, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL),
-(72, 1, 23, 9, 1, 3, 2, 2, 2, 3, 2, 3, NULL, 0, 303.03, 'mq'),
-(73, 1, 24, 9, 2, 2, 3, 3, 3, 2, 3, 3, NULL, 0, 52.68, 'mq'),
-(74, 1, 25, 9, 1, 2, 2, 2, 2, 2, 3, 2, NULL, 0, 284.7, 'mq'),
-(75, 1, 26, 9, 3, 2, 3, 3, 3, 1, 3, 3, NULL, 0, 38.2, 'mq'),
-(76, 1, 28, 9, 2, 1, 3, 3, 3, 1, 3, 3, NULL, 0, 70, 'mq'),
-(77, 4, 23, 9, 1, 3, 2, 2, 2, 3, 2, 3, NULL, 0, 303.03, 'mq'),
-(78, 4, 24, 9, 2, 3, 3, 3, 3, 2, 3, 3, NULL, 0, 52.68, 'mq'),
-(79, 4, 25, 9, 1, 3, 2, 2, 2, 2, 3, 2, NULL, 0, 284.7, 'mq'),
-(80, 4, 26, 9, 3, 3, 3, 3, 3, 1, 3, 3, NULL, 0, 38.2, 'mq'),
-(81, 4, 27, 9, 3, 3, 3, 3, 3, 1, 3, 3, NULL, 0, 6.87, 'mq'),
-(82, 7, 30, 9, 2, 2, 3, 3, 3, 1, 3, 3, NULL, 0, 70, 'mq'),
-(83, 7, 31, 9, 2, 2, 2, 2, 2, 1, 3, 2, NULL, 0, 144.31, 'mq'),
-(84, 7, 32, 9, 1, 3, 1, 1, 1, 3, 3, 2, NULL, 0, 144.31, 'mq'),
-(85, 7, 33, 9, 2, 2, 1, 1, 1, 3, 3, 1, NULL, 0, 0, NULL),
-(86, 8, 29, 9, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL);
+INSERT INTO `associazione_intervento_ce` (`id`, `caratteristica_associazione_intervento_id`, `intervento_id`, `struttura_associazione_id`, `modicita_di_costo`, `efficacia`, `sup_intonacate`, `sup_ev_ii`, `sup_iv_ei`, `reversibilita`, `semplicita_di_cantiere`, `esiguita_di_ingombro`, `variante`, `prezzo_inton`, `prezzo_vista`, `unita_misura`, `prezzo_riepilogo`) VALUES
+(1, 1, 9, 1, 2, 2, 3, 3, 0, 2, 2, 2, NULL, 0, 61.2, 'mq', 0),
+(2, 1, 10, 1, 2, 1, 3, 3, 0, 2, 3, 3, NULL, 0, 56, 'mq', 0),
+(3, 1, 11, 1, 1, 3, 3, 0, 3, 2, 2, 1, NULL, 0, 71.27, 'mq', 0),
+(4, 1, 12, 1, 1, 3, 3, 0, 3, 2, 2, 2, NULL, 71.28, 56.8, 'mq', 0),
+(5, 1, 13, 1, 1, 2, 3, 0, 3, 2, 3, 3, NULL, 0, 56, 'mq', 0),
+(6, 1, 14, 1, 3, 2, 3, 3, 3, 1, 1, 3, NULL, 0, 11.26, 'mq', 0),
+(7, 3, 16, 1, 2, 3, 3, 2, 2, 2, 2, 3, NULL, 0, 3.53, 'm x cm', 0),
+(8, 3, 17, 1, 1, 2, 3, 2, 2, 2, 2, 3, NULL, 0, 6.24, 'm x cm', 0),
+(9, 3, 18, 1, 1, 1, 3, 0, 0, 2, 3, 2, NULL, 0, 56.04, 'mq', 0),
+(10, 3, 19, 1, 1, 1, 2, 2, 2, 2, 3, 3, NULL, 0, 6891.12, 'cad', 0),
+(11, 5, 11, 1, 1, 3, 3, 0, 3, 2, 1, 1, NULL, 0, 71.27, 'mq', 0),
+(12, 5, 12, 1, 2, 3, 3, 0, 3, 2, 2, 2, NULL, 71.28, 56.8, 'mq', 0),
+(13, 5, 13, 1, 2, 2, 3, 0, 3, 2, 3, 3, NULL, 0, 56, 'mq', 0),
+(14, 2, 11, 1, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(15, 6, 11, 1, 1, 3, 3, 0, 3, 2, 1, 1, NULL, 0, 71.27, 'mq', 0),
+(16, 6, 12, 1, 2, 3, 3, 0, 3, 2, 2, 2, NULL, 71.28, 56.8, 'mq', 0),
+(17, 6, 13, 1, 2, 2, 3, 0, 3, 2, 3, 3, NULL, 0, 56, 'mq', 0),
+(18, 6, 15, 1, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(19, 6, 20, 1, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(20, 6, 21, 1, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(21, 6, 22, 1, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(27, 1, 34, 2, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 101.88, 'mq', 0),
+(28, 6, 34, 2, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 101.88, 'mq', 0),
+(29, 1, 35, 4, 2, 2, 0, 3, 0, 2, 2, 2, NULL, 0, 0, 'mq', 0),
+(30, 1, 36, 4, 1, 3, 3, 3, 0, 2, 2, 3, NULL, 0, 101.88, 'mq', 0),
+(31, 6, 36, 4, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(32, 1, 37, 3, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(33, 6, 37, 3, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(34, 1, 1, 5, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 126.38, 'mq', 0),
+(35, 1, 2, 5, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 177.88, 'mq', 0),
+(36, 1, 3, 5, 3, 2, 0, 3, 0, 2, 2, 2, NULL, 0, 64.22, 'mq', 0),
+(37, 1, 4, 5, 2, 2, 0, 3, 0, 2, 2, 1, NULL, 0, 112.12, 'mq', 0),
+(38, 1, 7, 5, 2, 2, 3, 3, 0, 2, 1, 1, NULL, 0, 108.91, 'mq', 0),
+(39, 2, 2, 5, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 177.88, 'mq', 0),
+(40, 2, 4, 5, 2, 2, 0, 3, 0, 2, 2, 1, NULL, 0, 112.12, 'mq', 0),
+(41, 5, 1, 5, 2, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 126.38, 'mq', 0),
+(42, 5, 2, 5, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 177.88, 'mq', 0),
+(43, 6, 1, 5, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 126.38, 'mq', 0),
+(44, 6, 2, 5, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 177.88, 'mq', 0),
+(45, 6, 3, 5, 3, 2, 0, 3, 0, 2, 2, 2, NULL, 0, 64.22, 'mq', 0),
+(46, 6, 4, 5, 2, 2, 0, 3, 0, 2, 2, 1, NULL, 0, 112.12, 'mq', 0),
+(47, 6, 7, 5, 2, 2, 3, 3, 0, 2, 1, 1, NULL, 0, 108.91, 'mq', 0),
+(48, 6, 8, 5, 2, 2, 3, 3, 0, 2, 1, 1, NULL, 0, 0, NULL, 0),
+(49, 10, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(50, 10, 6, 5, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(51, 1, 1, 6, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 126.38, 'mq', 0),
+(52, 1, 2, 6, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 177.88, 'mq', 0),
+(53, 1, 3, 6, 3, 2, 0, 3, 0, 2, 2, 2, NULL, 0, 64.22, 'mq', 0),
+(54, 1, 4, 6, 2, 2, 0, 3, 0, 2, 2, 1, NULL, 0, 112.12, 'mq', 0),
+(55, 1, 7, 6, 2, 2, 3, 3, 0, 2, 1, 1, NULL, 0, 108.91, 'mq', 0),
+(56, 2, 2, 6, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 177.88, 'mq', 0),
+(57, 2, 4, 6, 2, 2, 0, 3, 0, 2, 2, 1, NULL, 0, 112.12, 'mq', 0),
+(58, 5, 1, 6, 2, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 126.38, 'mq', 0),
+(59, 5, 2, 6, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 177.88, 'mq', 0),
+(60, 6, 1, 6, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 126.38, 'mq', 0),
+(61, 6, 2, 6, 1, 3, 3, 3, 0, 2, 1, 3, NULL, 0, 177.88, 'mq', 0),
+(62, 6, 3, 6, 3, 2, 0, 3, 0, 2, 2, 2, NULL, 0, 64.22, 'mq', 0),
+(63, 6, 4, 6, 2, 2, 0, 3, 0, 2, 2, 1, NULL, 0, 112.12, 'mq', 0),
+(64, 6, 7, 6, 2, 2, 3, 3, 0, 2, 1, 1, NULL, 0, 108.91, 'mq', 0),
+(66, 10, 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(67, 10, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(68, 1, 36, 7, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(69, 6, 36, 7, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(70, 1, 37, 8, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(71, 6, 37, 8, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(72, 1, 23, 9, 1, 3, 2, 2, 2, 3, 2, 3, NULL, 0, 303.03, 'mq', 0),
+(73, 1, 24, 9, 2, 2, 3, 3, 3, 2, 3, 3, NULL, 0, 52.68, 'mq', 0),
+(74, 1, 25, 9, 1, 2, 2, 2, 2, 2, 3, 2, NULL, 0, 284.7, 'mq', 0),
+(75, 1, 26, 9, 3, 2, 3, 3, 3, 1, 3, 3, NULL, 0, 38.2, 'mq', 0),
+(76, 1, 28, 9, 2, 1, 3, 3, 3, 1, 3, 3, NULL, 0, 70, 'mq', 0),
+(77, 4, 23, 9, 1, 3, 2, 2, 2, 3, 2, 3, NULL, 0, 303.03, 'mq', 0),
+(78, 4, 24, 9, 2, 3, 3, 3, 3, 2, 3, 3, NULL, 0, 52.68, 'mq', 0),
+(79, 4, 25, 9, 1, 3, 2, 2, 2, 2, 3, 2, NULL, 0, 284.7, 'mq', 0),
+(80, 4, 26, 9, 3, 3, 3, 3, 3, 1, 3, 3, NULL, 0, 38.2, 'mq', 0),
+(81, 4, 27, 9, 3, 3, 3, 3, 3, 1, 3, 3, NULL, 0, 6.87, 'mq', 0),
+(82, 7, 30, 9, 2, 2, 3, 3, 3, 1, 3, 3, NULL, 0, 70, 'mq', 0),
+(83, 7, 31, 9, 2, 2, 2, 2, 2, 1, 3, 2, NULL, 0, 144.31, 'mq', 0),
+(84, 7, 32, 9, 1, 3, 1, 1, 1, 3, 3, 2, NULL, 0, 144.31, 'mq', 0),
+(85, 7, 33, 9, 2, 2, 1, 1, 1, 3, 3, 1, NULL, 0, 0, NULL, 0),
+(86, 8, 29, 9, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 0),
+(88, NULL, 55, NULL, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 56),
+(89, NULL, 56, NULL, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, NULL, 56);
 
 -- --------------------------------------------------------
 
@@ -307,18 +310,19 @@ INSERT INTO `associazione_intervento_st` (`id`, `efficacia`, `esiguita_di_ingomb
 
 CREATE TABLE `associazione_riepilogo` (
   `id` bigint(20) NOT NULL,
-  `percentuale` int(11) DEFAULT NULL,
   `associazione_intervento_energetico_id` bigint(20) DEFAULT NULL,
-  `associazione_intervento_strutturale_id` bigint(20) DEFAULT NULL
+  `associazione_intervento_strutturale_id` bigint(20) DEFAULT NULL,
+  `risparmio_euro` double DEFAULT NULL,
+  `attrezzature` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `associazione_riepilogo`
 --
 
-INSERT INTO `associazione_riepilogo` (`id`, `percentuale`, `associazione_intervento_energetico_id`, `associazione_intervento_strutturale_id`) VALUES
-(1, 20, 29, 7),
-(2, 20, 32, 7);
+INSERT INTO `associazione_riepilogo` (`id`, `associazione_intervento_energetico_id`, `associazione_intervento_strutturale_id`, `risparmio_euro`, `attrezzature`) VALUES
+(1, 88, 7, 40.45, 'Trabattelli ad uso interno'),
+(2, 89, 7, 40.45, 'Trabattelli ad uso interno');
 
 -- --------------------------------------------------------
 
@@ -796,7 +800,9 @@ INSERT INTO `codice_intervento_ce` (`id`, `codice`, `descrizione`, `appunto`, `a
 (51, 'f1', 'Introduzione di sistemi di ombreggiamento all\'intorno\r\n', NULL, NULL, NULL),
 (52, 'f2', 'Realizzazione di una serra solare\r\n', NULL, NULL, NULL),
 (53, 'f3', 'Realizzazione di camini di luce\r\n', NULL, NULL, NULL),
-(54, 'f4', 'Realizzazione di un camino di ventilazione\r\n', NULL, NULL, NULL);
+(54, 'f4', 'Realizzazione di un camino di ventilazione\r\n', NULL, NULL, NULL),
+(55, 'd2 a', NULL, NULL, NULL, NULL),
+(56, 'd2 b', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -823,7 +829,7 @@ INSERT INTO `codice_intervento_st` (`id`, `codice`, `descrizione`, `attrezzatura
 (3, 'A3', 'Inserimento di cerchiature esterne con elementi metallici o materiali compositi', 'B', 'Ponteggi esterni', NULL),
 (4, 'A4', 'Scuci-cuci agli ammorsamenti', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
 (5, 'A5', 'Realizzazione di perforazioni armate con barre metalliche', 'B', 'Ponteggi esterni', NULL),
-(6, 'A6', 'Realizzazione di cordoli in sommità', 'A, B ed E', 'Trabattelli ad uso interno, Ponteggi esterni e Puntellatura', NULL),
+(6, 'A6', 'Realizzazione di cordoli in sommità', 'A, B ed E', 'Trabattelli ad uso interno, Ponteggi esterni e Puntellatura', '* Per A6b sono da considerare solo i Trabattelli ad uso interno'),
 (7, 'A7', 'Ancoraggio delle teste di travi alle murature tramite elementi metallici o in altro materiale resistente a trazione (capichiave)', 'B', 'Ponteggi esterni', NULL),
 (8, 'A8', 'Cordoli di piano in acciaio', 'A', 'Trabattelli ad uso interno', NULL),
 (9, 'B1', 'Irrigidimento con introduzione di un secondo tavolato all’estradosso disposto con andamento ortogonale o inclinato', NULL, NULL, NULL),
@@ -876,7 +882,7 @@ INSERT INTO `codice_intervento_st` (`id`, `codice`, `descrizione`, `attrezzatura
 (56, 'G3', 'Placcaggio all\'estradosso con fasce di materiale composito', 'E', NULL, NULL),
 (57, 'G4', 'Placcaggio all\'intradosso con fasce di mareriale composito', 'A', 'Trabattelli ad uso interno ', NULL),
 (58, 'G5', 'Iniezioni di malta per ripristinare le lesioni', 'A', 'Trabattelli ad uso interno ', NULL),
-(59, 'G6', 'Incuneatura di elementi in legno o metallo con sigillatura e iniezione tramite prodotti specifici', 'A', 'Trabattelli ad uso interno ', NULL),
+(59, 'G6', 'Incuneatura di elementi in legno o metallo con sigillatura e iniezione tramite prodotti specifici', 'A', 'Trabattelli ad uso interno ', '* In caso di azione da estradosso non è da considerare nessun costo aggiuntivo per le attrezzature'),
 (60, 'G7', 'Realizzazione sull\'arco di perforazioni incrociate', 'A', 'Trabattelli ad uso interno ', NULL),
 (61, 'G8', 'Rinforzo tramite accostamento di tavole e solidarizzazione degli elementi portanti tramite fascette in ferro chiodate alla struttura lignea', 'E', 'Puntellatura', NULL),
 (62, 'G9', 'Alleggerimento/svuotamento del riempimento della volta ed inserimento di frenelli', 'E', 'Puntellatura', NULL),
@@ -1772,7 +1778,7 @@ ALTER TABLE `valutazione_punteggio_st`
 -- AUTO_INCREMENT per la tabella `associazione_intervento_ce`
 --
 ALTER TABLE `associazione_intervento_ce`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT per la tabella `associazione_intervento_st`
@@ -1820,7 +1826,7 @@ ALTER TABLE `classe_indicatore_non_ce`
 -- AUTO_INCREMENT per la tabella `codice_intervento_ce`
 --
 ALTER TABLE `codice_intervento_ce`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT per la tabella `codice_intervento_st`

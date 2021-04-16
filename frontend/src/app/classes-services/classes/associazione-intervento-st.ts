@@ -4,6 +4,8 @@ import { InterventoSt } from "./intervento-st"
 import { StrutturaSt } from "./structure/struttura-st"
 
 export class AssociazioneInterventoSt {
+    id: number
+    
     intervento: InterventoSt
     caratteristicaAssociazioneIntervento: CaratteristicheQualitativeSt
     strutturaAssociazione: StrutturaSt

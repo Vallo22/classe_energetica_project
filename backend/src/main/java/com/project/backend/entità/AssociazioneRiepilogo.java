@@ -24,7 +24,8 @@ public class AssociazioneRiepilogo {
     private AssociazioneInterventoCe associazioneInterventoEnergetico;
 
     @Column
-    private int percentuale;
+    private double risparmioEuro;
+    private String attrezzature;
 
     public long getId() {
         return this.id;
@@ -50,12 +51,20 @@ public class AssociazioneRiepilogo {
         this.associazioneInterventoEnergetico = associazioneInterventoEnergetico;
     }
 
-    public int getPercentuale() {
-        return this.percentuale;
+    public double getRisparmioEuro() {
+        return this.risparmioEuro;
     }
 
-    public void setPercentuale(int percentuale) {
-        this.percentuale = percentuale;
+    public void setRisparmioEuro(double risparmioEuro) {
+        this.risparmioEuro = risparmioEuro;
     }
-    
+
+    public String getAttrezzature() {
+        return this.attrezzature;
+    }
+
+    public void setAttrezzature(String attrezzature) {
+        this.attrezzature = attrezzature;
+    }
+       
 }
