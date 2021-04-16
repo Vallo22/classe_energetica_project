@@ -49,8 +49,6 @@ export class RiepilogoCombinatoStComponent implements OnInit {
       this.associazioneSelezionati.forEach(d => {
         this.interventoEnergetico = d?.associazioneInterventoEnergetico
         this.interv.push(this.interventoEnergetico)
-        this.risparmioEuro = d.risparmioEuro
-        this.attrezzature = d.attrezzature
       })
 
     })
@@ -67,7 +65,15 @@ export class RiepilogoCombinatoStComponent implements OnInit {
 
   onChangeEnergetico(interventoEn: number) {
     this.prezzoEnergetico = interventoEn
+    this.associazioneSelezionati.forEach(c => {
+      if(this.prezzoEnergetico == c.associazioneInterventoEnergetico.prezzoRiepilogo) {
+        this.risparmioEuro = c.risparmioEuro
+        this.attrezzature = c.attrezzature
+      }
+    })
+    this.showDiv = true
   }
+
 
   calcolaSomma() {
     this.somma = Number(this.prezzoEnergetico) + Number(this.prezzoStrutturale)

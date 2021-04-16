@@ -27,6 +27,7 @@ export class AssociazioneInterventoSt {
     prezzo: number
     prezzoSupInt: number
     prezzoEntrInt: number
+    prezzoRiepilogo: number
     unitaMisura: string
     valoreCifra?: number
     costoInvestimentoTotale?: number

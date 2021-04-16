@@ -8,11 +8,11 @@
             <p style="font-size: 17px;"><strong>• Intervento Strutturale</strong></p>
             <select class="form-control" (change)="onChangeIntervento($event.target.value)">
                 <option>Seleziona</option>
-                <option [value]="interventoStrutturale.prezzoSupInt" *ngFor="let interventoStrutturale of interventi">{{interventoStrutturale.intervento.codice}}</option>
+                <option [value]="interventoStrutturale.prezzoRiepilogo" *ngFor="let interventoStrutturale of interventi">{{interventoStrutturale.intervento.codice}}</option>
             </select>
             <p style="font-size: 17px;" style="margin-top: 10px;"><strong>• Intervento Energetico</strong></p>
             <select class="form-control" (change)="onChangeEnergetico($event.target.value)">
-                <option>Seleziona</option>
+                <option value="0">Seleziona</option>
                 <option [value]="interventoEn.prezzoRiepilogo" *ngFor="let interventoEn of interv">{{interventoEn.intervento.codice}}</option>
             </select>
 
