@@ -24,6 +24,7 @@ export class TipoStrutturaCeComponent implements OnInit {
   associazioneIntervento: AssociazioneInterventoCe[];
 
   selectedElement = [];
+  elementiStrutt = []
   selectedIndex: number;
   selectedElementDue = [];
   selectedIndexDue: number;
@@ -79,6 +80,11 @@ export class TipoStrutturaCeComponent implements OnInit {
   ngOnInit() {
     this.service.getStruttura().subscribe(data => {
       this.strutt = data;
+      this.strutt.forEach(c => {
+        if(c.id != 6) {
+          this.elementiStrutt.push(c)
+        }
+      })
     })
     this.service.getStrutturaDue().subscribe(data => {
       this.strutt2 = data;
@@ -95,7 +101,7 @@ export class TipoStrutturaCeComponent implements OnInit {
     this.selectedElement = []
     this.strutt2.forEach(t => {
       if (t.struttura_id !== undefined) {
-        if (t.struttura_id.id === this.strutt[index].id) {
+        if (t.struttura_id.id === this.elementiStrutt[index].id) {
           this.selectedElement.push(t)
         }
       }
