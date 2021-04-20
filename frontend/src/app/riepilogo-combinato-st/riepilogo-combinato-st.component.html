@@ -1,19 +1,19 @@
 <div class="container">
     <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-        <p><strong>Risparmio economico per azioni integrate</strong></p>
+        <p><strong>Integrazione con le soluzioni energetiche</strong></p>
     </div>
 
     <div class="card my-5">
         <div class="card-body">
-            <p style="font-size: 17px;"><strong>• Intervento Strutturale</strong></p>
+            <p style="font-size: 17px;"><strong>• Interventi strutturali selezionati</strong></p>
             <select class="form-control" (change)="onChangeIntervento($event.target.value)">
                 <option>Seleziona</option>
-                <option [value]="interventoStrutturale.prezzoRiepilogo" *ngFor="let interventoStrutturale of interventi">{{interventoStrutturale.intervento.codice}} {{interventoStrutturale.variante}}</option>
+                <option [value]="interventoStrutturale.prezzoRiepilogo" *ngFor="let interventoStrutturale of interventi">{{interventoStrutturale.intervento.codice}} {{interventoStrutturale.variante}} - {{interventoStrutturale.intervento.descrizione}}</option>
             </select>
-            <p style="font-size: 17px;" style="margin-top: 10px;"><strong>• Intervento Energetico</strong></p>
+            <p style="font-size: 17px;" style="margin-top: 10px;"><strong>• Interventi energetici integrabili</strong></p>
             <select class="form-control" (change)="onChangeEnergetico($event.target.value)">
                 <option value selected="0">Seleziona</option>
-                <option [value]="interventoEn.prezzoRiepilogo" *ngFor="let interventoEn of interv">{{interventoEn.intervento.codice}}</option>
+                <option [value]="interventoEn.prezzoRiepilogo" *ngFor="let interventoEn of interv">{{interventoEn.intervento.codice}} - {{interventoEn.intervento.descrizione}}</option>
             </select>
 
             <div class="pulsante" style="margin-top: 10px;">
@@ -23,11 +23,11 @@
         <div class="card-footer" *ngIf="showDiv == false">
             Costo Intervento Strutturale: {{prezzoStrutturale}} €/mq<br>
             Costo Intervento Energetico: {{prezzoEnergetico}} €/mq<br>
-            Somma: {{somma | number: '1.2-2'}} €/mq
+            Somma: {{somma | number: '1.2-2'}} €/mq<br>
+            Costo integrato: {{costoIntegrato | number: '1.2-2'}} €/mq
             <hr>
-            <strong>Risparmio in €: {{risparmioEuro}} €/mq</strong><br>
-            Costo integrato: {{costoIntegrato | number: '1.2-2'}} €/mq<br>
-            <strong>Risparmio in %: {{risparmioPercentuale | number: '1.0-0'}}%</strong>
+            <strong>Risparmio %: {{risparmioPercentuale | number: '1.0-0'}}%</strong><br>
+            <strong>Risparmio €: {{risparmioEuro}} €/mq</strong>
             <hr>
             Attrezzature per la sicurezza di uso comune: {{attrezzature}}
         </div> 

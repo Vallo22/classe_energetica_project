@@ -26,8 +26,7 @@
               <select name="sel{{j}}" [(ngModel)]="selezione[j]" style="margin-top: 10px;" class="form-control">
                 <ng-container *ngFor="let classe of classeIndicatore; index as i">
                   <option *ngIf="classe.indicatore.id === ind.id" [value]="classe.id">
-                    {{ classe.descrizione }} <p>|</p>
-                    {{ classe.punteggio }} 
+                    {{ classe.descrizione }}
                   </option>            
                 </ng-container>
               </select>
@@ -41,8 +40,7 @@
               <select name="sel1{{a}}" [(ngModel)]="selezione1[a]" style="margin-top: 10px;" class="form-control">
                 <ng-container *ngFor="let classe of classeIndicatoreNon; index as b">
                   <option *ngIf="classe.indicatore.id === ind1.id" [value]="classe.id">
-                    {{ classe.descrizione }} <p>|</p>
-                    {{ classe.punteggio }} 
+                    {{ classe.descrizione }}
                   </option>            
                 </ng-container>
               </select>
@@ -60,22 +58,7 @@
         <button type="submit" *ngIf="scelta === false" (click)="outputTotaleNon()" style="margin-top: 5px"
           class="btn btn-outline-default">Ottieni risultato</button>
           <hr>
-          <div style="justify-content: center;" *ngIf="msg1">
-            <div class="row">
-              <div class="col">
-                Totale Edificio Reale: <strong>{{totaleEdificioReale | number: '1.2-2':'fr'}}</strong>
-              </div>
-              <div class="col">
-                Epgl Edificio Reale: <strong>{{epglEdificioReale | number: '1.2-2':'fr'}}</strong>
-              </div>
-              <div class="col">
-                Totale Edificio Ideale: <strong>{{totaleEdificioIdeale | number: '1.2-2':'fr'}}</strong>
-              </div>
-              <div class="col">
-                Epgl Edificio Ideale: <strong>{{epglEdificioIdeale | number: '1.2-2':'fr'}}</strong>
-              </div>
-            </div> 
-            <hr>         
+          <div style="justify-content: center;" *ngIf="msg1">         
             <p style="font-size: 20px;">Classe Energetica: <strong>{{classeEnergetica}}</strong></p>
             <div style="margin-top: 10px;" *ngIf="classeEnA">
               <img class="imgClasse" src="assets\images\parte_energetica\ClasseA.png" alt="Generic placeholder image">

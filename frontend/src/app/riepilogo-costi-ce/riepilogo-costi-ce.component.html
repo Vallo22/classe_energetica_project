@@ -58,17 +58,12 @@
     </div>
     <div class="pulsante1">
         <button class="btn btn-outline-default" style="align-content: center;" (click)="calcolaInvestimentoTotale()">
-            Calcola il costo totale di investimento
+            Calcola
         </button>
     </div>
 
-    <hr>
-
     <table class="table table-bordered" style="margin-top: 30px;">
         <caption></caption>
-        <thead style="background-color: #ce5e59; color: white;">
-            <th scope="colgroup" colspan="2" style="text-align: center;">CALCOLO DEI COSTI</th>
-        </thead>
         <tbody>
             <tr>
                 <td>Costo di investimento totale:</td>
@@ -79,10 +74,12 @@
         </tbody>
     </table>
 
+    <hr>
+
     <table class="table table-bordered" style="margin-top: 30px;">
         <caption></caption>
         <thead style="background-color: #ce5e59; color: white;">
-            <th scope="colgroup" colspan="2" style="text-align: center;">INSERIMENTO DATI</th>
+            <th scope="colgroup" colspan="2" style="text-align: center;">VALUTAZIONE COSTI / BENEFICI</th>
         </thead>
         <tbody>
             <tr>
@@ -109,7 +106,7 @@
                 </td>
             </tr>
         </tbody>
-    </table>
+    </table>    
 
     <div class="pulsante1">
         <button class="btn btn-outline-default" style="align-content: center;" (click)="calcoloRisparmi()">
@@ -117,29 +114,24 @@
         </button>
     </div>
 
-    <hr>
-
-    <table class="table table-bordered" style="margin-top: 30px;">
-        <caption></caption>
-        <thead style="background-color: #ce5e59; color: white;">
-            <th scope="colgroup" colspan="2" style="text-align: center;">CALCOLO</th>
-        </thead>
-        <tbody>
+                <table class="table table-bordered" style="margin-top: 30px;">
+                    <caption></caption> 
+                <tbody>
             <tr>
                 <td>Risparmio energetico:</td>
-                <td>{{risparmioEnergetico | number: '1.2-2':'fr'}}</td>
+                <td style="background-color: #fad677;">{{risparmioEnergetico | number: '1.2-2':'fr'}}</td>
             </tr>
             <tr>
                 <td>Risparmio economico:</td>
-                <td>{{risparmioEconomico | number: '1.2-2':'fr'}}</td>
+                <td style="background-color: #fad677;">{{risparmioEconomico | number: '1.2-2':'fr'}}</td>
             </tr>
             <tr>
                 <td>Tempo di ritorno:</td>
-                <td>{{tempoDiRitorno | number: '1.2-2':'fr'}}</td>
+                <td style="background-color: #fad677;">{{tempoDiRitorno | number: '1.2-2':'fr'}}</td>
             </tr>
             <tr>
                 <td>Cu(E):</td>
-                <td>{{cue | number: '1.2-2':'fr'}}</td>
+                <td style="background-color: #fad677;">{{cue | number: '1.2-2':'fr'}}</td>
             </tr>
         </tbody>
     </table>

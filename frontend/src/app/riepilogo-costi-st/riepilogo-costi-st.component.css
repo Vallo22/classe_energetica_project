@@ -22,3 +22,14 @@
     background-color: #ce5e59 !important;
     color: white;
   }
+
+  .btn-outlinev-default, .btn-outlinev-default:active, .btn-outlinev-default:visited {
+    background-color: #5a8982 !important;
+    color: white;
+    border-color: white;
+  }
+  
+  .btn-outlinev-default:hover {
+    background-color: #314b47 !important;
+    color: white;
+  }
