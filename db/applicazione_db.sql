@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Apr 20, 2021 alle 12:09
+-- Creato il: Apr 20, 2021 alle 18:06
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -897,7 +897,7 @@ INSERT INTO `codice_intervento_ce` (`id`, `codice`, `descrizione`, `appunto`, `a
 (11, 'b3', 'Isolamento termico a pannelli sulla superficie esterna della parete ventilato\r\n', NULL, 'B', 'Ponteggi esterni'),
 (12, 'b4', 'Isolamento termico a pannelli sulla superficie esterna della parete non ventilato\r\n', NULL, 'B', 'Ponteggi esterni'),
 (13, 'b5', 'Isolamento tramite intonaco termoisolante sulla superficie esterna della parete\r\n', NULL, 'B', 'Ponteggi esterni'),
-(14, 'b6', 'Isolamento termico all\'interno dell\'intercapedine*\r\n', '*questo intervento può essere effettuato solo su 2 paramenti con intercapedine\r\n                    vuota o combinata con intervento strutturale D13', 'A', 'Trabattelli ad uso interno'),
+(14, 'b6', 'Isolamento termico all\'interno dell\'intercapedine*\r\n', '*questo intervento può essere effettuato su muratura a due paramenti con intercapedine vuota o combinato con l\'intervento strutturale D13', 'A', 'Trabattelli ad uso interno'),
 (15, 'b7', 'Sistemi di accumulo a cambiamento di fase* \r\n', '*gli interventi richiedono una progettazione approfondita e una più attenta\r\n                    valutazione di applicabilità;\r\n                    non è possibile attribuire giudizi di prestazione non conoscendo le specifiche scelte progettuali', NULL, '-'),
 (16, 'b8', 'Realizzazione di barriere fisiche alla risalita capillare*\r\n', '*l\'intervento può comportare problematiche di tipo statico', NULL, '-'),
 (17, 'b9', 'Realizzazione di barriere chimiche alla risalita capillare\r\n', NULL, NULL, '-'),
@@ -938,10 +938,10 @@ INSERT INTO `codice_intervento_ce` (`id`, `codice`, `descrizione`, `appunto`, `a
 (52, 'f2', 'Realizzazione di una serra solare\r\n', NULL, NULL, '-'),
 (53, 'f3', 'Realizzazione di camini di luce\r\n', NULL, NULL, '-'),
 (54, 'f4', 'Realizzazione di un camino di ventilazione\r\n', NULL, NULL, '-'),
-(55, 'd2 b', NULL, NULL, NULL, NULL),
-(56, 'd4 b', NULL, NULL, NULL, NULL),
-(57, 'd2 a', NULL, NULL, NULL, NULL),
-(58, 'd4 a', NULL, NULL, NULL, NULL);
+(55, 'd2 b', 'Isolamento termico all\'intradosso del solaio superiore', NULL, NULL, NULL),
+(56, 'd4 b', 'Isolamento termico all\'estradosso del solaio inferiore \r\n', NULL, NULL, NULL),
+(57, 'd2 a', 'Isolamento termico all\'intradosso del solaio superiore', NULL, NULL, NULL),
+(58, 'd4 a', 'Isolamento termico all\'estradosso del solaio inferiore \r\n', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1077,7 +1077,7 @@ INSERT INTO `edificio_st` (`id`, `descrizione`, `punteggio`, `valutazione`, `tip
 (17, 'Percentuale tra 30% e 70%', 10, 'M', 0, 6),
 (18, 'Strutture non adeguate meno del 30%', 0, 'B', 0, 6),
 (19, 'Bucature per oltre il 50%', 4, 'A', 0, 7),
-(20, 'Percentuale tra 25% e 50%', 2, 'M', 0, 7),
+(20, 'Bucature tra 25% e 50% o per meno del 25% da rafforzare', 2, 'M', 0, 7),
 (21, 'Bucature per meno del 25%', 0, 'B', 0, 7),
 (22, 'Bucature per oltre il 50%', 4, 'A', 0, 8),
 (23, 'Percentuale tra 25% e 50%', 2, 'M', 0, 8),
@@ -1242,7 +1242,7 @@ INSERT INTO `quality_st` (`id`, `quality`, `t_quality_id`) VALUES
 (4, 'Pannelli murari male ammorsati tra loro\r\n\r\n\r\n', 1),
 (5, 'Orizzontamenti male ammorsati alle pareti: efficacia dei collegamenti con la muratura\r\n\r\n\r\n', 1),
 (6, 'Orizzontamenti male ammorsati alle pareti: qualità delle strutture orizzontali\r\n\r\n\r\n', 1),
-(7, 'Aperture di elevate dimensioni intervallate da maschi di ridotte dimensioni\r\n\r\n\r\n', 1),
+(7, 'Aperture di elevate dimensioni da rafforzare o intervallate da maschi di ridotte dimensioni\r\n\r\n\r\n', 1),
 (8, 'Presenza di numerose nicchie che riducono significativamente l\'area resistente della muratura\r\n\r\n\r\n', 1),
 (9, 'Pareti di elevate dimensioni (larghezza e altezza) non controventate a sufficienza\r\n\r\n\r\n', 1),
 (10, 'Pannelli murari a doppio strato con camera d\'aria\r\n\r\n\r\n', 1),
