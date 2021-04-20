@@ -21,7 +21,7 @@
                     <tbody>
                         <ng-container *ngFor="let elemento of interventi; index as j">
                             <tr>
-                                <td style="vertical-align: middle;">{{elemento.intervento.codice}}{{elemento.variante}}</td>
+                                <td style="vertical-align: middle;">{{elemento.intervento.codice}} {{elemento.variante}}</td>
 
                                 <td style="vertical-align: middle;">
                                     <select [(ngModel)]="elemento.tipo_superficie">

@@ -190,7 +190,7 @@
                                 </tr>
 
                                 <tr *ngFor="let interventi of arraySelezionati; index as i">
-                                    <th scope="row">Incidenza intervento {{interventi.intervento.codice}}
+                                    <th scope="row">Incidenza intervento {{interventi.intervento.codice}} {{interventi.variante}}
                                     </th>
                                     <td>{{interventoSingolo}}</td>
                                 </tr>
@@ -198,7 +198,7 @@
                                     <td>
                                 <tr scope="row" *ngFor="let arr of interventiDaMostrare; index as j">
                                     <strong>
-                                        Incidenza intervento precedente {{arr.intervento.codice}}
+                                        Incidenza intervento precedente {{arr.intervento.codice}} {{arr.variante}}
                                     </strong>
                                 </tr>
                                 </td>

@@ -179,7 +179,7 @@
                     POST INTERVENTO</th>
                 </tr>
                 <tr *ngFor="let interventi of arraySelezionati; index as i">
-                  <th scope="row">Incidenza intervento {{interventi.intervento.codice}}
+                  <th scope="row">Incidenza intervento {{interventi.intervento.codice}} {{interventi.variante}}
                   </th>
                   <td>{{interventoSingolo}}</td>
                 </tr>

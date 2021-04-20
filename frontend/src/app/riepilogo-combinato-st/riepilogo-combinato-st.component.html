@@ -8,7 +8,7 @@
             <p style="font-size: 17px;"><strong>• Intervento Strutturale</strong></p>
             <select class="form-control" (change)="onChangeIntervento($event.target.value)">
                 <option>Seleziona</option>
-                <option [value]="interventoStrutturale.prezzoRiepilogo" *ngFor="let interventoStrutturale of interventi">{{interventoStrutturale.intervento.codice}}</option>
+                <option [value]="interventoStrutturale.prezzoRiepilogo" *ngFor="let interventoStrutturale of interventi">{{interventoStrutturale.intervento.codice}} {{interventoStrutturale.variante}}</option>
             </select>
             <p style="font-size: 17px;" style="margin-top: 10px;"><strong>• Intervento Energetico</strong></p>
             <select class="form-control" (change)="onChangeEnergetico($event.target.value)">
@@ -23,7 +23,7 @@
         <div class="card-footer" *ngIf="showDiv == false">
             Costo Intervento Strutturale: {{prezzoStrutturale}} €/mq<br>
             Costo Intervento Energetico: {{prezzoEnergetico}} €/mq<br>
-            Somma: {{somma}} €/mq
+            Somma: {{somma | number: '1.2-2'}} €/mq
             <hr>
             <strong>Risparmio in €: {{risparmioEuro}} €/mq</strong><br>
             Costo integrato: {{costoIntegrato | number: '1.2-2'}} €/mq<br>

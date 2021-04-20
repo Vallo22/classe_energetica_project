@@ -178,14 +178,19 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
     let minIndex: number
     this.interventiSecondari.forEach(interventi => {
       for (let index in interventi.varianti) {
-        if (interventi.totale[index] >= max) {
-          max = interventi.totale[index]
-          maxIntervento = interventi
-          maxIndex = parseInt(index)
-        } else if (interventi.totale[index] < min) {
-          min = interventi.totale[index]
-          minIntervento = interventi
-          minIndex = parseInt(index)
+        if (interventi.totale[index] != 0) {
+          if (interventi.totale[index] >= max) {
+            max = interventi.totale[index]
+            maxIntervento = interventi
+            maxIndex = parseInt(index)
+          }
+          if (interventi.totale[index] < min) {
+            min = interventi.totale[index]
+            minIntervento = interventi
+            minIndex = parseInt(index)
+          }
+        }else if(interventi.totale[index] == 0){
+          interventi.ugualeA0 = true
         }
       }
     })
