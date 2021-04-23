@@ -3,12 +3,16 @@
 Start the **backend**
 
 Start the **frontend** from the Terminal:
-`cd ser_app_project/frontend
+```
+cd ser_app_project/frontend
 npm install
-ng s -o`
+ng s -o
+```
 
 Application starts here:
-`http://localhost:4200/`
+```
+http://localhost:4200/
+```
 
 
  
