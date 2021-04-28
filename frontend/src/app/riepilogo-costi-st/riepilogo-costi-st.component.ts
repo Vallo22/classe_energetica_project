@@ -25,10 +25,12 @@ export class RiepilogoCostiStComponent implements OnInit {
   interventi: AssociazioneInterventoSt[] = []
   risk: string
   soglia: number
+  vulClass: number
   sommaPacchettoInterventi: number
   tipo_superficie: number = 0
   totale: number = 0
   risultatoDivisione: number
+  punteggio: number
 
   selezione: number
   inputUtente: number
@@ -71,7 +73,9 @@ export class RiepilogoCostiStComponent implements OnInit {
   ngOnInit() {
     this.sommaPacchettoInterventi = window.history.state.sommaPacchettoInterventi
     this.soglia = window.history.state.soglia
+    this.vulClass = window.history.state.vulClass
     this.risk = window.history.state.risk;
+    this.punteggio = window.history.state.punteggio
     this.risultatoSelezione.interventiSelezionati.forEach(z => {
       this.interventi.push(z)
     })
@@ -112,7 +116,11 @@ export class RiepilogoCostiStComponent implements OnInit {
   trasferisciInterventi() {
     this.router.navigate(['/riepilogo-combinato-st'], {
       state: {
-        interventi: this.interventi
+        interventi: this.interventi,
+        soglia: this.soglia,
+        vulClass: this.vulClass,
+        risk: this.risk,
+        punteggio: this.punteggio
       }
     })
   }

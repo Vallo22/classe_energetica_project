@@ -3,6 +3,9 @@ import { AssociazioneInterventoCe } from '../classes-services/classes/associazio
 import { AssociazioneInterventoSt } from '../classes-services/classes/associazione-intervento-st';
 import { AssociazioneRiepilogo } from '../classes-services/classes/associazione-riepilogo';
 import { AssociazioneRiepilogoService } from '../classes-services/services/associazione-riepilogo.service';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-riepilogo-combinato-st',
@@ -16,6 +19,10 @@ export class RiepilogoCombinatoStComponent implements OnInit {
   ) { }
 
   interventi: AssociazioneInterventoSt[] = []
+  soglia: number
+  vulClass: number
+  risk: number
+  punteggio: number
   interventoSelezionato: number
   associazione: AssociazioneRiepilogo[]
   somma: number
@@ -30,13 +37,54 @@ export class RiepilogoCombinatoStComponent implements OnInit {
   attrezzature: string
   showDiv: boolean = true
   elementoSelezionato = []
+  interventoPdf = []
 
   ngOnInit() {
     this.interventi = window.history.state.interventi
+    this.soglia = window.history.state.soglia
+    this.vulClass = window.history.state.vulClass
+    this.risk = window.history.state.risk;
+    this.punteggio = window.history.state.punteggio
     this.service.getAssociazioneRiepilogo().subscribe(data => {
       this.associazione = data
     })
+    this.interventi.forEach(t => {
+      this.interventoPdf.push(t.intervento.codice)
+    })
   }
+
+  generatePdf(){
+    const documentDefinition = this.getDocumentDefinition()
+    pdfMake.createPdf(documentDefinition).open()
+  }
+
+  getDocumentDefinition() {
+    return{
+      content: [
+        {text: 'Riepilogo Valutazione Strutturale\n\n', style: 'header', bold:'true', fontSize: 20},
+
+        {
+          style: 'tableExample',
+          table: {
+            widths: ['*', 'auto'],
+            body: [
+              ['Classe di vulnerabilità', 'V' + this.vulClass],
+              ['Totale punteggio iniziale', this.punteggio],
+              ['Classe di rischio sismico', this.risk]
+            ]
+          }
+        },
+
+        {text: 'Interventi selezionati:', style: 'subheader'},
+		{
+			ul: [
+				this.interventoPdf
+			]
+		}
+      ]
+    }
+  }
+
 
   mostra() {
     this.showDiv = false;

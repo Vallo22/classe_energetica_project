@@ -245,7 +245,9 @@ export class ValutazioneInterventiStComponent implements OnInit {
     this.router.navigate(['/riepilogo-costi-st'], {
       state: {
         risk: this.risk,
+        vulClass: this.vulClass,
         soglia: this.soglia,
+        punteggio: this.punteggio,
         sommaPacchettoInterventi: this.interventoSingolo
       }
     })
