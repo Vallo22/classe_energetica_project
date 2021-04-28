@@ -1,15 +1,22 @@
 <div class="container">
 
+    <!-- PROGRESS BAR -->
+  <div class="progress" style="margin-top: 30px">
+    <div class="progress-bar-1" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="progress-bar-2" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">STEP 2</div>
+  </div>
+
     <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
         <p><strong>Valutazione multicriterio delle alternative di intervento</strong>
     </div>
 
+    <div *ngIf="pass == true">
     <div>
         <div class="form-check">
             <input type="checkbox" class="form-check-input" id="checkbox1" [(ngModel)]="toggleSuperficie"
                 (change)="cambiaTotale()">
-            <label class="form-check-label" for="checkbox1"><strong>Spunta la casella se le superfici verticali sono
-                    intonacate</strong></label>
+            <label class="form-check-label" for="checkbox1"><strong>Spunta la casella se le superfici sono coperte
+                da finitura</strong></label>
         </div>
 
         <hr>
@@ -50,7 +57,7 @@
             <tbody>
                 <ng-container *ngFor="let interventi of interventiSecondari; index as i">
                     <tr *ngFor="let variante of interventi.varianti; index as j">
-                        <ng-container *ngIf="interventi.passaggio != 2">
+                        <ng-container *ngIf="interventi.passaggio == 0">
                         <td>{{interventi.intervento.codice}} {{interventi.varianti[j]}}</td>
                         <td>{{interventi.modicitaDiCosto[j]}}</td>
                         <td>{{interventi.efficacia[j]}}</td>
@@ -76,6 +83,36 @@
             </tbody>
         </table>
     </div>
+    </div>
+
+    <div *ngIf="pass2 == true">
+        <div class="overflow-auto">
+          <table class="table table-hover table-bordered table-striped">
+            <caption></caption>
+            <thead style="background:#ce5e59; color: white;">
+              <tr>
+                <th style="text-align: center; vertical-align: middle;" rowspan="2" colspan="1" scope="colgroup">Codice</th>
+                <th style="text-align: center;" rowspan="2" scope="colgroup">Intervento selezionato</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let interventi of interventiSecondari; index as i">
+                <tr *ngFor="let variante of interventi.varianti; index as j">
+                  <ng-container *ngIf="interventi.passaggio == 1">
+                  <td>{{interventi.intervento.codice}} {{interventi.varianti[j]}}</td>
+                  <td>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" [disabled]="arraySelezionati.length > 0"
+                        class="form-check-input" (click)="premiBottone(interventi, j, i, $event.currentTarget.checked)">
+                    </div>
+                  </td>
+                </ng-container>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
     <div class="overflow-auto">
         <div class="card my-5">

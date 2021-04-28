@@ -1,4 +1,11 @@
 <div class="container">
+
+  <!-- PROGRESS BAR -->
+  <div class="progress" style="margin-top: 30px">
+    <div class="progress-bar-1" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="progress-bar-2" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">STEP 2</div>
+  </div>
+  
   <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
     <p><strong>Individuazione degli interventi</strong></p>
   </div>
@@ -9,6 +16,14 @@
       <span aria-hidden="true">&times;</span>
     </button>
     Seleziona una struttura e una caratteristica qualitativa per proseguire!
+  </div>
+
+  <!-- ALERT 2 -->
+  <div class="alert alert-danger" role="alert" *ngIf="alert2">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    Non è possibile proseguire se non si ha a disposizione almeno un intervento selezionabile!
   </div>
 
   <div class="card my-5">

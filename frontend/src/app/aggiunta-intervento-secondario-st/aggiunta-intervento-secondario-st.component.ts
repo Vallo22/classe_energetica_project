@@ -66,6 +66,7 @@ export class AggiuntaInterventoSecondarioStComponent implements OnInit {
   interventoSingolo: number
   cambiaCaratteristica: boolean = false
   caratteristicheFinali: CaratteristicheQualitativeSt[] = []
+  alert: boolean = false
   
   imgA1 = false
   imgA1parte2 = false
@@ -240,16 +241,23 @@ export class AggiuntaInterventoSecondarioStComponent implements OnInit {
 
   trasferisciOggetti() {
     this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche)
+    this.interventiSecondari.forEach(t => {
+      if(t.intervento.id == 77) {
+        this.alert = true
+        window.scroll(0, 0)
+      } else {
         this.router.navigate(['/matrice-st'], {
           state: {
             emsType: this.emsType, interventoSingolo: this.interventoSingolo, caratteristiche: this.caratteristiche
             , vulClass: this.vulClass, punteggio: this.punteggio, pam: this.pam
             , variabileIntervento: this.variabileIntervento, interventoSelezionato: this.interventoSelezionato
             , idCaratteristica: this.idCaratteristica, idStruttura: this.idStruttura, contatoreVolte: this.contatoreVolte
-            , interventiSecondari: this.interventiSecondari
+            , interventiSecondari: this.interventiSecondari , risk: this.risk
           }
         })
       }
+    })
+  }
   
 
   visualizzaCodiceIntervento(codice: string){

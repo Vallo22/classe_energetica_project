@@ -35,6 +35,7 @@ export class TipoStrutturaStComponent implements OnInit {
   arrayPassaggio: AssociazioneInterventoSt[]
   noPass: boolean = false
   alert: boolean = false
+  alert2: boolean = false
   showTab: boolean = false
   showTabDue: boolean = false
 
@@ -190,24 +191,22 @@ export class TipoStrutturaStComponent implements OnInit {
   }
 
   trasferisciOggetti() {
-    if (this.variabileIntervento == null) {
+    if(this.variabileIntervento == null) {
       this.alert = true
       window.scrollTo(0, 0)
     } else {
-    this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche[this.selectArr])
-    console.log(this.caratteristiche[this.selectArr])
-    this.variabileIntervento.forEach(t => {
-      if(t.passaggio === 1) {
-        this.router.navigate(['/valutazione-interventi-st'], {
+      this.variabileIntervento.forEach(t => {
+        if(t.intervento.id == 77) {
+          this.alert2 = true
+          window.scrollTo(0, 0)
+        } else {
+          this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche[this.selectArr])
+          this.router.navigate(['/matrice-st'], {
           state: { emsType: this.emsType, vulClass: this.vulClass,punteggio: this.punteggio, risk: this.risk, pam: this.pam,  variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex }
         })
-      } else {
-        this.router.navigate(['/matrice-st'], {
-          state: { emsType: this.emsType, vulClass: this.vulClass,punteggio: this.punteggio, risk: this.risk, pam: this.pam,  variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex }
-        })
-      }
-    })  
-  }
+        }
+      })
+    }
   }
 
   mostraTab() {

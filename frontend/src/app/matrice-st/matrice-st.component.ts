@@ -44,6 +44,8 @@ export class MatriceStComponent implements OnInit {
   interventoSingolo: number
   interventiSecondari: AssociazioneInterventoSt[]
   showDiv: boolean = true
+  showAlert: boolean = false
+  showMatrice: boolean = false
 
   scelta: boolean = true
   scelta2: boolean = true
@@ -126,6 +128,23 @@ export class MatriceStComponent implements OnInit {
     this.interventiSecondari = window.history.state.interventiSecondari
     this.idCaratteristica = window.history.state.idCaratteristica
     this.idStruttura = window.history.state.idStruttura
+    if(this.contatoreVolte == undefined) {
+      this.variabileIntervento.forEach(t => {
+        if(t.passaggio == 1) {
+          this.showAlert = true
+        } else {
+          this.showMatrice = true
+        }
+      })
+    } else {
+      this.interventiSecondari.forEach(t => {
+        if(t.passaggio == 1) {
+          this.showAlert = true
+        } else {
+          this.showMatrice = true
+        }
+      })
+    }
     for (let r = 0; r < 6; r++) {
       this.matriceNormalizzata.push([0, 0, 0, 0, 0, 0])
       this.matrix[r] = []
@@ -210,6 +229,8 @@ export class MatriceStComponent implements OnInit {
   }
 
   trasferisciPonderazione() {
+    this.showAlert = false
+    this.showMatrice = false
     console.log("mod cost: " + this.ponderazione[0]*100 + "%")
     console.log("efficacia: " + this.ponderazione[1]*100 + "%")
     console.log("comp visiva: " + this.ponderazione[2]*100 + "%")
@@ -254,6 +275,47 @@ export class MatriceStComponent implements OnInit {
       }
     })
   }
+  }
+
+  proseguiSenzaMatrice() {
+    if(this.contatoreVolte == 0 || this.contatoreVolte == undefined){
+      this.contatoreVolte = 1
+      this.router.navigate(['/valutazione-interventi-st'], {
+        state: {
+          emsType: this.emsType
+          , vulClass: this.vulClass
+          , punteggio: this.punteggio
+          , risk: this.risk
+          , pam: this.pam
+          , caratteristiche: this.caratteristiche
+          , ponderazione: this.ponderazione
+          , variabileIntervento: this.variabileIntervento
+          , idStruttura: this.idStruttura
+          , idCaratteristica: this.idCaratteristica
+          , interventoSelezionato: this.interventoSelezionato
+          , contatoreVolte: this.contatoreVolte
+        }
+      })
+    }else{
+      this.router.navigate(['/valutazione-interventi-secondario-st'], {
+        state: {
+          emsType: this.emsType
+          , vulClass: this.vulClass
+          , punteggio: this.punteggio
+          , risk: this.risk
+          , pam: this.pam
+          , caratteristiche: this.caratteristiche
+          , ponderazione: this.ponderazione
+          , variabileIntervento: this.variabileIntervento
+          , idStruttura: this.idStruttura
+          , idCaratteristica: this.idCaratteristica
+          , interventoSelezionato: this.interventoSelezionato
+          , interventiSecondari: this.interventiSecondari
+          , contatoreVolte: this.contatoreVolte
+          , interventoSingolo: this.interventoSingolo
+        }
+      })
+    }
   }
 
 }

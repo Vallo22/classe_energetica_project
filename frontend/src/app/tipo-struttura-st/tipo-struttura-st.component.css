@@ -44,3 +44,27 @@ img{
     background-color: #ce5e59 !important;
     color: white;
   }
+
+  .progress-bar-1 {
+    text-align: center;
+    background-color: #5c2a28;
+    color: white
+  }
+  
+  .progress-bar-2 {
+    text-align: center;
+    background-color: #893f3b;
+    color: white
+  }
+  
+  .progress-bar-3 {
+    text-align: center;
+    background-color: #b7544f;
+    color: white
+  }
+  
+  .progress-bar-4 {
+    text-align: center;
+    background-color: #d3706b;
+    color: white
+  }

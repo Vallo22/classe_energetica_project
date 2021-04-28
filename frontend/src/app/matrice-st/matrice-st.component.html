@@ -1,13 +1,36 @@
   <div class="container">
 
+    <!-- PROGRESS BAR -->
+  <div class="progress" style="margin-top: 30px">
+    <div class="progress-bar-1" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="progress-bar-2" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">STEP 2</div>
+  </div>
+
     <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
         <strong>Analisi multicriterio per la selezione degli interventi (AHP)</strong>
     </div>
     <div class="sottotitolo" style="text-align: center; font-size: 20px;">
         <strong>Comparazione a coppie tra i criteri di valutazione</strong>
     </div>
-    
+
+    <!-- ALERT -->
+    <div class="alert alert-danger" role="alert" style="margin-top: 30px;" *ngIf="showAlert == true">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        Poiché l'indicazione di intervento è univoca non è necessario ricorrere
+        all'analisi multicriterio per la selezione degli interventi.
+        <hr>
+        <div class="pulsante">
+            <button class="btn btn-default"
+                (click)="proseguiSenzaMatrice()">
+                Avanti &raquo;
+            </button>
+        </div>
+    </div>
+
     <!-- HEADER % -->
+    <div *ngIf="showMatrice == true">
     <div class="card my-5">
         <div class="card-header" style="text-align: center;">
             <div style="font-size: 20px;"><strong>Criteri</strong></div>
@@ -748,4 +771,5 @@
     </div>
     <label></label>
     <br><br>
+    </div>
 </div>

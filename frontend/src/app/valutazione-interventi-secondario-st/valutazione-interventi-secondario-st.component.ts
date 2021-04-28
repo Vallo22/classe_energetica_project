@@ -68,6 +68,8 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
   arrayDiNumeriIntervento: number[] = []
   sommaPacchettoInterventi: number
   bottoneVisibile: boolean = false
+  pass: boolean = false
+  pass2:boolean = false
   
   ngOnInit() {
     this.interventoSingolo = window.history.state.interventoSingolo
@@ -94,12 +96,20 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
       }
     })
     this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(this.idCaratteristica, this.idStruttura).subscribe(z => {
-        this.interventiSecondari = this.serviceAssociazione.interventGrouping(z)
-        this.cambiaTotale()
-        this.massimoNumero()
+      this.interventiSecondari = this.serviceAssociazione.interventGrouping(z)
+      this.interventiSecondari.forEach(t => {
+        if(t.passaggio == 0) {
+          this.pass = true
+          this.cambiaTotale()
+          this.massimoNumero()
+        } else {
+          this.pass2 = true
+        }
+      })
     })
     this.calcoloSoglia()
     this.sogliaUgualeZero()
+    
   }
 
   sogliaUgualeZero() {
@@ -257,7 +267,6 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
       if (selezionato.varianti.length === 0) {
         this.interventiSecondari.splice(index, 1)
       }
-      this.massimoNumero()
     }
     this.risultatoSelezione.aggiungiIntervento(this.arraySelezionati[0])
   }
