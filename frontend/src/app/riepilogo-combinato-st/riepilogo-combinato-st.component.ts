@@ -53,38 +53,6 @@ export class RiepilogoCombinatoStComponent implements OnInit {
     })
   }
 
-  generatePdf(){
-    const documentDefinition = this.getDocumentDefinition()
-    pdfMake.createPdf(documentDefinition).open()
-  }
-
-  getDocumentDefinition() {
-    return{
-      content: [
-        {text: 'Riepilogo Valutazione Strutturale\n\n', style: 'header', bold:'true', fontSize: 20},
-
-        {
-          style: 'tableExample',
-          table: {
-            widths: ['*', 'auto'],
-            body: [
-              ['Classe di vulnerabilità', 'V' + this.vulClass],
-              ['Totale punteggio iniziale', this.punteggio],
-              ['Classe di rischio sismico', this.risk]
-            ]
-          }
-        },
-
-        {text: 'Interventi selezionati:', style: 'subheader'},
-		{
-			ul: [
-			]
-		}
-      ]
-    }
-  }
-
-
   mostra() {
     this.showDiv = false;
   }
@@ -94,6 +62,9 @@ export class RiepilogoCombinatoStComponent implements OnInit {
     this.elementoSelezionato = []
     this.interventi.forEach(c => {
       if(this.prezzoStrutturale == c.prezzoRiepilogo) {
+        this.elementoSelezionato.push(c)
+      } 
+      if(this.prezzoStrutturale == c.prezzoRiepilogoDue) {
         this.elementoSelezionato.push(c)
       }
     })
@@ -131,6 +102,37 @@ export class RiepilogoCombinatoStComponent implements OnInit {
     this.somma = Number(this.prezzoEnergetico) + Number(this.prezzoStrutturale)
     this.costoIntegrato = this.somma - this.risparmioEuro
     this.risparmioPercentuale = (this.risparmioEuro * 100) / this.somma
+  }
+
+  generatePdf(){
+    const documentDefinition = this.getDocumentDefinition()
+    pdfMake.createPdf(documentDefinition).open()
+  }
+
+  getDocumentDefinition() {
+    return{
+      content: [
+        {text: 'Riepilogo Valutazione Strutturale\n\n', style: 'header', bold:'true', fontSize: 20},
+
+        {
+          style: 'tableExample',
+          table: {
+            widths: ['*', 'auto'],
+            body: [
+              ['Classe di vulnerabilità', 'V' + this.vulClass],
+              ['Totale punteggio iniziale', this.punteggio],
+              ['Classe di rischio sismico', this.risk]
+            ]
+          }
+        },
+
+        {text: 'Interventi selezionati:', style: 'subheader'},
+		{
+			ul: [
+			]
+		}
+      ]
+    }
   }
  
 }

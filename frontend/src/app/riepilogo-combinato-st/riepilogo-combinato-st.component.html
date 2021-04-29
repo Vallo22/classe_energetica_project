@@ -29,7 +29,11 @@
                             <option value="4">Intradosso intonacato</option>
                         </select>
 
-                        <!-- INSERISCI G6 -->
+                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'G6'">
+                            <option value="32">G6 a</option>
+                            <option disabled value="33">G6 b - Intradosso a vista</option>
+                            <option value="34">G6 b - Intradosso intonacato</option>
+                        </select>
 
                         <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'G7'">
                             <option disabled value="5">Intradosso a vista</option>
@@ -88,97 +92,105 @@
                             <option value="31">Una superficie a vista e una intonacata</option>
                         </select>
                     
-                    
-                    
                     </td>
 
                     <td style="float: right;" [ngSwitch]="interventoStrutturale.tipo_sup">
-                        <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 2">
+                        <label class="form-check-inline" *ngSwitchCase="2">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
                       </label>
 
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 4">
+                      <label class="form-check-inline" *ngSwitchCase="4">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
                       </label>
 
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 6">
+                      <label class="form-check-inline" *ngSwitchCase="32">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
                       </label>
 
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 8">
-                        <input class="form-check-input" type="radio" name="radio"
-                            [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
-                      </label>
-
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 9">
+                      <label class="form-check-inline" *ngSwitchCase="34">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogoDue" (change)="onChangeIntervento($event.target.value)">
                       </label>
 
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 11">
+                      <label class="form-check-inline" *ngSwitchCase="6">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
                       </label>
 
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 12">
+                      <label class="form-check-inline" *ngSwitchCase="8">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="9">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogoDue" (change)="onChangeIntervento($event.target.value)">
                       </label>
 
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 14">
+                      <label class="form-check-inline" *ngSwitchCase="11">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
                       </label>
 
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 15">
+                      <label class="form-check-inline" *ngSwitchCase="12">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogoDue" (change)="onChangeIntervento($event.target.value)">
                       </label>
 
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 17">
+                      <label class="form-check-inline" *ngSwitchCase="14">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
                       </label>
 
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 18">
+                      <label class="form-check-inline" *ngSwitchCase="15">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogoDue" (change)="onChangeIntervento($event.target.value)">
                       </label>
 
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 20">
+                      <label class="form-check-inline" *ngSwitchCase="17">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
                       </label>
 
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 21">
+                      <label class="form-check-inline" *ngSwitchCase="18">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogoDue" (change)="onChangeIntervento($event.target.value)">
                       </label>
 
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 23">
+                      <label class="form-check-inline" *ngSwitchCase="20">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
                       </label>
 
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 24">
+                      <label class="form-check-inline" *ngSwitchCase="21">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogoDue" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="23">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="24">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogoDue" (change)="onChangeIntervento($event.target.value)">
                       </label>
                     
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 26">
+                      <label class="form-check-inline" *ngSwitchCase="26">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
                       </label>
 
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 29">
+                      <label class="form-check-inline" *ngSwitchCase="29">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
                       </label>
 
-                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 31">
+                      <label class="form-check-inline" *ngSwitchCase="31">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
                       </label>
