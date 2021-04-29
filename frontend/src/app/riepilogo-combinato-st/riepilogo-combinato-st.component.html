@@ -17,14 +17,180 @@
             <p style="font-size: 17px;"><strong>• Interventi strutturali selezionati</strong></p>
             <ul class="list-group">
                 <li class="list-group-item" *ngFor="let interventoStrutturale of interventi">
-                    <td style="float: left;">{{interventoStrutturale.intervento.codice}} {{interventoStrutturale.variante}} - {{interventoStrutturale.intervento.descrizione}}</td>
-                    <td style="float: right;">
-                        <label class="form-check-inline">
+                    <td style="float: left;">{{interventoStrutturale.intervento.codice}} {{interventoStrutturale.variante}} - {{interventoStrutturale.intervento.descrizione}}<br>
+
+                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'B6'">
+                            <option disabled value="1">Intradosso a vista</option>
+                            <option value="2">Intradosso con controsoffitto</option>        
+                        </select>
+
+                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'G4'">
+                            <option disabled value="3">Intradosso a vista</option>
+                            <option value="4">Intradosso intonacato</option>
+                        </select>
+
+                        <!-- INSERISCI G6 -->
+
+                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'G7'">
+                            <option disabled value="5">Intradosso a vista</option>
+                            <option value="6">Intradosso intonacato</option>
+                        </select>
+
+                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'D3' && interventoStrutturale.variante == 'a'">
+                            <option disabled value="7">Entrambe le superfici a vista</option>
+                            <option value="8">Una superficie a vista e una intonacata</option>
+                            <option value="9">Entrambe le superfici intonacate</option>
+                        </select>
+
+                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'D3' && interventoStrutturale.variante == 'b'">
+                            <option disabled value="10">Entrambe le superfici a vista</option>
+                            <option value="11">Una superficie a vista e una intonacata</option>
+                            <option value="12">Entrambe le superfici intonacate</option>
+                        </select>
+
+                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'D4'">
+                            <option disabled value="13">Entrambe le superfici a vista</option>
+                            <option value="14">Una superficie a vista e una intonacata</option>
+                            <option value="15">Entrambe le superfici intonacate</option>
+                        </select>
+                    
+                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'D5'">
+                            <option disabled value="16">Entrambe le superfici a vista</option>
+                            <option value="17">Una superficie a vista e una intonacata</option>
+                            <option value="18">Entrambe le superfici intonacate</option>
+                        </select>
+
+                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'D6'">
+                            <option disabled value="19">Entrambe le superfici a vista</option>
+                            <option value="20">Una superficie a vista e una intonacata</option>
+                            <option value="21">Entrambe le superfici intonacate</option>
+                        </select>
+
+                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'D7'">
+                            <option disabled value="22">Entrambe le superfici a vista</option>
+                            <option value="23">Una superficie a vista e una intonacata</option>
+                            <option value="24">Entrambe le superfici intonacate</option>
+                        </select>
+
+                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'D12'">
+                            <option disabled value="25">Entrambe le superfici a vista</option>
+                            <option value="26">Una superficie a vista e una intonacata</option>
+                            <option disabled value="27">Entrambe le superfici intonacate</option>
+                        </select>
+
+                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'D13'">
+                            <option disabled value="28">Entrambe le superfici a vista</option>
+                            <option value="29">Una superficie a vista e una intonacata</option>
+                        </select>
+
+                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'D10'">
+                            <option disabled value="30">Entrambe le superfici a vista</option>
+                            <option value="31">Una superficie a vista e una intonacata</option>
+                        </select>
+                    
+                    
+                    
+                    </td>
+
+                    <td style="float: right;" [ngSwitch]="interventoStrutturale.tipo_sup">
+                        <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 2">
                         <input class="form-check-input" type="radio" name="radio"
                             [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
-                      </label></td>
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 4">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 6">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 8">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 9">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogoDue" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 11">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 12">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogoDue" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 14">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 15">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogoDue" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 17">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 18">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogoDue" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 20">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 21">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogoDue" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 23">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 24">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogoDue" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+                    
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 26">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 29">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchCase="interventoStrutturale.tipo_sup == 31">
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+
+                      <label class="form-check-inline" *ngSwitchDefault>
+                        <input class="form-check-input" type="radio" name="radio"
+                            [value]="interventoStrutturale.prezzoRiepilogo" (change)="onChangeIntervento($event.target.value)">
+                      </label>
+                    </td>
                 </li>
             </ul>  
+            
             <p style="font-size: 17px;" style="margin-top: 10px;"><strong>• Interventi energetici integrabili</strong></p>
             <select class="form-control" (change)="onChangeEnergetico($event.target.value)">
                 <option value selected="0">Seleziona</option>

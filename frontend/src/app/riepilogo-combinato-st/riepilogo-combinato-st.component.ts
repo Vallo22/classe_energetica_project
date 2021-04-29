@@ -78,7 +78,6 @@ export class RiepilogoCombinatoStComponent implements OnInit {
         {text: 'Interventi selezionati:', style: 'subheader'},
 		{
 			ul: [
-				this.interventoPdf
 			]
 		}
       ]

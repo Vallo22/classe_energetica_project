@@ -28,10 +28,13 @@ export class AssociazioneInterventoSt {
     prezzoSupInt: number
     prezzoEntrInt: number
     prezzoRiepilogo: number
+    prezzoRiepilogoDue: number
+    prezzoRiepilogoTre: number
     unitaMisura: string
     valoreCifra?: number
     costoInvestimentoTotale?: number
     passaggio: number
     ugualeA0?: boolean = false
     tipo_superficie?: number = 0
+    tipo_sup?: number = 0
 }

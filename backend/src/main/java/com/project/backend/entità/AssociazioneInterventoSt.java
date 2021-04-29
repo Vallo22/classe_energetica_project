@@ -39,6 +39,8 @@ public class AssociazioneInterventoSt {
     private double prezzoSupInt;
     private double prezzoEntrInt;
     private double prezzoRiepilogo;
+    private double prezzoRiepilogoDue;
+    private double prezzoRiepilogoTre;
     private String unitaMisura;
     private int passaggio;
 
@@ -170,6 +172,22 @@ public class AssociazioneInterventoSt {
 
     public void setPrezzoRiepilogo(double prezzoRiepilogo) {
         this.prezzoRiepilogo = prezzoRiepilogo;
+    }
+
+    public double getPrezzoRiepilogoDue() {
+        return this.prezzoRiepilogoDue;
+    }
+
+    public void setPrezzoRiepilogoDue(double prezzoRiepilogoDue) {
+        this.prezzoRiepilogoDue = prezzoRiepilogoDue;
+    }
+
+    public double getPrezzoRiepilogoTre() {
+        return this.prezzoRiepilogoTre;
+    }
+
+    public void setPrezzoRiepilogoTre(double prezzoRiepilogoTre) {
+        this.prezzoRiepilogoTre = prezzoRiepilogoTre;
     }
 
 	public String getUnitaMisura() {
