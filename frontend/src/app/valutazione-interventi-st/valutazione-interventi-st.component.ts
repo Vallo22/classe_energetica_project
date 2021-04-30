@@ -64,6 +64,7 @@ export class ValutazioneInterventiStComponent implements OnInit {
   ugualeA0: boolean = false
   pass: boolean = false
   pass2:boolean = false
+  vulClassAggiornata: number
 
   ngOnInit() {
     this.emsType = window.history.state.emsType
@@ -186,6 +187,7 @@ export class ValutazioneInterventiStComponent implements OnInit {
         , punteggioDiVul: this.punteggioDiVul
         , contatoreVolte: this.contatoreVolte
         , interventoSingolo: this.interventoSingolo
+        , vulClassAggiornata: this.vulClassAggiornata
       }
     })
   }
@@ -211,6 +213,11 @@ export class ValutazioneInterventiStComponent implements OnInit {
     })
     this.punteggioDiVul = this.punteggio - this.deltaPunteggioFinale
     this.punteggioPassaggioClasseAggiornato = this.punteggioPassaggioClasse - this.deltaPunteggioFinale
+    if(this.punteggioDiVul < this.soglia) {
+      this.vulClassAggiornata = this.vulClass - 1
+    } else {
+      this.vulClassAggiornata = this.vulClass
+    }
     this.a = true
     this.bottoneVisibile = true
   }
@@ -248,7 +255,9 @@ export class ValutazioneInterventiStComponent implements OnInit {
         vulClass: this.vulClass,
         soglia: this.soglia,
         punteggio: this.punteggio,
-        sommaPacchettoInterventi: this.interventoSingolo
+        sommaPacchettoInterventi: this.interventoSingolo,
+        punteggioDiVul: this.punteggioDiVul,
+        vulClassAggiornata: this.vulClassAggiornata
       }
     })
   }

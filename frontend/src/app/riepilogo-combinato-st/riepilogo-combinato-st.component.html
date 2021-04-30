@@ -209,27 +209,50 @@
                 <option [value]="interventoEn.prezzoRiepilogo" *ngFor="let interventoEn of interv">{{interventoEn.intervento.codice}} - {{interventoEn.intervento.descrizione}}</option>
             </select>
 
+            <p style="font-size: 17px;" style="margin-top: 10px;"><strong>• Dimensione</strong></p>
+            <input type="number" [value]="dimensioneInput" style="margin-left: 20px;"
+            (input)="dimensioneInput = $event.target.value"> mq
+
             <div class="pulsante" style="margin-top: 10px;">
                 <button class="btn btn-outline-default" (click)="calcolaSomma()" (click)="mostra()">Calcola</button>
             </div>
         </div>
         <div class="card-footer" *ngIf="showDiv == false">
-            Costo Intervento Strutturale: {{prezzoStrutturale}} €/mq<br>
-            Costo Intervento Energetico: {{prezzoEnergetico}} €/mq<br>
-            Somma: {{somma | number: '1.2-2'}} €/mq<br>
-            Costo integrato: {{costoIntegrato | number: '1.2-2'}} €/mq
-            <hr>
-            <strong>Risparmio %: {{risparmioPercentuale | number: '1.0-0'}}%</strong><br>
-            <strong>Risparmio €: {{risparmioEuro}} €/mq</strong>
-            <hr>
-            Attrezzature per la sicurezza di uso comune: {{attrezzature}}
+            <div class="row">
+                <div class="col-sm-6">
+                    <br>Costo Intervento Strutturale: {{prezzoStrutturale | number: '1.2-2':'fr'}} €/mq<br>
+                    Costo Intervento Energetico: {{prezzoEnergetico | number: '1.2-2':'fr'}} €/mq<br>
+                    Somma: {{somma | number: '1.2-2':'fr'}} €/mq<br>
+                    Costo integrato: {{costoIntegrato | number: '1.2-2':'fr'}} €/mq
+                    <hr>
+                    <strong>Risparmio %: {{risparmioPercentuale | number: '1.0-0'}}%</strong><br>
+                    <strong>Risparmio €: {{risparmioEuro | number: '1.2-2':'fr'}} €/mq</strong>
+                    <hr>
+                    Attrezzature per la sicurezza di uso comune: {{attrezzature}}
+                </div>
+
+                <div class="col-sm-6">
+                    <strong>TOTALE</strong><br>
+                    {{prezzoStrutturaleVisualizz | number: '1.2-2':'fr'}} €<br>
+                    {{prezzoEnergeticoVisualizz | number: '1.2-2':'fr'}} €<br>
+                    {{sommaVisualizz | number: '1.2-2':'fr'}} €<br>
+                    {{costoIntegratoVisualizz | number: '1.2-2':'fr'}} €
+                    <hr>
+                    <strong>{{risparmioPercentuale | number: '1.0-0'}}%</strong><br>
+                    <strong>{{risparmioEuroVisualizz | number: '1.2-2':'fr'}} €</strong>
+                    <hr>
+                    {{attrezzature}}
+                </div>
+            </div>
         </div> 
     </div>
     
-    <button class="btn btn-outline-default" (click)="generatePdf()">Esporta in PDF</button>
-
+    <div class="pulsante">
+        <button class="btn btn-outline-default" (click)="generatePdf()">Esporta in PDF</button>
+    </div>
     
-    
+    <label></label>
+    <br><br>
     
 </div>
 

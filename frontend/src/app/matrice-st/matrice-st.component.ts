@@ -46,6 +46,8 @@ export class MatriceStComponent implements OnInit {
   showDiv: boolean = true
   showAlert: boolean = false
   showMatrice: boolean = false
+  punteggioDiVul: number
+  vulClassAggiornata: number
 
   scelta: boolean = true
   scelta2: boolean = true
@@ -128,6 +130,8 @@ export class MatriceStComponent implements OnInit {
     this.interventiSecondari = window.history.state.interventiSecondari
     this.idCaratteristica = window.history.state.idCaratteristica
     this.idStruttura = window.history.state.idStruttura
+    this.punteggioDiVul = window.history.state.punteggioDiVul
+    this.vulClassAggiornata = window.history.state.vulClassAggiornata
     if(this.contatoreVolte == undefined) {
       this.variabileIntervento.forEach(t => {
         if(t.passaggio == 1) {
@@ -272,6 +276,8 @@ export class MatriceStComponent implements OnInit {
         , interventiSecondari: this.interventiSecondari
         , contatoreVolte: this.contatoreVolte
         , interventoSingolo: this.interventoSingolo
+        , punteggioDiVul: this.punteggioDiVul
+        , vulClassAggiornata: this.vulClassAggiornata
       }
     })
   }
@@ -313,6 +319,8 @@ export class MatriceStComponent implements OnInit {
           , interventiSecondari: this.interventiSecondari
           , contatoreVolte: this.contatoreVolte
           , interventoSingolo: this.interventoSingolo
+          , punteggioDiVul: this.punteggioDiVul
+          , vulClassAggiornata: this.vulClassAggiornata
         }
       })
     }

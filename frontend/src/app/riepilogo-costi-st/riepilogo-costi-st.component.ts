@@ -8,6 +8,7 @@ import { CostoFG } from '../classes-services/classes/damage/costo-fg';
 import { RisultatoSelezioneStService } from '../classes-services/services/risultato-selezione-st.service';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { throwIfEmpty } from 'rxjs/operators';
 registerLocaleData(localeFr, 'fr');
 
 @Component({
@@ -26,12 +27,14 @@ export class RiepilogoCostiStComponent implements OnInit {
   risk: string
   soglia: number
   vulClass: number
+  vulClassAggiornata: number
   sommaPacchettoInterventi: number
   tipo_superficie: number = 0
   totale: number = 0
   risultatoDivisione: number
   punteggio: number
-
+  punteggioDiVul: number
+  prezzoParziale = []
   selezione: number
   inputUtente: number
   costoDiRiparazione: number = 0
@@ -76,6 +79,8 @@ export class RiepilogoCostiStComponent implements OnInit {
     this.vulClass = window.history.state.vulClass
     this.risk = window.history.state.risk;
     this.punteggio = window.history.state.punteggio
+    this.punteggioDiVul = window.history.state.punteggioDiVul
+    this.vulClassAggiornata = window.history.state.vulClassAggiornata
     this.risultatoSelezione.interventiSelezionati.forEach(z => {
       this.interventi.push(z)
     })
@@ -102,6 +107,7 @@ export class RiepilogoCostiStComponent implements OnInit {
       } else if(z.tipo_superficie == 8) {
         pr = 234.93 * z.valoreCifra
       }
+      this.prezzoParziale.push(pr)
       this.totale += pr
     })
     console.log("costo investimento totale: " + this.totale)
@@ -120,7 +126,11 @@ export class RiepilogoCostiStComponent implements OnInit {
         soglia: this.soglia,
         vulClass: this.vulClass,
         risk: this.risk,
-        punteggio: this.punteggio
+        punteggio: this.punteggio,
+        punteggioDiVul: this.punteggioDiVul,
+        vulClassAggiornata: this.vulClassAggiornata,
+        totale: this.totale,
+        prezzoParziale: this.prezzoParziale
       }
     })
   }

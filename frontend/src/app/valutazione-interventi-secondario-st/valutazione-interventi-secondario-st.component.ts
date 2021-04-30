@@ -60,6 +60,7 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
   punteggioPassaggioClasse: number
   punteggioDiVul: number = 0
   punteggioPassaggioClasseAggiornato: number = 0
+  vulClassAggiornata: number
   idCaratteristica: number
   idStruttura: number
   contatoreVolte: number
@@ -84,6 +85,7 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
     this.ponderazione = window.history.state.ponderazione;
     this.idCaratteristica = window.history.state.idCaratteristica
     this.idStruttura = window.history.state.idStruttura
+    this.vulClassAggiornata = window.history.state.vulClassAggiornata
     this.risultatoSelezione.interventiSelezionati.forEach(z => {
       this.interventiDaMostrare.push(z)
     })
@@ -156,6 +158,7 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
         , punteggioPassaggioClasseAggiornato: this.punteggioPassaggioClasseAggiornato
         , punteggioDiVul: this.punteggioDiVul
         , contatoreVolte: this.contatoreVolte
+        , vulClassAggiornata: this.vulClassAggiornata
       }
     })
   }
@@ -175,6 +178,11 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
     })
     this.punteggioDiVul = this.punteggio - this.deltaPunteggioFinale
     this.punteggioPassaggioClasseAggiornato = this.punteggioPassaggioClasse
+    if(this.punteggioDiVul < this.soglia) {
+      this.vulClassAggiornata = this.vulClass - 1
+    } else {
+      this.vulClassAggiornata = this.vulClass
+    }
     this.a = true
     this.bottoneVisibile = true
   }
@@ -276,7 +284,11 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
       state: {
         risk: this.risk,
         soglia: this.soglia,
-        sommaPacchettoInterventi: this.sommaPacchettoInterventi
+        sommaPacchettoInterventi: this.sommaPacchettoInterventi,
+        punteggio: this.punteggio,
+        vulClass: this.vulClass,
+        punteggioDiVul: this.punteggioDiVul,
+        vulClassAggiornata: this.vulClassAggiornata
       }
     })
   }

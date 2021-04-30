@@ -67,6 +67,7 @@ export class AggiuntaInterventoSecondarioStComponent implements OnInit {
   cambiaCaratteristica: boolean = false
   caratteristicheFinali: CaratteristicheQualitativeSt[] = []
   alert: boolean = false
+  vulClassAggiornata: number
   
   imgA1 = false
   imgA1parte2 = false
@@ -158,6 +159,7 @@ export class AggiuntaInterventoSecondarioStComponent implements OnInit {
     this.punteggioDiVul = window.history.state.punteggioDiVul
     this.punteggioPassaggioClasseAggiornato = window.history.state.punteggioPassaggioClasseAggiornato
     this.contatoreVolte = window.history.state.contatoreVolte
+    this.vulClassAggiornata = window.history.state.vulClassAggiornata
     this.strutturaService.getCaratteristicheQualitative().subscribe(data => {
       this.car = data
     })
@@ -252,7 +254,7 @@ export class AggiuntaInterventoSecondarioStComponent implements OnInit {
             , vulClass: this.vulClass, punteggio: this.punteggio, pam: this.pam
             , variabileIntervento: this.variabileIntervento, interventoSelezionato: this.interventoSelezionato
             , idCaratteristica: this.idCaratteristica, idStruttura: this.idStruttura, contatoreVolte: this.contatoreVolte
-            , interventiSecondari: this.interventiSecondari , risk: this.risk
+            , interventiSecondari: this.interventiSecondari , risk: this.risk, punteggioDiVul: this.punteggioDiVul, vulClassAggiornata: this.vulClassAggiornata
           }
         })
       }
