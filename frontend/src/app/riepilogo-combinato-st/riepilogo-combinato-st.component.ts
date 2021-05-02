@@ -4,8 +4,10 @@ import { AssociazioneInterventoSt } from '../classes-services/classes/associazio
 import { AssociazioneRiepilogo } from '../classes-services/classes/associazione-riepilogo';
 import { AssociazioneRiepilogoService } from '../classes-services/services/associazione-riepilogo.service';
 import { registerLocaleData } from '@angular/common';
+
 import localeFr from '@angular/common/locales/fr';
 registerLocaleData(localeFr, 'fr');
+
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -50,6 +52,8 @@ export class RiepilogoCombinatoStComponent implements OnInit {
   risparmioEuroVisualizz: number
   sommaVisualizz: number
   costoIntegratoVisualizz: number
+  interventiAssociatiPdf = []
+  costoDiRiparazione: number
 
 
   ngOnInit() {
@@ -62,8 +66,16 @@ export class RiepilogoCombinatoStComponent implements OnInit {
     this.vulClassAggiornata = window.history.state.vulClassAggiornata
     this.totale = window.history.state.totale
     this.prezzoParziale = window.history.state.prezzoParziale
+    this.costoDiRiparazione = window.history.state.costoDiRiparazione
     this.service.getAssociazioneRiepilogo().subscribe(data => {
       this.associazione = data
+      this.interventi.forEach(c => {
+        this.associazione.forEach(d => {
+          if(c.id == d.associazioneInterventoStrutturale.id) {
+            this.interventiAssociatiPdf.push(d)
+          }
+        })
+      })
     })
   }
 
@@ -74,14 +86,19 @@ export class RiepilogoCombinatoStComponent implements OnInit {
   onChangeIntervento(intervento: number) {
     this.prezzoStrutturale = intervento
     this.elementoSelezionato = []
-    this.interventi.forEach(c => {
-      if(this.prezzoStrutturale == c.prezzoRiepilogo) {
-        this.elementoSelezionato.push(c)
-      } 
-      if(this.prezzoStrutturale == c.prezzoRiepilogoDue) {
-        this.elementoSelezionato.push(c)
-      }
-    })
+    if(this.prezzoStrutturale != 0) {
+      this.interventi.forEach(c => {
+        if(this.prezzoStrutturale == c.prezzoRiepilogo) {
+          this.elementoSelezionato.push(c)
+        } 
+        if(this.prezzoStrutturale == c.prezzoRiepilogoDue) {
+          this.elementoSelezionato.push(c)
+        }
+      })
+    } else {
+      this.elementoSelezionato.push(0)
+    }
+    
     this.elementoSelezionato.forEach(a => {
       this.interventoSelezionato = a.id
     })
@@ -174,7 +191,7 @@ export class RiepilogoCombinatoStComponent implements OnInit {
         },
         
         //INTERVENTI
-        {text: '\n\nInterventi previsti\n\n', style: 'header', bold:'true', fontSize: 15, alignment: 'center'},
+        {text: '\n\nInterventi Strutturali previsti\n\n', style: 'header', bold:'true', fontSize: 15, alignment: 'center'},
         
         //TABELLA INTERVENTI
         {
@@ -201,14 +218,41 @@ export class RiepilogoCombinatoStComponent implements OnInit {
           }
         },
 
-        //INTEGRAZIONI POSSIBILI
-        {text: '\n\nIntegrazione con interventi energetici\n\n', style: 'header', bold:'true', fontSize: 15, alignment: 'center'},
+        {text:'\n\n'},
+        //TOTALE DANNI
         {
           style: 'tableExample',
-          table: {
-            widths: ['*', 'auto'],
+          table: {     
+            widths: ['*', 100],
             body: [
-              ['Interventi strutturali', 'Interventi energetici integrabili']
+              ['Ipotesi costo di riparazione', this.costoDiRiparazione.toFixed(2) + '€']
+            ]
+          }
+        },
+        
+        {text: '',
+        pageBreak: 'after',},
+
+        //INTEGRAZIONI POSSIBILI
+        {text: 'Integrazione con Interventi Energetici\n\n', 
+        style: 'header', 
+        bold:'true', 
+        fontSize: 15, 
+        alignment: 'center'},
+
+        {
+          style: 'tableExample',
+          unbreakable: true,
+          table: {
+            widths: ['auto', 'auto', 'auto', 'auto','auto'],
+            body: [
+              ['Codice Strutturale', 'Codice Energetico','Descrizione Energetico','Prezzo Energetico (€/mq)','Risparmio integrazione (€/mq)'],
+              ...this.interventiAssociatiPdf.map(index => 
+                [index.associazioneInterventoStrutturale.intervento.codice, 
+                  index.associazioneInterventoEnergetico.intervento.codice,
+                  index.associazioneInterventoEnergetico.intervento.descrizione,
+                  index.associazioneInterventoEnergetico.prezzoRiepilogo, 
+                  index.risparmioEuro])
             ]
           }
         },

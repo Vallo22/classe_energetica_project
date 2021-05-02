@@ -130,7 +130,8 @@ export class RiepilogoCostiStComponent implements OnInit {
         punteggioDiVul: this.punteggioDiVul,
         vulClassAggiornata: this.vulClassAggiornata,
         totale: this.totale,
-        prezzoParziale: this.prezzoParziale
+        prezzoParziale: this.prezzoParziale,
+        costoDiRiparazione: this.costoDiRiparazione
       }
     })
   }
