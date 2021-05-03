@@ -27,6 +27,7 @@ export class MatriceCeComponent implements OnInit {
   idStruttura: number = 0;
   idCaratteristica: number = 0;
   showDiv: boolean = true
+  classeEnergetica: string
 
   scelta: boolean = true
   scelta2: boolean = true
@@ -100,6 +101,7 @@ export class MatriceCeComponent implements OnInit {
     this.interventoSelezionato = window.history.state.interventoSelezionato
     this.idCaratteristica = window.history.state.idCaratteristica
     this.idStruttura = window.history.state.idStruttura
+    this.classeEnergetica = window.history.state.classeEnergetica
     for (let r = 0; r < 6; r++) {
       this.matriceNormalizzata.push([0, 0, 0, 0, 0, 0])
       this.matrix[r] = []
@@ -186,6 +188,7 @@ export class MatriceCeComponent implements OnInit {
         , idStruttura: this.idStruttura
         , idCaratteristica: this.idCaratteristica
         , interventoSelezionato: this.interventoSelezionato
+        , classeEnergetica: this.classeEnergetica
       }
     })
   }

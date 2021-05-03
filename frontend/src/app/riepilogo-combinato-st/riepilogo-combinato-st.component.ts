@@ -54,6 +54,8 @@ export class RiepilogoCombinatoStComponent implements OnInit {
   costoIntegratoVisualizz: number
   interventiAssociatiPdf = []
   costoDiRiparazione: number
+  visualizzaRighe: number
+  showButton: boolean = false
 
 
   ngOnInit() {
@@ -67,6 +69,7 @@ export class RiepilogoCombinatoStComponent implements OnInit {
     this.totale = window.history.state.totale
     this.prezzoParziale = window.history.state.prezzoParziale
     this.costoDiRiparazione = window.history.state.costoDiRiparazione
+    this.visualizzaRighe = window.history.state.visualizzaRighe
     this.service.getAssociazioneRiepilogo().subscribe(data => {
       this.associazione = data
       this.interventi.forEach(c => {
@@ -115,6 +118,7 @@ export class RiepilogoCombinatoStComponent implements OnInit {
       this.interv.push(this.interventoEnergetico)
     })
     this.showDiv = true
+    this.showButton = false
   }
 
   onChangeEnergetico(interventoEn: number) {
@@ -126,6 +130,7 @@ export class RiepilogoCombinatoStComponent implements OnInit {
       }
     })
     this.showDiv = true
+    this.showButton = true
   }
 
 
@@ -206,6 +211,7 @@ export class RiepilogoCombinatoStComponent implements OnInit {
             ]
           }
         },
+        
         {text:'\n\n'},
         //TOTALE
         {

@@ -25,6 +25,11 @@ import { ValutazioneInterventiSecondarioStComponent } from './valutazione-interv
 import { RiepilogoCostiStComponent } from './riepilogo-costi-st/riepilogo-costi-st.component';
 import { RiepilogoCostiCeComponent } from './riepilogo-costi-ce/riepilogo-costi-ce.component';
 import { RiepilogoCombinatoStComponent } from './riepilogo-combinato-st/riepilogo-combinato-st.component';
+import { TipoStrutturaBreveStComponent } from './percorso-breve-st/tipo-struttura-breve-st/tipo-struttura-breve-st.component';
+import { MatriceBreveStComponent } from './percorso-breve-st/matrice-breve-st/matrice-breve-st.component';
+import { ValutazioneInterventiBreveStComponent } from './percorso-breve-st/valutazione-interventi-breve-st/valutazione-interventi-breve-st.component';
+import { ValutazioneInterventiBreveSecondarioStComponent } from './percorso-breve-st/valutazione-interventi-breve-secondario-st/valutazione-interventi-breve-secondario-st.component';
+import { AggiuntaInterventoSecondarioBreveStComponent } from './percorso-breve-st/aggiunta-intervento-secondario-breve-st/aggiunta-intervento-secondario-breve-st.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +52,12 @@ import { RiepilogoCombinatoStComponent } from './riepilogo-combinato-st/riepilog
     ValutazioneInterventiSecondarioStComponent,
     RiepilogoCostiStComponent,
     RiepilogoCostiCeComponent,
-    RiepilogoCombinatoStComponent
+    RiepilogoCombinatoStComponent,
+    TipoStrutturaBreveStComponent,
+    MatriceBreveStComponent,
+    ValutazioneInterventiBreveStComponent,
+    ValutazioneInterventiBreveSecondarioStComponent,
+    AggiuntaInterventoSecondarioBreveStComponent
   ],
   imports: [
     BrowserModule,

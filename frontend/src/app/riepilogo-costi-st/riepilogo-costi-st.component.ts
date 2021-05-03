@@ -6,9 +6,9 @@ import { CostoC } from '../classes-services/classes/damage/costo-c';
 import { CostoDE } from '../classes-services/classes/damage/costo-de';
 import { CostoFG } from '../classes-services/classes/damage/costo-fg';
 import { RisultatoSelezioneStService } from '../classes-services/services/risultato-selezione-st.service';
+
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-import { throwIfEmpty } from 'rxjs/operators';
 registerLocaleData(localeFr, 'fr');
 
 @Component({
@@ -38,6 +38,7 @@ export class RiepilogoCostiStComponent implements OnInit {
   selezione: number
   inputUtente: number
   costoDiRiparazione: number = 0
+  visualizzaRighe: number
   
   costoAAB: CostoAAB[] = [
     {id: 1, nome: "D2", costo: 240},
@@ -81,6 +82,7 @@ export class RiepilogoCostiStComponent implements OnInit {
     this.punteggio = window.history.state.punteggio
     this.punteggioDiVul = window.history.state.punteggioDiVul
     this.vulClassAggiornata = window.history.state.vulClassAggiornata
+    this.visualizzaRighe = window.history.state.visualizzaRighe
     this.risultatoSelezione.interventiSelezionati.forEach(z => {
       this.interventi.push(z)
     })
@@ -131,7 +133,8 @@ export class RiepilogoCostiStComponent implements OnInit {
         vulClassAggiornata: this.vulClassAggiornata,
         totale: this.totale,
         prezzoParziale: this.prezzoParziale,
-        costoDiRiparazione: this.costoDiRiparazione
+        costoDiRiparazione: this.costoDiRiparazione,
+        visualizzaRighe: this.visualizzaRighe
       }
     })
   }

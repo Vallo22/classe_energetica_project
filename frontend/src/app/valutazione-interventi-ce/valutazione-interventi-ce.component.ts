@@ -22,6 +22,7 @@ export class ValutazioneInterventiCeComponent implements OnInit {
   variabileIntervento: AssociazioneInterventoCe[]
   caratteristiche: CaratteristicheQualitativeCe
   car: CaratteristicheQualitativeCe[]
+  classeEnergetica: string
 
   modCos: number
   effic: number
@@ -44,6 +45,7 @@ export class ValutazioneInterventiCeComponent implements OnInit {
     this.caratteristiche = window.history.state.caratteristiche
     this.variabileIntervento = window.history.state.variabileIntervento
     this.ponderazione = window.history.state.ponderazione
+    this.classeEnergetica = window.history.state.classeEnergetica
     this.service.getCaratteristicheQualitative().subscribe(data => {
       this.car = data
     })
@@ -125,7 +127,11 @@ export class ValutazioneInterventiCeComponent implements OnInit {
 }
 
   trasferisciIntervento() {
-    this.router.navigate(['/riepilogo-costi-ce'])
+    this.router.navigate(['/riepilogo-costi-ce'], {
+      state: {
+        classeEnergetica: this.classeEnergetica
+      }
+    })
   }
 
 }

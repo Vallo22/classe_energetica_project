@@ -30,6 +30,7 @@ export class TipoStrutturaCeComponent implements OnInit {
   selectedIndexDue: number;
   selectArr: number;
   alert: boolean = false
+  classeEnergetica: string
 
   imgA1 = false
   imgA2 = false
@@ -78,6 +79,7 @@ export class TipoStrutturaCeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.classeEnergetica = window.history.state.classeEnergetica
     this.service.getStruttura().subscribe(data => {
       this.strutt = data;
       this.strutt.forEach(c => {
@@ -152,7 +154,8 @@ export class TipoStrutturaCeComponent implements OnInit {
       this.router.navigate(['/matrice-ce'], {
         state: {
           variabileIntervento: this.variabileIntervento,
-          caratteristiche: this.caratteristiche[this.selectArr]
+          caratteristiche: this.caratteristiche[this.selectArr],
+          classeEnergetica: this.classeEnergetica
         }
       })
     }

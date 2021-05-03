@@ -198,7 +198,7 @@
                   </tr>
                 </table>
 
-                <button class="btn btn-default" (click)="risultatoDelta()" (click)="interventoSingoloRisultato()">
+                <button class="btn btn-outline-default" (click)="risultatoDelta()" (click)="interventoSingoloRisultato()">
                   Aggiungi risultato </button>
               </div>
 
@@ -215,7 +215,7 @@
                     POST INTERVENTO</th>
                 </tr>
                 <tr *ngFor="let interventi of arraySelezionati; index as i">
-                  <th scope="row">Incidenza intervento {{interventi.intervento.codice}} {{interventi.variante}}
+                  <th scope="row">Incidenza intervento {{interventi.intervento.codice}} {{interventi.varianti[i]}}
                   </th>
                   <td>{{interventoSingolo}}</td>
                 </tr>
@@ -263,7 +263,7 @@
                       </strong>
                       <div class="pulsante">
                         <button class="btn btn-default" (click)="trasferisciClasseDiRischio()">
-                          Prosegui
+                          Prosegui &raquo;
                         </button>
                       </div>
                     </th>
@@ -287,10 +287,10 @@
                         alla classe di vulnerabilità inferiore<br>
                       </strong>
                       <button class="btn btn-default" (click)="aggiuntaInterventoSecondario()">
-                        Aggiungi un intervento ulteriore
+                        Aggiungi un intervento ulteriore &#8635;
                       </button>
                       <button class="btn btn-default" (click)="trasferisciClasseDiRischio()" style="margin-left: 10px;">
-                        Termina e calcola costi
+                        Termina e calcola costi &raquo; 
                       </button>
                     </th>
                   </tr>

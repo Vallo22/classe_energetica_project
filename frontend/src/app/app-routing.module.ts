@@ -19,6 +19,11 @@ import { RiepilogoCostiStComponent } from './riepilogo-costi-st/riepilogo-costi-
 import { ValutazioneInterventiSecondarioStComponent } from './valutazione-interventi-secondario-st/valutazione-interventi-secondario-st.component';
 import { RiepilogoCostiCeComponent } from './riepilogo-costi-ce/riepilogo-costi-ce.component';
 import { RiepilogoCombinatoStComponent } from './riepilogo-combinato-st/riepilogo-combinato-st.component';
+import { TipoStrutturaBreveStComponent } from './percorso-breve-st/tipo-struttura-breve-st/tipo-struttura-breve-st.component';
+import { MatriceBreveStComponent } from './percorso-breve-st/matrice-breve-st/matrice-breve-st.component';
+import { ValutazioneInterventiBreveStComponent } from './percorso-breve-st/valutazione-interventi-breve-st/valutazione-interventi-breve-st.component';
+import { ValutazioneInterventiBreveSecondarioStComponent } from './percorso-breve-st/valutazione-interventi-breve-secondario-st/valutazione-interventi-breve-secondario-st.component';
+import { AggiuntaInterventoSecondarioBreveStComponent } from './percorso-breve-st/aggiunta-intervento-secondario-breve-st/aggiunta-intervento-secondario-breve-st.component';
 
 const routes: Routes = [
   // HOME
@@ -42,7 +47,14 @@ const routes: Routes = [
   { path: 'aggiunta-intervento-secondario-st', component: AggiuntaInterventoSecondarioStComponent },
   { path: 'valutazione-interventi-secondario-st', component: ValutazioneInterventiSecondarioStComponent },
   { path: 'riepilogo-costi-st', component: RiepilogoCostiStComponent },
-  { path: 'riepilogo-combinato-st', component: RiepilogoCombinatoStComponent }
+  { path: 'riepilogo-combinato-st', component: RiepilogoCombinatoStComponent },
+  //PARTE STRUTTURALE BREVE
+  { path: 'tipo-struttura-breve-st', component: TipoStrutturaBreveStComponent },
+  { path: 'matrice-breve-st', component: MatriceBreveStComponent },
+  { path: 'valutazione-interventi-breve-st', component: ValutazioneInterventiBreveStComponent },
+  { path: 'aggiunta-intervento-secondario-breve-st', component: AggiuntaInterventoSecondarioBreveStComponent },
+  { path: 'valutazione-interventi-breve-secondario-st', component: ValutazioneInterventiBreveSecondarioStComponent }
+
 ];
 
 @NgModule({

@@ -213,7 +213,7 @@
             <input type="number" [value]="dimensioneInput" style="margin-left: 20px;"
             (input)="dimensioneInput = $event.target.value"> mq
 
-            <div class="pulsante" style="margin-top: 10px;">
+            <div class="pulsante" style="margin-top: 10px;" *ngIf="showButton == true">
                 <button class="btn btn-outline-default" (click)="calcolaSomma()" (click)="mostra()">Calcola</button>
             </div>
         </div>
@@ -247,7 +247,7 @@
         </div> 
     </div>
     
-    <div class="pulsante">
+    <div class="pulsante" *ngIf="visualizzaRighe != 1">
         <button class="btn btn-outline-default" (click)="generatePdf()">Esporta in PDF</button>
     </div>
     

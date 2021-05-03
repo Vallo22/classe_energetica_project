@@ -104,11 +104,11 @@
                     {{totale | number: '1.2-2':'fr'}}€
                 </td>
             </tr>
-            <tr>
+            <tr *ngIf="visualizzaRighe != 1">
                 <td>Incidenza del pacchetto di interventi sul punteggio di vulnerabilità:</td>
                 <td>{{sommaPacchettoInterventi}}</td>
             </tr>
-            <tr>
+            <tr *ngIf="visualizzaRighe != 1">
                 <td>Cu(S) Indice di costo per decremento unitario percentuale di vulnerabilità:</td>
                 <td>{{risultatoDivisione | number: '1.0-2'}}</td>
             </tr>
@@ -117,7 +117,7 @@
 
     <hr>
     
-    <table class="table table-bordered" style="margin-top: 30px;">
+    <table class="table table-bordered" style="margin-top: 30px;" *ngIf="visualizzaRighe != 1">
         <caption></caption>
         <thead style="background-color: #ce5e59; color: white;">
             <th scope="colgroup" colspan="2" style="text-align: center;">IPOTESI DI DANNO E PREVISIONE DEI COSTI DI RIPARAZIONE</th>
@@ -178,7 +178,7 @@
     </table>
 
     <div style="text-align: center;">
-        <button class="btn btn-outlinev-default" (click)="trasferisciInterventi()">Vai all'integrazione con<br> le soluzioni energetiche</button>
+        <button class="btn btn-outlinev-default" (click)="trasferisciInterventi()">Vai all'integrazione con<br> le soluzioni energetiche &raquo;</button>
     </div>
 
     <label></label>
