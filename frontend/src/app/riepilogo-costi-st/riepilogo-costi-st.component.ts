@@ -39,6 +39,7 @@ export class RiepilogoCostiStComponent implements OnInit {
   inputUtente: number
   costoDiRiparazione: number = 0
   visualizzaRighe: number
+  nomeCosto: string
   
   costoAAB: CostoAAB[] = [
     {id: 1, nome: "D2", costo: 240},
@@ -48,30 +49,30 @@ export class RiepilogoCostiStComponent implements OnInit {
   ]
 
   costoFG: CostoFG[] = [
-    {id: 1, nome: "D0", costo: 840},
-    {id: 2, nome: "D1", costo: 840},
-    {id: 3, nome: "D2", costo: 1080},
-    {id: 4, nome: "D3", costo: 1200},
-    {id: 5, nome: "D4", costo: 1200},
-    {id: 6, nome: "D5", costo: 1200}
+    {id: 5, nome: "D0", costo: 840},
+    {id: 6, nome: "D1", costo: 840},
+    {id: 7, nome: "D2", costo: 1080},
+    {id: 8, nome: "D3", costo: 1200},
+    {id: 9, nome: "D4", costo: 1200},
+    {id: 10, nome: "D5", costo: 1200}
   ]
 
   costoC: CostoC[] = [
-    {id: 1, nome: "D0", costo: 240},
-    {id: 2, nome: "D1", costo: 240},
-    {id: 3, nome: "D2", costo: 600},
-    {id: 4, nome: "D3", costo: 840},
-    {id: 5, nome: "D4", costo: 1200},
-    {id: 6, nome: "D5", costo: 1200}
+    {id: 11, nome: "D0", costo: 240},
+    {id: 12, nome: "D1", costo: 240},
+    {id: 13, nome: "D2", costo: 600},
+    {id: 14, nome: "D3", costo: 840},
+    {id: 15, nome: "D4", costo: 1200},
+    {id: 16, nome: "D5", costo: 1200}
   ]
 
   costoDE: CostoDE[] = [
-    {id: 1, nome: "D0", costo: 600},
-    {id: 2, nome: "D1", costo: 600},
-    {id: 3, nome: "D2", costo: 840},
-    {id: 4, nome: "D3", costo: 1080},
-    {id: 5, nome: "D4", costo: 1200},
-    {id: 6, nome: "D5", costo: 1200}
+    {id: 17, nome: "D0", costo: 600},
+    {id: 18, nome: "D1", costo: 600},
+    {id: 19, nome: "D2", costo: 840},
+    {id: 20, nome: "D3", costo: 1080},
+    {id: 21, nome: "D4", costo: 1200},
+    {id: 22, nome: "D5", costo: 1200}
   ]
 
   ngOnInit() {
@@ -116,6 +117,50 @@ export class RiepilogoCostiStComponent implements OnInit {
     this.risultatoDivisione = this.totale/this.soglia
   }
 
+  onChangeCostoAAB(costo: number) {
+    if(costo == 240) {
+      this.nomeCosto = "D2"
+    } else if(costo == 840) {
+      this.nomeCosto = "D3"
+    } else if(costo == 1200) {
+      this.nomeCosto = "D4 / D5"
+    }
+  }
+
+  onChangeCostoFG(costo: number) {
+    if(costo == 840) {
+      this.nomeCosto = "D0 / D1"
+    } else if(costo == 1080) {
+      this.nomeCosto = "D2"
+    } else if(costo == 1200) {
+      this.nomeCosto = "D3 / D4 / D5"
+    }
+  }
+
+  onChangeCostoC(costo: number) {
+    if(costo == 240) {
+      this.nomeCosto = "D0 / D1"
+    } else if(costo == 600) {
+      this.nomeCosto = "D2"
+    } else if(costo == 840) {
+      this.nomeCosto = "D3"
+    } else if(costo == 1200) {
+      this.nomeCosto = "D4 / D5"
+    }
+  }
+
+  onChangeCostoDE(costo: number) {
+    if(costo == 600) {
+      this.nomeCosto = "D0 / D1"
+    } else if(costo == 840) {
+      this.nomeCosto = "D2"
+    } else if(costo == 1080) {
+      this.nomeCosto = "D3"
+    } else if(costo == 1200) {
+      this.nomeCosto = "D4 / D5"
+    }
+  }
+
   mostraTotaleRiparazione() {
     this.costoDiRiparazione = this.inputUtente * this.selezione
     console.log("costo di riparazione: " + this.costoDiRiparazione)
@@ -134,7 +179,8 @@ export class RiepilogoCostiStComponent implements OnInit {
         totale: this.totale,
         prezzoParziale: this.prezzoParziale,
         costoDiRiparazione: this.costoDiRiparazione,
-        visualizzaRighe: this.visualizzaRighe
+        visualizzaRighe: this.visualizzaRighe,
+        nomeCosto: this.nomeCosto
       }
     })
   }

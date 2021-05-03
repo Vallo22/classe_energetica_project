@@ -104,7 +104,7 @@
             <tr>
                 <td>Costo combustibili:</td>
                 <td>
-                    <select [(ngModel)]="selezione">
+                    <select [(ngModel)]="selezione" (change)="onChangeCombustibile($event.target.value)">
                         <option selected disabled>Seleziona</option>
                         <option *ngFor="let comb of combustibili" [value]="comb.costo">
                             {{comb.nome}}: {{comb.costo}}€/kWh

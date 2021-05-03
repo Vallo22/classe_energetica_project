@@ -36,6 +36,7 @@ export class RiepilogoCostiCeComponent implements OnInit {
   risparmioEconomico: number
   tempoDiRitorno: number
   cue: number
+  nomeCombustibile: string = "null"
 
   combustibili: Combustibili[] = [
     {id: 1, nome: "Gas naturale", costo: 0.084},
@@ -61,6 +62,7 @@ export class RiepilogoCostiCeComponent implements OnInit {
     })
   }
 
+  
   calcolaInvestimentoTotale() {
     this.totale = 0
     this.interventi.forEach(z => {
@@ -77,6 +79,25 @@ export class RiepilogoCostiCeComponent implements OnInit {
       this.totale += pr
     })
     console.log("costo investimento totale: " + this.totale)
+  }
+
+
+  onChangeCombustibile(costo: number) {
+    if(costo == 0.084) {
+      this.nomeCombustibile = "Gas naturale"
+    } else if(costo == 0.174) {
+      this.nomeCombustibile = "GPL"
+    } else if(costo == 0.113) {
+      this.nomeCombustibile = "Gasolio"
+    } else if(costo == 0.12) {
+      this.nomeCombustibile = "Carbone"
+    } else if(costo == 0.063) {
+      this.nomeCombustibile = "Biomasse solide / liquide"
+    } else if(costo == 0.111) {
+      this.nomeCombustibile = "Teleriscaldamento"
+    } else if(costo == 0.16) {
+      this.nomeCombustibile = "Energia elettrica"
+    }
   }
 
   calcoloRisparmi() {
@@ -159,8 +180,9 @@ export class RiepilogoCostiCeComponent implements OnInit {
           table: {
             widths: ['*', 200],
             body: [
-              ['Risparmio energetico', this.risparmioEnergetico],
-              ['Risparmio economico', this.risparmioEconomico],
+              ['Tipo combustibile', this.nomeCombustibile],
+              ['Risparmio energetico', this.risparmioEnergetico + ' kWh/anno'],
+              ['Risparmio economico', this.risparmioEconomico + ' €/anno'],
               ['Tempo di ritorno', this.tempoDiRitorno],
               ['Cu(E)', this.cue]
             ]

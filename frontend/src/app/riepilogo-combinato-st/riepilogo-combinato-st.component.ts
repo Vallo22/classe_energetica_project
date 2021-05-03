@@ -56,6 +56,7 @@ export class RiepilogoCombinatoStComponent implements OnInit {
   costoDiRiparazione: number
   visualizzaRighe: number
   showButton: boolean = false
+  nomeCosto: string
 
 
   ngOnInit() {
@@ -70,6 +71,10 @@ export class RiepilogoCombinatoStComponent implements OnInit {
     this.prezzoParziale = window.history.state.prezzoParziale
     this.costoDiRiparazione = window.history.state.costoDiRiparazione
     this.visualizzaRighe = window.history.state.visualizzaRighe
+    this.nomeCosto = window.history.state.nomeCosto
+    if(this.nomeCosto == undefined) {
+      this.nomeCosto = "null"
+    }
     this.service.getAssociazioneRiepilogo().subscribe(data => {
       this.associazione = data
       this.interventi.forEach(c => {
@@ -243,6 +248,7 @@ export class RiepilogoCombinatoStComponent implements OnInit {
           table: {     
             widths: ['*', 100],
             body: [
+              ['Livello di danno ipotizzato', this.nomeCosto],
               ['Ipotesi costo di riparazione', this.costoDiRiparazione.toFixed(2) + '€']
             ]
           }

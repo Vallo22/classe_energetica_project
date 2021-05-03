@@ -133,31 +133,25 @@
             <tr>
                 <td>Livello di danno ipotizzato:</td>
                 <td>
-                    <select *ngIf="risk == 'A+' || risk == 'A' || risk == 'B'" [(ngModel)]="selezione">
+                    <select *ngIf="risk == 'A+' || risk == 'A' || risk == 'B'" [(ngModel)]="selezione" (change)="onChangeCostoAAB($event.target.value)">
                         <option selected disabled>Seleziona</option>
                         <option *ngFor="let danno of costoAAB" [value]="danno.costo">
                             {{danno.nome}}: {{danno.costo}}€/mq
                         </option>
                     </select>
-                    <select *ngIf="risk == 'A+' || risk == 'A' || risk == 'B'" [(ngModel)]="selezione">
-                        <option selected disabled>Seleziona</option>
-                        <option *ngFor="let danno of costoAAB" [value]="danno.costo">
-                            {{danno.nome}}: {{danno.costo}}€/mq
-                        </option>
-                    </select>
-                    <select *ngIf="risk == 'F' || risk == 'G'" [(ngModel)]="selezione">
+                    <select *ngIf="risk == 'F' || risk == 'G'" [(ngModel)]="selezione" (change)="onChangeCostoFG($event.target.value)">
                         <option selected disabled>Seleziona</option>
                         <option *ngFor="let danno of costoFG" [value]="danno.costo">
                             {{danno.nome}}: {{danno.costo}}€/mq
                         </option>
                     </select>
-                    <select *ngIf="risk == 'C'" [(ngModel)]="selezione">
+                    <select *ngIf="risk == 'C'" [(ngModel)]="selezione" (change)="onChangeCostoC($event.target.value)">
                         <option selected disabled>Seleziona</option>
                         <option *ngFor="let danno of costoC" [value]="danno.costo">
                             {{danno.nome}}: {{danno.costo}}€/mq
                         </option>
                     </select>
-                    <select *ngIf="risk == 'D' || risk == 'E'" [(ngModel)]="selezione">
+                    <select *ngIf="risk == 'D' || risk == 'E'" [(ngModel)]="selezione" (change)="onChangeCostoDE($event.target.value)">
                         <option selected disabled>Seleziona</option>
                         <option *ngFor="let danno of costoDE" [value]="danno.costo">
                             {{danno.nome}}: {{danno.costo}}€/mq
