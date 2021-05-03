@@ -167,30 +167,42 @@ export class RiepilogoCombinatoStComponent implements OnInit {
         //TITOLO
         {text: 'Riepilogo Valutazione Strutturale\n\n', style: 'header', bold:'true', fontSize: 20, alignment: 'center'},
 
-        //PRIMA TABELLA
-        {text: 'Valutazione Ante Operam\n\n', style: 'header', bold:'true', fontSize: 15, alignment: 'center'},
         {
           style: 'tableExample',
           table: {
-            widths: ['*', 100],
+            widths: ['*','*'],
+            headerRows: 1,
             body: [
-              ['Classe di vulnerabilità', 'V' + this.vulClass],
-              ['Totale punteggio', this.punteggio],
-              ['Classe di rischio sismico', this.risk]
-            ]
-          }
-        },
-
-        //SECONDA TABELLA
-        {text: '\n\nValutazione Post Operam\n\n', style: 'header', bold:'true', fontSize: 15, alignment: 'center'},
-        {
-          style: 'tableExample',
-          table: {
-            widths: ['*', 100],
-            body: [
-              ['Classe di vulnerabilità', 'V' + this.vulClassAggiornata],
-              ['Totale punteggio', this.punteggioDiVul],
-              ['Classe di rischio sismico', this.risk]
+              [{text: 'Valutazione Ante Operam', style: 'tableHeader', bold:'true', alignment:'center'}, 
+              {text: 'Valutazione Post Operam', style: 'tableHeader', bold:'true', alignment:'center'}],
+              [
+                [
+                  {
+                    table: {
+                      widths: ['*', 'auto'],
+                      body: [
+                        ['Classe di vulnerabilità', 'V' + this.vulClass],
+                        ['Totale punteggio', this.punteggio],
+                        ['Classe di rischio sismico', this.risk]
+                      ]
+                    }
+                  }
+                
+                ],
+                [
+                  {
+                    table: {
+                      widths: ['*', 'auto'],
+                      body: [
+                        ['Classe di vulnerabilità', 'V' + this.vulClassAggiornata],
+                        ['Totale punteggio', this.punteggioDiVul],
+                        ['Classe di rischio sismico', this.risk]
+                      ]
+                    }
+                  }
+                ]
+              ]
+              
             ]
           }
         },
@@ -235,12 +247,9 @@ export class RiepilogoCombinatoStComponent implements OnInit {
             ]
           }
         },
-        
-        {text: '',
-        pageBreak: 'after',},
 
         //INTEGRAZIONI POSSIBILI
-        {text: 'Integrazione con Interventi Energetici\n\n', 
+        {text: '\n\nIntegrazione con Interventi Energetici\n\n', 
         style: 'header', 
         bold:'true', 
         fontSize: 15, 
