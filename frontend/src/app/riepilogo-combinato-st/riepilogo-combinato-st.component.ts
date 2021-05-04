@@ -57,6 +57,18 @@ export class RiepilogoCombinatoStComponent implements OnInit {
   visualizzaRighe: number
   showButton: boolean = false
   nomeCosto: string
+  packCostiIntegrati = []
+  packInterventiStrutturali = []
+  packInterventiEnergetici = []
+  packDescrizioneEnergetico = []
+  stringaEnergetico: string
+  stringaStrutturale: string
+  stringaDescrizioneEnergetico: string
+  totaleIntegrati: number
+  sommaIntegrati: number
+  selezionati = []
+  sommaSelezionati: number
+  listaStrutturali = [] 
 
 
   ngOnInit() {
@@ -72,8 +84,12 @@ export class RiepilogoCombinatoStComponent implements OnInit {
     this.costoDiRiparazione = window.history.state.costoDiRiparazione
     this.visualizzaRighe = window.history.state.visualizzaRighe
     this.nomeCosto = window.history.state.nomeCosto
+    this.listaStrutturali = window.history.state.listaStrutturali
     if(this.nomeCosto == undefined) {
       this.nomeCosto = "null"
+    }
+    if(this.totaleIntegrati == undefined) {
+      this.totaleIntegrati = 0
     }
     this.service.getAssociazioneRiepilogo().subscribe(data => {
       this.associazione = data
@@ -130,6 +146,9 @@ export class RiepilogoCombinatoStComponent implements OnInit {
     this.prezzoEnergetico = interventoEn
     this.associazioneSelezionati.forEach(c => {
       if(this.prezzoEnergetico == c.associazioneInterventoEnergetico.prezzoRiepilogo) {
+        this.stringaStrutturale = c.associazioneInterventoStrutturale.intervento.codice
+        this.stringaEnergetico = c.associazioneInterventoEnergetico.intervento.codice
+        this.stringaDescrizioneEnergetico = c.associazioneInterventoEnergetico.intervento.descrizione
         this.risparmioEuro = c.risparmioEuro
         this.attrezzature = c.attrezzature
       }
@@ -149,6 +168,34 @@ export class RiepilogoCombinatoStComponent implements OnInit {
 
     this.somma = Number(this.prezzoStrutturale) + Number(this.prezzoEnergetico)
     this.costoIntegrato = this.somma - this.risparmioEuro
+  }
+
+  salvaCosti() {
+    this.packCostiIntegrati.push(this.costoIntegratoVisualizz)
+    this.packInterventiStrutturali.push(this.stringaStrutturale)
+    this.packInterventiEnergetici.push(this.stringaEnergetico)
+    this.packDescrizioneEnergetico.push(this.stringaDescrizioneEnergetico)
+  }
+
+  calcolaCostoConIntegrati() {
+    const sommaIntegrati = this.packCostiIntegrati.reduce((a,b) => a+b, 0)
+    this.sommaIntegrati = sommaIntegrati
+
+    const selezionati = this.selezionati.reduce((a,b) => a+b, 0)
+    this.sommaSelezionati = selezionati
+    
+    this.totaleIntegrati = this.sommaIntegrati + this.sommaSelezionati
+  }
+
+  onCheck(selez) {
+    if(!this.selezionati.includes(selez)) {
+      this.selezionati.push(selez)
+    } else {
+      var index = this.selezionati.indexOf(selez)
+      if(index > -1) {
+        this.selezionati.splice(index, 1)
+      }
+    }
   }
 
   generatePdf(){
@@ -261,22 +308,55 @@ export class RiepilogoCombinatoStComponent implements OnInit {
         fontSize: 15, 
         alignment: 'center'},
 
+        {text: 'Interventi Strutturali non integrati', style: 'header', alignment:'center', bold:'true', fontSize: 13},
+        {
+          ul: [
+            this.selezionati.map(function(item) {
+              return item.toFixed(2) + '€'
+            })
+          ]
+        },
+
+        
+        {text:'\n\n'},
+        {text: 'Interventi Strutturali integrati', style: 'header', alignment:'center', bold:'true', fontSize: 13},
         {
           style: 'tableExample',
           unbreakable: true,
           table: {
-            widths: ['auto', 'auto', 'auto', 'auto','auto'],
+            headerRows: 1,
+            widths: ['auto', 'auto', 'auto', 100],
             body: [
-              ['Codice Strutturale', 'Codice Energetico','Descrizione Energetico','Prezzo Energetico (€/mq)','Risparmio integrazione (€/mq)'],
-              ...this.interventiAssociatiPdf.map(index => 
-                [index.associazioneInterventoStrutturale.intervento.codice, 
-                  index.associazioneInterventoEnergetico.intervento.codice,
-                  index.associazioneInterventoEnergetico.intervento.descrizione,
-                  index.associazioneInterventoEnergetico.prezzoRiepilogo, 
-                  index.risparmioEuro])
+              ['Codice Strutturale', 'Codice Energetico','Descrizione Energetico','Prezzo Intervento Integrato'],
+              [
+              this.packInterventiStrutturali.map(function(item) {
+                return item
+              }),
+              this.packInterventiEnergetici.map(function(item) {
+                return item
+              }),
+              this.packDescrizioneEnergetico.map(function(item) {
+                return item
+              }),
+              this.packCostiIntegrati.map(function(item) {
+                return item.toFixed(2) + '€'
+              })
+            ]
             ]
           }
         },
+
+        {text:'\n\n'},
+        //TOTALE
+        {
+          style: 'tableExample',
+          table: {
+            widths: ['*', 100],
+            body: [
+              ['Costo di investimento totale con integrazioni', this.totaleIntegrati.toFixed(2) + '€']
+            ]
+          }
+        }
       ]
     }
   }

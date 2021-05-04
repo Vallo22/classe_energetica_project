@@ -11,6 +11,15 @@
         <p><strong>Riepilogo degli interventi e calcolo dei costi</strong></p>
     </div>
 
+    <!-- ALERT -->
+    <div class="alert alert-danger" role="alert" style="margin-top: 30px;" *ngIf="alert == true">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        Per proseguire all'integrazione con gli interventi energetici, è necessario calcolare il costo 
+        totale d'intevento!
+    </div>
+
     <div class="overflow-auto">
         <div class="tabella">
             <table class="table table-hover table-bordered table-striped" style="display: contents;">

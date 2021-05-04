@@ -236,15 +236,49 @@
                     {{prezzoStrutturaleVisualizz | number: '1.2-2':'fr'}} €<br>
                     {{prezzoEnergeticoVisualizz | number: '1.2-2':'fr'}} €<br>
                     {{sommaVisualizz | number: '1.2-2':'fr'}} €<br>
-                    {{costoIntegratoVisualizz | number: '1.2-2':'fr'}} €
+                    {{costoIntegratoVisualizz | number: '1.2-2':'fr'}} € <button class="btn btn-outline-defaults" (click)="salvaCosti()">+</button>
                     <hr>
                     <strong>{{risparmioPercentuale | number: '1.0-0'}}%</strong><br>
                     <strong>{{risparmioEuroVisualizz | number: '1.2-2':'fr'}} €</strong>
                     <hr>
                     {{attrezzature}}
                 </div>
-            </div>
+            </div> 
         </div> 
+    </div>
+
+    <div class="card my-5">
+        <div class="card-body">    
+            <div class ="row">
+                <div class="col" style="text-align: center;">
+                    <strong>COSTI PARZIALI STRUTTURALI SENZA INTEGRAZIONI</strong>
+                    <div class="row">
+                        <div class="col">
+                            <div *ngFor="let a of listaStrutturali">{{a}} = </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check" *ngFor="let parziali of prezzoParziale">
+                                <input class="form-check-input" type="checkbox" [value]="parziali" id="flexCheckDefault" (change)="onCheck(parziali)">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    {{parziali}}€<br>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                </div>
+                <div class="col" style="text-align: center;">
+                    <strong>COSTI PARZIALI INTEGRATI</strong>
+                    <div *ngFor="let costi of packCostiIntegrati"> • {{costi | number: '1.2-2':'fr'}}€<br></div>
+                </div>
+            </div>
+            <hr>
+            <div class="pulsante">
+                <button class="btn btn-outline-default" (click)="calcolaCostoConIntegrati()">Calcola costo di investimento totale con integrazioni</button>
+            </div>
+                <hr>
+                <div style="text-align: center;">Totale: {{totaleIntegrati| number: '1.2-2':'fr'}}€</div>
+        </div>    
     </div>
     
     <div class="pulsante" *ngIf="visualizzaRighe != 1">

@@ -234,6 +234,7 @@ export class ValutazioneInterventiStComponent implements OnInit {
       }
       this.arraySelezionati.splice(indexToRemove, 1)
     } else {
+      
       const nuovo = Object.assign({}, selezionato)
       nuovo.ante = 0
       nuovo.post = 0

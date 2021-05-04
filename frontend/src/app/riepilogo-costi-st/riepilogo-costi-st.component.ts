@@ -40,6 +40,8 @@ export class RiepilogoCostiStComponent implements OnInit {
   costoDiRiparazione: number = 0
   visualizzaRighe: number
   nomeCosto: string
+  listaStrutturali = []
+  alert: boolean = false
   
   costoAAB: CostoAAB[] = [
     {id: 1, nome: "D2", costo: 240},
@@ -86,6 +88,9 @@ export class RiepilogoCostiStComponent implements OnInit {
     this.visualizzaRighe = window.history.state.visualizzaRighe
     this.risultatoSelezione.interventiSelezionati.forEach(z => {
       this.interventi.push(z)
+    })
+    this.interventi.forEach(c => {
+      this.listaStrutturali.push(c.intervento.codice)
     })
   }
 
@@ -167,22 +172,28 @@ export class RiepilogoCostiStComponent implements OnInit {
   }
 
   trasferisciInterventi() {
-    this.router.navigate(['/riepilogo-combinato-st'], {
-      state: {
-        interventi: this.interventi,
-        soglia: this.soglia,
-        vulClass: this.vulClass,
-        risk: this.risk,
-        punteggio: this.punteggio,
-        punteggioDiVul: this.punteggioDiVul,
-        vulClassAggiornata: this.vulClassAggiornata,
-        totale: this.totale,
-        prezzoParziale: this.prezzoParziale,
-        costoDiRiparazione: this.costoDiRiparazione,
-        visualizzaRighe: this.visualizzaRighe,
-        nomeCosto: this.nomeCosto
-      }
-    })
+    if(this.totale == undefined || this.totale <= 0) {
+      this.alert = true
+      window.scrollTo(0, 0)
+    } else {
+      this.router.navigate(['/riepilogo-combinato-st'], {
+        state: {
+          interventi: this.interventi,
+          soglia: this.soglia,
+          vulClass: this.vulClass,
+          risk: this.risk,
+          punteggio: this.punteggio,
+          punteggioDiVul: this.punteggioDiVul,
+          vulClassAggiornata: this.vulClassAggiornata,
+          totale: this.totale,
+          prezzoParziale: this.prezzoParziale,
+          costoDiRiparazione: this.costoDiRiparazione,
+          visualizzaRighe: this.visualizzaRighe,
+          nomeCosto: this.nomeCosto,
+          listaStrutturali: this.listaStrutturali
+        }
+      })
+    }
   }
 
 }
