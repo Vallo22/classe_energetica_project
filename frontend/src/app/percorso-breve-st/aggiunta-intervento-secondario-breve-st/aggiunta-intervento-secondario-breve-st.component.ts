@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AssociazioneInterventoSt } from 'src/app/classes-services/classes/associazione-intervento-st';
 import { CaratteristicheQualitativeSt } from 'src/app/classes-services/classes/caratteristiche-qualitative-st';
 import { CaratteristicheStrutturaSt } from 'src/app/classes-services/classes/caratteristiche-struttura-st';
@@ -24,7 +24,8 @@ export class AggiuntaInterventoSecondarioBreveStComponent implements OnInit {
     private strutturaService: ElementiStrutturaStService,
     private serviceAssociazione: AssociazioneInterventoStService,
     private emsService: EdificioStService,
-    private caratteristicheStrutturaService: CaratteristicheStrutturaStService
+    private caratteristicheStrutturaService: CaratteristicheStrutturaStService,
+    private route: ActivatedRoute
   ) {}
 
   a: boolean
@@ -68,6 +69,9 @@ export class AggiuntaInterventoSecondarioBreveStComponent implements OnInit {
   caratteristicheFinali: CaratteristicheQualitativeSt[] = []
   alert: boolean = false
   vulClassAggiornata: number
+  visualizzaRighe: number
+  sommaPacchettoInterventi: number
+  interventiDaMostrare: AssociazioneInterventoSt[] = []
   
   imgA1 = false
   imgA1parte2 = false
@@ -160,6 +164,7 @@ export class AggiuntaInterventoSecondarioBreveStComponent implements OnInit {
     this.punteggioPassaggioClasseAggiornato = window.history.state.punteggioPassaggioClasseAggiornato
     this.contatoreVolte = window.history.state.contatoreVolte
     this.vulClassAggiornata = window.history.state.vulClassAggiornata
+    this.visualizzaRighe = window.history.state.visualizzaRighe
     this.strutturaService.getCaratteristicheQualitative().subscribe(data => {
       this.car = data
     })
@@ -210,39 +215,35 @@ export class AggiuntaInterventoSecondarioBreveStComponent implements OnInit {
     this.interventoSelezionato = this.interventiSecondari[indexIntervento]
   }
 
-  massimoNumero() {
-    let min = Infinity
-    let max = 0
-    let maxIndex: number
-    let maxIntervento: AssociazioneInterventoSt
-    this.variabileIntervento.forEach(interventi => {
-      for (let index in interventi.varianti) {
-        if (interventi.totale[index] > max) {
-          max = interventi.totale[index]
-          maxIntervento = interventi
-          maxIndex = parseInt(index)
-        }
-      }
-    })
-    maxIntervento.maxVariante = maxIndex
+  premiBottone(selezionato: AssociazioneInterventoSt) {
+    const nuovo = Object.assign({}, selezionato)
+    this.arraySelezionati.push(nuovo)
+    this.buttonIntervento = true 
+    this.risultatoSelezione.aggiungiIntervento(this.arraySelezionati[0])
   }
 
-  trasferisciOggetti() {
+  aggiuntaInterventoSecondario() {
     this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche)
-    this.interventiSecondari.forEach(t => {
-      if(t.intervento.id == 77) {
-        this.alert = true
-        window.scroll(0, 0)
-      } else {
-        this.router.navigate(['/matrice-breve-st'], {
-          state: {
-            emsType: this.emsType, interventoSingolo: this.interventoSingolo, caratteristiche: this.caratteristiche
-            , vulClass: this.vulClass, punteggio: this.punteggio, pam: this.pam
-            , variabileIntervento: this.variabileIntervento, interventoSelezionato: this.interventoSelezionato
-            , idCaratteristica: this.idCaratteristica, idStruttura: this.idStruttura, contatoreVolte: this.contatoreVolte
-            , interventiSecondari: this.interventiSecondari , risk: this.risk, punteggioDiVul: this.punteggioDiVul, vulClassAggiornata: this.vulClassAggiornata
-          }
-        })
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+      }
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(['/aggiunta-intervento-secondario-breve-st'], {
+      state: {
+        interventoSingolo: this.interventoSingolo
+        , variabileIntervento: this.variabileIntervento
+        , caratteristiche: this.caratteristiche
+        , contatoreVolte: this.contatoreVolte
+        , visualizzaRighe: this.visualizzaRighe
+      }
+    })
+  }
+
+  trasferisciClasseDiRischio(){
+    this.router.navigate(['/riepilogo-costi-st'], {
+      state: {
+        sommaPacchettoInterventi: this.sommaPacchettoInterventi,
+        visualizzaRighe: this.visualizzaRighe
       }
     })
   }

@@ -69,6 +69,7 @@ export class RiepilogoCombinatoStComponent implements OnInit {
   selezionati = []
   sommaSelezionati: number
   listaStrutturali = [] 
+  alarm: boolean = false
 
 
   ngOnInit() {
@@ -108,6 +109,7 @@ export class RiepilogoCombinatoStComponent implements OnInit {
   }
 
   onChangeIntervento(intervento: number) {
+    this.alarm = false
     this.prezzoStrutturale = intervento
     this.elementoSelezionato = []
     if(this.prezzoStrutturale != 0) {
@@ -138,6 +140,9 @@ export class RiepilogoCombinatoStComponent implements OnInit {
       this.interventoEnergetico = d?.associazioneInterventoEnergetico
       this.interv.push(this.interventoEnergetico)
     })
+    if(this.interventoEnergetico == null) {
+      this.alarm = true
+    }
     this.showDiv = true
     this.showButton = false
   }
@@ -327,7 +332,7 @@ export class RiepilogoCombinatoStComponent implements OnInit {
             headerRows: 1,
             widths: ['auto', 'auto', 'auto', 100],
             body: [
-              ['Codice Strutturale', 'Codice Energetico','Descrizione Energetico','Prezzo Intervento Integrato'],
+              ['Interventi Strutturali', 'Interventi Energetici','Descrizione Interventi Energetici','Prezzo Interventi Integrati'],
               [
               this.packInterventiStrutturali.map(function(item) {
                 return item

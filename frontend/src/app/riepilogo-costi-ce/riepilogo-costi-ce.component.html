@@ -143,7 +143,7 @@
         </tbody>
     </table>
 
-    <div class="pulsante">
+    <div class="pulsante" *ngIf="visualizzaRighe != 1">
         <button class="btn btn-outline-default" (click)="generatePdf()">Esporta in PDF</button>
     </div>
     

@@ -11,14 +11,6 @@
       <p><strong>Aggiunta intervento secondario<br></strong></p>
     </div>
   
-    <!-- ALERT -->
-    <div class="alert alert-danger" role="alert" *ngIf="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      Non è possibile proseguire se non si ha a disposizione almeno un intervento selezionabile!
-    </div>
-  
     <hr>
     <!-- LEGENDA -->
     <div>
@@ -93,10 +85,20 @@
                   <strong>Codice: {{int.intervento.codice}} {{int.variante}} - {{int.intervento.descrizione}}</strong>
                 </td>
                 <td style="float: right">
-                  <button class="btn btn-outline-default" (click)="visualizzaCodiceIntervento(int.intervento.codice)"
+                  <div class="row">
+                    <div class="col">
+                      <button class="btn btn-outline-default" (click)="visualizzaCodiceIntervento(int.intervento.codice)"
                     data-toggle="modal" data-target=".bd-example-modal-lg">
                     Vai all'intervento
                   </button>
+                    </div>
+                    <div class="col">
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" [disabled]="arraySelezionati.length > 0"
+                          class="form-check-input" (click)="premiBottone(int)">
+                      </div>
+                    </div>
+                  </div>
                 </td>
               </div>
               </li>
@@ -105,14 +107,23 @@
         </form>
       </div>
   
-      <!-- PULSANTE -->
-      <div class="pulsante">
-        <button class="btn btn-default" style="margin-bottom: 15px;" (click)="trasferisciOggetti()">
-          Avanti &raquo;
-        </button>
-      </div>
-  
     </div>
+
+    <table class="table table-hover table-bordered" *ngIf="buttonIntervento == true">
+      <caption></caption>
+      <tbody>
+            <tr>
+              <th scope="col" colspan="2" style="text-align: center;">
+                <button class="btn btn-default" (click)="aggiuntaInterventoSecondario()">
+                  Aggiungi un intervento ulteriore &#8635;
+                </button>
+                <button class="btn btn-default" (click)="trasferisciClasseDiRischio()" style="margin-left: 10px;">
+                  Termina e calcola costi &raquo;
+                </button>
+              </th>
+            </tr>
+      </tbody>
+  </table>
   
     <!-- MODAL -->
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"

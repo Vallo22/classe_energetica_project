@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MatriceBreveStComponent } from './matrice-breve-st.component';
+import { SceltaPercorsoCeComponent } from './scelta-percorso-ce.component';
 
-describe('MatriceBreveStComponent', () => {
-  let component: MatriceBreveStComponent;
-  let fixture: ComponentFixture<MatriceBreveStComponent>;
+describe('SceltaPercorsoCeComponent', () => {
+  let component: SceltaPercorsoCeComponent;
+  let fixture: ComponentFixture<SceltaPercorsoCeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MatriceBreveStComponent ]
+      declarations: [ SceltaPercorsoCeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MatriceBreveStComponent);
+    fixture = TestBed.createComponent(SceltaPercorsoCeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

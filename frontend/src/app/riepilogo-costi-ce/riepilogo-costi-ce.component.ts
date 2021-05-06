@@ -27,6 +27,7 @@ export class RiepilogoCostiCeComponent implements OnInit {
   tipo_superficie: number = 0
   totale: number = 0
   classeEnergetica: string
+  visualizzaRighe: number
 
   pre: number
   post: number
@@ -51,6 +52,7 @@ export class RiepilogoCostiCeComponent implements OnInit {
 
   ngOnInit() {
     this.classeEnergetica = window.history.state.classeEnergetica
+    this.visualizzaRighe = window.history.state.visualizzaRighe
     this.risultatoSelezione.interventiSelezionati.forEach(z => {
       this.interventi.push(z)
     })

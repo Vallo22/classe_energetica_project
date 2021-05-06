@@ -203,6 +203,15 @@
                 </li>
             </ul>  
             
+            <br> 
+
+            <div class="alert alert-danger" role="alert" *ngIf="alarm">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                Questo intervento strutturale non è integrabile!
+              </div>
+
             <p style="font-size: 17px;" style="margin-top: 10px;"><strong>• Interventi energetici integrabili</strong></p>
             <select class="form-control" (change)="onChangeEnergetico($event.target.value)">
                 <option value selected="0">Seleziona</option>

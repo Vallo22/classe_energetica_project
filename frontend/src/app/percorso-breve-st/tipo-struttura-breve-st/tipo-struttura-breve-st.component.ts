@@ -38,6 +38,11 @@ export class TipoStrutturaBreveStComponent implements OnInit {
   alert2: boolean = false
   showTab: boolean = false
   showTabDue: boolean = false
+  arraySelezionati: AssociazioneInterventoSt[] = []
+  buttonIntervento: boolean = false
+  contatoreVolte: number
+  interventoSingolo: number
+  visualizzaRighe: number = 1
 
   imgA1 = false
   imgA1parte2 = false
@@ -190,23 +195,34 @@ export class TipoStrutturaBreveStComponent implements OnInit {
   }
   }
 
-  trasferisciOggetti() {
-    if(this.variabileIntervento == null) {
-      this.alert = true
-      window.scrollTo(0, 0)
-    } else {
-      this.variabileIntervento.forEach(t => {
-        if(t.intervento.id == 77) {
-          this.alert2 = true
-          window.scrollTo(0, 0)
-        } else {
-          this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche[this.selectArr])
-          this.router.navigate(['/matrice-breve-st'], {
-          state: { emsType: this.emsType, vulClass: this.vulClass,punteggio: this.punteggio, risk: this.risk, pam: this.pam,  variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex }
-        })
-        }
-      })
-    }
+  premiBottone(selezionato: AssociazioneInterventoSt) {
+    const nuovo = Object.assign({}, selezionato)
+    this.arraySelezionati.push(nuovo)
+    this.buttonIntervento = true
+    this.risultatoSelezione.aggiungiIntervento(this.arraySelezionati[0])
+    console.log(this.arraySelezionati[0])
+  }
+
+  aggiuntaInterventoSecondario() {
+    this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche[this.selectArr])
+    this.router.navigate(['/aggiunta-intervento-secondario-breve-st'], {
+      state: {
+        variabileIntervento: this.variabileIntervento
+        , caratteristiche: this.caratteristiche
+        , contatoreVolte: this.contatoreVolte
+        , interventoSingolo: this.interventoSingolo
+        , visualizzaRighe: this.visualizzaRighe
+      }
+    })
+  }
+
+  trasferisciClasseDiRischio() {
+    this.router.navigate(['/riepilogo-costi-st'], {
+      state: {
+        sommaPacchettoInterventi: this.interventoSingolo,
+        visualizzaRighe: this.visualizzaRighe
+      }
+    })
   }
 
   mostraTab() {
