@@ -223,6 +223,25 @@ export class RiepilogoCombinatoStComponent implements OnInit {
 
   getDocumentDefinition() {
 
+    const config = {
+      table: {
+        headerRows: 1,
+        widths: ['*','*','*','*'],
+        body: [
+        ['Interventi Strutturali', 'Interventi Energetici', 'Descrizione Interventi Energetici', 'Prezzo Interventi Integrati'],
+        ]
+      }
+    };
+
+    for(let i = 0; i < this.packInterventiStrutturali.length; i++) {
+      const newRow = [];
+      newRow.push(!!this.packInterventiStrutturali[i] ? this.packInterventiStrutturali[i] : "");
+      newRow.push(!!this.packInterventiEnergetici[i] ? this.packInterventiEnergetici[i] : "");
+      newRow.push(!!this.packDescrizioneEnergetico[i] ? this.packDescrizioneEnergetico[i] : "");
+      newRow.push(!!this.packCostiIntegrati[i] ? this.packCostiIntegrati[i].toFixed(2) + '€' : "");
+      config.table.body.push(newRow)
+    }
+
     return {
 
       content: [
@@ -345,6 +364,10 @@ export class RiepilogoCombinatoStComponent implements OnInit {
         },
         
         {text:'\n\n'},
+        /*
+        {content: [config]},
+        */
+        
         {
           style: 'tableExample',
           unbreakable: true,
@@ -370,6 +393,7 @@ export class RiepilogoCombinatoStComponent implements OnInit {
             ]
           }
         },
+        
 
         {text:'\n\n'},
         //TOTALE
