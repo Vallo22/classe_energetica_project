@@ -55,3 +55,10 @@
     background-color: #d3706b;
     color: white
   }
+
+  .tabella{
+    margin-right: auto;
+    margin-left: auto;
+    width: fit-content;
+    text-align: center;
+}

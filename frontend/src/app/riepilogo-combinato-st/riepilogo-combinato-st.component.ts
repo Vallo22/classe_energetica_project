@@ -70,6 +70,10 @@ export class RiepilogoCombinatoStComponent implements OnInit {
   sommaSelezionati: number
   listaStrutturali = [] 
   alarm: boolean = false
+  nomeInterventoIntegrato: string
+  packNomeInterventoIntegrato = []
+  packRisparmio = []
+  sommaRisparmi: number
 
 
   ngOnInit() {
@@ -91,6 +95,9 @@ export class RiepilogoCombinatoStComponent implements OnInit {
     }
     if(this.totaleIntegrati == undefined) {
       this.totaleIntegrati = 0
+    }
+    if(this.sommaRisparmi == undefined) {
+      this.sommaRisparmi = 0
     }
     this.service.getAssociazioneRiepilogo().subscribe(data => {
       this.associazione = data
@@ -139,6 +146,7 @@ export class RiepilogoCombinatoStComponent implements OnInit {
     this.associazioneSelezionati.forEach(d => {
       this.interventoEnergetico = d?.associazioneInterventoEnergetico
       this.interv.push(this.interventoEnergetico)
+      this.nomeInterventoIntegrato = d.associazioneInterventoStrutturale.intervento.codice
     })
     if(this.interventoEnergetico == null) {
       this.alarm = true
@@ -180,6 +188,8 @@ export class RiepilogoCombinatoStComponent implements OnInit {
     this.packInterventiStrutturali.push(this.stringaStrutturale)
     this.packInterventiEnergetici.push(this.stringaEnergetico)
     this.packDescrizioneEnergetico.push(this.stringaDescrizioneEnergetico)
+    this.packNomeInterventoIntegrato.push(this.nomeInterventoIntegrato)
+    this.packRisparmio.push(this.risparmioEuroVisualizz)
   }
 
   calcolaCostoConIntegrati() {
@@ -188,6 +198,9 @@ export class RiepilogoCombinatoStComponent implements OnInit {
 
     const selezionati = this.selezionati.reduce((a,b) => a+b, 0)
     this.sommaSelezionati = selezionati
+
+    const sommaRisparmi = this.packRisparmio.reduce((a,b) => a+b, 0)
+    this.sommaRisparmi = sommaRisparmi
     
     this.totaleIntegrati = this.sommaIntegrati + this.sommaSelezionati
   }
@@ -280,15 +293,14 @@ export class RiepilogoCombinatoStComponent implements OnInit {
             ]
           }
         },
-        
-        {text:'\n\n'},
+  
         //TOTALE
         {
           style: 'tableExample',
           table: {
             widths: ['*', 100],
             body: [
-              ['Costo di investimento totale', this.totale.toFixed(2) + '€']
+              [{text: 'Costo di investimento totale', bold:'true'}, this.totale.toFixed(2) + '€']
             ]
           }
         },
@@ -313,18 +325,26 @@ export class RiepilogoCombinatoStComponent implements OnInit {
         fontSize: 15, 
         alignment: 'center'},
 
-        {text: 'Interventi Strutturali non integrati', style: 'header', alignment:'center', bold:'true', fontSize: 13},
         {
-          ul: [
-            this.selezionati.map(function(item) {
-              return item.toFixed(2) + '€'
-            })
+          columns: [
+            { width:'*', text:''},
+            {
+              width:'100',
+              table: {
+                body: [
+                  ['Prezzo Interventi non Integrati'],
+                  [
+                    this.selezionati.map(function(item) {
+                      return item.toFixed(2) + '€'
+                    })
+                ]
+                ]
+              }
+            }
           ]
         },
-
         
         {text:'\n\n'},
-        {text: 'Interventi Strutturali integrati', style: 'header', alignment:'center', bold:'true', fontSize: 13},
         {
           style: 'tableExample',
           unbreakable: true,
@@ -358,7 +378,8 @@ export class RiepilogoCombinatoStComponent implements OnInit {
           table: {
             widths: ['*', 100],
             body: [
-              ['Costo di investimento totale con integrazioni', this.totaleIntegrati.toFixed(2) + '€']
+              [{text:'Costo di investimento totale con integrazioni', bold:'true'}, this.totaleIntegrati.toFixed(2) + '€'],
+              [{text:'Risparmio rispetto ad azioni disgiunte', bold:'true'}, this.sommaRisparmi.toFixed(2) + '€']
             ]
           }
         }
