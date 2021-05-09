@@ -24,7 +24,7 @@
             <p style="font-size: 17px;"><strong>• Interventi strutturali selezionati</strong></p>
             <ul class="list-group">
                 <li class="list-group-item" *ngFor="let interventoStrutturale of interventi">
-                    <td style="float: left;">{{interventoStrutturale.intervento.codice}} {{interventoStrutturale.variante}} - {{interventoStrutturale.intervento.descrizione}}<br>
+                    <td style="float: left;">{{interventoStrutturale.intervento.codice}} - {{interventoStrutturale.intervento.descrizione}}<br>
 
                         <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'B6'">
                             <option disabled value="1">Intradosso a vista</option>
@@ -47,13 +47,13 @@
                             <option value="6">Intradosso intonacato</option>
                         </select>
 
-                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'D3' && interventoStrutturale.variante == 'a'">
+                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'D3a'">
                             <option disabled value="7">Entrambe le superfici a vista</option>
                             <option value="8">Una superficie a vista e una intonacata</option>
                             <option value="9">Entrambe le superfici intonacate</option>
                         </select>
 
-                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'D3' && interventoStrutturale.variante == 'b'">
+                        <select [(ngModel)]="interventoStrutturale.tipo_sup" *ngIf="interventoStrutturale.intervento.codice == 'D3b'">
                             <option disabled value="10">Entrambe le superfici a vista</option>
                             <option value="11">Una superficie a vista e una intonacata</option>
                             <option value="12">Entrambe le superfici intonacate</option>
@@ -279,7 +279,7 @@
                                     <div class="form-check" *ngFor="let parziali of prezzoParziale">
                                         <input class="form-check-input" type="checkbox" [value]="parziali" id="flexCheckDefault" (change)="onCheck(parziali)">
                                         <label class="form-check-label" for="flexCheckDefault">
-                                            {{parziali}}€<br>
+                                            {{parziali | number: '1.2-2':'fr'}}€<br>
                                         </label>
                                     </div>
                                 </td>

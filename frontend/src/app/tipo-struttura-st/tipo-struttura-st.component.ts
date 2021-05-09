@@ -338,10 +338,10 @@ export class TipoStrutturaStComponent implements OnInit {
     else if(codice == "A5"){
       this.imgA5 = true
     }    
-    else if(codice == "A6"){
+    else if(codice == "A6a" || codice == "A6b" || codice == "A6c" || codice == "A6d"){
       this.imgA6 = true
       this.imgA6parte2 = true
-    }    
+    }   
     else if(codice == "A7"){
       this.imgA7 = true
     }    
@@ -424,7 +424,7 @@ export class TipoStrutturaStComponent implements OnInit {
       this.imgD2 = true
       this.imgD2parte2 = true
     }    
-    else if(codice == "D3"){
+    else if(codice == "D3a" || codice == "D3b"){
       this.imgD3 = true
     }    
     else if(codice == "D4"){

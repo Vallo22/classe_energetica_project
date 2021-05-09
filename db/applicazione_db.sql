@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Mag 07, 2021 alle 17:42
+-- Creato il: Mag 09, 2021 alle 10:48
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -180,7 +180,7 @@ INSERT INTO `associazione_intervento_st` (`id`, `efficacia`, `esiguita_di_ingomb
 (7, 1, 3, 2, 0, 87.3, 1, 2, 3, 2, 'mq', NULL, 3, 60, 1, 0, 142.23, 142.23, 0, 0),
 (8, 3, 3, 2, 0, 236.75, 3, 1, 3, 3, 'mq', NULL, 2, 31, 2, 346.61, 291.68, 0, 0, 0),
 (9, 2, 3, 3, 0, 55.23, 1, 3, 3, 3, 'mq', NULL, 1, 32, 2, 0, 110.16, 0, 0, 0),
-(10, 1, 3, 2, 0, 158.13, 3, 3, 3, 3, 'mq', 'a', 1, 33, 2, 267.99, 213.06, 213.06, 267.99, 0),
+(10, 1, 3, 2, 0, 158.13, 3, 3, 3, 3, 'mq', NULL, 1, 33, 2, 267.99, 213.06, 213.06, 267.99, 0),
 (11, 3, 3, 1, 0, 383.68, 1, 2, 3, 1, 'mq', NULL, 1, 37, 2, 493.54, 438.61, 438.61, 493.54, 0),
 (12, 2, 2, 2, 0, 117.7, 2, 2, 1, 1, 'mq', NULL, 1, 38, 2, 0, 0, 0, 0, 0),
 (13, 2, 2, 2, 0, 313.03, 1, 3, 3, 0, 'mq', NULL, 1, 39, 2, 0, 0, 313.03, 0, 0),
@@ -191,7 +191,7 @@ INSERT INTO `associazione_intervento_st` (`id`, `efficacia`, `esiguita_di_ingomb
 (19, 3, 3, 3, 0, 0, 3, 2, 2, 2, 'm', NULL, 8, 1, 2, 0, 0, 0, 0, 0),
 (20, 2, 3, 3, 0, 29.57, 3, 2, 3, 3, 'm', NULL, 8, 2, 2, 0, 0, 0, 0, 0),
 (21, 3, 3, 2, 0, 66.7, 2, 2, 3, 1, 'm', NULL, 8, 3, 2, 0, 80.43, 0, 0, 0),
-(22, 3, 3, 1, 0, 184.95, 1, 1, 3, 3, 'm', 'a', 8, 6, 2, 265.85, 205.18, 0, 0, 0),
+(22, 3, 3, 1, 0, 184.95, 1, 1, 3, 3, 'm', NULL, 8, 6, 2, 265.85, 205.18, 0, 0, 0),
 (23, 3, 1, 3, 0, 77.35, 1, 1, 1, 1, 'mq', NULL, 8, 41, 2, 158.25, 117.8, 0, 0, 0),
 (24, 3, 1, 1, 0, 99.82, 1, 1, 2, 2, 'mq', NULL, 8, 43, 2, 0, 154.75, 154.75, 0, 0),
 (25, 3, 3, 3, 0, 0, 3, 2, 2, 2, 'm', NULL, 4, 1, 2, 0, 0, 0, 0, 0),
@@ -199,10 +199,10 @@ INSERT INTO `associazione_intervento_st` (`id`, `efficacia`, `esiguita_di_ingomb
 (27, 3, 3, 2, 0, 66.7, 2, 2, 3, 1, 'm', NULL, 4, 3, 2, 0, 80.43, 0, 0, 0),
 (28, 3, 3, 3, 0, 236.75, 3, 1, 3, 3, 'mq', NULL, 4, 4, 2, 346.61, 291.68, 0, 0, 0),
 (29, 1, 3, 3, 0, 87.3, 1, 2, 3, 2, 'mq', NULL, 4, 5, 2, 0, 142.23, 0, 0, 0),
-(30, 3, 3, 1, 0, 184.95, 1, 1, 3, 1, 'm', 'a', 4, 6, 2, 265.85, 205.18, 0, 0, 0),
+(30, 3, 3, 1, 0, 184.95, 1, 1, 3, 1, 'm', NULL, 4, 6, 2, 265.85, 205.18, 0, 0, 0),
 (31, 3, 3, 2, 0, 236.75, 3, 1, 3, 3, 'mq', NULL, 2, 31, 3, 346.61, 291.68, 0, 0, 0),
 (32, 2, 3, 3, 0, 55.23, 1, 3, 3, 3, 'mq', NULL, 1, 32, 3, 0, 110.16, 0, 0, 0),
-(33, 1, 3, 2, 0, 158.13, 3, 3, 3, 3, 'mq', 'a', 1, 33, 3, 267.99, 213.06, 213.06, 267.99, 0),
+(33, 1, 3, 2, 0, 158.13, 3, 3, 3, 3, 'mq', NULL, 1, 33, 3, 267.99, 213.06, 213.06, 267.99, 0),
 (34, 3, 3, 1, 0, 383.68, 1, 2, 3, 1, 'mq', NULL, 1, 37, 3, 493.54, 438.61, 438.61, 493.54, 0),
 (35, 2, 2, 2, 0, 117.7, 2, 2, 1, 1, 'mq', NULL, 1, 38, 3, 0, 0, 0, 0, 0),
 (36, 2, 2, 2, 0, 313.03, 1, 3, 3, 0, 'mq', NULL, 1, 39, 3, 0, 0, 313.03, 0, 0),
@@ -213,7 +213,7 @@ INSERT INTO `associazione_intervento_st` (`id`, `efficacia`, `esiguita_di_ingomb
 (42, 3, 3, 3, 0, 0, 3, 2, 2, 2, 'm', NULL, 8, 1, 3, 0, 0, 0, 0, 0),
 (43, 2, 3, 3, 0, 29.57, 3, 2, 3, 3, 'm', NULL, 8, 2, 3, 0, 0, 0, 0, 0),
 (44, 3, 3, 2, 0, 66.7, 2, 2, 3, 1, 'm', NULL, 8, 3, 3, 0, 80.43, 0, 0, 0),
-(45, 3, 3, 1, 0, 184.95, 1, 1, 3, 3, 'm', 'a', 8, 6, 3, 165.85, 205.18, 0, 0, 0),
+(45, 3, 3, 1, 0, 184.95, 1, 1, 3, 3, 'm', NULL, 8, 6, 3, 165.85, 205.18, 0, 0, 0),
 (46, 3, 1, 3, 0, 77.35, 1, 1, 1, 1, 'mq', NULL, 8, 41, 3, 158.25, 117.8, 0, 0, 0),
 (47, 3, 3, 3, 0, 113.49, 1, 2, 3, 2, 'mq', NULL, 9, 34, 3, 223.35, 168.42, 168.42, 223.35, 0),
 (48, 3, 3, 3, 0, 81.9, 2, 2, 3, 3, 'mq', NULL, 9, 35, 3, 191.76, 136.83, 136.83, 191.76, 0),
@@ -223,7 +223,7 @@ INSERT INTO `associazione_intervento_st` (`id`, `efficacia`, `esiguita_di_ingomb
 (52, 3, 3, 2, 0, 66.7, 2, 2, 3, 1, 'm', NULL, 4, 3, 3, 0, 80.43, 0, 0, 0),
 (53, 3, 3, 3, 0, 236.75, 3, 1, 3, 3, 'mq', NULL, 4, 4, 3, 346.61, 291.68, 0, 0, 0),
 (54, 1, 3, 3, 0, 87.3, 1, 2, 3, 2, 'mq', NULL, 4, 5, 3, 0, 142.23, 0, 0, 0),
-(55, 3, 3, 1, 0, 184.95, 1, 1, 3, 1, 'm', 'a', 4, 6, 3, 265.85, 205.18, 0, 0, 0),
+(55, 3, 3, 1, 0, 184.95, 1, 1, 3, 1, 'm', NULL, 4, 6, 3, 265.85, 205.18, 0, 0, 0),
 (56, 2, 3, 2, 0, 90, 3, 3, 2, 2, 'm', NULL, 51, 7, 4, 0, 0, 0, 0, 0),
 (57, 3, 2, 3, 0, 63.07, 3, 2, 2, 2, 'm', NULL, 51, 8, 4, 0, 65.96, 0, 0, 0),
 (58, 3, 2, 2, 0, 119.32, 2, 1, 3, 3, 'mq', NULL, 52, 9, 4, 0, 0, 119.32, 0, 0),
@@ -246,7 +246,7 @@ INSERT INTO `associazione_intervento_st` (`id`, `efficacia`, `esiguita_di_ingomb
 (75, 3, 3, 3, 0, 0, 3, 2, 2, 2, 'm', NULL, 3, 1, 7, 0, 0, 0, 0, 0),
 (76, 2, 3, 3, 0, 29.57, 3, 2, 3, 3, 'm', NULL, 3, 2, 7, 0, 0, 0, 0, 0),
 (77, 3, 3, 2, 0, 66.7, 2, 2, 3, 1, 'm', NULL, 3, 3, 7, 0, 80.43, 0, 0, 0),
-(78, 3, 3, 1, 0, 184.95, 1, 1, 3, 3, 'm', 'a', 101, 6, 7, 265.85, 205.18, 0, 0, 0),
+(78, 3, 3, 1, 0, 184.95, 1, 1, 3, 3, 'm', NULL, 101, 6, 7, 265.85, 205.18, 0, 0, 0),
 (79, 3, 2, 2, 0, 143.68, 2, 1, 3, 3, 'mq', NULL, 102, 23, 7, 0, 0, 143.68, 0, 0),
 (80, 3, 2, 3, 0, 117.13, 2, 1, 3, 3, 'mq', NULL, 102, 24, 7, 0, 0, 117.13, 0, 0),
 (81, 2, 2, 1, 0, 175.18, 1, 1, 3, 3, 'mq', NULL, 102, 25, 7, 0, 0, 175.18, 0, 0),
@@ -282,16 +282,16 @@ INSERT INTO `associazione_intervento_st` (`id`, `efficacia`, `esiguita_di_ingomb
 (111, 2, 3, 3, 0, 327.91, 3, 3, 2, 0, 'mq', NULL, 6, 52, 13, 0, 0, 327.91, 0, 0),
 (112, 0, 0, 0, 2, 438.33, 0, 0, 0, 0, 'mq', NULL, 6, 53, 13, 0, 0, 0, 0, 0),
 (113, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 12, 66, 14, 0, 0, 0, 0, 0),
-(126, 2, 3, 2, 0, 186.31, 3, 2, 3, 2, 'mq', 'b', 1, 33, 2, 296.17, 241.24, 241.24, 296.17, 0),
-(127, 3, 2, 2, 0, 63.07, 3, 2, 2, 2, 'm', 'b', 8, 6, 2, 0, 65.96, 0, 0, 0),
-(128, 2, 3, 1, 0, 172.3, 1, 1, 3, 1, 'm', 'c', 8, 6, 2, 0, 0, 0, 0, 0),
-(129, 3, 3, 1, 0, 112.78, 1, 1, 3, 1, 'm', 'd', 8, 6, 2, 153.23, 133.01, 0, 0, 0),
-(130, 3, 2, 2, 0, 63.07, 3, 2, 2, 2, 'm', 'b', 4, 6, 2, 0, 65.96, 0, 0, 0),
-(131, 2, 3, 1, 0, 172.3, 1, 1, 3, 1, 'm', 'c', 4, 6, 2, 0, 0, 0, 0, 0),
-(132, 3, 3, 1, 0, 112.78, 1, 1, 3, 1, 'm', 'd', 4, 6, 2, 153.23, 133.01, 0, 0, 0),
-(133, 3, 2, 3, 0, 63.07, 3, 2, 2, 2, 'm', 'b', 101, 6, 7, 0, 65.96, 0, 0, 0),
-(134, 2, 3, 2, 0, 172.3, 1, 1, 3, 1, 'm', 'c', 101, 6, 7, 0, 0, 0, 0, 0),
-(135, 3, 3, 2, 0, 112.78, 1, 1, 3, 1, 'm', 'd', 101, 6, 7, 153.23, 133.01, 0, 0, 0),
+(126, 2, 3, 2, 0, 186.31, 3, 2, 3, 2, 'mq', NULL, 1, 78, 2, 296.17, 241.24, 241.24, 296.17, 0),
+(127, 3, 2, 2, 0, 63.07, 3, 2, 2, 2, 'm', NULL, 8, 79, 2, 0, 65.96, 0, 0, 0),
+(128, 2, 3, 1, 0, 172.3, 1, 1, 3, 1, 'm', NULL, 8, 80, 2, 0, 0, 0, 0, 0),
+(129, 3, 3, 1, 0, 112.78, 1, 1, 3, 1, 'm', NULL, 8, 81, 2, 153.23, 133.01, 0, 0, 0),
+(130, 3, 2, 2, 0, 63.07, 3, 2, 2, 2, 'm', NULL, 4, 79, 2, 0, 65.96, 0, 0, 0),
+(131, 2, 3, 1, 0, 172.3, 1, 1, 3, 1, 'm', NULL, 4, 80, 2, 0, 0, 0, 0, 0),
+(132, 3, 3, 1, 0, 112.78, 1, 1, 3, 1, 'm', NULL, 4, 81, 2, 153.23, 133.01, 0, 0, 0),
+(133, 3, 2, 3, 0, 63.07, 3, 2, 2, 2, 'm', NULL, 101, 79, 7, 0, 65.96, 0, 0, 0),
+(134, 2, 3, 2, 0, 172.3, 1, 1, 3, 1, 'm', NULL, 101, 80, 7, 0, 0, 0, 0, 0),
+(135, 3, 3, 2, 0, 112.78, 1, 1, 3, 1, 'm', NULL, 101, 81, 7, 153.23, 133.01, 0, 0, 0),
 (136, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 77, 4, 0, 0, 0, 0, 0),
 (137, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 77, 7, 0, 0, 0, 0, 0),
 (142, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL, 2, 77, 10, 0, 0, 0, 0, 0),
@@ -299,13 +299,13 @@ INSERT INTO `associazione_intervento_st` (`id`, `efficacia`, `esiguita_di_ingomb
 (144, 0, 0, 0, 1, 0, 0, 0, 0, 0, '', '', 2, 77, 13, 0, 0, 0, 0, 0),
 (145, 0, 0, 0, 1, 0, 0, 0, 0, 0, '', '', 2, 77, 12, 0, 0, 0, 0, 0),
 (146, 3, 1, 1, 0, 99.82, 1, 1, 2, 2, 'mq', NULL, 8, 43, 3, 0, 154.75, 154.75, 0, 0),
-(147, 2, 3, 2, 0, 186.31, 3, 2, 3, 2, 'mq', 'b', 1, 33, 3, 296.17, 241.24, 241.24, 296.17, 0),
-(148, 3, 2, 2, 0, 63.07, 3, 2, 2, 2, 'm', 'b', 4, 6, 3, 0, 65.96, 0, 0, 0),
-(149, 2, 3, 1, 0, 172.3, 1, 1, 3, 1, 'm', 'c', 4, 6, 3, 0, 0, 0, 0, 0),
-(150, 3, 3, 1, 0, 112.78, 1, 1, 3, 1, 'm', 'd', 4, 6, 3, 153.23, 133.01, 0, 0, 0),
-(151, 3, 2, 2, 0, 63.07, 3, 2, 2, 2, 'm', 'b', 8, 6, 3, 0, 65.96, 0, 0, 0),
-(152, 2, 3, 1, 0, 172.3, 1, 1, 3, 1, 'm', 'c', 8, 6, 3, 0, 0, 0, 0, 0),
-(153, 3, 3, 1, 0, 112.78, 1, 1, 3, 1, 'm', 'd', 8, 6, 3, 153.23, 133.01, 0, 0, 0);
+(147, 2, 3, 2, 0, 186.31, 3, 2, 3, 2, 'mq', NULL, 1, 78, 3, 296.17, 241.24, 241.24, 296.17, 0),
+(148, 3, 2, 2, 0, 63.07, 3, 2, 2, 2, 'm', NULL, 4, 79, 3, 0, 65.96, 0, 0, 0),
+(149, 2, 3, 1, 0, 172.3, 1, 1, 3, 1, 'm', NULL, 4, 80, 3, 0, 0, 0, 0, 0),
+(150, 3, 3, 1, 0, 112.78, 1, 1, 3, 1, 'm', NULL, 4, 81, 3, 153.23, 133.01, 0, 0, 0),
+(151, 3, 2, 2, 0, 63.07, 3, 2, 2, 2, 'm', NULL, 8, 79, 3, 0, 65.96, 0, 0, 0),
+(152, 2, 3, 1, 0, 172.3, 1, 1, 3, 1, 'm', NULL, 8, 80, 3, 0, 0, 0, 0, 0),
+(153, 3, 3, 1, 0, 112.78, 1, 1, 3, 1, 'm', NULL, 8, 81, 3, 153.23, 133.01, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -988,7 +988,7 @@ INSERT INTO `codice_intervento_st` (`id`, `codice`, `descrizione`, `attrezzatura
 (3, 'A3', 'Inserimento di cerchiature esterne con elementi metallici o materiali compositi', 'B', 'Ponteggi esterni', NULL),
 (4, 'A4', 'Scuci-cuci agli ammorsamenti', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
 (5, 'A5', 'Realizzazione di perforazioni armate con barre metalliche', 'B', 'Ponteggi esterni', NULL),
-(6, 'A6', 'Realizzazione di cordoli in sommità', 'A, B ed E', 'Trabattelli ad uso interno, Ponteggi esterni e Puntellatura', '* Per A6b sono da considerare solo i Trabattelli ad uso interno'),
+(6, 'A6a', 'Realizzazione di cordoli in sommità', 'A, B ed E', 'Trabattelli ad uso interno, Ponteggi esterni e Puntellatura', NULL),
 (7, 'A7', 'Ancoraggio delle teste di travi alle murature tramite elementi metallici o in altro materiale resistente a trazione (capichiave)', 'B', 'Ponteggi esterni', NULL),
 (8, 'A8', 'Cordoli di piano in acciaio', 'A', 'Trabattelli ad uso interno', NULL),
 (9, 'B1', 'Irrigidimento con introduzione di un secondo tavolato all’estradosso disposto con andamento ortogonale o inclinato', NULL, '-', NULL),
@@ -1015,7 +1015,7 @@ INSERT INTO `codice_intervento_st` (`id`, `codice`, `descrizione`, `attrezzatura
 (30, 'C8', 'Placcaggio con tavole di legno', NULL, '-', NULL),
 (31, 'D1', 'Ripristino della continuità muraria attraverso scuci e cuci', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
 (32, 'D2', 'Iniezioni di miscele leganti', 'B', 'Ponteggi esterni', NULL),
-(33, 'D3', 'Ristilatura dei giunti della muratura', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
+(33, 'D3a', 'Ristilatura dei giunti della muratura', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
 (34, 'D4', 'Inserimento di diatoni artificiali in fori di carotaggio: c.a. e acciaio', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
 (35, 'D5', 'Inserimento di pietre passanti', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
 (36, 'D6', 'Inserimento di tirantini antiesplusivi', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
@@ -1056,7 +1056,11 @@ INSERT INTO `codice_intervento_st` (`id`, `codice`, `descrizione`, `attrezzatura
 (72, 'L5', 'Inserimento di giunti sismici in edifici irregolari', NULL, '-', NULL),
 (73, 'L6', 'Realizzazione di collegamenti strutturali', NULL, '-', NULL),
 (76, 'B15', 'Placcaggio con tavole di legno', NULL, '-', NULL),
-(77, 'NULLO', 'Guarda informazioni nella TAB in basso', NULL, NULL, NULL);
+(77, 'NULLO', 'Guarda informazioni nella TAB in basso', NULL, NULL, NULL),
+(78, 'D3b', 'Ristilatura dei giunti della muratura', 'A e B', 'Trabattelli ad uso interno e Ponteggi esterni', NULL),
+(79, 'A6b', 'Realizzazione di cordoli in sommità', 'A', 'Trabattelli ad uso interno', NULL),
+(80, 'A6c', 'Realizzazione di cordoli in sommità', 'A, B ed E', 'Trabattelli ad uso interno, Ponteggi esterni e Puntellatura', NULL),
+(81, 'A6d', 'Realizzazione di cordoli in sommità', 'A, B ed E', 'Trabattelli ad uso interno, Ponteggi esterni e Puntellatura', NULL);
 
 -- --------------------------------------------------------
 
@@ -1994,7 +1998,7 @@ ALTER TABLE `codice_intervento_ce`
 -- AUTO_INCREMENT per la tabella `codice_intervento_st`
 --
 ALTER TABLE `codice_intervento_st`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT per la tabella `edificio_st`

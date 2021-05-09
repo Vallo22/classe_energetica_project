@@ -43,6 +43,8 @@ export class TipoStrutturaBreveStComponent implements OnInit {
   contatoreVolte: number
   interventoSingolo: number
   visualizzaRighe: number = 1
+  index: number
+  strutturaSelezionata: number
 
   imgA1 = false
   imgA1parte2 = false
@@ -155,7 +157,7 @@ export class TipoStrutturaBreveStComponent implements OnInit {
       this.struttura = data;
     })
     this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
-      this.associazioneIntervento = this.serviceAssociazione.interventGrouping(data);
+      this.associazioneIntervento = data
     })
   }
 
@@ -171,6 +173,7 @@ export class TipoStrutturaBreveStComponent implements OnInit {
   }
 
   onChangeSecondo(index: number) {
+    this.strutturaSelezionata = this.selectedElement[index]
     this.caratteristiche = this.selectedElement[index].carQuality
     this.selectArr = 0;
     this.selectedMeccanicaIndex = 0;
@@ -354,7 +357,7 @@ export class TipoStrutturaBreveStComponent implements OnInit {
     else if(codice == "A5"){
       this.imgA5 = true
     }    
-    else if(codice == "A6"){
+    else if(codice == "A6a" || codice == "A6b" || codice == "A6c" || codice == "A6d"){
       this.imgA6 = true
       this.imgA6parte2 = true
     }    
@@ -440,7 +443,7 @@ export class TipoStrutturaBreveStComponent implements OnInit {
       this.imgD2 = true
       this.imgD2parte2 = true
     }    
-    else if(codice == "D3"){
+    else if(codice == "D3a" || codice == "D3b"){
       this.imgD3 = true
     }    
     else if(codice == "D4"){
