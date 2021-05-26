@@ -168,7 +168,7 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
     for(let i=0; i<=index; i++){
       this.sommaPacchettoInterventi += this.interventiDaMostrare[i].ante - this.interventiDaMostrare[i].post
     }
-    return this.sommaPacchettoInterventi
+    return this.sommaPacchettoInterventi 
   }
 
   risultatoDelta() {
@@ -178,7 +178,7 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
     })
     this.punteggioDiVul = this.punteggio - this.deltaPunteggioFinale
     this.punteggioPassaggioClasseAggiornato = this.punteggioPassaggioClasse
-    if(this.punteggioDiVul < this.soglia) {
+    if(this.punteggioDiVul - this.sommaPacchettoInterventi < this.soglia) {
       this.vulClassAggiornata = this.vulClass - 1
     } else {
       this.vulClassAggiornata = this.vulClass
@@ -280,6 +280,7 @@ export class ValutazioneInterventiSecondarioStComponent implements OnInit {
   }
 
   trasferisciClasseDiRischio(){
+    this.punteggioDiVul = this.punteggio - this.sommaPacchettoInterventi
     this.router.navigate(['/riepilogo-costi-st'], {
       state: {
         risk: this.risk,
