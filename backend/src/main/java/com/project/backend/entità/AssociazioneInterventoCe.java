@@ -40,6 +40,7 @@ public class AssociazioneInterventoCe {
     private double prezzoInton;
 	private double prezzoRiepilogo;
     private String unitaMisura;
+	private int passaggio;
 
 	public long getId() {
 		return id;
@@ -176,5 +177,13 @@ public class AssociazioneInterventoCe {
 	public void setUnitaMisura(String unitaMisura) {
 		this.unitaMisura = unitaMisura;
 	}
-		
+
+	public int getPassaggio() {
+		return this.passaggio;
+	}
+
+	public void setPassaggio(int passaggio) {
+		this.passaggio = passaggio;
+	}
+
 }
